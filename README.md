@@ -72,9 +72,23 @@ pnpm dlx shadcn@latest add https://<registry-host>/r/chart-analytics-cohort-heat
 
 에이전트용 검색 CLI·스킬은 registry 안정화 이후 같은 저장소(또는 인접 패키지)에서 제공합니다.
 
+## Demo app
+
+Next.js 16 + Fumadocs 데모는 `apps/web`에 있습니다.
+
+```bash
+pnpm install
+pnpm dev
+```
+
+- Home: `/`
+- Charts docs: `/docs/charts` (area / bar / line starter demos)
+
+Agent skills used for this repo live under `.agents/skills/` (from [skills.sh](https://skills.sh): Vercel React best practices, shadcn/ui, etc.).
+
 ## Project status
 
-현재는 **문서·로드맵 단계**입니다. 컴포넌트 구현과 registry 배포는 Roadmap Phase 순서대로 진행합니다.
+Foundation + initial chart demos are in progress. Full registry coverage follows [Roadmap.md](./Roadmap.md).
 
 ## License
 
