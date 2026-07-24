@@ -34,6 +34,15 @@ import {
   ChartRadarGridCircle,
   ChartRadarGridPolygon,
   ChartRadarLegendInteractive,
+  ChartFunnelTemplate,
+  ChartAreaBrush,
+  ChartLineBrush,
+  ChartLineReference,
+  ChartBarError,
+  ChartBarDiverging,
+  ChartBarHorizontal,
+  ChartBarRange,
+  ChartScatterError,
 } from '@/components/charts';
 
 export function getMDXComponents(components?: MDXComponents) {
@@ -71,6 +80,15 @@ export function getMDXComponents(components?: MDXComponents) {
     ChartRadarGridCircle,
     ChartRadarGridPolygon,
     ChartRadarLegendInteractive,
+    ChartFunnelTemplate,
+    ChartAreaBrush,
+    ChartLineBrush,
+    ChartLineReference,
+    ChartBarError,
+    ChartBarDiverging,
+    ChartBarHorizontal,
+    ChartBarRange,
+    ChartScatterError,
     ...components,
   } satisfies MDXComponents;
 }

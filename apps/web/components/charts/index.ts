@@ -30,3 +30,14 @@ export { ChartRadarStroke } from "./radar-stroke"
 export { ChartRadarGridCircle } from "./radar-grid-circle"
 export { ChartRadarGridPolygon } from "./radar-grid-polygon"
 export { ChartRadarLegendInteractive } from "./radar-legend-interactive"
+export {
+  ChartFunnelTemplate,
+  ChartAreaBrush,
+  ChartLineBrush,
+  ChartLineReference,
+  ChartBarError,
+  ChartBarDiverging,
+  ChartBarHorizontal,
+  ChartBarRange,
+  ChartScatterError,
+} from "./extras"

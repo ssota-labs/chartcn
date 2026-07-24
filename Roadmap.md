@@ -185,13 +185,13 @@ Core charts → polar → analytics → finance/analysis → Recharts 잔여 →
 
 ## Phase 5 — Recharts leftovers
 
-- [ ] `FunnelChart` 템플릿 정리 (Phase 3과 통합 가능)
-- [ ] `Brush` 전용 zoom items
-- [ ] `ReferenceArea` / `ReferenceDot`
-- [ ] `ErrorBar`
-- [ ] Positive / negative (diverging) bar
-- [ ] Horizontal / range bar
-- [ ] 기타 미사용 cartesian/polar 보강
+- [x] `FunnelChart` 템플릿 정리 (Phase 3과 통합 가능) — `chart-funnel-template` in `components/charts/extras/`
+- [x] `Brush` 전용 zoom items — `chart-area-brush`, `chart-line-brush`
+- [x] `ReferenceArea` / `ReferenceDot` — `chart-line-reference` (+ `ReferenceLine`)
+- [x] `ErrorBar` — `chart-bar-error`, `chart-scatter-error`
+- [x] Positive / negative (diverging) bar — `chart-bar-diverging`
+- [x] Horizontal / range bar — `chart-bar-horizontal`, `chart-bar-range`
+- [x] 기타 미사용 cartesian/polar 보강 — scatter ErrorBar bidirectional; docs in `content/docs/extras/`
 
 **의도적 후순위:** full nested Treemap drill, map tile layer
 
