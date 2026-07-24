@@ -6,6 +6,7 @@
     "dev": "pnpm --filter web dev",
     "build": "pnpm --filter web build",
     "lint": "pnpm --filter web lint",
-    "typecheck": "pnpm --filter web types:check"
+    "typecheck": "pnpm --filter web types:check",
+    "chartcn-search": "node packages/cli/bin/chartcn-search.mjs"
   }
 }

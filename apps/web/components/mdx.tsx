@@ -9,6 +9,8 @@ import {
   ChartLineBasic,
   ChartLineMulti,
 } from '@/components/charts';
+import { JsonRenderChartDemo } from '@/components/registry-demos/json-render-demo';
+import { MdxEmbedDemo } from '@/components/registry-demos/mdx-embed-demo';
 
 export function getMDXComponents(components?: MDXComponents) {
   return {
@@ -19,6 +21,8 @@ export function getMDXComponents(components?: MDXComponents) {
     ChartBarGrouped,
     ChartLineBasic,
     ChartLineMulti,
+    JsonRenderChartDemo,
+    MdxEmbedDemo,
     ...components,
   } satisfies MDXComponents;
 }

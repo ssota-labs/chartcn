@@ -14,7 +14,7 @@ Core charts → polar → analytics → finance/analysis → Recharts 잔여 →
 
 - [x] shadcn `chart` 베이스 정착 (`ChartContainer`, `ChartConfig`, Tooltip, Legend)
 - [x] 모노레포/앱 스캐폴드 (`apps/web` — Next.js 16 + Fumadocs)
-- [ ] `registry.json` / `registry-item.json` 스키마·빌드 파이프라인
+- [x] `registry.json` / `registry-item.json` 스키마·빌드 파이프라인 *(Phase 6: `apps/web/registry` + `/r`)*
 - [x] 네이밍·카테고리 컨벤션 고정 (docs 구조 초안)
 - [ ] 공통 유틸 (선택): tick format, % stack transform, sample data helpers
 - [x] light/dark + `--chart-1`…`5` 토큰 검증
@@ -203,31 +203,31 @@ README에 명시한 agent-first 배포 단계입니다.
 
 ### 6.1 Registry
 
-- [ ] 공개 registry 호스트 (또는 GitHub Pages / Vercel static)
-- [ ] 카테고리별 `registry.json` 인덱스
-- [ ] 설치 URL 안정화 + docs의 Copy/Install 연동
-- [ ] namespace (예: `@chartcn/...`) 검토
+- [x] 공개 registry 호스트 (또는 GitHub Pages / Vercel static) *(URL placeholder `CHARTCN_REGISTRY_URL` / local `/r`)*
+- [x] 카테고리별 `registry.json` 인덱스 *(foundation + scatter/pie/analytics/finance/extras stubs)*
+- [x] 설치 URL 안정화 + docs의 Copy/Install 연동 *(`/docs/registry`, `GET /r/<name>.json`)*
+- [x] namespace (예: `@chartcn/...`) 검토 *(documented as optional follow-up)*
 
 ### 6.2 Search CLI
 
-- [ ] registry 인덱스를 대상으로 이름·태그·카테고리 검색
-- [ ] 출력: item name, description, deps, install command, data shape 요약
-- [ ] 머신 리드 가능 포맷 (`--json`) 지원 → 에이전트 파이프라인용
+- [x] registry 인덱스를 대상으로 이름·태그·카테고리 검색 *(`pnpm chartcn-search`)*
+- [x] 출력: item name, description, deps, install command, data shape 요약
+- [x] 머신 리드 가능 포맷 (`--json`) 지원 → 에이전트 파이프라인용
 
 ### 6.3 Agent skill
 
-- [ ] “어떤 차트를 고를지” 의사결정 가이드
-- [ ] variant별 props / sample data / 금기 패턴
-- [ ] 서버 MDX·RSC 삽입 패턴
-- [ ] 클라이언트 **json-render** (Vercel Labs 등) 노드 매핑 가이드
+- [x] “어떤 차트를 고를지” 의사결정 가이드 *`.agents/skills/chartcn/SKILL.md`*
+- [x] variant별 props / sample data / 금기 패턴
+- [x] 서버 MDX·RSC 삽입 패턴
+- [x] 클라이언트 **json-render** (Vercel Labs 등) 노드 매핑 가이드
   - registry item → JSON schema / component map
   - 에이전트가 트리에 차트 노드를 넣고 런타임이 렌더
 
 ### 6.4 Integration targets
 
-- [ ] Server: MDX / RSC에 차트 블록 삽입 예시
-- [ ] Client: json-render 스타일 동적 트리 예시
-- [ ] 동일 registry item이 양쪽에서 재사용됨을 데모
+- [x] Server: MDX / RSC에 차트 블록 삽입 예시
+- [x] Client: json-render 스타일 동적 트리 예시
+- [x] 동일 registry item이 양쪽에서 재사용됨을 데모
 
 **완료 기준:** 에이전트가 CLI/스킬만으로 차트를 고르고, MDX 또는 json-render에 붙이는 E2E 데모 1개 이상
 

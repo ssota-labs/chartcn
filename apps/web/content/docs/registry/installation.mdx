@@ -1,0 +1,41 @@
+---
+title: Installation
+description: How to consume chartcn registry items with shadcn add.
+---
+
+## Prerequisites
+
+- A project already set up with shadcn/ui (`components.json`)
+- `chart` and usually `card` from the official registry
+
+```bash
+npx shadcn@latest add chart card
+```
+
+## Host URL
+
+Public host is TBD. Use an environment placeholder:
+
+| Variable | Example |
+| --- | --- |
+| `CHARTCN_REGISTRY_URL` | `https://<CHARTCN_REGISTRY_HOST>` |
+| Local demo | `http://localhost:3000` |
+
+Install form:
+
+```bash
+npx shadcn@latest add https://<CHARTCN_REGISTRY_HOST>/r/<name>.json
+```
+
+## Endpoints (demo app)
+
+| Path | Payload |
+| --- | --- |
+| `/r/registry.json` | Index of all items + install hints |
+| `/r/<name>.json` | Built registry item (files include `content`) |
+
+Source of truth in-repo: `apps/web/registry/registry.json` and `apps/web/registry/items/*.json`.
+
+## Namespace (optional later)
+
+A namespaced address such as `@chartcn/chart-area-stacked` can be wired once the host is registered in `components.json` → `registries`. Until then, prefer full URLs.

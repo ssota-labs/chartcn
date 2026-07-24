@@ -1,0 +1,38 @@
+---
+title: Search CLI
+description: Search the in-repo registry by name, tag, or category — with --json for agents.
+---
+
+## Run
+
+From the monorepo root:
+
+```bash
+pnpm chartcn-search stacked
+pnpm chartcn-search --category area
+pnpm chartcn-search funnel --status stub
+pnpm chartcn-search --json cohort
+```
+
+Or directly:
+
+```bash
+node packages/cli/bin/chartcn-search.mjs line --json
+```
+
+## Options
+
+| Flag | Meaning |
+| --- | --- |
+| `--json` | Machine-readable output for agent pipelines |
+| `--category <name>` | `area` / `bar` / `line` / `scatter` / `pie` / `analytics` / `finance` / `extras` |
+| `--tag <name>` | Filter by tag |
+| `--status ready\|stub` | Implementation status |
+| `--host <url>` | Override install URL host |
+
+## Output
+
+Human mode prints name, description, deps, data shape, and install command.  
+`--json` returns `{ count, items: [{ name, install, dataShape, ... }] }`.
+
+The CLI reads `apps/web/registry/registry.json` — the same index the `/r` route uses.

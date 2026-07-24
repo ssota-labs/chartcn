@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-scatter-basic",
+  "type": "registry:block",
+  "title": "Scatter Chart — Basic",
+  "description": "Stub — planned scatter plot for correlation / distribution.",
+  "dependencies": ["recharts"],
+  "registryDependencies": ["card", "chart"],
+  "categories": ["charts", "scatter"],
+  "tags": ["scatter", "correlation", "planned"],
+  "status": "stub",
+  "dataShape": "{ x: number, y: number }[]",
+  "files": []
+}

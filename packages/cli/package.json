@@ -1,0 +1,16 @@
+{
+  "name": "@chartcn/cli",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Search the chartcn registry by name, tag, or category.",
+  "type": "module",
+  "bin": {
+    "chartcn-search": "./bin/chartcn-search.mjs"
+  },
+  "scripts": {
+    "chartcn-search": "node ./bin/chartcn-search.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
