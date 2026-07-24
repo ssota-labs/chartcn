@@ -8,6 +8,15 @@ import {
   ChartBarGrouped,
   ChartLineBasic,
   ChartLineMulti,
+  ChartFunnelTemplate,
+  ChartAreaBrush,
+  ChartLineBrush,
+  ChartLineReference,
+  ChartBarError,
+  ChartBarDiverging,
+  ChartBarHorizontal,
+  ChartBarRange,
+  ChartScatterError,
 } from '@/components/charts';
 
 export function getMDXComponents(components?: MDXComponents) {
@@ -19,6 +28,15 @@ export function getMDXComponents(components?: MDXComponents) {
     ChartBarGrouped,
     ChartLineBasic,
     ChartLineMulti,
+    ChartFunnelTemplate,
+    ChartAreaBrush,
+    ChartLineBrush,
+    ChartLineReference,
+    ChartBarError,
+    ChartBarDiverging,
+    ChartBarHorizontal,
+    ChartBarRange,
+    ChartScatterError,
     ...components,
   } satisfies MDXComponents;
 }
