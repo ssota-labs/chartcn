@@ -12,12 +12,12 @@ Core charts → polar → analytics → finance/analysis → Recharts 잔여 →
 
 ## Phase 0 — Foundation
 
-- [ ] shadcn `chart` 베이스 정착 (`ChartContainer`, `ChartConfig`, Tooltip, Legend)
-- [ ] 모노레포/앱 스캐폴드 (docs + registry 빌드)
+- [x] shadcn `chart` 베이스 정착 (`ChartContainer`, `ChartConfig`, Tooltip, Legend)
+- [x] 모노레포/앱 스캐폴드 (`apps/web` — Next.js 16 + Fumadocs)
 - [ ] `registry.json` / `registry-item.json` 스키마·빌드 파이프라인
-- [ ] 네이밍·카테고리 컨벤션 고정
+- [x] 네이밍·카테고리 컨벤션 고정 (docs 구조 초안)
 - [ ] 공통 유틸 (선택): tick format, % stack transform, sample data helpers
-- [ ] light/dark + `--chart-1`…`5` 토큰 검증
+- [x] light/dark + `--chart-1`…`5` 토큰 검증
 
 **완료 기준:** `npx shadcn add`로 base chart 설치·렌더 스모크 통과
 
@@ -27,9 +27,9 @@ Core charts → polar → analytics → finance/analysis → Recharts 잔여 →
 
 ### 1.1 Area — `chart-area-*`
 
-- [ ] basic
+- [x] basic *(demo in `apps/web`)*
 - [ ] multi-series
-- [ ] stacked
+- [x] stacked *(demo in `apps/web`)*
 - [ ] stacked-expand (100%)
 - [ ] curve interpolation (linear / monotone / step*)
 - [ ] fill opacity / gradient
@@ -40,8 +40,8 @@ Core charts → polar → analytics → finance/analysis → Recharts 잔여 →
 
 ### 1.2 Bar — `chart-bar-*`
 
-- [ ] basic
-- [ ] grouped
+- [x] basic *(demo in `apps/web`)*
+- [x] grouped *(demo in `apps/web`)*
 - [ ] stacked
 - [ ] stacked-expand
 - [ ] styling (radius, active/inactive opacity)
@@ -54,8 +54,8 @@ Core charts → polar → analytics → finance/analysis → Recharts 잔여 →
 
 ### 1.3 Line — `chart-line-*`
 
-- [ ] basic
-- [ ] multi-series
+- [x] basic *(demo in `apps/web`)*
+- [x] multi-series *(demo in `apps/web`)*
 - [ ] curve / step variants
 - [ ] dots / activeDot
 - [ ] dual-axis

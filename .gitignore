@@ -1,1 +1,9 @@
 .firecrawl/
+node_modules/
+.DS_Store
+*.log
+.next/
+.source/
+dist/
+.turbo/
+.vercel/
