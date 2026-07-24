@@ -109,27 +109,27 @@ Core charts → polar → analytics → finance/analysis → Recharts 잔여 →
 
 ### Pie — `chart-pie-*`
 
-- [ ] basic / donut
-- [ ] labeled / legend
-- [ ] nested / two-level
-- [ ] interactive active sector
-- [ ] center KPI label
-- [ ] percent vs absolute tooltip
+- [x] basic / donut *(demo in `apps/web`)*
+- [x] labeled / legend *(demo in `apps/web`)*
+- [x] nested / two-level *(demo in `apps/web`)*
+- [x] interactive active sector *(demo in `apps/web`)*
+- [x] center KPI label *(demo in `apps/web`)*
+- [x] percent vs absolute tooltip *(demo in `apps/web`)*
 
 ### Radial — `chart-radial-*`
 
-- [ ] basic / stacked
-- [ ] text / label
-- [ ] progress / gauge
-- [ ] grid / shape variants
+- [x] basic / stacked *(demo in `apps/web`)*
+- [x] text / label *(demo in `apps/web`)*
+- [x] progress / gauge *(demo in `apps/web`)*
+- [x] grid / shape variants *(demo in `apps/web`)*
 
 ### Radar — `chart-radar-*`
 
-- [ ] basic / multi-series
-- [ ] dots / lines-only
-- [ ] filled vs stroke
-- [ ] grid circle / polygon
-- [ ] interactive legend
+- [x] basic / multi-series *(demo in `apps/web`)*
+- [x] dots / lines-only *(demo in `apps/web`)*
+- [x] filled vs stroke *(demo in `apps/web`)*
+- [x] grid circle / polygon *(demo in `apps/web`)*
+- [x] interactive legend *(demo in `apps/web`)*
 
 **완료 기준:** shadcn 기본 polar 대비 충분한 variant 밀도
 
