@@ -1,6 +1,6 @@
 # Roadmap
 
-chartcn 예시 패리티 → polar 확장 → analytics → finance/analysis → Recharts 잔여 → **registry + agent skill/CLI** 순으로 진행합니다.
+Core charts → polar → analytics → finance/analysis → Recharts 잔여 → **registry + agent skill/CLI** 순으로 진행합니다.
 
 공통 원칙:
 
@@ -23,7 +23,7 @@ chartcn 예시 패리티 → polar 확장 → analytics → finance/analysis →
 
 ---
 
-## Phase 1 — chartcn parity (cartesian + layout + geo)
+## Phase 1 — Core charts (cartesian + layout + geo)
 
 ### 1.1 Area — `chart-area-*`
 
@@ -99,13 +99,13 @@ chartcn 예시 패리티 → polar 확장 → analytics → finance/analysis →
 - [ ] choropleth basic (`d3-geo`)
 - [ ] choropleth drill-down + breadcrumb
 - [ ] point layer
-- [ ] tile layer — *후순위 (chartcn도 coming soon)*
+- [ ] tile layer — *후순위*
 
-**완료 기준:** chartcn.dev 공개 variant 체크리스트 대응 (시각·인터랙션 근사)
+**완료 기준:** 위 variant가 registry item으로 설치·렌더 가능
 
 ---
 
-## Phase 2 — Polar 확장 (shadcn pie / radial / radar)
+## Phase 2 — Polar (pie / radial / radar)
 
 ### Pie — `chart-pie-*`
 
@@ -131,7 +131,7 @@ chartcn 예시 패리티 → polar 확장 → analytics → finance/analysis →
 - [ ] grid circle / polygon
 - [ ] interactive legend
 
-**완료 기준:** shadcn 기본 polar 대비 variant 밀도 chartcn급
+**완료 기준:** shadcn 기본 polar 대비 충분한 variant 밀도
 
 ---
 
@@ -253,9 +253,8 @@ README에 명시한 agent-first 배포 단계입니다.
 
 ## Out of scope (for now)
 
-- chartcn식 Mark API (`LineMark`, `BarMark`, …) 재구현
+- 자체 Mark API (`LineMark`, `BarMark`, …) 재구현
 - npm 단일 패키지로 API를 고정하는 배포 (우선 **소스 copy registry**)
-- 완벽 픽셀 단위 chartcn 복제 (인터랙션은 근사 허용, 문서에 명시)
 
 ---
 

@@ -2,7 +2,7 @@
 
 shadcn/ui charts + Recharts 기반 차트 컴포넌트를 **shadcn registry**로 모아 배포하는 프로젝트입니다.
 
-[chartcn.dev](https://chartcn.dev)의 예시·variant를 최대한 재현하고, pie / radial / radar·애널리틱스·금융·Recharts 잔여 차트까지 확장합니다.  
+area / bar / line / scatter / geo / sankey / treemap과 그 variant, pie / radial / radar, 애널리틱스·금융·Recharts 잔여 차트까지 확장합니다.  
 **Mark 레이어는 쓰지 않습니다.** shadcn `ChartContainer` + Recharts를 직접 조합하는 방식을 따릅니다.
 
 ## Why
@@ -44,19 +44,16 @@ Agent
 | --- | --- |
 | Base | 공식 shadcn `chart` (`ChartContainer`, `ChartConfig`, Tooltip, Legend) |
 | Engine | Recharts를 감싸지 않고 직접 조합 (Mark API 없음) |
-| Parity | chartcn.dev의 공개 예시·variant를 체크리스트로 재현 |
 | Package | 각 variant = shadcn registry item |
 | Theme | shadcn CSS 변수, light/dark 호환 |
 
-chartcn과의 관계: **룩·커버리지는 chartcn을 참고**하고, **배포·구성 방식은 shadcn charts**를 따릅니다. chartcn의 `LineMark` / `BarMark` 같은 자체 Mark 추상화는 도입하지 않습니다.
-
 ## Scope (high level)
 
-1. **chartcn 패리티** — area, bar, line, scatter, geo (choropleth), sankey, treemap 및 각 variant  
-2. **Polar 확장** — pie, radial, radar를 chartcn 수준의 다양한 variant로  
+1. **Core charts** — area, bar, line, scatter, geo (choropleth), sankey, treemap 및 각 variant  
+2. **Polar** — pie, radial, radar의 다양한 variant  
 3. **Analytics** — Mixpanel류 (cohort heatmap, funnel, retention 등)  
 4. **Analysis / Finance** — histogram, waterfall, candlestick, bands 등  
-5. **Recharts 잔여** — Funnel, Brush, ErrorBar, ReferenceArea 등 미사용  primitive 보강  
+5. **Recharts 잔여** — Funnel, Brush, ErrorBar, ReferenceArea 등 미사용 primitive 보강  
 
 세부 일정·아이템 목록은 [Roadmap.md](./Roadmap.md)를 참고하세요.
 
