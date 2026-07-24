@@ -19,3 +19,13 @@ export {
   ChartStickiness,
   ChartEventFrequency,
 } from "./analytics"
+  ChartFunnelTemplate,
+  ChartAreaBrush,
+  ChartLineBrush,
+  ChartLineReference,
+  ChartBarError,
+  ChartBarDiverging,
+  ChartBarHorizontal,
+  ChartBarRange,
+  ChartScatterError,
+} from "./extras"
