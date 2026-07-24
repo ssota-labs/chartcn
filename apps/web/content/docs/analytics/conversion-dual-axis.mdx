@@ -1,0 +1,18 @@
+---
+title: Conversion dual-axis
+description: Conversion volume + rate on a ComposedChart dual axis.
+---
+
+<ChartConversionDualAxis />
+
+## Data shape
+
+```ts
+type ConversionPoint = {
+  month: string
+  conversions: number // absolute volume (left axis)
+  rate: number // percent (right axis)
+}
+```
+
+Bind volume to `yAxisId="left"` (`Bar`) and rate to `yAxisId="right"` (`Line`).

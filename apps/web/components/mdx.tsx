@@ -8,6 +8,18 @@ import {
   ChartBarGrouped,
   ChartLineBasic,
   ChartLineMulti,
+  ChartCohortHeatmap,
+  ChartRetentionCurve,
+  ChartFunnelSteps,
+  ChartFunnelTrend,
+  ChartFlowPath,
+  ChartInsightsLine,
+  ChartSegmentComparison,
+  ChartMetricSparkline,
+  ChartPeriodComparison,
+  ChartConversionDualAxis,
+  ChartStickiness,
+  ChartEventFrequency,
 } from '@/components/charts';
 
 export function getMDXComponents(components?: MDXComponents) {
@@ -19,6 +31,18 @@ export function getMDXComponents(components?: MDXComponents) {
     ChartBarGrouped,
     ChartLineBasic,
     ChartLineMulti,
+    ChartCohortHeatmap,
+    ChartRetentionCurve,
+    ChartFunnelSteps,
+    ChartFunnelTrend,
+    ChartFlowPath,
+    ChartInsightsLine,
+    ChartSegmentComparison,
+    ChartMetricSparkline,
+    ChartPeriodComparison,
+    ChartConversionDualAxis,
+    ChartStickiness,
+    ChartEventFrequency,
     ...components,
   } satisfies MDXComponents;
 }

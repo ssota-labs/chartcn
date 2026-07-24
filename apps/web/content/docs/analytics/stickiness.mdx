@@ -1,0 +1,20 @@
+---
+title: Stickiness
+description: DAU / WAU / MAU trends with DAU÷MAU stickiness ratio.
+---
+
+<ChartStickiness />
+
+## Data shape
+
+```ts
+type StickinessPoint = {
+  week: string
+  dau: number
+  wau: number
+  mau: number
+  stickiness: number // typically DAU / MAU * 100
+}
+```
+
+Plot absolute active-user counts on the left axis; put the stickiness ratio on a right axis (dashed line).

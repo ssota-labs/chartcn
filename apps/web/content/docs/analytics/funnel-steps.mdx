@@ -1,0 +1,18 @@
+---
+title: Funnel steps
+description: Stage conversion funnel using Recharts FunnelChart.
+---
+
+<ChartFunnelSteps />
+
+## Data shape
+
+```ts
+type FunnelStep = {
+  step: string // stage name
+  value: number // users reaching this step
+  fill?: string // optional chart token color
+}
+```
+
+Ordered top → bottom. Downstream `value` should be ≤ upstream. Drop-off is implied by the delta between consecutive steps.
