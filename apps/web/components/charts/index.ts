@@ -58,3 +58,14 @@ export { ChartSankeyCompact } from "./sankey-compact"
 export { ChartGeoChoropleth } from "./geo-choropleth"
 export { ChartGeoDrilldown } from "./geo-drilldown"
 export { ChartGeoPoints } from "./geo-points"
+export {
+  ChartFunnelTemplate,
+  ChartAreaBrush,
+  ChartLineBrush,
+  ChartLineReference,
+  ChartBarError,
+  ChartBarDiverging,
+  ChartBarHorizontal,
+  ChartBarRange,
+  ChartScatterError,
+} from "./extras"

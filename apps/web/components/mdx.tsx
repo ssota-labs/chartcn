@@ -56,6 +56,15 @@ import {
   ChartTreemapHighlight,
   ChartTreemapReverse,
   ChartTreemapStyled,
+  ChartFunnelTemplate,
+  ChartAreaBrush,
+  ChartLineBrush,
+  ChartLineReference,
+  ChartBarError,
+  ChartBarDiverging,
+  ChartBarHorizontal,
+  ChartBarRange,
+  ChartScatterError,
 } from '@/components/charts';
 
 export function getMDXComponents(components?: MDXComponents) {
@@ -115,6 +124,14 @@ export function getMDXComponents(components?: MDXComponents) {
     ChartGeoChoropleth,
     ChartGeoDrilldown,
     ChartGeoPoints,
+    ChartFunnelTemplate,
+    ChartAreaBrush,
+    ChartLineReference,
+    ChartBarError,
+    ChartBarDiverging,
+    ChartBarHorizontal,
+    ChartBarRange,
+    ChartScatterError,
     ...components,
   } satisfies MDXComponents;
 }
