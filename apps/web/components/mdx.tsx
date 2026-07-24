@@ -24,6 +24,15 @@ import {
   ChartMacdRsi,
   ChartDrawdown,
   ChartHighLow,
+  ChartFunnelTemplate,
+  ChartAreaBrush,
+  ChartLineBrush,
+  ChartLineReference,
+  ChartBarError,
+  ChartBarDiverging,
+  ChartBarHorizontal,
+  ChartBarRange,
+  ChartScatterError,
 } from '@/components/charts';
 
 export function getMDXComponents(components?: MDXComponents) {
@@ -51,6 +60,15 @@ export function getMDXComponents(components?: MDXComponents) {
     ChartMacdRsi,
     ChartDrawdown,
     ChartHighLow,
+    ChartFunnelTemplate,
+    ChartAreaBrush,
+    ChartLineBrush,
+    ChartLineReference,
+    ChartBarError,
+    ChartBarDiverging,
+    ChartBarHorizontal,
+    ChartBarRange,
+    ChartScatterError,
     ...components,
   } satisfies MDXComponents;
 }

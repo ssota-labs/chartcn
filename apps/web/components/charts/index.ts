@@ -17,7 +17,6 @@ export {
   ChartBullet,
 } from "./analysis"
 
-export {
   ChartCandlestick,
   ChartVolumeUnderPrice,
   ChartMovingAverage,
@@ -26,3 +25,13 @@ export {
   ChartDrawdown,
   ChartHighLow,
 } from "./finance"
+  ChartFunnelTemplate,
+  ChartAreaBrush,
+  ChartLineBrush,
+  ChartLineReference,
+  ChartBarError,
+  ChartBarDiverging,
+  ChartBarHorizontal,
+  ChartBarRange,
+  ChartScatterError,
+} from "./extras"
