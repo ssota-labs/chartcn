@@ -45,7 +45,7 @@ export function ChartFlowPath() {
       <CardContent>
         <ChartContainer
           config={chartConfig}
-          className="aspect-auto min-h-[320px] w-full"
+          className="aspect-auto h-[320px] w-full"
         >
           <Sankey
             data={chartData}

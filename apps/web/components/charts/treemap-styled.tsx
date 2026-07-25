@@ -77,7 +77,7 @@ export function ChartTreemapStyled() {
         <CardDescription>Gap + rounded corners</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="min-h-[260px] w-full aspect-auto">
+        <ChartContainer config={chartConfig} className="h-[260px] w-full aspect-auto">
           <Treemap data={chartData} dataKey="size" nameKey="name" content={<StyledContent />} isAnimationActive={false} />
         </ChartContainer>
       </CardContent>

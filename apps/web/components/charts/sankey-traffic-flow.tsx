@@ -70,7 +70,7 @@ export function ChartSankeyTrafficFlow() {
         <CardDescription>Acquisition → landing → purchase</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="min-h-[300px] w-full aspect-auto">
+        <ChartContainer config={chartConfig} className="h-[300px] w-full aspect-auto">
           <Sankey
             data={data}
             nodePadding={18}

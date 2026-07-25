@@ -43,7 +43,7 @@ export function ChartSankeyCompact() {
         <CardDescription>Tight padding for dense layouts</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="min-h-[180px] w-full aspect-auto">
+        <ChartContainer config={chartConfig} className="h-[180px] w-full aspect-auto">
           <Sankey
             data={data}
             nodePadding={8}

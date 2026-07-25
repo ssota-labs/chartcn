@@ -87,7 +87,7 @@ export function ChartSankeyCustomTooltip() {
         <CardDescription>Source → target flow details</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="min-h-[280px] w-full aspect-auto">
+        <ChartContainer config={chartConfig} className="h-[280px] w-full aspect-auto">
           <Sankey
             data={data}
             nodePadding={24}
