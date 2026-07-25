@@ -85,7 +85,7 @@ export function ChartTreemapCustomTooltip() {
         <CardDescription>ARR and share on hover</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="min-h-[260px] w-full aspect-auto">
+        <ChartContainer config={chartConfig} className="h-[260px] w-full aspect-auto">
           <Treemap data={chartData} dataKey="size" nameKey="name" content={<Content />} isAnimationActive={false}>
             <Tooltip content={<CustomTooltip />} />
           </Treemap>

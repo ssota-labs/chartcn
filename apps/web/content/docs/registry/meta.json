@@ -1,8 +1,7 @@
 {
-  "title": "Registry & agents",
+  "title": "Integrate",
   "pages": [
     "index",
-    "installation",
     "search-cli",
     "agent-skill",
     "mdx-embedding",

@@ -1,14 +1,13 @@
 {
   "title": "Charts",
   "pages": [
-    "index",
     "area",
     "bar",
     "line",
+    "scatter",
     "pie",
     "radial",
     "radar",
-    "scatter",
     "treemap",
     "sankey",
     "geo"

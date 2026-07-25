@@ -46,7 +46,7 @@ export function ChartSankeyBasic() {
         <CardDescription>Funnel flow from visit to paid</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="min-h-[280px] w-full aspect-auto">
+        <ChartContainer config={chartConfig} className="h-[280px] w-full aspect-auto">
           <Sankey
             data={data}
             nodePadding={24}

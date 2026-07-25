@@ -99,6 +99,8 @@ export {
   ChartStickiness,
   ChartEventFrequency,
 } from "./analytics"
+
+export {
   ChartHistogram,
   ChartBoxPlot,
   ChartHeatmapCalendar,
@@ -110,6 +112,7 @@ export {
   ChartBullet,
 } from "./analysis"
 
+export {
   ChartCandlestick,
   ChartVolumeUnderPrice,
   ChartMovingAverage,
@@ -118,9 +121,10 @@ export {
   ChartDrawdown,
   ChartHighLow,
 } from "./finance"
+
+export {
   ChartFunnelTemplate,
   ChartAreaBrush,
-  ChartLineBrush,
   ChartLineReference,
   ChartBarError,
   ChartBarDiverging,

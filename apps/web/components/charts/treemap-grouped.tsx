@@ -93,7 +93,7 @@ export function ChartTreemapGrouped() {
         <CardDescription>Nested regions and countries</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="min-h-[280px] w-full aspect-auto">
+        <ChartContainer config={chartConfig} className="h-[280px] w-full aspect-auto">
           <Treemap
             data={chartData}
             dataKey="size"

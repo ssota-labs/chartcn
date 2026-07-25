@@ -1,19 +1,17 @@
 ---
-title: Extras
-description: Recharts leftover primitives — FunnelChart, Brush zoom, references, ErrorBar, and special bar layouts.
+title: Composition
+description: Brush zoom, reference marks, error bars, funnel template, and special bar layouts.
 ---
 
-Phase 5 leftovers that are useful but not covered by the core / analytics / finance families. Nested Treemap drill and map tile layers are intentionally out of scope.
+Cross-cutting layouts and interactions you can compose onto the core chart families.
 
 ## Funnel template
 
-`chart-funnel-template` — polished `FunnelChart` + `LabelList` template (distinct from analytics funnel steps).
+`chart-funnel-template` — `FunnelChart` with `LabelList` for a polished step funnel.
 
 <ChartFunnelTemplate />
 
 ## Brush zoom
-
-Dedicated Brush zoom items for area and line series.
 
 ### Area — `chart-area-brush`
 
@@ -25,11 +23,11 @@ Dedicated Brush zoom items for area and line series.
 
 ## Reference highlights
 
-`chart-line-reference` — `ReferenceArea` / `ReferenceDot` / `ReferenceLine` for event windows and callouts.
+`chart-line-reference` — `ReferenceArea`, `ReferenceDot`, and `ReferenceLine` for event windows and callouts.
 
 <ChartLineReference />
 
-## ErrorBar
+## Error bars
 
 ### Bar — `chart-bar-error`
 

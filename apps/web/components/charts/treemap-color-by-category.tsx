@@ -64,7 +64,7 @@ export function ChartTreemapColorByCategory() {
         <CardDescription>Each category uses a chart token</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="min-h-[260px] w-full aspect-auto">
+        <ChartContainer config={chartConfig} className="h-[260px] w-full aspect-auto">
           <Treemap data={chartData} dataKey="size" nameKey="name" content={<ColorContent />} isAnimationActive={false} />
         </ChartContainer>
       </CardContent>
