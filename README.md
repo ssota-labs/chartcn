@@ -11,23 +11,15 @@ area / bar / line / scatter / geo / sankey / treemap과 그 variant, pie / radia
 - 테마는 shadcn 토큰(`--chart-1` … `--chart-5`)을 그대로 사용
 - 사람뿐 아니라 **에이전트**가 필요한 차트를 찾고, 서버/클라이언트 렌더 파이프라인에 붙일 수 있게 하기
 
-## Agent-first distribution (planned)
+## Agent-first distribution
 
-Registry로 차트 블록을 배포한 뒤에는, 에이전트가 Vercel Labs의 [json-render](https://github.com/vercel-labs/json-render) 같은 **동적 렌더링**에서도 쓸 수 있도록 다음을 제공할 예정입니다.
+Registry + search CLI + agent skill are available (Phase 6). Agents can use Vercel Labs–style [json-render](https://github.com/vercel-labs/json-render) trees or MDX/RSC.
 
 | 제공물 | 역할 |
 | --- | --- |
-| **Skill** | 어떤 차트/variant를 고를지, props·data shape·설치 명령까지 에이전트에게 안내 |
-| **Search CLI** | registry 아이템을 이름·카테고리·키워드로 검색 (`chart-area-stacked`, `cohort-heatmap` 등) |
-
-이 조합이면 에이전트가 예를 들어:
-
-1. CLI/스킬로 필요한 registry item을 찾고  
-2. 소스 또는 스펙을 가져온 뒤  
-3. **서버 사이드 MDX**에 붙이거나  
-4. **클라이언트 사이드 JSON render** 트리에 차트 노드로 넣을 수 있습니다.
-
-즉 registry는 “사람이 복사해 쓰는 컴포넌트 저장소”이면서, 동시에 “에이전트가 조립하는 차트 카탈로그”가 됩니다.
+| **Registry** | `apps/web/registry/` — `npx shadcn add https://<CHARTCN_REGISTRY_HOST>/r/<name>.json` (local: `/r/<name>.json`) |
+| **Skill** | `.agents/skills/chartcn/SKILL.md` — variant choice, data shapes, MDX + json-render |
+| **Search CLI** | `pnpm chartcn-search` — name / tag / category; `--json` for agents |
 
 ```text
 Agent
@@ -37,7 +29,6 @@ Agent
         ├─ Server: MDX / RSC에 차트 블록 삽입
         └─ Client: json-render 등 동적 트리에 차트 노드 매핑
 ```
-
 ## Approach
 
 | 원칙 | 내용 |
@@ -57,21 +48,22 @@ Agent
 
 세부 일정·아이템 목록은 [Roadmap.md](./Roadmap.md)를 참고하세요.
 
-## Install (목표 형태)
+## Install
 
-프로젝트 초기화 후 registry가 공개되면 대략 다음처럼 사용할 예정입니다.
+Host is TBD — use `CHARTCN_REGISTRY_URL` or the placeholder below. Local demo serves the same payloads from the Next app.
 
 ```bash
 # base
 pnpm dlx shadcn@latest add chart
 
-# example variants (URLs TBD)
-pnpm dlx shadcn@latest add https://<registry-host>/r/chart-area-stacked.json
-pnpm dlx shadcn@latest add https://<registry-host>/r/chart-analytics-cohort-heatmap.json
+# foundation variants
+pnpm dlx shadcn@latest add https://<CHARTCN_REGISTRY_HOST>/r/chart-area-stacked.json
+pnpm dlx shadcn@latest add http://localhost:3000/r/chart-bar-grouped.json
+
+# search (in-repo index)
+pnpm chartcn-search stacked
+pnpm chartcn-search --category analytics --json
 ```
-
-에이전트용 검색 CLI·스킬은 registry 안정화 이후 같은 저장소(또는 인접 패키지)에서 제공합니다.
-
 ## Demo app
 
 Next.js 16 + Fumadocs 데모는 `apps/web`에 있습니다.
@@ -83,13 +75,14 @@ pnpm dev
 
 - Home: `/`
 - Charts docs: `/docs/charts` (area / bar / line starter demos)
+- Registry docs: `/docs/registry` (install, CLI, skill, MDX + json-render demos)
+- Registry API: `/r/registry.json`, `/r/<name>.json`
 
-Agent skills used for this repo live under `.agents/skills/` (from [skills.sh](https://skills.sh): Vercel React best practices, shadcn/ui, etc.).
+Agent skills live under `.agents/skills/` (chartcn + [skills.sh](https://skills.sh) helpers).
 
 ## Project status
 
-Foundation + initial chart demos are in progress. Full registry coverage follows [Roadmap.md](./Roadmap.md).
-
+Foundation demos + Phase 6 registry/CLI/skill surface are in place. Remaining chart families follow [Roadmap.md](./Roadmap.md).
 ## License
 
 MIT (예정)

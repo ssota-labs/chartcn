@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-bar-basic",
+  "type": "registry:block",
+  "title": "Bar Chart — Basic",
+  "description": "Single-series vertical bar chart.",
+  "dependencies": ["recharts"],
+  "registryDependencies": ["card", "chart"],
+  "categories": ["charts", "bar"],
+  "tags": ["bar", "basic", "categorical", "foundation"],
+  "status": "ready",
+  "dataShape": "{ month: string, desktop: number }[]",
+  "files": [
+    {
+      "path": "components/charts/bar-basic.tsx",
+      "type": "registry:block",
+      "target": "components/charts/bar-basic.tsx"
+    }
+  ]
+}

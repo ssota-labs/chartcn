@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-pie-basic",
+  "type": "registry:block",
+  "title": "Pie Chart — Basic",
+  "description": "Stub — planned pie / donut chart for part-to-whole.",
+  "dependencies": ["recharts"],
+  "registryDependencies": ["card", "chart"],
+  "categories": ["charts", "pie", "polar"],
+  "tags": ["pie", "donut", "part-to-whole", "planned"],
+  "status": "stub",
+  "dataShape": "{ name: string, value: number }[]",
+  "files": []
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-line-multi",
+  "type": "registry:block",
+  "title": "Line Chart — Multi-series",
+  "description": "Multi-series line chart for comparing trends.",
+  "dependencies": ["recharts"],
+  "registryDependencies": ["card", "chart"],
+  "categories": ["charts", "line"],
+  "tags": ["line", "multi-series", "time-series", "foundation"],
+  "status": "ready",
+  "dataShape": "{ month: string, desktop: number, mobile: number, tablet: number }[]",
+  "files": [
+    {
+      "path": "components/charts/line-multi.tsx",
+      "type": "registry:block",
+      "target": "components/charts/line-multi.tsx"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-bar-grouped",
+  "type": "registry:block",
+  "title": "Bar Chart — Grouped",
+  "description": "Grouped multi-series bar chart for side-by-side comparison.",
+  "dependencies": ["recharts"],
+  "registryDependencies": ["card", "chart"],
+  "categories": ["charts", "bar"],
+  "tags": ["bar", "grouped", "multi-series", "foundation"],
+  "status": "ready",
+  "dataShape": "{ quarter: string, productA: number, productB: number, productC: number }[]",
+  "files": [
+    {
+      "path": "components/charts/bar-grouped.tsx",
+      "type": "registry:block",
+      "target": "components/charts/bar-grouped.tsx"
+    }
+  ]
+}

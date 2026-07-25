@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-finance-candlestick",
+  "type": "registry:block",
+  "title": "Finance — Candlestick",
+  "description": "Stub — planned OHLC / candlestick chart (custom shape).",
+  "dependencies": ["recharts"],
+  "registryDependencies": ["card", "chart"],
+  "categories": ["charts", "finance"],
+  "tags": ["candlestick", "ohlc", "markets", "finance", "planned"],
+  "status": "stub",
+  "dataShape": "{ date: string, open: number, high: number, low: number, close: number }[]",
+  "files": []
+}
