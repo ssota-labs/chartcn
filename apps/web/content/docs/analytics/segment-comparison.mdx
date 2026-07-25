@@ -1,0 +1,19 @@
+---
+title: Segment comparison
+description: Side-by-side segment metrics with a grouped BarChart.
+---
+
+<ChartSegmentComparison />
+
+## Data shape
+
+```ts
+type SegmentRow = {
+  segment: string // Free | Starter | Pro | …
+  conversion: number // %
+  retention: number // %
+  arpu: number // currency units
+}
+```
+
+One row per segment; each numeric field becomes a grouped bar series.

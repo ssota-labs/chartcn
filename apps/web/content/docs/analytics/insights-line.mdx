@@ -1,0 +1,32 @@
+---
+title: Insights line
+description: Multi-metric insights line and stacked channel contribution.
+---
+
+<ChartInsightsLine />
+
+## Data shape
+
+**Line (multi-metric)**
+
+```ts
+type InsightPoint = {
+  date: string
+  sessions: number
+  signups: number
+  purchases: number
+}
+```
+
+**Stacked contribution**
+
+```ts
+type ChannelPoint = {
+  date: string
+  organic: number
+  paid: number
+  referral: number
+}
+```
+
+Use `LineChart` for independent metrics; use stacked `AreaChart` when series sum to a whole.

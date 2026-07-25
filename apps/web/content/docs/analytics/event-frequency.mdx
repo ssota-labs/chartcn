@@ -1,0 +1,17 @@
+---
+title: Event frequency
+description: Histogram of events-per-user buckets as a BarChart.
+---
+
+<ChartEventFrequency />
+
+## Data shape
+
+```ts
+type FrequencyBucket = {
+  bucket: string // "1" | "2–3" | "4–7" | …
+  users: number // count of users in bucket
+}
+```
+
+Pre-bin event counts into ordered buckets; render with `BarChart` (histogram semantics, discrete categories).

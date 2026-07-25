@@ -1,0 +1,21 @@
+---
+title: Flow / path
+description: User journey Sankey diagram (Sankey reuse).
+---
+
+<ChartFlowPath />
+
+## Data shape
+
+```ts
+type FlowData = {
+  nodes: Array<{ name: string }>
+  links: Array<{
+    source: number // index into nodes
+    target: number // index into nodes
+    value: number // flow magnitude (users)
+  }>
+}
+```
+
+Same structure as Recharts `Sankey`: links reference node indices, not names.

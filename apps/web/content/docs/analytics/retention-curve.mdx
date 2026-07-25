@@ -1,0 +1,17 @@
+---
+title: Retention curve
+description: D1 / D7 / D30 retention curves as a multi-series LineChart.
+---
+
+<ChartRetentionCurve />
+
+## Data shape
+
+```ts
+type RetentionPoint = {
+  day: "D0" | "D1" | "D3" | "D7" | "D14" | "D30" | string
+  [series: string]: number | string // retention % per segment
+}
+```
+
+One row per day-since-signup milestone; each series key is a segment (plan, platform, etc.) with retention percent `0–100`.
