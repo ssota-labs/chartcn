@@ -1,0 +1,10 @@
+---
+title: Oscillators
+description: Synced MACD and RSI panels.
+---
+
+## MACD + RSI
+
+Two charts share the same `syncId` so tooltips move together. MACD uses `ComposedChart` (histogram bars + MACD/signal lines); RSI is a `LineChart` with 30/70 `ReferenceLine`s.
+
+<ChartMacdRsi />

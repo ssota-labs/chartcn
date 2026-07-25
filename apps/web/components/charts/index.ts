@@ -58,7 +58,27 @@ export { ChartSankeyCompact } from "./sankey-compact"
 export { ChartGeoChoropleth } from "./geo-choropleth"
 export { ChartGeoDrilldown } from "./geo-drilldown"
 export { ChartGeoPoints } from "./geo-points"
+
 export {
+  ChartHistogram,
+  ChartBoxPlot,
+  ChartHeatmapCalendar,
+  ChartHeatmapCorrelation,
+  ChartWaterfall,
+  ChartPareto,
+  ChartSlope,
+  ChartSmallMultiples,
+  ChartBullet,
+} from "./analysis"
+
+  ChartCandlestick,
+  ChartVolumeUnderPrice,
+  ChartMovingAverage,
+  ChartBollinger,
+  ChartMacdRsi,
+  ChartDrawdown,
+  ChartHighLow,
+} from "./finance"
   ChartFunnelTemplate,
   ChartAreaBrush,
   ChartLineBrush,
