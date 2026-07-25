@@ -160,24 +160,24 @@ Core charts → polar → analytics → finance/analysis → Recharts 잔여 →
 
 ### Data analysis
 
-- [ ] Histogram
-- [ ] Box plot *(custom shapes)*
-- [ ] Heatmap (calendar / correlation)
-- [ ] Waterfall
-- [ ] Pareto (bar + cumulative line)
-- [ ] Slope chart
-- [ ] Small multiples / sparkline grid
-- [ ] Bullet chart
+- [x] Histogram
+- [x] Box plot *(custom shapes)*
+- [x] Heatmap (calendar / correlation)
+- [x] Waterfall
+- [x] Pareto (bar + cumulative line)
+- [x] Slope chart
+- [x] Small multiples / sparkline grid
+- [x] Bullet chart
 
 ### Markets / time series
 
-- [ ] OHLC / Candlestick *(custom shape + ComposedChart)*
-- [ ] Volume under price
-- [ ] Moving average overlay
-- [ ] Bollinger bands
-- [ ] MACD / RSI synced panels
-- [ ] Drawdown
-- [ ] High-low range
+- [x] OHLC / Candlestick *(custom shape + ComposedChart)*
+- [x] Volume under price
+- [x] Moving average overlay
+- [x] Bollinger bands
+- [x] MACD / RSI synced panels
+- [x] Drawdown
+- [x] High-low range
 
 **완료 기준:** 분석·금융 대표 차트 설치 가능, Recharts 한계는 custom shape로 문서화
 

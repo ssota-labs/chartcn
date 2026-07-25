@@ -1,0 +1,14 @@
+{
+  "title": "Analysis",
+  "pages": [
+    "index",
+    "histogram",
+    "box-plot",
+    "heatmap",
+    "waterfall",
+    "pareto",
+    "slope",
+    "small-multiples",
+    "bullet"
+  ]
+}

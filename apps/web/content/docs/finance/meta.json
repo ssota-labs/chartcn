@@ -1,0 +1,13 @@
+{
+  "title": "Finance",
+  "pages": [
+    "index",
+    "candlestick",
+    "volume",
+    "moving-average",
+    "bollinger",
+    "oscillators",
+    "drawdown",
+    "high-low"
+  ]
+}
