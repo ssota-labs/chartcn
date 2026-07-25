@@ -1,4 +1,14 @@
 {
   "title": "Documentation",
-  "pages": ["index", "---Charts---", "charts", "---Extras---", "extras"]
+  "pages": [
+    "index",
+    "---Charts---",
+    "charts",
+    "---Extras---",
+    "extras",
+    "---Analysis---",
+    "analysis",
+    "---Finance---",
+    "finance"
+  ]
 }

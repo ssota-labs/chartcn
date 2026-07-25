@@ -4,7 +4,27 @@ export { ChartBarBasic } from "./bar-basic"
 export { ChartBarGrouped } from "./bar-grouped"
 export { ChartLineBasic } from "./line-basic"
 export { ChartLineMulti } from "./line-multi"
+
 export {
+  ChartHistogram,
+  ChartBoxPlot,
+  ChartHeatmapCalendar,
+  ChartHeatmapCorrelation,
+  ChartWaterfall,
+  ChartPareto,
+  ChartSlope,
+  ChartSmallMultiples,
+  ChartBullet,
+} from "./analysis"
+
+  ChartCandlestick,
+  ChartVolumeUnderPrice,
+  ChartMovingAverage,
+  ChartBollinger,
+  ChartMacdRsi,
+  ChartDrawdown,
+  ChartHighLow,
+} from "./finance"
   ChartFunnelTemplate,
   ChartAreaBrush,
   ChartLineBrush,
