@@ -60,6 +60,19 @@ export { ChartGeoDrilldown } from "./geo-drilldown"
 export { ChartGeoPoints } from "./geo-points"
 
 export {
+  ChartCohortHeatmap,
+  ChartRetentionCurve,
+  ChartFunnelSteps,
+  ChartFunnelTrend,
+  ChartFlowPath,
+  ChartInsightsLine,
+  ChartSegmentComparison,
+  ChartMetricSparkline,
+  ChartPeriodComparison,
+  ChartConversionDualAxis,
+  ChartStickiness,
+  ChartEventFrequency,
+} from "./analytics"
   ChartHistogram,
   ChartBoxPlot,
   ChartHeatmapCalendar,

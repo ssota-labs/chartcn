@@ -1,0 +1,19 @@
+---
+title: Funnel trend
+description: Step conversion rates over time as a multi-series LineChart.
+---
+
+<ChartFunnelTrend />
+
+## Data shape
+
+```ts
+type FunnelTrendPoint = {
+  week: string // period label
+  visitToSignup: number // %
+  signupToActivate: number // %
+  activateToPay: number // %
+}
+```
+
+Each series is a adjacent-step conversion rate (`users_at_step_n / users_at_step_n-1 * 100`) for that period.
