@@ -1,4 +1,4 @@
 {
   "title": "Charts",
-  "pages": ["index", "area", "bar", "line"]
+  "pages": ["index", "area", "bar", "line", "pie", "radial", "radar"]
 }
