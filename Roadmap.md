@@ -139,18 +139,18 @@ Core charts → polar → analytics → finance/analysis → Recharts 잔여 →
 
 우선순위 높은 것부터:
 
-- [ ] **Cohort heatmap** — 가입 코호트 × period retention 격자
-- [ ] **Retention curve** — D1 / D7 / D30 곡선
-- [ ] **Funnel steps** — 단계별 전환·이탈 (`FunnelChart`)
-- [ ] **Funnel trend** — 전환율 시계열
-- [ ] **Flow / path** — Sankey 재사용
-- [ ] Insights line / stacked line
-- [ ] Segment comparison bar
-- [ ] Metric + sparkline KPI
-- [ ] Period comparison overlay (이번 주 vs 지난 주)
-- [ ] Conversion dual-axis (volume + rate)
-- [ ] Stickiness (DAU/WAU/MAU)
-- [ ] Event frequency histogram
+- [x] **Cohort heatmap** — 가입 코호트 × period retention 격자
+- [x] **Retention curve** — D1 / D7 / D30 곡선
+- [x] **Funnel steps** — 단계별 전환·이탈 (`FunnelChart`)
+- [x] **Funnel trend** — 전환율 시계열
+- [x] **Flow / path** — Sankey 재사용
+- [x] Insights line / stacked line
+- [x] Segment comparison bar
+- [x] Metric + sparkline KPI
+- [x] Period comparison overlay (이번 주 vs 지난 주)
+- [x] Conversion dual-axis (volume + rate)
+- [x] Stickiness (DAU/WAU/MAU)
+- [x] Event frequency histogram
 
 **완료 기준:** 코호트·퍼널·리텐션·KPI가 registry로 설치 가능, data shape 문서 포함
 

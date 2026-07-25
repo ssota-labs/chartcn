@@ -1,0 +1,18 @@
+---
+title: Period comparison
+description: This week vs last week overlay LineChart.
+---
+
+<ChartPeriodComparison />
+
+## Data shape
+
+```ts
+type PeriodPoint = {
+  day: string // Mon…Sun (aligned weekday)
+  thisWeek: number
+  lastWeek: number
+}
+```
+
+Align periods by weekday (or day-of-month). Style the prior period with `strokeDasharray` to keep hierarchy clear.

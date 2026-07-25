@@ -1,0 +1,22 @@
+---
+title: Metric sparkline
+description: KPI cards with compact sparkline trends.
+---
+
+<ChartMetricSparkline />
+
+## Data shape
+
+```ts
+type MetricCard = {
+  key: string
+  title: string
+  value: string // formatted KPI
+  delta: string // e.g. "+6.2%"
+  description: string
+  color: string // chart token
+  data: Array<{ i: number; v: number }> // sparkline points
+}
+```
+
+Primary number + delta live outside the chart; the sparkline is a small `LineChart` over recent points.

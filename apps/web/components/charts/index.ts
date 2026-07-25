@@ -32,6 +32,19 @@ export { ChartRadarGridPolygon } from "./radar-grid-polygon"
 export { ChartRadarLegendInteractive } from "./radar-legend-interactive"
 
 export {
+  ChartCohortHeatmap,
+  ChartRetentionCurve,
+  ChartFunnelSteps,
+  ChartFunnelTrend,
+  ChartFlowPath,
+  ChartInsightsLine,
+  ChartSegmentComparison,
+  ChartMetricSparkline,
+  ChartPeriodComparison,
+  ChartConversionDualAxis,
+  ChartStickiness,
+  ChartEventFrequency,
+} from "./analytics"
   ChartHistogram,
   ChartBoxPlot,
   ChartHeatmapCalendar,
