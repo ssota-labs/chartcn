@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-analytics-funnel",
+  "type": "registry:block",
+  "title": "Analytics — Funnel",
+  "description": "Stub — planned funnel steps chart for conversion analysis.",
+  "dependencies": ["recharts"],
+  "registryDependencies": ["card", "chart"],
+  "categories": ["charts", "analytics"],
+  "tags": ["funnel", "conversion", "analytics", "planned"],
+  "status": "stub",
+  "dataShape": "{ step: string, value: number }[]",
+  "files": []
+}

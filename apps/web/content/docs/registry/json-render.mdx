@@ -1,0 +1,36 @@
+---
+title: json-render embedding
+description: Map registry item names to components for Vercel Labs–style dynamic trees.
+---
+
+## Pattern
+
+Agents emit JSON; the client looks up `type` in a component map keyed by **registry item name**:
+
+```tsx
+const chartcnComponentMap = {
+  "chart-area-basic": ChartAreaBasic,
+  "chart-area-stacked": ChartAreaStacked,
+  "chart-bar-basic": ChartBarBasic,
+  "chart-bar-grouped": ChartBarGrouped,
+  "chart-line-basic": ChartLineBasic,
+  "chart-line-multi": ChartLineMulti,
+}
+```
+
+Example node:
+
+```json
+{
+  "type": "chart-line-multi",
+  "props": {}
+}
+```
+
+## Live demo
+
+<JsonRenderChartDemo />
+
+Stub names (e.g. `chart-scatter-basic`) resolve to a friendly “unknown/stub” message until later phases fill them.
+
+Implementation reference: `apps/web/components/registry-demos/json-render-demo.tsx` and `.agents/skills/chartcn/SKILL.md`.

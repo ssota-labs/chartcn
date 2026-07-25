@@ -1,0 +1,48 @@
+---
+title: Registry
+description: Install chartcn variants via the shadcn-compatible registry.
+---
+
+chartcn publishes each chart variant as a **shadcn registry item**. Install with the official CLI; no Mark layer — sources are `ChartContainer` + Recharts.
+
+## Install
+
+Set the host (placeholder until public deploy):
+
+```bash
+export CHARTCN_REGISTRY_URL=https://<CHARTCN_REGISTRY_HOST>
+# or for local demo:
+export CHARTCN_REGISTRY_URL=http://localhost:3000
+```
+
+Then:
+
+```bash
+# base primitives
+npx shadcn@latest add chart card
+
+# any ready variant
+npx shadcn@latest add https://<CHARTCN_REGISTRY_HOST>/r/chart-area-basic.json
+npx shadcn@latest add $CHARTCN_REGISTRY_URL/r/chart-area-stacked.json
+npx shadcn@latest add $CHARTCN_REGISTRY_URL/r/chart-bar-grouped.json
+npx shadcn@latest add $CHARTCN_REGISTRY_URL/r/chart-line-multi.json
+```
+
+Local demo route: `GET /r/<name>.json` (also `/r/registry.json` for the index).
+
+## Foundation items (ready)
+
+| Name | Description |
+| --- | --- |
+| `chart-area-basic` | Single-series area |
+| `chart-area-stacked` | Stacked multi-series area |
+| `chart-bar-basic` | Single-series bar |
+| `chart-bar-grouped` | Grouped multi-series bar |
+| `chart-line-basic` | Single-series line |
+| `chart-line-multi` | Multi-series line |
+
+## Planned stubs (categories reserved)
+
+Scatter, pie/polar, analytics, finance, and extras have stub registry entries (`status: stub`) so later phase merges can fill files without renaming.
+
+See [Search CLI](/docs/registry/search-cli), [Agent skill](/docs/registry/agent-skill), [MDX embedding](/docs/registry/mdx-embedding), and [json-render](/docs/registry/json-render).

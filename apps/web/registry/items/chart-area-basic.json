@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-area-basic",
+  "type": "registry:block",
+  "title": "Area Chart — Basic",
+  "description": "Single-series area chart with natural curve and fill opacity.",
+  "dependencies": ["recharts"],
+  "registryDependencies": ["card", "chart"],
+  "categories": ["charts", "area"],
+  "tags": ["area", "basic", "time-series", "foundation"],
+  "status": "ready",
+  "dataShape": "{ month: string, desktop: number }[]",
+  "files": [
+    {
+      "path": "components/charts/area-basic.tsx",
+      "type": "registry:block",
+      "target": "components/charts/area-basic.tsx"
+    }
+  ]
+}

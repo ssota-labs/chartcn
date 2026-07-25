@@ -1,0 +1,11 @@
+{
+  "title": "Registry & agents",
+  "pages": [
+    "index",
+    "installation",
+    "search-cli",
+    "agent-skill",
+    "mdx-embedding",
+    "json-render"
+  ]
+}

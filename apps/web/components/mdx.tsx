@@ -112,7 +112,6 @@ import {
   ChartHighLow,
   ChartFunnelTemplate,
   ChartAreaBrush,
-  ChartLineBrush,
   ChartLineReference,
   ChartBarError,
   ChartBarDiverging,
@@ -120,6 +119,8 @@ import {
   ChartBarRange,
   ChartScatterError,
 } from '@/components/charts';
+import { JsonRenderChartDemo } from '@/components/registry-demos/json-render-demo';
+import { MdxEmbedDemo } from '@/components/registry-demos/mdx-embed-demo';
 
 export function getMDXComponents(components?: MDXComponents) {
   return {
@@ -178,6 +179,8 @@ export function getMDXComponents(components?: MDXComponents) {
     ChartGeoChoropleth,
     ChartGeoDrilldown,
     ChartGeoPoints,
+    JsonRenderChartDemo,
+    MdxEmbedDemo,
     ChartPieBasic,
     ChartPieDonut,
     ChartPieLabeled,

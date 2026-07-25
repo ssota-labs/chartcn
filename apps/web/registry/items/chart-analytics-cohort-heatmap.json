@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-analytics-cohort-heatmap",
+  "type": "registry:block",
+  "title": "Analytics — Cohort Heatmap",
+  "description": "Stub — planned cohort retention heatmap (Mixpanel-style).",
+  "dependencies": ["recharts"],
+  "registryDependencies": ["card", "chart"],
+  "categories": ["charts", "analytics"],
+  "tags": ["cohort", "heatmap", "retention", "analytics", "planned"],
+  "status": "stub",
+  "dataShape": "{ cohort: string, period: number, retention: number }[]",
+  "files": []
+}

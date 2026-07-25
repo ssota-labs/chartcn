@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-line-basic",
+  "type": "registry:block",
+  "title": "Line Chart — Basic",
+  "description": "Single-series line chart with natural curve.",
+  "dependencies": ["recharts"],
+  "registryDependencies": ["card", "chart"],
+  "categories": ["charts", "line"],
+  "tags": ["line", "basic", "time-series", "foundation"],
+  "status": "ready",
+  "dataShape": "{ month: string, desktop: number }[]",
+  "files": [
+    {
+      "path": "components/charts/line-basic.tsx",
+      "type": "registry:block",
+      "target": "components/charts/line-basic.tsx"
+    }
+  ]
+}
