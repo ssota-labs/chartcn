@@ -1,0 +1,18 @@
+{
+  "title": "Analytics",
+  "pages": [
+    "index",
+    "cohort-heatmap",
+    "retention-curve",
+    "funnel-steps",
+    "funnel-trend",
+    "flow-path",
+    "insights-line",
+    "segment-comparison",
+    "metric-sparkline",
+    "period-comparison",
+    "conversion-dual-axis",
+    "stickiness",
+    "event-frequency"
+  ]
+}

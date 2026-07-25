@@ -1,0 +1,18 @@
+---
+title: Cohort heatmap
+description: Signup cohort × period retention grid styled with chart tokens.
+---
+
+<ChartCohortHeatmap />
+
+## Data shape
+
+```ts
+type CohortRow = {
+  cohort: string // signup week label
+  size: number // cohort size (users)
+  retention: Array<number | null> // % retained per period; null = not matured
+}
+```
+
+Rows are signup cohorts; columns are relative periods (`Week 0`…`Week N`). Values are retention percentages. Prefer CSS grid/table when Recharts heatmap support is awkward.
