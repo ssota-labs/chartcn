@@ -1,4 +1,16 @@
 {
   "title": "Charts",
-  "pages": ["index", "area", "bar", "line", "pie", "radial", "radar"]
+  "pages": [
+    "index",
+    "area",
+    "bar",
+    "line",
+    "pie",
+    "radial",
+    "radar",
+    "scatter",
+    "treemap",
+    "sankey",
+    "geo"
+  ]
 }

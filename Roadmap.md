@@ -28,77 +28,77 @@ Core charts → polar → analytics → finance/analysis → Recharts 잔여 →
 ### 1.1 Area — `chart-area-*`
 
 - [x] basic *(demo in `apps/web`)*
-- [ ] multi-series
+- [x] multi-series
 - [x] stacked *(demo in `apps/web`)*
-- [ ] stacked-expand (100%)
-- [ ] curve interpolation (linear / monotone / step*)
-- [ ] fill opacity / gradient
-- [ ] clip-to-active *(호버 + clipPath 근사)*
-- [ ] linger
-- [ ] with-line overlay
-- [ ] dual-axis
+- [x] stacked-expand (100%)
+- [x] curve interpolation (linear / monotone / step*)
+- [x] fill opacity / gradient
+- [x] clip-to-active *(호버 + clipPath 근사)*
+- [x] linger
+- [x] with-line overlay
+- [x] dual-axis
 
 ### 1.2 Bar — `chart-bar-*`
 
 - [x] basic *(demo in `apps/web`)*
 - [x] grouped *(demo in `apps/web`)*
-- [ ] stacked
-- [ ] stacked-expand
-- [ ] styling (radius, active/inactive opacity)
-- [ ] cursor band / line + highlight
-- [ ] mixed bar + line
-- [ ] dual-axis bar + line
-- [ ] area + bar combo
-- [ ] custom tooltip
-- [ ] reference line / annotation
+- [x] stacked
+- [x] stacked-expand
+- [x] styling (radius, active/inactive opacity)
+- [x] cursor band / line + highlight
+- [x] mixed bar + line
+- [x] dual-axis bar + line
+- [x] area + bar combo
+- [x] custom tooltip
+- [x] reference line / annotation
 
 ### 1.3 Line — `chart-line-*`
 
 - [x] basic *(demo in `apps/web`)*
 - [x] multi-series *(demo in `apps/web`)*
-- [ ] curve / step variants
-- [ ] dots / activeDot
-- [ ] dual-axis
-- [ ] crosshair + axis labels
-- [ ] closest-series highlight
-- [ ] synced multi-panel
-- [ ] brush / zoom
-- [ ] custom tooltip
-- [ ] inverted axis
+- [x] curve / step variants
+- [x] dots / activeDot
+- [x] dual-axis
+- [x] crosshair + axis labels
+- [x] closest-series highlight
+- [x] synced multi-panel
+- [x] brush / zoom
+- [x] custom tooltip
+- [x] inverted axis
 
 ### 1.4 Scatter — `chart-scatter-*`
 
-- [ ] basic
-- [ ] crosshair
-- [ ] highlight
-- [ ] multi-series
-- [ ] bubble (size encoding)
-- [ ] with trend line
+- [x] basic
+- [x] crosshair
+- [x] highlight
+- [x] multi-series
+- [x] bubble (size encoding)
+- [x] with trend line
 
 ### 1.5 Treemap — `chart-treemap-*`
 
-- [ ] basic
-- [ ] grouped
-- [ ] color-by-category
-- [ ] highlight
-- [ ] reverse
-- [ ] custom tooltip
-- [ ] styled (gap / radius)
+- [x] basic
+- [x] grouped
+- [x] color-by-category
+- [x] highlight
+- [x] reverse
+- [x] custom tooltip
+- [x] styled (gap / radius)
 
 ### 1.6 Sankey — `chart-sankey-*`
 
-- [ ] basic
-- [ ] traffic flow
-- [ ] gradient links
-- [ ] custom stroke
-- [ ] custom tooltip
-- [ ] compact
+- [x] basic
+- [x] traffic flow
+- [x] gradient links
+- [x] custom stroke
+- [x] custom tooltip
+- [x] compact
 
 ### 1.7 Geo — `chart-geo-*`
 
-- [ ] choropleth basic (`d3-geo`)
-- [ ] choropleth drill-down + breadcrumb
-- [ ] point layer
+- [x] choropleth basic (`d3-geo`)
+- [x] choropleth drill-down + breadcrumb
+- [x] point layer
 - [ ] tile layer — *후순위*
 
 **완료 기준:** 위 variant가 registry item으로 설치·렌더 가능
