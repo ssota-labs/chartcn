@@ -1,7 +1,6 @@
 {
-  "title": "Analysis",
+  "title": "Statistical",
   "pages": [
-    "index",
     "histogram",
     "box-plot",
     "heatmap",

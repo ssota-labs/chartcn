@@ -1,62 +1,71 @@
 ---
 title: Overview
-description: chartcn demo docs — browse chart variants built with shadcn charts and Recharts.
+description: Chart variants built with shadcn charts and Recharts — browse by family and install from the registry.
 ---
 
-shadcn/ui `chart` + Recharts 기반 차트 데모입니다. 각 페이지에서 variant를 확인할 수 있습니다.
+chartcn is a registry of chart variants on shadcn `ChartContainer` + Recharts. Pick a family, copy a variant, or install it with the shadcn CLI.
 
 ## Charts
 
 <Cards>
-  <Card title="Area" href="/docs/charts/area" description="Basic, stacked, expand, clip, dual-axis…" />
-  <Card title="Bar" href="/docs/charts/bar" description="Stacked, mixed, dual-axis, reference…" />
-  <Card title="Line" href="/docs/charts/line" description="Curve, brush, synced panels, inverted…" />
-  <Card title="Scatter" href="/docs/charts/scatter" description="Bubble, trend, multi-series…" />
-  <Card title="Treemap" href="/docs/charts/treemap" description="Grouped, styled, custom tooltip…" />
-  <Card title="Sankey" href="/docs/charts/sankey" description="Traffic flow, gradient links…" />
-  <Card title="Geo" href="/docs/charts/geo" description="Choropleth, drill-down, points…" />
-  <Card title="Pie" href="/docs/charts/pie" description="Donut, nested, interactive, center KPI…" />
-  <Card title="Radial" href="/docs/charts/radial" description="Progress, gauge, stacked, shape…" />
-  <Card title="Radar" href="/docs/charts/radar" description="Multi-series, filled, interactive legend…" />
-  <Card title="Extras" href="/docs/extras" description="Funnel, Brush, references, ErrorBar, special bars" />
+  <Card title="Area" href="/docs/charts/area" description="Stacked, gradient, clip, dual-axis" />
+  <Card title="Bar" href="/docs/charts/bar" description="Grouped, mixed, reference, dual-axis" />
+  <Card title="Line" href="/docs/charts/line" description="Curves, brush, synced panels" />
+  <Card title="Scatter" href="/docs/charts/scatter" description="Bubble, trend, multi-series" />
+  <Card title="Pie" href="/docs/charts/pie" description="Donut, nested, center KPI" />
+  <Card title="Radial" href="/docs/charts/radial" description="Progress, gauge, stacked" />
+  <Card title="Radar" href="/docs/charts/radar" description="Filled, multi-series, legend" />
+  <Card title="Treemap" href="/docs/charts/treemap" description="Grouped, styled, tooltips" />
+  <Card title="Sankey" href="/docs/charts/sankey" description="Flows and gradient links" />
+  <Card title="Geo" href="/docs/charts/geo" description="Choropleth, drill-down, points" />
+  <Card title="Composition" href="/docs/extras" description="Brush, references, error bars, layouts" />
 </Cards>
 
-## Analytics
-
-<Cards>
-  <Card title="Analytics" href="/docs/analytics" description="Cohort, funnel, retention, KPIs" />
-</Cards>
-
-## Analysis
+## Statistical
 
 <Cards>
   <Card title="Histogram" href="/docs/analysis/histogram" description="Binned frequency distribution" />
-  <Card title="Box plot" href="/docs/analysis/box-plot" description="Custom whisker / IQR shapes" />
-  <Card title="Heatmap" href="/docs/analysis/heatmap" description="Calendar + correlation" />
-  <Card title="Waterfall" href="/docs/analysis/waterfall" description="Floating stacked bridge" />
-  <Card title="Pareto" href="/docs/analysis/pareto" description="Bar + cumulative line" />
+  <Card title="Box plot" href="/docs/analysis/box-plot" description="Whiskers, IQR, median" />
+  <Card title="Heatmap" href="/docs/analysis/heatmap" description="Calendar and correlation" />
+  <Card title="Waterfall" href="/docs/analysis/waterfall" description="Bridge of gains and losses" />
+  <Card title="Pareto" href="/docs/analysis/pareto" description="Bars with cumulative line" />
   <Card title="Slope" href="/docs/analysis/slope" description="Two-period comparison" />
   <Card title="Small multiples" href="/docs/analysis/small-multiples" description="Sparkline grid" />
-  <Card title="Bullet" href="/docs/analysis/bullet" description="KPI vs ranges + target" />
+  <Card title="Bullet" href="/docs/analysis/bullet" description="KPI vs ranges and target" />
 </Cards>
 
-## Finance
+## Product analytics
 
 <Cards>
-  <Card title="Candlestick" href="/docs/finance/candlestick" description="OHLC custom shapes" />
+  <Card title="Cohort heatmap" href="/docs/analytics/cohort-heatmap" description="Retention by cohort" />
+  <Card title="Retention curve" href="/docs/analytics/retention-curve" description="Retention over time" />
+  <Card title="Funnel steps" href="/docs/analytics/funnel-steps" description="Step conversion" />
+  <Card title="Funnel trend" href="/docs/analytics/funnel-trend" description="Conversion rates over weeks" />
+  <Card title="Flow path" href="/docs/analytics/flow-path" description="User path sankey" />
+  <Card title="Insights" href="/docs/analytics/insights-line" description="Multi-metric trends" />
+  <Card title="Segment comparison" href="/docs/analytics/segment-comparison" description="Side-by-side segments" />
+  <Card title="Sparklines" href="/docs/analytics/metric-sparkline" description="Compact KPI series" />
+</Cards>
+
+## Markets
+
+<Cards>
+  <Card title="Candlestick" href="/docs/finance/candlestick" description="OHLC price action" />
   <Card title="Volume" href="/docs/finance/volume" description="Volume under price" />
-  <Card title="Moving average" href="/docs/finance/moving-average" description="MA overlay on candles" />
+  <Card title="Moving average" href="/docs/finance/moving-average" description="MA overlays" />
   <Card title="Bollinger" href="/docs/finance/bollinger" description="SMA ± σ bands" />
-  <Card title="Oscillators" href="/docs/finance/oscillators" description="Synced MACD / RSI" />
+  <Card title="Oscillators" href="/docs/finance/oscillators" description="MACD and RSI" />
   <Card title="Drawdown" href="/docs/finance/drawdown" description="Underwater equity" />
   <Card title="High–low" href="/docs/finance/high-low" description="Daily range band" />
 </Cards>
 
-## Registry & agents
+## Integrate
 
 <Cards>
-  <Card title="Registry" href="/docs/registry" description="Install via shadcn add + /r routes" />
-  <Card title="Search CLI" href="/docs/registry/search-cli" description="pnpm chartcn-search" />
-  <Card title="Agent skill" href="/docs/registry/agent-skill" description="Variant choice + embed patterns" />
-  <Card title="json-render" href="/docs/registry/json-render" description="Dynamic component map demo" />
+  <Card title="Installation" href="/docs/registry/installation" description="Add variants with shadcn CLI" />
+  <Card title="Registry" href="/docs/registry" description="Item URLs and naming" />
+  <Card title="Search CLI" href="/docs/registry/search-cli" description="Find variants from the terminal" />
+  <Card title="Agent skill" href="/docs/registry/agent-skill" description="Choose and embed charts in agents" />
+  <Card title="MDX embedding" href="/docs/registry/mdx-embedding" description="Use charts in MDX docs" />
+  <Card title="json-render" href="/docs/registry/json-render" description="Map JSON trees to chart components" />
 </Cards>

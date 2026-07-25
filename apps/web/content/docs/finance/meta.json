@@ -1,7 +1,6 @@
 {
-  "title": "Finance",
+  "title": "Markets",
   "pages": [
-    "index",
     "candlestick",
     "volume",
     "moving-average",

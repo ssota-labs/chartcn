@@ -1,7 +1,6 @@
 {
-  "title": "Analytics",
+  "title": "Product analytics",
   "pages": [
-    "index",
     "cohort-heatmap",
     "retention-curve",
     "funnel-steps",
