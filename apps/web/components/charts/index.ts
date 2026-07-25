@@ -19,6 +19,25 @@ export {
   ChartStickiness,
   ChartEventFrequency,
 } from "./analytics"
+  ChartHistogram,
+  ChartBoxPlot,
+  ChartHeatmapCalendar,
+  ChartHeatmapCorrelation,
+  ChartWaterfall,
+  ChartPareto,
+  ChartSlope,
+  ChartSmallMultiples,
+  ChartBullet,
+} from "./analysis"
+
+  ChartCandlestick,
+  ChartVolumeUnderPrice,
+  ChartMovingAverage,
+  ChartBollinger,
+  ChartMacdRsi,
+  ChartDrawdown,
+  ChartHighLow,
+} from "./finance"
   ChartFunnelTemplate,
   ChartAreaBrush,
   ChartLineBrush,

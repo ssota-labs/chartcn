@@ -1,0 +1,10 @@
+---
+title: Box plot
+description: Whisker / IQR / median via custom SVG marks.
+---
+
+## Custom shapes
+
+Recharts does **not** include a box-plot series. This demo draws whiskers, IQR box, and median inside a `ComposedChart` using `useXAxisScale` / `useYAxisScale` (Recharts 3.8+). An invisible `Line` binds tooltip payload to each category.
+
+<ChartBoxPlot />
