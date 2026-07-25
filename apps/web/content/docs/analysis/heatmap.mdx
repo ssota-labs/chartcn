@@ -1,0 +1,16 @@
+---
+title: Heatmap
+description: Calendar activity and correlation matrix heatmaps.
+---
+
+## Calendar
+
+Recharts has no calendar heatmap. Cells are a CSS grid colored with `--chart-*` tokens so theming stays aligned with `ChartContainer`.
+
+<ChartHeatmapCalendar />
+
+## Correlation
+
+Same limitation — a matrix grid is clearer than forcing `Scatter`/`Bar` into a cell lattice.
+
+<ChartHeatmapCorrelation />

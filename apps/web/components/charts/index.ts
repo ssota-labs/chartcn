@@ -30,7 +30,27 @@ export { ChartRadarStroke } from "./radar-stroke"
 export { ChartRadarGridCircle } from "./radar-grid-circle"
 export { ChartRadarGridPolygon } from "./radar-grid-polygon"
 export { ChartRadarLegendInteractive } from "./radar-legend-interactive"
+
 export {
+  ChartHistogram,
+  ChartBoxPlot,
+  ChartHeatmapCalendar,
+  ChartHeatmapCorrelation,
+  ChartWaterfall,
+  ChartPareto,
+  ChartSlope,
+  ChartSmallMultiples,
+  ChartBullet,
+} from "./analysis"
+
+  ChartCandlestick,
+  ChartVolumeUnderPrice,
+  ChartMovingAverage,
+  ChartBollinger,
+  ChartMacdRsi,
+  ChartDrawdown,
+  ChartHighLow,
+} from "./finance"
   ChartFunnelTemplate,
   ChartAreaBrush,
   ChartLineBrush,
