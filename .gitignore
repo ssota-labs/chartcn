@@ -7,3 +7,7 @@ node_modules/
 dist/
 .turbo/
 .vercel/
+
+# Host skill mirrors from `npx skills add` (canonical skills live in .agents/skills/)
+.claude/
+.cursor/
