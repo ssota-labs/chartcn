@@ -22,7 +22,6 @@ page.
 				<mention-page url="{{pages.data-model}}"/>
 				<mention-page url="{{pages.system-model}}"/>
 				<mention-page url="{{pages.cli}}"/>
-			<mention-page url="{{pages.prds}}"/>
 			<mention-page url="{{pages.plans}}"/>
 			<mention-page url="{{pages.adrs}}"/>
 		</callout>

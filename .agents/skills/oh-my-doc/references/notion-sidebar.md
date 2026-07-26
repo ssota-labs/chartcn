@@ -29,7 +29,10 @@ When the section or one of its children is current, the parent mention keeps
 
 ## Top-level nav
 
-Home · Vision · Start here · Workflow · Domain · Planning · Spec · PRDs · Plans · ADRs
+Home · Vision · Start here · Workflow · Domain · Planning · Spec · Plans · ADRs
+
+PRDs and Stories appear under Planning when that section is active (yellow + indented).
+Glossary / Models / Policies under Domain; Spec children under Spec; Workflow children under Workflow.
 
 ## Child preservation
 
