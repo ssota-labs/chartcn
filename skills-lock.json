@@ -8,10 +8,10 @@
       "computedHash": "aad97b32ba6efd31e92d063ec77120a694fe0d4a9401daf9af4c205cd5e21b07"
     },
     "oh-my-doc": {
-      "source": "ssota-labs/oh-my-docs",
+      "source": "tyohnn/oh-my-docs",
       "sourceType": "github",
       "skillPath": "skills/oh-my-doc/SKILL.md",
-      "computedHash": "d84d4123996e880e84a32681835afc6b14ac53e0474ce81ca5bfb8fcae35e923"
+      "computedHash": "d2cc563869f00ce96c8919188e8808e2309703234bfaa50bea1d550eb5d3ce77"
     },
     "shadcn": {
       "source": "shadcn/ui",

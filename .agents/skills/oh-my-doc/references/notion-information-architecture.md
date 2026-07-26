@@ -2,46 +2,44 @@
 
 Path: `skills/oh-my-doc/references/` (name **`references`**, not `ref`).
 
-Machine-readable companion: `notion-ia-graph.json` (`schemaVersion` 1.2).
+Machine-readable companion: `notion-ia-graph.json` (`schemaVersion` 1.3).
 
 Catalog destinations are **pages** that embed their database **inline**. The
 navigable object is the page; the database is not a top-level sidebar target.
 
-## Sources parenting (`home-toggle`)
+## Sources parenting
 
-The user-supplied `--notion-root` URL **is** `pages.home` (role `home`). Do not
-create a separate Home child page.
+Default `sourcesStrategy` is **`details-toggle-on-home`**.
 
-Top-level managed pages are parented under Home and rendered inside a
-`<details>` toggle titled **데이터 원본** (`toggles.sources`, kind `toggle`) on
-the Home page body — not under a separate sources page.
+- The user-supplied Notion root **is** Home (`pages.home`, role `home`).
+- **데이터 원본** is a `<details>` toggle on Home — not a child page.
+- Managed top-level pages parent under Home and are listed inside that toggle.
 
 ```text
-Home (= user-supplied --notion-root)
-├── <details> 데이터 원본
-│   ├── Vision
-│   ├── Start here
-│   ├── Workflow
-│   │   ├── Workflow Planning
-│   │   └── Development
-│   ├── Domain
-│   │   ├── Glossary (page → inline DB)
-│   │   ├── Models (page → inline DB)
-│   │   └── Policies (page → inline DB)
-│   ├── Planning
-│   │   ├── PRDs (page → inline DB)
-│   │   └── Stories (page → inline DB)
-│   ├── Spec
-│   │   ├── Data model (page → inline DB)
-│   │   ├── System model (page → inline DB)
-│   │   └── CLI
-│   ├── Plans (page → inline DB)
-│   └── ADRs (page → inline DB)
-└── (sidebar chrome on Home and every managed page)
+Home (user-supplied notion-root = pages.home)
+├── columns (sidebar chrome + Home body)
+└── <details> 데이터 원본
+    ├── Vision
+    ├── Start here
+    ├── Workflow
+    │   ├── Workflow Planning
+    │   └── Development
+    ├── Domain
+    │   ├── Glossary (page → inline DB)
+    │   ├── Models (page → inline DB)
+    │   └── Policies (page → inline DB)
+    ├── Planning
+    │   ├── PRDs (page → inline DB)
+    │   └── Stories (page → inline DB)
+    ├── Spec
+    │   ├── Data model (page → inline DB)
+    │   └── System model (page → inline DB)
+    ├── Plans (page → inline DB)
+    └── ADRs (page → inline DB)
 ```
 
-Toggle children must be indented under `<details>` so Notion keeps them inside
-the toggle. Use `<page url="…">` blocks (not bare URLs).
+Do not emit `ensure_page` for a sources container titled 데이터 원본.
 
 Sidebar navigation uses page mentions only — never bare URLs as the primary nav.
-Every `pages.*` object must receive the shared sidebar chrome.
+Every managed content page except Home still receives the shared sidebar chrome;
+Home receives chrome plus the sources details toggle.
