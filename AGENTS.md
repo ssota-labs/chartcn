@@ -19,3 +19,27 @@ All root scripts just delegate to `apps/web` via `pnpm --filter web`. Use the ro
 - **Registry is the core product surface.** To verify end-to-end that the registry API works, consume it with the shadcn CLI from a scratch project: it needs both a `components.json` and a `tsconfig.json`, then run `npx shadcn@latest add http://localhost:3000/r/<name>.json --yes`. This installs the chart component plus its `card`/`chart` deps.
 - `apps/web/next.config.mjs` already sets `allowedDevOrigins` (localhost, `127.0.0.1`, `172.30.0.2`, `null`) so the dev server works inside sandboxed/iframe/LAN previews. Without it, client-side charts stay inert after SSR.
 - The `CHARTCN_REGISTRY_URL` / `NEXT_PUBLIC_CHARTCN_REGISTRY_URL` env vars only customize the host printed in generated install commands; they are optional and not needed for local dev.
+
+<!-- oh-my-docs:start -->
+# Oh My Docs
+
+This repository uses a docs-first workflow. Canonical product intent lives under
+`docs/content/docs` (or `apps/docs/content/docs` when present).
+
+## Docs-first gate
+
+1. Classify the change as `product`, `bugfix`, `maintenance`, or docs-only.
+2. Product changes require an active PRD, a story, an accepted specification, and a ready plan.
+3. Bug fixes require an existing PRD/specification and a ready plan.
+4. Maintenance requires a ready plan; add a specification if an observable contract changes.
+5. If required documents are missing, create and review a docs-only change first.
+6. An implementation PR must reference a plan that already exists on the PR base with `stage: ready|active` and covering `codeAreas`.
+7. Docs-only edits under the docs content/templates trees (plus root `README.md` / `CHANGELOG.md`) are exempt. There is no general bypass.
+
+Dependency direction:
+
+`product vision → PRD → story → specification/ADR → implementation plan → code`
+
+Create drafts with `node <skill>/scripts/omd.mjs new <kind> --title "…" --yes`.
+Run `node <skill>/scripts/omd.mjs check` before opening an implementation PR.
+<!-- oh-my-docs:end -->
