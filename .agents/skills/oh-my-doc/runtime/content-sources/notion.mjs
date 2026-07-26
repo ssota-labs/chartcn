@@ -20,15 +20,30 @@ import {
 export function planProvision(options) {
   const root = parseNotionRoot(options.notionRoot);
   const refs = loadNotionReferences(options.skillRoot);
-  const mappings = options.mappings ?? {};
+  const strategy = refs.iaGraph.sourcesStrategy ?? 'home-toggle';
+  const homeObject = refs.iaGraph.objects.find((o) => o.role === 'home');
+  const mappings = { ...(options.mappings ?? {}) };
+
+  // home-toggle: the user-supplied root URL is pages.home — never create a separate Home page.
+  if (strategy === 'home-toggle' && homeObject && !mappings[homeObject.key]) {
+    mappings[homeObject.key] = {
+      id: root.rootPageId,
+      type: 'page',
+      parentKey: 'root',
+      url: root.rootPageUrl,
+      role: 'home',
+    };
+  }
+
   const operations = [];
   const objectsByKey = Object.fromEntries(refs.iaGraph.objects.map((o) => [o.key, o]));
 
   // 1) Create pages and databases in dependency order.
   for (const object of refs.iaGraph.objects) {
-    const dependsOn =
-      object.parent === 'root' ? [] : [`ensure:${object.parent}`];
+    const dependsOn = object.parent === 'root' ? [] : [`ensure:${object.parent}`];
     if (object.kind === 'page') {
+      const isExistingHome =
+        strategy === 'home-toggle' && (object.role === 'home' || object.existingRoot === true);
       const payload = {
         key: object.key,
         kind: 'page',
@@ -36,6 +51,7 @@ export function planProvision(options) {
         parent: object.parent,
         role: object.role ?? null,
         inlineDatabase: object.inlineDatabase ?? null,
+        ...(isExistingHome ? { existingRoot: true } : {}),
       };
       operations.push({
         id: `ensure:${object.key}`,
@@ -46,11 +62,21 @@ export function planProvision(options) {
         title: object.title,
         desiredDigest: digest(stableStringify(payload)),
         payload,
-        mcp: {
-          tool: 'notion-create-pages',
-          parentFrom: object.parent === 'root' ? 'root' : object.parent,
-          notes: 'Skip create when mapping exists and fetch(kind=page,parent) validates.',
-        },
+        mcp: isExistingHome
+          ? {
+              tool: 'notion-fetch',
+              parentFrom: 'root',
+              notes:
+                'User-supplied --notion-root IS pages.home. Map root id/url; do not create a child Home page.',
+            }
+          : {
+              tool: 'notion-create-pages',
+              parentFrom: object.parent === 'root' ? 'root' : object.parent,
+              notes:
+                strategy === 'home-toggle' && object.parent === homeObject?.key
+                  ? 'Create under pages.home first. Then body:pages.home nests these <page> blocks inside <details> (toggle). Never delete Home children with allow_deleting_content before they are nested.'
+                  : 'Skip create when mapping exists and fetch(kind=page,parent) validates.',
+            },
       });
     } else if (object.kind === 'database') {
       const schema = refs.catalogSchemas.schemas[object.schema];
@@ -102,26 +128,54 @@ export function planProvision(options) {
     }
   }
 
-  // 2) Optional root details index listing sources children (sources page is already parent).
+  // 2) Sources index: home-toggle writes a <details> on Home; legacy sources-page-parent
+  //    keeps a container page under root.
   const sourcesKey = refs.iaGraph.sourcesToggle.key;
+  const sourcesParentKey =
+    strategy === 'home-toggle' ? (homeObject?.key ?? 'pages.home') : 'root';
+  const sourcesChildren = refs.iaGraph.objects
+    .filter(
+      (o) =>
+        o.kind === 'page' &&
+        o.parent === (strategy === 'home-toggle' ? sourcesParentKey : sourcesKey) &&
+        o.role !== 'home',
+    )
+    .map((o) => o.key);
+  const toggleTitle = refs.iaGraph.sourcesToggle.title ?? '데이터 원본';
+  const toggleContent = [
+    '<details>',
+    `<summary>${toggleTitle}</summary>`,
+    ...sourcesChildren.map((key) => {
+      const child = objectsByKey[key];
+      return `\t<page url="{{${key}}}">${child?.title ?? key}</page>`;
+    }),
+    '</details>',
+  ].join('\n');
   operations.push({
     id: 'sources:root-index',
-    key: sourcesKey,
+    key: strategy === 'home-toggle' ? sourcesParentKey : sourcesKey,
     op: 'write_root_sources_index',
-    dependsOn: [`ensure:${sourcesKey}`],
-    expectedParentKey: 'root',
-    title: refs.iaGraph.sourcesToggle.title,
-    desiredDigest: digest(stableStringify({ sourcesKey, strategy: refs.iaGraph.sourcesStrategy })),
+    dependsOn:
+      strategy === 'home-toggle'
+        ? [`ensure:${sourcesParentKey}`, ...sourcesChildren.map((k) => `ensure:${k}`)]
+        : [`ensure:${sourcesKey}`],
+    expectedParentKey: strategy === 'home-toggle' ? 'root' : 'root',
+    title: toggleTitle,
+    desiredDigest: digest(stableStringify({ sourcesKey, strategy, sourcesChildren })),
     payload: {
-      strategy: refs.iaGraph.sourcesStrategy ?? 'sources-page-parent',
+      strategy,
       sourcesKey,
-      children: refs.iaGraph.objects
-        .filter((o) => o.parent === sourcesKey && o.kind === 'page')
-        .map((o) => o.key),
+      homeKey: homeObject?.key ?? 'pages.home',
+      children: sourcesChildren,
+      content: toggleContent,
     },
     mcp: {
       tool: 'notion-update-page',
-      notes: 'On handbook root, optional <details> listing managed top-level pages.',
+      command: 'replace_content',
+      notes:
+        strategy === 'home-toggle'
+          ? 'On pages.home (the user-supplied root), write a <details> toggle and nest top-level <page> children inside it. Do not create a separate sources page.'
+          : 'On handbook root, optional <details> listing managed top-level pages.',
     },
   });
 
@@ -164,37 +218,35 @@ export function planProvision(options) {
   );
 
   for (const object of refs.iaGraph.objects.filter((o) => o.kind === 'page')) {
-    if (object.role === 'sources') {
-      operations.push({
-        id: `body:${object.key}`,
-        key: object.key,
-        op: 'write_page_body',
-        dependsOn: [`ensure:${object.key}`],
-        expectedParentKey: object.parent,
-        desiredDigest: digest(`sources-body:${object.key}`),
-        payload: {
-          key: object.key,
-          template: 'sources-container',
-          content: '# 데이터 원본\nManaged handbook pages and catalogs live under this container.\n',
-        },
-        mcp: {
-          tool: 'notion-update-page',
-          command: 'replace_content',
-          notes: 'Preserve child <page> tags when replacing content.',
-        },
-      });
-      continue;
-    }
-
-    const childBlocks = [];
+    const pageChildBlocks = [];
+    const databaseChildBlocks = [];
     for (const child of refs.iaGraph.objects.filter((o) => o.parent === object.key)) {
       if (child.kind === 'page') {
-        childBlocks.push(`<page url="{{${child.key}}}">${child.title}</page>`);
+        pageChildBlocks.push(`<page url="{{${child.key}}}">${child.title}</page>`);
       } else if (child.kind === 'database') {
-        childBlocks.push(
+        databaseChildBlocks.push(
           `<database url="{{${child.key}}}" inline="true">${child.title}</database>`,
         );
       }
+    }
+
+    /** @type {string[]} */
+    let childBlocks = [...pageChildBlocks, ...databaseChildBlocks];
+    // home-toggle: nest top-level pages inside a details toggle on Home (not a sources page).
+    if (
+      strategy === 'home-toggle' &&
+      object.role === 'home' &&
+      pageChildBlocks.length > 0
+    ) {
+      childBlocks = [
+        [
+          '<details>',
+          `<summary>${toggleTitle}</summary>`,
+          ...pageChildBlocks.map((block) => `\t${block}`),
+          '</details>',
+        ].join('\n'),
+        ...databaseChildBlocks,
+      ];
     }
 
     const content = renderSidebarPageContent({
@@ -263,7 +315,7 @@ export function planProvision(options) {
     schemaVersion: '1.1',
     provider: 'notion',
     root,
-    sourcesStrategy: refs.iaGraph.sourcesStrategy ?? 'sources-page-parent',
+    sourcesStrategy: strategy,
     chrome: refs.iaGraph.chrome ?? { requiredOn: 'all-pages' },
     references: {
       iaGraph: 'references/notion-ia-graph.json',
@@ -311,7 +363,9 @@ export function validateMapping(options) {
     options.mapping?.parentKey &&
     options.expectedParentKey &&
     options.mapping.parentKey !== options.expectedParentKey &&
-    !(options.expectedParentKey === 'root' && options.mapping.parentKey === 'root')
+    !(options.expectedParentKey === 'root' && options.mapping.parentKey === 'root') &&
+    // home-toggle maps pages.home to the handbook root (parentKey root).
+    !(options.key === 'pages.home' && options.mapping.parentKey === 'root')
   ) {
     problems.push({
       code: 'mapping_conflict',

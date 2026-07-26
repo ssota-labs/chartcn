@@ -46,8 +46,23 @@ page.
 <database url="{{dbs.prds}}" inline="true">PRDs</database>
 ```
 
-## Root sources page
+## Home sources toggle
 
-Canonical strategy (`sources-page-parent`): create page **데이터 원본** under the
-handbook root and parent all top-level managed pages beneath it. Optionally also
-render a `<details>` summary on the root that lists those children.
+Canonical strategy (`home-toggle`): the user-supplied root URL **is**
+`{{pages.home}}`. Write a details toggle on Home and nest top-level managed
+pages inside it (indented children). Do not create a separate sources page or a
+child Home page.
+
+```markdown
+<details>
+<summary>데이터 원본</summary>
+	<page url="{{pages.vision}}">Vision</page>
+	<page url="{{pages.starting}}">Start here</page>
+	<page url="{{pages.workflow}}">Workflow</page>
+	<page url="{{pages.domain}}">Domain</page>
+	<page url="{{pages.planning}}">Planning</page>
+	<page url="{{pages.spec}}">Spec</page>
+	<page url="{{pages.plans}}">Plans</page>
+	<page url="{{pages.adrs}}">ADRs</page>
+</details>
+```
