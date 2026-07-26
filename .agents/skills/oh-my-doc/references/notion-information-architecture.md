@@ -2,22 +2,23 @@
 
 Path: `skills/oh-my-doc/references/` (name **`references`**, not `ref`).
 
-Machine-readable companion: `notion-ia-graph.json` (`schemaVersion` 1.1).
+Machine-readable companion: `notion-ia-graph.json` (`schemaVersion` 1.2).
 
 Catalog destinations are **pages** that embed their database **inline**. The
 navigable object is the page; the database is not a top-level sidebar target.
 
-## Sources parenting
+## Sources parenting (`home-toggle`)
 
-Managed top-level pages are parented under a real page titled **데이터 원본**
-(`toggles.sources`). Nesting `<page>` children inside a root `<details>` toggle
-materializes that parent page in Notion MCP — treat it as the canonical model
-(`sourcesStrategy: sources-page-parent`).
+The user-supplied `--notion-root` URL **is** `pages.home` (role `home`). Do not
+create a separate Home child page.
+
+Top-level managed pages are parented under Home and rendered inside a
+`<details>` toggle titled **데이터 원본** (`toggles.sources`, kind `toggle`) on
+the Home page body — not under a separate sources page.
 
 ```text
-Handbook root (user supplied)
-├── 데이터 원본 (sources page)
-│   ├── Home
+Home (= user-supplied --notion-root)
+├── <details> 데이터 원본
 │   ├── Vision
 │   ├── Start here
 │   ├── Workflow
@@ -36,8 +37,11 @@ Handbook root (user supplied)
 │   │   └── CLI
 │   ├── Plans (page → inline DB)
 │   └── ADRs (page → inline DB)
-└── (optional root details listing the same children)
+└── (sidebar chrome on Home and every managed page)
 ```
+
+Toggle children must be indented under `<details>` so Notion keeps them inside
+the toggle. Use `<page url="…">` blocks (not bare URLs).
 
 Sidebar navigation uses page mentions only — never bare URLs as the primary nav.
 Every `pages.*` object must receive the shared sidebar chrome.

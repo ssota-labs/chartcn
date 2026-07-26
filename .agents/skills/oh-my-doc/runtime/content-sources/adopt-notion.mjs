@@ -63,15 +63,31 @@ export function adoptNotionProject(options) {
       results: options.results,
     });
   } else {
+    const homeKey = 'pages.home';
+    const seedHome =
+      planned.manifest.sourcesStrategy === 'home-toggle'
+        ? {
+            [homeKey]: {
+              id: planned.manifest.root.rootPageId,
+              type: 'page',
+              parentKey: 'root',
+              url: planned.manifest.root.rootPageUrl,
+              role: 'home',
+            },
+          }
+        : {};
     provider = {
       notion: {
-        schemaVersion: '1.0',
+        schemaVersion: '1.1',
         schemaDigest: planned.manifestDigest,
         lastObservedAt: new Date().toISOString(),
         lastManifestDigest: planned.manifestDigest,
-        mappings: {},
-        pendingOperationIds: planned.manifest.operations.map((op) => op.id),
-        completedOperationIds: [],
+        mappings: seedHome,
+        pendingOperationIds: planned.manifest.operations
+          .map((op) => op.id)
+          .filter((id) => id !== `ensure:${homeKey}` || planned.manifest.sourcesStrategy !== 'home-toggle'),
+        completedOperationIds:
+          planned.manifest.sourcesStrategy === 'home-toggle' ? [`ensure:${homeKey}`] : [],
       },
     };
   }

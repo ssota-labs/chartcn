@@ -26,10 +26,16 @@ const dogfoodRoot = '3a7346da-c456-800a-85f4-cae724925f98';
 
 test('references Notion templates load from references/ (not ref/)', () => {
   const refs = loadNotionReferences(skillRoot);
-  assert.equal(refs.iaGraph.schemaVersion, '1.1');
-  assert.equal(refs.iaGraph.sourcesStrategy, 'sources-page-parent');
-  assert.ok(refs.iaGraph.objects.some((o) => o.key === 'toggles.sources'));
-  assert.ok(refs.iaGraph.objects.some((o) => o.key === 'pages.home' && o.parent === 'toggles.sources'));
+  assert.equal(refs.iaGraph.schemaVersion, '1.2');
+  assert.equal(refs.iaGraph.sourcesStrategy, 'home-toggle');
+  assert.equal(refs.iaGraph.sourcesToggle.kind, 'toggle');
+  assert.ok(!refs.iaGraph.objects.some((o) => o.key === 'toggles.sources'));
+  assert.ok(
+    refs.iaGraph.objects.some(
+      (o) => o.key === 'pages.home' && o.parent === 'root' && o.role === 'home' && o.existingRoot,
+    ),
+  );
+  assert.ok(refs.iaGraph.objects.some((o) => o.key === 'pages.vision' && o.parent === 'pages.home'));
   assert.ok(refs.iaGraph.objects.some((o) => o.key === 'pages.prds' && o.inlineDatabase === 'dbs.prds'));
   assert.ok(refs.catalogSchemas.schemas.plans.relations.some((r) => r.from === 'Specs (System model)'));
   assert.ok(refs.catalogSchemas.schemas.prds);
@@ -70,8 +76,18 @@ test('notion planProvision is deterministic and idempotent with mappings', () =>
   const first = planProvision({ skillRoot, notionRoot: dogfoodRoot });
   const second = planProvision({ skillRoot, notionRoot: dogfoodRoot });
   assert.equal(first.manifestDigest, second.manifestDigest);
+  assert.equal(first.manifest.sourcesStrategy, 'home-toggle');
   assert.ok(first.manifest.operations.length > 10);
   assert.ok(first.manifest.operations.every((op) => op.expectedParentKey));
+  const homeEnsure = first.manifest.operations.find((op) => op.id === 'ensure:pages.home');
+  assert.ok(homeEnsure);
+  assert.equal(homeEnsure.payload.existingRoot, true);
+  assert.equal(homeEnsure.mappedId, dogfoodRoot);
+  assert.equal(homeEnsure.action, 'skip_or_update');
+  assert.equal(homeEnsure.mcp.tool, 'notion-fetch');
+  const homeBody = first.manifest.operations.find((op) => op.id === 'body:pages.home');
+  assert.match(String(homeBody?.payload?.content), /<details>/);
+  assert.match(String(homeBody?.payload?.content), /<summary>데이터 원본<\/summary>/);
   const bodyOps = first.manifest.operations.filter((op) => op.op === 'write_page_body');
   assert.ok(bodyOps.length >= 19);
   assert.ok(bodyOps.every((op) => op.payload?.content || op.payload?.template));
@@ -89,9 +105,10 @@ test('notion planProvision is deterministic and idempotent with mappings', () =>
     status: /** @type {'completed'} */ ('completed'),
     object: {
       key: op.key,
-      id: `id-${op.key}`,
+      id: op.key === 'pages.home' ? dogfoodRoot : `id-${op.key}`,
       type: op.op === 'ensure_page' ? 'page' : 'database',
       parentKey: op.expectedParentKey,
+      ...(op.key === 'pages.home' ? { url: `https://www.notion.so/${dogfoodRoot.replaceAll('-', '')}` } : {}),
     },
   }));
   const provider = recordResult({
@@ -99,6 +116,7 @@ test('notion planProvision is deterministic and idempotent with mappings', () =>
     manifestDigest: first.manifestDigest,
     results,
   });
+  assert.equal(provider.notion.mappings['pages.home'].id, dogfoodRoot);
   const replay = planProvision({
     skillRoot,
     notionRoot: dogfoodRoot,
