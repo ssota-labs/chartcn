@@ -1,6 +1,6 @@
 "use client"
 
-import { Line, LineChart } from "recharts"
+import { Line, LineChart, YAxis } from "recharts"
 
 import {
   Card,
@@ -70,6 +70,18 @@ const metrics = [
   },
 ] as const
 
+/**
+ * A sparkline exists to show shape, so the axis fits the series rather than
+ * anchoring at zero — the default domain flattened these into near-straight
+ * lines. The padding keeps the extremes off the edges.
+ */
+function sparklineDomain(values: number[]): [number, number] {
+  const min = Math.min(...values)
+  const max = Math.max(...values)
+  const pad = (max - min) * 0.18 || Math.abs(max) * 0.05 || 1
+  return [min - pad, max + pad]
+}
+
 const chartConfig = {
   v: { label: "Value", color: "var(--chart-1)" },
 } satisfies ChartConfig
@@ -101,6 +113,10 @@ export function ChartMetricSparkline() {
                 data={[...metric.data]}
                 margin={{ left: 0, right: 0, top: 4, bottom: 0 }}
               >
+                <YAxis
+                  hide
+                  domain={sparklineDomain(metric.data.map((d) => d.v))}
+                />
                 <ChartTooltip
                   content={<ChartTooltipContent hideLabel />}
                   cursor={false}

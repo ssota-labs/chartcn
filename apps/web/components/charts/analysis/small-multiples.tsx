@@ -1,6 +1,6 @@
 "use client"
 
-import { Line, LineChart } from "recharts"
+import { Line, LineChart, YAxis } from "recharts"
 
 import {
   Card,
@@ -97,6 +97,18 @@ const series = [
   },
 ]
 
+/**
+ * A sparkline exists to show shape, so the axis fits the series rather than
+ * anchoring at zero — the default domain flattened these into near-straight
+ * lines. The padding keeps the extremes off the edges.
+ */
+function sparklineDomain(values: number[]): [number, number] {
+  const min = Math.min(...values)
+  const max = Math.max(...values)
+  const pad = (max - min) * 0.18 || Math.abs(max) * 0.05 || 1
+  return [min - pad, max + pad]
+}
+
 function Sparkline({
   name,
   color,
@@ -120,6 +132,7 @@ function Sparkline({
       </div>
       <ChartContainer config={config} className="h-12 w-full aspect-auto">
         <LineChart data={data} margin={{ top: 2, bottom: 2, left: 0, right: 0 }}>
+          <YAxis hide domain={sparklineDomain(data.map((d) => d.v))} />
           <ChartTooltip
             content={<ChartTooltipContent hideLabel />}
             cursor={false}

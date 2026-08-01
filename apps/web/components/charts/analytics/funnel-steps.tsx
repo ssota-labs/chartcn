@@ -16,21 +16,27 @@ import {
   type ChartConfig,
 } from "@/components/ui/chart"
 
-const chartData = [
-  { step: "Visit", value: 12400, fill: "var(--color-visit)" },
-  { step: "Signup", value: 6200, fill: "var(--color-signup)" },
-  { step: "Activate", value: 3100, fill: "var(--color-activate)" },
-  { step: "Subscribe", value: 1550, fill: "var(--color-subscribe)" },
-  { step: "Retain", value: 980, fill: "var(--color-retain)" },
+const steps = [
+  { step: "Visit", value: 12400 },
+  { step: "Signup", value: 6200 },
+  { step: "Activate", value: 3100 },
+  { step: "Subscribe", value: 1550 },
+  { step: "Retain", value: 980 },
 ]
+
+/**
+ * One hue stepping down in weight, rather than five unrelated hues. The stages
+ * are an ordered sequence, so colour should carry that order — five categorical
+ * colours read as five unrelated things.
+ */
+const chartData = steps.map((s, i) => ({
+  ...s,
+  fill: `color-mix(in oklch, var(--chart-1) ${100 - i * 14}%, var(--muted))`,
+  conversion: i === 0 ? null : Math.round((s.value / steps[i - 1].value) * 100),
+}))
 
 const chartConfig = {
   value: { label: "Users" },
-  visit: { label: "Visit", color: "var(--chart-1)" },
-  signup: { label: "Signup", color: "var(--chart-2)" },
-  activate: { label: "Activate", color: "var(--chart-3)" },
-  subscribe: { label: "Subscribe", color: "var(--chart-4)" },
-  retain: { label: "Retain", color: "var(--chart-5)" },
 } satisfies ChartConfig
 
 export function ChartFunnelSteps() {
@@ -42,7 +48,8 @@ export function ChartFunnelSteps() {
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig} className="min-h-[280px] w-full">
-          <FunnelChart accessibilityLayer>
+          {/* Room on the right for the stage name and its count. */}
+          <FunnelChart accessibilityLayer margin={{ right: 108 }}>
             <ChartTooltip
               content={<ChartTooltipContent hideLabel nameKey="step" />}
             />
@@ -51,12 +58,29 @@ export function ChartFunnelSteps() {
               data={chartData}
               nameKey="step"
               isAnimationActive
+              animationDuration={700}
+              animationEasing="ease-out"
+              // Recharts strokes segments white by default, which cuts the
+              // funnel into slabs. A card-coloured seam separates them without
+              // drawing a hard outline.
+              stroke="var(--card)"
+              strokeWidth={2}
             >
               <LabelList
                 position="right"
                 fill="var(--foreground)"
                 stroke="none"
                 dataKey="step"
+                className="text-xs font-medium"
+              />
+              <LabelList
+                position="right"
+                dataKey="value"
+                offset={64}
+                fill="var(--muted-foreground)"
+                stroke="none"
+                className="text-[11px] tabular-nums"
+                formatter={(v) => Number(v).toLocaleString()}
               />
               {chartData.map((entry) => (
                 <Cell key={entry.step} fill={entry.fill} />

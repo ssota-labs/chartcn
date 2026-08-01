@@ -1,6 +1,7 @@
 "use client"
 
-import { Sankey, Tooltip as RechartsTooltip } from "recharts"
+import * as React from "react"
+import { Sankey } from "recharts"
 
 import {
   Card,
@@ -9,7 +10,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { ChartContainer, type ChartConfig } from "@/components/ui/chart"
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+  type ChartConfig,
+} from "@/components/ui/chart"
+import { SankeyLinkShape, SankeyNodeShape } from "../sankey-parts"
 
 const chartData = {
   nodes: [
@@ -36,6 +43,8 @@ const chartConfig = {
 } satisfies ChartConfig
 
 export function ChartFlowPath() {
+  const [activeNode, setActiveNode] = React.useState<string | null>(null)
+
   return (
     <Card>
       <CardHeader>
@@ -53,11 +62,17 @@ export function ChartFlowPath() {
             nodePadding={28}
             linkCurvature={0.5}
             iterations={32}
-            margin={{ left: 12, right: 12, top: 12, bottom: 12 }}
-            node={{ fill: "var(--chart-1)", stroke: "var(--chart-1)" }}
-            link={{ stroke: "var(--chart-2)", strokeOpacity: 0.35 }}
+            // Room for the stage labels sitting outside the node bars.
+            margin={{ left: 16, right: 104, top: 16, bottom: 16 }}
+            node={
+              <SankeyNodeShape
+                activeNode={activeNode}
+                onActivate={setActiveNode}
+              />
+            }
+            link={<SankeyLinkShape activeNode={activeNode} />}
           >
-            <RechartsTooltip />
+            <ChartTooltip content={<ChartTooltipContent hideLabel />} />
           </Sankey>
         </ChartContainer>
       </CardContent>
