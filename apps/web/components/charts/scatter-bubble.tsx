@@ -49,7 +49,6 @@ export function ChartScatterBubble() {
             <Scatter
               data={chartData}
               fill="var(--color-bubble)"
-              fillOpacity={0.7}
               name="bubble"
               shape={<ScatterDot />}
               activeShape={<ScatterDot active />}

@@ -1,6 +1,5 @@
 export { ChartFunnelTemplate } from "./funnel-template"
 export { ChartAreaBrush } from "./area-brush"
-export { ChartLineBrush } from "./line-brush"
 export { ChartLineReference } from "./line-reference"
 export { ChartBarError } from "./bar-error"
 export { ChartBarDiverging } from "./bar-diverging"

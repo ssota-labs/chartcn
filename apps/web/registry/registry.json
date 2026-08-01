@@ -1483,37 +1483,6 @@
       ]
     },
     {
-      "name": "chart-extras-line-brush",
-      "type": "registry:block",
-      "title": "Line Chart \u2014 Brush Zoom",
-      "description": "Pan and zoom weekly revenue with Brush",
-      "dependencies": [
-        "recharts"
-      ],
-      "registryDependencies": [
-        "card",
-        "chart"
-      ],
-      "categories": [
-        "charts",
-        "extras"
-      ],
-      "tags": [
-        "extras",
-        "line",
-        "brush"
-      ],
-      "status": "ready",
-      "dataShape": "{ week: string, revenue: number }[]",
-      "files": [
-        {
-          "path": "components/charts/extras/line-brush.tsx",
-          "type": "registry:block",
-          "target": "components/charts/extras/line-brush.tsx"
-        }
-      ]
-    },
-    {
       "name": "chart-extras-line-reference",
       "type": "registry:block",
       "title": "Line Chart \u2014 Reference Highlights",
