@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import {
   CartesianGrid,
   ComposedChart,
@@ -51,11 +52,22 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
+/** Boxes open from the median, one category after the next. */
+const STAGGER_MS = 70
+
 /**
- * Recharts has no built-in box plot. We draw whiskers + IQR box + median
- * with a custom layer using useXAxisScale / useYAxisScale (Recharts 3.8+).
+ * Recharts has no built-in box plot. Whiskers, IQR box and median are drawn
+ * in a custom layer via useXAxisScale / useYAxisScale (Recharts 3.8+).
  */
-function BoxPlotShapes({ data }: { data: BoxStats[] }) {
+function BoxPlotShapes({
+  data,
+  active,
+  onActivate,
+}: {
+  data: BoxStats[]
+  active: string | null
+  onActivate: (category: string | null) => void
+}) {
   const xScale = useXAxisScale()
   const yScale = useYAxisScale()
 
@@ -65,7 +77,7 @@ function BoxPlotShapes({ data }: { data: BoxStats[] }) {
 
   return (
     <g>
-      {data.map((d) => {
+      {data.map((d, index) => {
         const cx = xScale(d.category, { position: "middle" })
         const yMin = yScale(d.min)
         const yQ1 = yScale(d.q1)
@@ -86,52 +98,92 @@ function BoxPlotShapes({ data }: { data: BoxStats[] }) {
 
         const boxLeft = cx - bandWidth / 2
         const boxHeight = Math.abs(yQ1 - yQ3)
+        const capHalf = bandWidth / 4
+        const faded = active != null && active !== d.category
+        const isActive = active === d.category
 
         return (
-          <g key={d.category}>
-            <line
-              x1={cx}
-              x2={cx}
-              y1={yMax}
-              y2={yMin}
-              stroke="var(--color-box)"
-              strokeWidth={1.5}
-            />
-            <line
-              x1={cx - bandWidth / 4}
-              x2={cx + bandWidth / 4}
-              y1={yMax}
-              y2={yMax}
-              stroke="var(--color-box)"
-              strokeWidth={1.5}
-            />
-            <line
-              x1={cx - bandWidth / 4}
-              x2={cx + bandWidth / 4}
-              y1={yMin}
-              y2={yMin}
-              stroke="var(--color-box)"
-              strokeWidth={1.5}
-            />
-            <rect
-              x={boxLeft}
-              y={Math.min(yQ1, yQ3)}
-              width={bandWidth}
-              height={boxHeight || 1}
-              fill="var(--color-box)"
-              fillOpacity={0.35}
-              stroke="var(--color-box)"
-              strokeWidth={1.5}
-              rx={2}
-            />
-            <line
-              x1={boxLeft}
-              x2={boxLeft + bandWidth}
-              y1={yMed}
-              y2={yMed}
-              stroke="var(--color-median)"
-              strokeWidth={2}
-            />
+          <g
+            key={d.category}
+            // Anchored on the median so the box opens outward from it,
+            // which is the value the reader is looking for first.
+            style={{
+              transformOrigin: `${cx}px ${yMed}px`,
+              animationDelay: `${index * STAGGER_MS}ms`,
+            }}
+            className="animate-in fade-in zoom-in-50 fill-mode-backwards duration-[500ms] ease-[cubic-bezier(0.23,1,0.32,1)] motion-reduce:animate-none"
+          >
+            <g
+              onMouseEnter={() => onActivate(d.category)}
+              onMouseLeave={() => onActivate(null)}
+              className="cursor-pointer transition-opacity duration-150 ease-out motion-reduce:transition-none"
+              opacity={faded ? 0.35 : 1}
+            >
+              {/* Whole-column hit area, so the thin whiskers are still reachable. */}
+              <rect
+                x={boxLeft}
+                y={Math.min(yMax, yMin)}
+                width={bandWidth}
+                height={Math.abs(yMin - yMax) || 1}
+                fill="transparent"
+              />
+              <line
+                x1={cx}
+                x2={cx}
+                y1={yMax}
+                y2={yMin}
+                stroke="var(--color-box)"
+                strokeWidth={1.5}
+                strokeLinecap="round"
+              />
+              {[yMax, yMin].map((cap) => (
+                <line
+                  key={cap}
+                  x1={cx - capHalf}
+                  x2={cx + capHalf}
+                  y1={cap}
+                  y2={cap}
+                  stroke="var(--color-box)"
+                  strokeWidth={1.5}
+                  strokeLinecap="round"
+                />
+              ))}
+              <rect
+                x={boxLeft}
+                y={Math.min(yQ1, yQ3)}
+                width={bandWidth}
+                height={boxHeight || 1}
+                fill="var(--color-box)"
+                fillOpacity={isActive ? 0.45 : 0.28}
+                stroke="var(--color-box)"
+                strokeWidth={1.5}
+                rx={3}
+                className="transition-[fill-opacity] duration-150 ease-out motion-reduce:transition-none"
+              />
+              {/* Median sits above the box fill and overhangs it, so it stays
+                  legible against the IQR band. */}
+              <line
+                x1={boxLeft - 2}
+                x2={boxLeft + bandWidth + 2}
+                y1={yMed}
+                y2={yMed}
+                stroke="var(--color-median)"
+                strokeWidth={2.5}
+                strokeLinecap="round"
+              />
+              {isActive && (
+                <text
+                  x={cx + bandWidth / 2 + 8}
+                  y={yMed}
+                  dominantBaseline="middle"
+                  stroke="var(--card)"
+                  strokeWidth={3}
+                  className="pointer-events-none fill-foreground text-[11px] font-medium tabular-nums [paint-order:stroke]"
+                >
+                  {d.median}
+                </text>
+              )}
+            </g>
           </g>
         )
       })}
@@ -140,6 +192,8 @@ function BoxPlotShapes({ data }: { data: BoxStats[] }) {
 }
 
 export function ChartBoxPlot() {
+  const [active, setActive] = React.useState<string | null>(null)
+
   return (
     <Card>
       <CardHeader>
@@ -195,7 +249,11 @@ export function ChartBoxPlot() {
               legendType="none"
               isAnimationActive={false}
             />
-            <BoxPlotShapes data={chartData} />
+            <BoxPlotShapes
+              data={chartData}
+              active={active}
+              onActivate={setActive}
+            />
           </ComposedChart>
         </ChartContainer>
       </CardContent>

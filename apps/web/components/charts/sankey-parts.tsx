@@ -66,6 +66,12 @@ export function SankeyNodeShape({
   // top of its own incoming ribbons.
   const labelX = x + width + 8
   const faded = activeNode != null && activeNode !== payload.name
+  const centerY = y + height / 2
+  const hasValue = showValue && height >= 26
+  // Two lines have to straddle the node centre. Placing each independently
+  // pushes the pair as a whole below it.
+  const nameY = hasValue ? centerY - 6 : centerY
+  const valueY = centerY + 8
 
   return (
     <g
@@ -89,7 +95,7 @@ export function SankeyNodeShape({
         />
         <text
           x={labelX}
-          y={y + height / 2 - 1}
+          y={nameY}
           dominantBaseline="middle"
           // Middle columns sit over their own ribbons; the outline keeps the
           // label readable without a backing plate.
@@ -99,10 +105,10 @@ export function SankeyNodeShape({
         >
           {payload.name}
         </text>
-        {showValue && height >= 26 && (
+        {hasValue && (
           <text
             x={labelX}
-            y={y + height / 2 + 13}
+            y={valueY}
             dominantBaseline="middle"
             stroke="var(--card)"
             strokeWidth={3}

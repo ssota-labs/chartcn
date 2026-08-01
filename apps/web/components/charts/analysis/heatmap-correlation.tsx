@@ -1,5 +1,9 @@
 "use client"
 
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
 import {
   Card,
   CardContent,
@@ -33,6 +37,8 @@ function corrColor(v: number) {
  * can approximate this, but a token-styled grid is clearer for docs demos.
  */
 export function ChartHeatmapCorrelation() {
+  const [hovered, setHovered] = React.useState<[number, number] | null>(null)
+
   return (
     <Card>
       <CardHeader>
@@ -41,14 +47,22 @@ export function ChartHeatmapCorrelation() {
       </CardHeader>
       <CardContent>
         <div className="overflow-x-auto">
-          <table className="border-separate border-spacing-1 text-xs">
+          <table
+            className="border-separate border-spacing-1 text-xs"
+            onMouseLeave={() => setHovered(null)}
+          >
             <thead>
               <tr>
                 <th className="w-16" />
-                {labels.map((l) => (
+                {labels.map((l, j) => (
                   <th
                     key={l}
-                    className="px-1 pb-1 text-center font-medium text-muted-foreground"
+                    className={cn(
+                      "px-1 pb-1 text-center font-medium transition-colors duration-150",
+                      hovered?.[1] === j
+                        ? "text-foreground"
+                        : "text-muted-foreground"
+                    )}
                   >
                     {l.slice(0, 3)}
                   </th>
@@ -58,20 +72,50 @@ export function ChartHeatmapCorrelation() {
             <tbody>
               {matrix.map((row, i) => (
                 <tr key={labels[i]}>
-                  <th className="pr-2 text-left font-medium text-muted-foreground">
+                  <th
+                    className={cn(
+                      "pr-2 text-left font-medium transition-colors duration-150",
+                      hovered?.[0] === i
+                        ? "text-foreground"
+                        : "text-muted-foreground"
+                    )}
+                  >
                     {labels[i]}
                   </th>
-                  {row.map((v, j) => (
-                    <td key={`${i}-${j}`}>
-                      <div
-                        title={`${labels[i]} × ${labels[j]}: ${v.toFixed(2)}`}
-                        className="flex size-10 items-center justify-center rounded-md text-[10px] font-medium text-foreground"
-                        style={{ background: corrColor(v) }}
-                      >
-                        {v.toFixed(2)}
-                      </div>
-                    </td>
-                  ))}
+                  {row.map((v, j) => {
+                    // A matrix is read by crossing a row with a column, so the
+                    // whole cross stays lit rather than just the cell.
+                    const inCross =
+                      hovered != null && (hovered[0] === i || hovered[1] === j)
+                    const isCell = hovered?.[0] === i && hovered?.[1] === j
+                    return (
+                      <td key={`${i}-${j}`}>
+                        <div
+                          role="button"
+                          tabIndex={0}
+                          aria-label={`${labels[i]} by ${labels[j]}: ${v.toFixed(2)}`}
+                          onMouseEnter={() => setHovered([i, j])}
+                          onFocus={() => setHovered([i, j])}
+                          onBlur={() => setHovered(null)}
+                          style={{
+                            background: corrColor(v),
+                            animationDelay: `${(i + j) * 35}ms`,
+                          }}
+                          className={cn(
+                            "flex size-10 items-center justify-center rounded-md text-[10px] font-medium tabular-nums text-foreground outline-none",
+                            "animate-in fade-in zoom-in-90 fill-mode-backwards duration-[400ms] ease-[cubic-bezier(0.23,1,0.32,1)] motion-reduce:animate-none",
+                            "transition-[scale,opacity,box-shadow] duration-150 ease-out motion-reduce:transition-none",
+                            hovered != null && !inCross && "opacity-40",
+                            isCell &&
+                              "scale-105 ring-2 ring-foreground/60 motion-reduce:scale-100",
+                            "focus-visible:ring-2 focus-visible:ring-ring"
+                          )}
+                        >
+                          {v.toFixed(2)}
+                        </div>
+                      </td>
+                    )
+                  })}
                 </tr>
               ))}
             </tbody>
