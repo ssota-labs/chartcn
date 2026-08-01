@@ -205,7 +205,8 @@ export function ChartBoxPlot() {
           <ComposedChart
             accessibilityLayer
             data={chartData}
-            margin={{ left: 12, right: 12, top: 8, bottom: 8 }}
+            // Boxes are 40 wide; without room the outer two crowd the axes.
+            margin={{ left: 12, right: 32, top: 12, bottom: 8 }}
           >
             <CartesianGrid vertical={false} />
             <XAxis
@@ -214,6 +215,9 @@ export function ChartBoxPlot() {
               tickLine={false}
               axisLine={false}
               tickMargin={8}
+              // Band centres otherwise land on the plot edges, cutting the
+              // first and last box in half.
+              padding={{ left: 28, right: 28 }}
             />
             <YAxis
               type="number"

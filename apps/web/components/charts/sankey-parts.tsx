@@ -23,8 +23,12 @@ export const SANKEY_COLORS = [
 
 /** Columns arrive in sequence, so the diagram reads left to right. */
 export const SANKEY_STAGGER_MS = 70
-/** Ribbons at rest. The guidance for flow diagrams is 0.4–0.6. */
-const LINK_OPACITY = 0.45
+/**
+ * Ribbons at rest. Guidance for flow diagrams is 0.4–0.6, and it wants to sit
+ * at the top of that: node bars are drawn at full saturation, so a fainter
+ * ribbon reads as empty next to one and the bar looks like it overhangs.
+ */
+const LINK_OPACITY = 0.6
 const LINK_OPACITY_ACTIVE = 0.75
 const LINK_OPACITY_MUTED = 0.08
 
@@ -91,6 +95,7 @@ export function SankeyNodeShape({
           height={height}
           rx={Math.min(4, width / 2)}
           fill={fill}
+          fillOpacity={0.9}
           {...(nodeStroke ? { stroke: nodeStroke, strokeWidth: 2 } : {})}
         />
         <text
