@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-radial-progress",
+  "type": "registry:block",
+  "title": "Radial Chart — Progress",
+  "description": "Percent complete ring",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "radial",
+    "polar"
+  ],
+  "tags": [
+    "radial",
+    "progress"
+  ],
+  "status": "ready",
+  "dataShape": "{ name: string, value: string, fill: string }[]",
+  "files": [
+    {
+      "path": "components/charts/radial-progress.tsx",
+      "type": "registry:block",
+      "target": "components/charts/radial-progress.tsx"
+    }
+  ]
+}

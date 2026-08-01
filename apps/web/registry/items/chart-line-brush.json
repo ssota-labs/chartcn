@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-line-brush",
+  "type": "registry:block",
+  "title": "Line Chart — Brush / Zoom",
+  "description": "Drag the brush to zoom a range",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "line"
+  ],
+  "tags": [
+    "line",
+    "brush"
+  ],
+  "status": "ready",
+  "dataShape": "see component source",
+  "files": [
+    {
+      "path": "components/charts/line-brush.tsx",
+      "type": "registry:block",
+      "target": "components/charts/line-brush.tsx"
+    }
+  ]
+}

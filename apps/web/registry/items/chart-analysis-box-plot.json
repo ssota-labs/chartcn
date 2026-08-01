@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-analysis-box-plot",
+  "type": "registry:block",
+  "title": "Box Plot",
+  "description": "Cycle time by team (hours)",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "analysis"
+  ],
+  "tags": [
+    "analysis",
+    "box",
+    "plot"
+  ],
+  "status": "ready",
+  "dataShape": "see component source",
+  "files": [
+    {
+      "path": "components/charts/analysis/box-plot.tsx",
+      "type": "registry:block",
+      "target": "components/charts/analysis/box-plot.tsx"
+    }
+  ]
+}

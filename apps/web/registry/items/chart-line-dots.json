@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-line-dots",
+  "type": "registry:block",
+  "title": "Line Chart — Dots / ActiveDot",
+  "description": "Visible dots with enlarged activeDot",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "line"
+  ],
+  "tags": [
+    "line",
+    "dots"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, revenue: number }[]",
+  "files": [
+    {
+      "path": "components/charts/line-dots.tsx",
+      "type": "registry:block",
+      "target": "components/charts/line-dots.tsx"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-radar-lines-only",
+  "type": "registry:block",
+  "title": "Radar Chart — Lines Only",
+  "description": "Stroke without fill",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "radar",
+    "polar"
+  ],
+  "tags": [
+    "radar",
+    "lines",
+    "only"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, desktop: number, mobile: number }[]",
+  "files": [
+    {
+      "path": "components/charts/radar-lines-only.tsx",
+      "type": "registry:block",
+      "target": "components/charts/radar-lines-only.tsx"
+    }
+  ]
+}

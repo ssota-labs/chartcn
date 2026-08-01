@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-pie-legend",
+  "type": "registry:block",
+  "title": "Pie Chart — Legend",
+  "description": "Legend below the pie",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "pie",
+    "polar"
+  ],
+  "tags": [
+    "pie",
+    "legend"
+  ],
+  "status": "ready",
+  "dataShape": "{ browser: string, visitors: number, fill: string }[]",
+  "files": [
+    {
+      "path": "components/charts/pie-legend.tsx",
+      "type": "registry:block",
+      "target": "components/charts/pie-legend.tsx"
+    }
+  ]
+}

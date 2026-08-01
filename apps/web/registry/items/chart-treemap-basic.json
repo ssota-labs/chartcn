@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-treemap-basic",
+  "type": "registry:block",
+  "title": "Treemap — Basic",
+  "description": "Category size by rectangle area",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "treemap"
+  ],
+  "tags": [
+    "treemap",
+    "basic"
+  ],
+  "status": "ready",
+  "dataShape": "{ name: string, children: array }[]",
+  "files": [
+    {
+      "path": "components/charts/treemap-basic.tsx",
+      "type": "registry:block",
+      "target": "components/charts/treemap-basic.tsx"
+    }
+  ]
+}

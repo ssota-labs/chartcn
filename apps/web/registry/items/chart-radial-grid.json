@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-radial-grid",
+  "type": "registry:block",
+  "title": "Radial Chart — Grid",
+  "description": "Circular polar grid behind bars",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "radial",
+    "polar"
+  ],
+  "tags": [
+    "radial",
+    "grid"
+  ],
+  "status": "ready",
+  "dataShape": "{ browser: string, visitors: number, fill: string }[]",
+  "files": [
+    {
+      "path": "components/charts/radial-grid.tsx",
+      "type": "registry:block",
+      "target": "components/charts/radial-grid.tsx"
+    }
+  ]
+}

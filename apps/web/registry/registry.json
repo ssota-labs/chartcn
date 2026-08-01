@@ -4,9 +4,655 @@
   "homepage": "https://github.com/ssota-labs/chartcn",
   "items": [
     {
+      "name": "chart-analysis-box-plot",
+      "type": "registry:block",
+      "title": "Box Plot",
+      "description": "Cycle time by team (hours)",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "analysis"
+      ],
+      "tags": [
+        "analysis",
+        "box",
+        "plot"
+      ],
+      "status": "ready",
+      "dataShape": "see component source",
+      "files": [
+        {
+          "path": "components/charts/analysis/box-plot.tsx",
+          "type": "registry:block",
+          "target": "components/charts/analysis/box-plot.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-analysis-bullet",
+      "type": "registry:block",
+      "title": "Bullet Chart",
+      "description": "KPI vs qualitative ranges + target",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "analysis"
+      ],
+      "tags": [
+        "analysis",
+        "bullet"
+      ],
+      "status": "ready",
+      "dataShape": "see component source",
+      "files": [
+        {
+          "path": "components/charts/analysis/bullet.tsx",
+          "type": "registry:block",
+          "target": "components/charts/analysis/bullet.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-analysis-heatmap-calendar",
+      "type": "registry:block",
+      "title": "Heatmap — Calendar",
+      "description": "Commit activity (last 12 weeks)",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "analysis"
+      ],
+      "tags": [
+        "analysis",
+        "heatmap",
+        "calendar"
+      ],
+      "status": "ready",
+      "dataShape": "see component source",
+      "files": [
+        {
+          "path": "components/charts/analysis/heatmap-calendar.tsx",
+          "type": "registry:block",
+          "target": "components/charts/analysis/heatmap-calendar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-analysis-heatmap-correlation",
+      "type": "registry:block",
+      "title": "Heatmap — Correlation",
+      "description": "Metric correlation matrix",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "analysis"
+      ],
+      "tags": [
+        "analysis",
+        "heatmap",
+        "correlation"
+      ],
+      "status": "ready",
+      "dataShape": "see component source",
+      "files": [
+        {
+          "path": "components/charts/analysis/heatmap-correlation.tsx",
+          "type": "registry:block",
+          "target": "components/charts/analysis/heatmap-correlation.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-analysis-histogram",
+      "type": "registry:block",
+      "title": "Histogram",
+      "description": "Request latency distribution (ms)",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "analysis"
+      ],
+      "tags": [
+        "analysis",
+        "histogram"
+      ],
+      "status": "ready",
+      "dataShape": "see component source",
+      "files": [
+        {
+          "path": "components/charts/analysis/histogram.tsx",
+          "type": "registry:block",
+          "target": "components/charts/analysis/histogram.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-analysis-pareto",
+      "type": "registry:block",
+      "title": "Pareto",
+      "description": "Error causes — bar + cumulative line",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "analysis"
+      ],
+      "tags": [
+        "analysis",
+        "pareto"
+      ],
+      "status": "ready",
+      "dataShape": "see component source",
+      "files": [
+        {
+          "path": "components/charts/analysis/pareto.tsx",
+          "type": "registry:block",
+          "target": "components/charts/analysis/pareto.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-analysis-slope",
+      "type": "registry:block",
+      "title": "Slope Chart",
+      "description": "Segment NPS — year over year",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "analysis"
+      ],
+      "tags": [
+        "analysis",
+        "slope"
+      ],
+      "status": "ready",
+      "dataShape": "{ period: string, alpha: number, beta: number, gamma: number, delta: number }[]",
+      "files": [
+        {
+          "path": "components/charts/analysis/slope.tsx",
+          "type": "registry:block",
+          "target": "components/charts/analysis/slope.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-analysis-small-multiples",
+      "type": "registry:block",
+      "title": "Small Multiples",
+      "description": "Sparkline grid — page views (7d)",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "analysis"
+      ],
+      "tags": [
+        "analysis",
+        "small",
+        "multiples"
+      ],
+      "status": "ready",
+      "dataShape": "{ title: string, data: { t: string, v: number }[] }[]",
+      "files": [
+        {
+          "path": "components/charts/analysis/small-multiples.tsx",
+          "type": "registry:block",
+          "target": "components/charts/analysis/small-multiples.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-analysis-waterfall",
+      "type": "registry:block",
+      "title": "Waterfall",
+      "description": "ARR bridge ($k)",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "analysis"
+      ],
+      "tags": [
+        "analysis",
+        "waterfall"
+      ],
+      "status": "ready",
+      "dataShape": "see component source",
+      "files": [
+        {
+          "path": "components/charts/analysis/waterfall.tsx",
+          "type": "registry:block",
+          "target": "components/charts/analysis/waterfall.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-analytics-cohort-heatmap",
+      "type": "registry:block",
+      "title": "Cohort Heatmap",
+      "description": "Signup cohort × weekly retention",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "analytics"
+      ],
+      "tags": [
+        "analytics",
+        "cohort",
+        "heatmap"
+      ],
+      "status": "ready",
+      "dataShape": "see component source",
+      "files": [
+        {
+          "path": "components/charts/analytics/cohort-heatmap.tsx",
+          "type": "registry:block",
+          "target": "components/charts/analytics/cohort-heatmap.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-analytics-conversion-dual-axis",
+      "type": "registry:block",
+      "title": "Conversion Dual-axis",
+      "description": "Volume (bars) + rate (line)",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "analytics"
+      ],
+      "tags": [
+        "analytics",
+        "conversion",
+        "dual",
+        "axis"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, conversions: number, rate: number }[]",
+      "files": [
+        {
+          "path": "components/charts/analytics/conversion-dual-axis.tsx",
+          "type": "registry:block",
+          "target": "components/charts/analytics/conversion-dual-axis.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-analytics-event-frequency",
+      "type": "registry:block",
+      "title": "Event Frequency",
+      "description": "Histogram of events per user in the last 30 days",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "analytics"
+      ],
+      "tags": [
+        "analytics",
+        "event",
+        "frequency"
+      ],
+      "status": "ready",
+      "dataShape": "{ bucket: string, users: number }[]",
+      "files": [
+        {
+          "path": "components/charts/analytics/event-frequency.tsx",
+          "type": "registry:block",
+          "target": "components/charts/analytics/event-frequency.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-analytics-flow-path",
+      "type": "registry:block",
+      "title": "Flow / Path",
+      "description": "User journey Sankey (Sankey reuse)",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "analytics"
+      ],
+      "tags": [
+        "analytics",
+        "flow",
+        "path"
+      ],
+      "status": "ready",
+      "dataShape": "see component source",
+      "files": [
+        {
+          "path": "components/charts/analytics/flow-path.tsx",
+          "type": "registry:block",
+          "target": "components/charts/analytics/flow-path.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-analytics-funnel-steps",
+      "type": "registry:block",
+      "title": "Funnel Steps",
+      "description": "Conversion and drop-off by stage",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "analytics"
+      ],
+      "tags": [
+        "analytics",
+        "funnel",
+        "steps"
+      ],
+      "status": "ready",
+      "dataShape": "{ step: string, value: number, fill: string }[]",
+      "files": [
+        {
+          "path": "components/charts/analytics/funnel-steps.tsx",
+          "type": "registry:block",
+          "target": "components/charts/analytics/funnel-steps.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-analytics-funnel-trend",
+      "type": "registry:block",
+      "title": "Funnel Trend",
+      "description": "Step conversion rate over time",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "analytics"
+      ],
+      "tags": [
+        "analytics",
+        "funnel",
+        "trend"
+      ],
+      "status": "ready",
+      "dataShape": "{ week: string, visitToSignup: number, signupToActivate: number, activateToPay: number }[]",
+      "files": [
+        {
+          "path": "components/charts/analytics/funnel-trend.tsx",
+          "type": "registry:block",
+          "target": "components/charts/analytics/funnel-trend.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-analytics-insights-line",
+      "type": "registry:block",
+      "title": "Insights Line",
+      "description": "Multi-metric event trends",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "analytics"
+      ],
+      "tags": [
+        "analytics",
+        "insights",
+        "line"
+      ],
+      "status": "ready",
+      "dataShape": "{ date: string, sessions: number, signups: number, purchases: number }[]",
+      "files": [
+        {
+          "path": "components/charts/analytics/insights-line.tsx",
+          "type": "registry:block",
+          "target": "components/charts/analytics/insights-line.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-analytics-metric-sparkline",
+      "type": "registry:block",
+      "title": "Metric + Sparkline KPI",
+      "description": "KPI tiles with trend sparkline and delta",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "analytics"
+      ],
+      "tags": [
+        "analytics",
+        "metric",
+        "sparkline"
+      ],
+      "status": "ready",
+      "dataShape": "{ title: string, data: { t: string, v: number }[] }[]",
+      "files": [
+        {
+          "path": "components/charts/analytics/metric-sparkline.tsx",
+          "type": "registry:block",
+          "target": "components/charts/analytics/metric-sparkline.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-analytics-period-comparison",
+      "type": "registry:block",
+      "title": "Period Comparison",
+      "description": "This week vs last week sessions",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "analytics"
+      ],
+      "tags": [
+        "analytics",
+        "period",
+        "comparison"
+      ],
+      "status": "ready",
+      "dataShape": "{ day: string, thisWeek: number, lastWeek: number }[]",
+      "files": [
+        {
+          "path": "components/charts/analytics/period-comparison.tsx",
+          "type": "registry:block",
+          "target": "components/charts/analytics/period-comparison.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-analytics-retention-curve",
+      "type": "registry:block",
+      "title": "Retention Curve",
+      "description": "D1 / D7 / D30 retention by plan",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "analytics"
+      ],
+      "tags": [
+        "analytics",
+        "retention",
+        "curve"
+      ],
+      "status": "ready",
+      "dataShape": "{ day: string, product: number, growth: number, enterprise: number }[]",
+      "files": [
+        {
+          "path": "components/charts/analytics/retention-curve.tsx",
+          "type": "registry:block",
+          "target": "components/charts/analytics/retention-curve.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-analytics-segment-comparison",
+      "type": "registry:block",
+      "title": "Segment Comparison",
+      "description": "Plan cohorts side-by-side",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "analytics"
+      ],
+      "tags": [
+        "analytics",
+        "segment",
+        "comparison"
+      ],
+      "status": "ready",
+      "dataShape": "{ segment: string, conversion: number, retention: number, arpu: number }[]",
+      "files": [
+        {
+          "path": "components/charts/analytics/segment-comparison.tsx",
+          "type": "registry:block",
+          "target": "components/charts/analytics/segment-comparison.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-analytics-stickiness",
+      "type": "registry:block",
+      "title": "Stickiness",
+      "description": "DAU / WAU / MAU with DAU÷MAU ratio",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "analytics"
+      ],
+      "tags": [
+        "analytics",
+        "stickiness"
+      ],
+      "status": "ready",
+      "dataShape": "{ week: string, dau: number, wau: number, mau: number, stickiness: number }[]",
+      "files": [
+        {
+          "path": "components/charts/analytics/stickiness.tsx",
+          "type": "registry:block",
+          "target": "components/charts/analytics/stickiness.tsx"
+        }
+      ]
+    },
+    {
       "name": "chart-area-basic",
       "type": "registry:block",
-      "title": "Area Chart \u2014 Basic",
+      "title": "Area Chart — Basic",
       "description": "Single-series area chart with natural curve and fill opacity.",
       "dependencies": [
         "recharts"
@@ -36,9 +682,223 @@
       ]
     },
     {
+      "name": "chart-area-clip-to-active",
+      "type": "registry:block",
+      "title": "Area Chart — Clip to Active",
+      "description": "Hover clips fill up to the active point",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "area"
+      ],
+      "tags": [
+        "area",
+        "clip",
+        "to",
+        "active"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, desktop: number }[]",
+      "files": [
+        {
+          "path": "components/charts/area-clip-to-active.tsx",
+          "type": "registry:block",
+          "target": "components/charts/area-clip-to-active.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-area-curve",
+      "type": "registry:block",
+      "title": "Area Chart — Curve Interpolation",
+      "description": "Linear / monotone / step curve types side by side",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "area"
+      ],
+      "tags": [
+        "area",
+        "curve"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, desktop: number }[]",
+      "files": [
+        {
+          "path": "components/charts/area-curve.tsx",
+          "type": "registry:block",
+          "target": "components/charts/area-curve.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-area-dual-axis",
+      "type": "registry:block",
+      "title": "Area Chart — Dual Axis",
+      "description": "Sessions vs conversion rate",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "area"
+      ],
+      "tags": [
+        "area",
+        "dual",
+        "axis"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, sessions: number, conversion: number }[]",
+      "files": [
+        {
+          "path": "components/charts/area-dual-axis.tsx",
+          "type": "registry:block",
+          "target": "components/charts/area-dual-axis.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-area-gradient",
+      "type": "registry:block",
+      "title": "Area Chart — Gradient Fill",
+      "description": "Opacity + linearGradient fill",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "area"
+      ],
+      "tags": [
+        "area",
+        "gradient"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, desktop: number }[]",
+      "files": [
+        {
+          "path": "components/charts/area-gradient.tsx",
+          "type": "registry:block",
+          "target": "components/charts/area-gradient.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-area-linger",
+      "type": "registry:block",
+      "title": "Area Chart — Linger",
+      "description": "Active highlight lingers after mouse leave",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "area"
+      ],
+      "tags": [
+        "area",
+        "linger"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, desktop: number }[]",
+      "files": [
+        {
+          "path": "components/charts/area-linger.tsx",
+          "type": "registry:block",
+          "target": "components/charts/area-linger.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-area-multi",
+      "type": "registry:block",
+      "title": "Area Chart — Multi-series",
+      "description": "Overlapping device sessions",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "area"
+      ],
+      "tags": [
+        "area",
+        "multi"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, desktop: number, mobile: number, tablet: number }[]",
+      "files": [
+        {
+          "path": "components/charts/area-multi.tsx",
+          "type": "registry:block",
+          "target": "components/charts/area-multi.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-area-stacked-expand",
+      "type": "registry:block",
+      "title": "Area Chart — Stacked Expand (100%)",
+      "description": "Share of traffic by channel",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "area"
+      ],
+      "tags": [
+        "area",
+        "stacked",
+        "expand"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, organic: number, paid: number, referral: number }[]",
+      "files": [
+        {
+          "path": "components/charts/area-stacked-expand.tsx",
+          "type": "registry:block",
+          "target": "components/charts/area-stacked-expand.tsx"
+        }
+      ]
+    },
+    {
       "name": "chart-area-stacked",
       "type": "registry:block",
-      "title": "Area Chart \u2014 Stacked",
+      "title": "Area Chart — Stacked",
       "description": "Multi-series stacked area chart for composition over time.",
       "dependencies": [
         "recharts"
@@ -68,9 +928,71 @@
       ]
     },
     {
+      "name": "chart-area-with-line",
+      "type": "registry:block",
+      "title": "Area Chart — With Line Overlay",
+      "description": "Area fill with trend line",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "area"
+      ],
+      "tags": [
+        "area",
+        "with",
+        "line"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, visitors: number, trend: number }[]",
+      "files": [
+        {
+          "path": "components/charts/area-with-line.tsx",
+          "type": "registry:block",
+          "target": "components/charts/area-with-line.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-bar-area-combo",
+      "type": "registry:block",
+      "title": "Bar Chart — Area + Bar Combo",
+      "description": "Forecast area under sales bars",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "bar"
+      ],
+      "tags": [
+        "bar",
+        "area",
+        "combo"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, sales: number, forecast: number }[]",
+      "files": [
+        {
+          "path": "components/charts/bar-area-combo.tsx",
+          "type": "registry:block",
+          "target": "components/charts/bar-area-combo.tsx"
+        }
+      ]
+    },
+    {
       "name": "chart-bar-basic",
       "type": "registry:block",
-      "title": "Bar Chart \u2014 Basic",
+      "title": "Bar Chart — Basic",
       "description": "Single-series vertical bar chart.",
       "dependencies": [
         "recharts"
@@ -100,9 +1022,101 @@
       ]
     },
     {
+      "name": "chart-bar-cursor",
+      "type": "registry:block",
+      "title": "Bar Chart — Cursor Band",
+      "description": "Cursor band + bar highlight",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "bar"
+      ],
+      "tags": [
+        "bar",
+        "cursor"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, sales: number }[]",
+      "files": [
+        {
+          "path": "components/charts/bar-cursor.tsx",
+          "type": "registry:block",
+          "target": "components/charts/bar-cursor.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-bar-custom-tooltip",
+      "type": "registry:block",
+      "title": "Bar Chart — Custom Tooltip",
+      "description": "Revenue, orders, and AOV",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "bar"
+      ],
+      "tags": [
+        "bar",
+        "custom",
+        "tooltip"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, sales: number, orders: number }[]",
+      "files": [
+        {
+          "path": "components/charts/bar-custom-tooltip.tsx",
+          "type": "registry:block",
+          "target": "components/charts/bar-custom-tooltip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-bar-dual-axis",
+      "type": "registry:block",
+      "title": "Bar Chart — Dual Axis",
+      "description": "Revenue bars + margin line",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "bar"
+      ],
+      "tags": [
+        "bar",
+        "dual",
+        "axis"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, revenue: number, margin: number }[]",
+      "files": [
+        {
+          "path": "components/charts/bar-dual-axis.tsx",
+          "type": "registry:block",
+          "target": "components/charts/bar-dual-axis.tsx"
+        }
+      ]
+    },
+    {
       "name": "chart-bar-grouped",
       "type": "registry:block",
-      "title": "Bar Chart \u2014 Grouped",
+      "title": "Bar Chart — Grouped",
       "description": "Grouped multi-series bar chart for side-by-side comparison.",
       "dependencies": [
         "recharts"
@@ -132,9 +1146,796 @@
       ]
     },
     {
+      "name": "chart-bar-mixed",
+      "type": "registry:block",
+      "title": "Bar Chart — Mixed Bar + Line",
+      "description": "Sales vs target line",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "bar"
+      ],
+      "tags": [
+        "bar",
+        "mixed"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, sales: number, target: number }[]",
+      "files": [
+        {
+          "path": "components/charts/bar-mixed.tsx",
+          "type": "registry:block",
+          "target": "components/charts/bar-mixed.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-bar-reference",
+      "type": "registry:block",
+      "title": "Bar Chart — Reference Line",
+      "description": "Goal annotation via ReferenceLine",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "bar"
+      ],
+      "tags": [
+        "bar",
+        "reference"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, sales: number }[]",
+      "files": [
+        {
+          "path": "components/charts/bar-reference.tsx",
+          "type": "registry:block",
+          "target": "components/charts/bar-reference.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-bar-stacked-expand",
+      "type": "registry:block",
+      "title": "Bar Chart — Stacked Expand (100%)",
+      "description": "Device share by month",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "bar"
+      ],
+      "tags": [
+        "bar",
+        "stacked",
+        "expand"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, desktop: number, mobile: number, tablet: number }[]",
+      "files": [
+        {
+          "path": "components/charts/bar-stacked-expand.tsx",
+          "type": "registry:block",
+          "target": "components/charts/bar-stacked-expand.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-bar-stacked",
+      "type": "registry:block",
+      "title": "Bar Chart — Stacked",
+      "description": "Desktop + mobile sessions",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "bar"
+      ],
+      "tags": [
+        "bar",
+        "stacked"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, desktop: number, mobile: number }[]",
+      "files": [
+        {
+          "path": "components/charts/bar-stacked.tsx",
+          "type": "registry:block",
+          "target": "components/charts/bar-stacked.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-bar-styling",
+      "type": "registry:block",
+      "title": "Bar Chart — Styling",
+      "description": "Radius + active/inactive opacity",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "bar"
+      ],
+      "tags": [
+        "bar",
+        "styling"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, sales: number }[]",
+      "files": [
+        {
+          "path": "components/charts/bar-styling.tsx",
+          "type": "registry:block",
+          "target": "components/charts/bar-styling.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-extras-area-brush",
+      "type": "registry:block",
+      "title": "Area Chart — Brush Zoom",
+      "description": "Drag the brush to zoom a time range",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "extras"
+      ],
+      "tags": [
+        "extras",
+        "area",
+        "brush"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, visitors: number }[]",
+      "files": [
+        {
+          "path": "components/charts/extras/area-brush.tsx",
+          "type": "registry:block",
+          "target": "components/charts/extras/area-brush.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-extras-bar-diverging",
+      "type": "registry:block",
+      "title": "Bar Chart — Diverging",
+      "description": "Positive / negative variance from plan",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "extras"
+      ],
+      "tags": [
+        "extras",
+        "bar",
+        "diverging"
+      ],
+      "status": "ready",
+      "dataShape": "{ region: string, delta: number }[]",
+      "files": [
+        {
+          "path": "components/charts/extras/bar-diverging.tsx",
+          "type": "registry:block",
+          "target": "components/charts/extras/bar-diverging.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-extras-bar-error",
+      "type": "registry:block",
+      "title": "Bar Chart — ErrorBar",
+      "description": "Symmetric and asymmetric error whiskers on bars",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "extras"
+      ],
+      "tags": [
+        "extras",
+        "bar",
+        "error"
+      ],
+      "status": "ready",
+      "dataShape": "{ cohort: string, conversion: number, error: number }[]",
+      "files": [
+        {
+          "path": "components/charts/extras/bar-error.tsx",
+          "type": "registry:block",
+          "target": "components/charts/extras/bar-error.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-extras-bar-horizontal",
+      "type": "registry:block",
+      "title": "Bar Chart — Horizontal",
+      "description": "Category ranking with vertical layout",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "extras"
+      ],
+      "tags": [
+        "extras",
+        "bar",
+        "horizontal"
+      ],
+      "status": "ready",
+      "dataShape": "{ channel: string, leads: number }[]",
+      "files": [
+        {
+          "path": "components/charts/extras/bar-horizontal.tsx",
+          "type": "registry:block",
+          "target": "components/charts/extras/bar-horizontal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-extras-bar-range",
+      "type": "registry:block",
+      "title": "Bar Chart — Range",
+      "description": "Low–high interval bars via `[min, max]`",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "extras"
+      ],
+      "tags": [
+        "extras",
+        "bar",
+        "range"
+      ],
+      "status": "ready",
+      "dataShape": "{ day: string, range: array }[]",
+      "files": [
+        {
+          "path": "components/charts/extras/bar-range.tsx",
+          "type": "registry:block",
+          "target": "components/charts/extras/bar-range.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-extras-funnel-template",
+      "type": "registry:block",
+      "title": "Funnel Chart — Template",
+      "description": "Polished FunnelChart leftover (distinct from analytics funnel steps)",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "extras"
+      ],
+      "tags": [
+        "extras",
+        "funnel",
+        "template"
+      ],
+      "status": "ready",
+      "dataShape": "{ step: string, value: number, fill: string }[]",
+      "files": [
+        {
+          "path": "components/charts/extras/funnel-template.tsx",
+          "type": "registry:block",
+          "target": "components/charts/extras/funnel-template.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-extras-line-brush",
+      "type": "registry:block",
+      "title": "Line Chart — Brush Zoom",
+      "description": "Pan and zoom weekly revenue with Brush",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "extras"
+      ],
+      "tags": [
+        "extras",
+        "line",
+        "brush"
+      ],
+      "status": "ready",
+      "dataShape": "{ week: string, revenue: number }[]",
+      "files": [
+        {
+          "path": "components/charts/extras/line-brush.tsx",
+          "type": "registry:block",
+          "target": "components/charts/extras/line-brush.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-extras-line-reference",
+      "type": "registry:block",
+      "title": "Line Chart — Reference Highlights",
+      "description": "ReferenceArea + ReferenceDot + ReferenceLine for event callouts",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "extras"
+      ],
+      "tags": [
+        "extras",
+        "line",
+        "reference"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, sessions: number }[]",
+      "files": [
+        {
+          "path": "components/charts/extras/line-reference.tsx",
+          "type": "registry:block",
+          "target": "components/charts/extras/line-reference.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-extras-scatter-error",
+      "type": "registry:block",
+      "title": "Scatter Chart — ErrorBar",
+      "description": "Bidirectional x/y error whiskers on points",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "extras"
+      ],
+      "tags": [
+        "extras",
+        "scatter",
+        "error"
+      ],
+      "status": "ready",
+      "dataShape": "{ x: number, y: number, errorX: number, errorY: number }[]",
+      "files": [
+        {
+          "path": "components/charts/extras/scatter-error.tsx",
+          "type": "registry:block",
+          "target": "components/charts/extras/scatter-error.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-finance-bollinger",
+      "type": "registry:block",
+      "title": "Bollinger bands",
+      "description": "Close + SMA20 ± 2σ band",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "finance"
+      ],
+      "tags": [
+        "finance",
+        "bollinger"
+      ],
+      "status": "ready",
+      "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] — derived from ohlc-data.ts",
+      "files": [
+        {
+          "path": "components/charts/finance/bollinger.tsx",
+          "type": "registry:block",
+          "target": "components/charts/finance/bollinger.tsx"
+        },
+        {
+          "path": "components/charts/finance/ohlc-data.ts",
+          "type": "registry:lib",
+          "target": "components/charts/finance/ohlc-data.ts"
+        }
+      ]
+    },
+    {
+      "name": "chart-finance-candlestick",
+      "type": "registry:block",
+      "title": "OHLC / Candlestick",
+      "description": "Synthetic daily candles (custom shape)",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "finance"
+      ],
+      "tags": [
+        "finance",
+        "candlestick"
+      ],
+      "status": "ready",
+      "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] — derived from ohlc-data.ts",
+      "files": [
+        {
+          "path": "components/charts/finance/candlestick.tsx",
+          "type": "registry:block",
+          "target": "components/charts/finance/candlestick.tsx"
+        },
+        {
+          "path": "components/charts/finance/ohlc-data.ts",
+          "type": "registry:lib",
+          "target": "components/charts/finance/ohlc-data.ts"
+        }
+      ]
+    },
+    {
+      "name": "chart-finance-drawdown",
+      "type": "registry:block",
+      "title": "Drawdown",
+      "description": "Underwater equity from running peak",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "finance"
+      ],
+      "tags": [
+        "finance",
+        "drawdown"
+      ],
+      "status": "ready",
+      "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] — derived from ohlc-data.ts",
+      "files": [
+        {
+          "path": "components/charts/finance/drawdown.tsx",
+          "type": "registry:block",
+          "target": "components/charts/finance/drawdown.tsx"
+        },
+        {
+          "path": "components/charts/finance/ohlc-data.ts",
+          "type": "registry:lib",
+          "target": "components/charts/finance/ohlc-data.ts"
+        }
+      ]
+    },
+    {
+      "name": "chart-finance-high-low",
+      "type": "registry:block",
+      "title": "High–low range",
+      "description": "Daily range band with close overlay",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "finance"
+      ],
+      "tags": [
+        "finance",
+        "high",
+        "low"
+      ],
+      "status": "ready",
+      "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] — derived from ohlc-data.ts",
+      "files": [
+        {
+          "path": "components/charts/finance/high-low.tsx",
+          "type": "registry:block",
+          "target": "components/charts/finance/high-low.tsx"
+        },
+        {
+          "path": "components/charts/finance/ohlc-data.ts",
+          "type": "registry:lib",
+          "target": "components/charts/finance/ohlc-data.ts"
+        }
+      ]
+    },
+    {
+      "name": "chart-finance-macd-rsi",
+      "type": "registry:block",
+      "title": "MACD / RSI synced panels",
+      "description": "Shared syncId for tooltip sync across MACD and RSI panels",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "finance"
+      ],
+      "tags": [
+        "finance",
+        "macd",
+        "rsi"
+      ],
+      "status": "ready",
+      "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] — derived from ohlc-data.ts",
+      "files": [
+        {
+          "path": "components/charts/finance/macd-rsi.tsx",
+          "type": "registry:block",
+          "target": "components/charts/finance/macd-rsi.tsx"
+        },
+        {
+          "path": "components/charts/finance/ohlc-data.ts",
+          "type": "registry:lib",
+          "target": "components/charts/finance/ohlc-data.ts"
+        }
+      ]
+    },
+    {
+      "name": "chart-finance-moving-average",
+      "type": "registry:block",
+      "title": "Moving average overlay",
+      "description": "Candles with MA10 / MA20",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "finance"
+      ],
+      "tags": [
+        "finance",
+        "moving",
+        "average"
+      ],
+      "status": "ready",
+      "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] — derived from ohlc-data.ts",
+      "files": [
+        {
+          "path": "components/charts/finance/moving-average.tsx",
+          "type": "registry:block",
+          "target": "components/charts/finance/moving-average.tsx"
+        },
+        {
+          "path": "components/charts/finance/ohlc-data.ts",
+          "type": "registry:lib",
+          "target": "components/charts/finance/ohlc-data.ts"
+        }
+      ]
+    },
+    {
+      "name": "chart-finance-volume",
+      "type": "registry:block",
+      "title": "Volume under price",
+      "description": "Candles + volume panel (dual axis)",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "finance"
+      ],
+      "tags": [
+        "finance",
+        "volume"
+      ],
+      "status": "ready",
+      "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] — derived from ohlc-data.ts",
+      "files": [
+        {
+          "path": "components/charts/finance/volume.tsx",
+          "type": "registry:block",
+          "target": "components/charts/finance/volume.tsx"
+        },
+        {
+          "path": "components/charts/finance/ohlc-data.ts",
+          "type": "registry:lib",
+          "target": "components/charts/finance/ohlc-data.ts"
+        }
+      ]
+    },
+    {
+      "name": "chart-geo-choropleth",
+      "type": "registry:block",
+      "title": "Geo — Choropleth Basic",
+      "description": "d3-geo path + value coloring",
+      "dependencies": [
+        "recharts",
+        "d3-geo"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "geo"
+      ],
+      "tags": [
+        "geo",
+        "choropleth"
+      ],
+      "status": "ready",
+      "dataShape": "GeoJSON FeatureCollection regions + { id: string, value: number }[] — see geo-data.ts",
+      "files": [
+        {
+          "path": "components/charts/geo-choropleth.tsx",
+          "type": "registry:block",
+          "target": "components/charts/geo-choropleth.tsx"
+        },
+        {
+          "path": "components/charts/geo-data.ts",
+          "type": "registry:lib",
+          "target": "components/charts/geo-data.ts"
+        }
+      ]
+    },
+    {
+      "name": "chart-geo-drilldown",
+      "type": "registry:block",
+      "title": "Geo — Drill-down + Breadcrumb",
+      "description": "Click a region to zoom into subregions",
+      "dependencies": [
+        "recharts",
+        "d3-geo"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart",
+        "button"
+      ],
+      "categories": [
+        "charts",
+        "geo"
+      ],
+      "tags": [
+        "geo",
+        "drilldown"
+      ],
+      "status": "ready",
+      "dataShape": "GeoJSON FeatureCollection regions + { id: string, value: number }[] — see geo-data.ts",
+      "files": [
+        {
+          "path": "components/charts/geo-drilldown.tsx",
+          "type": "registry:block",
+          "target": "components/charts/geo-drilldown.tsx"
+        },
+        {
+          "path": "components/charts/geo-data.ts",
+          "type": "registry:lib",
+          "target": "components/charts/geo-data.ts"
+        }
+      ]
+    },
+    {
+      "name": "chart-geo-points",
+      "type": "registry:block",
+      "title": "Geo — Point Layer",
+      "description": "Facilities overlaid on choropleth base",
+      "dependencies": [
+        "recharts",
+        "d3-geo"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "geo"
+      ],
+      "tags": [
+        "geo",
+        "points"
+      ],
+      "status": "ready",
+      "dataShape": "GeoJSON FeatureCollection regions + { id: string, value: number }[] — see geo-data.ts",
+      "files": [
+        {
+          "path": "components/charts/geo-points.tsx",
+          "type": "registry:block",
+          "target": "components/charts/geo-points.tsx"
+        },
+        {
+          "path": "components/charts/geo-data.ts",
+          "type": "registry:lib",
+          "target": "components/charts/geo-data.ts"
+        }
+      ]
+    },
+    {
       "name": "chart-line-basic",
       "type": "registry:block",
-      "title": "Line Chart \u2014 Basic",
+      "title": "Line Chart — Basic",
       "description": "Single-series line chart with natural curve.",
       "dependencies": [
         "recharts"
@@ -164,9 +1965,252 @@
       ]
     },
     {
+      "name": "chart-line-brush",
+      "type": "registry:block",
+      "title": "Line Chart — Brush / Zoom",
+      "description": "Drag the brush to zoom a range",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "line"
+      ],
+      "tags": [
+        "line",
+        "brush"
+      ],
+      "status": "ready",
+      "dataShape": "see component source",
+      "files": [
+        {
+          "path": "components/charts/line-brush.tsx",
+          "type": "registry:block",
+          "target": "components/charts/line-brush.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-line-closest-series",
+      "type": "registry:block",
+      "title": "Line Chart — Closest Series Highlight",
+      "description": "Hover dims non-active series",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "line"
+      ],
+      "tags": [
+        "line",
+        "closest",
+        "series"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, desktop: number, mobile: number, tablet: number }[]",
+      "files": [
+        {
+          "path": "components/charts/line-closest-series.tsx",
+          "type": "registry:block",
+          "target": "components/charts/line-closest-series.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-line-crosshair",
+      "type": "registry:block",
+      "title": "Line Chart — Crosshair + Axis Labels",
+      "description": "Crosshair cursor with labeled axes",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "line"
+      ],
+      "tags": [
+        "line",
+        "crosshair"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, revenue: number }[]",
+      "files": [
+        {
+          "path": "components/charts/line-crosshair.tsx",
+          "type": "registry:block",
+          "target": "components/charts/line-crosshair.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-line-curve",
+      "type": "registry:block",
+      "title": "Line Chart — Curve Interpolation",
+      "description": "Linear / monotone / step curve types side by side",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "line"
+      ],
+      "tags": [
+        "line",
+        "curve"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, revenue: number }[]",
+      "files": [
+        {
+          "path": "components/charts/line-curve.tsx",
+          "type": "registry:block",
+          "target": "components/charts/line-curve.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-line-custom-tooltip",
+      "type": "registry:block",
+      "title": "Line Chart — Custom Tooltip",
+      "description": "Revenue with MoM growth",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "line"
+      ],
+      "tags": [
+        "line",
+        "custom",
+        "tooltip"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, revenue: number, growth: number }[]",
+      "files": [
+        {
+          "path": "components/charts/line-custom-tooltip.tsx",
+          "type": "registry:block",
+          "target": "components/charts/line-custom-tooltip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-line-dots",
+      "type": "registry:block",
+      "title": "Line Chart — Dots / ActiveDot",
+      "description": "Visible dots with enlarged activeDot",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "line"
+      ],
+      "tags": [
+        "line",
+        "dots"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, revenue: number }[]",
+      "files": [
+        {
+          "path": "components/charts/line-dots.tsx",
+          "type": "registry:block",
+          "target": "components/charts/line-dots.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-line-dual-axis",
+      "type": "registry:block",
+      "title": "Line Chart — Dual Axis",
+      "description": "Users vs revenue",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "line"
+      ],
+      "tags": [
+        "line",
+        "dual",
+        "axis"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, users: number, revenue: number }[]",
+      "files": [
+        {
+          "path": "components/charts/line-dual-axis.tsx",
+          "type": "registry:block",
+          "target": "components/charts/line-dual-axis.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-line-inverted",
+      "type": "registry:block",
+      "title": "Line Chart — Inverted Axis",
+      "description": "Lower rank is better (Y reversed)",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "line"
+      ],
+      "tags": [
+        "line",
+        "inverted"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, rank: number }[]",
+      "files": [
+        {
+          "path": "components/charts/line-inverted.tsx",
+          "type": "registry:block",
+          "target": "components/charts/line-inverted.tsx"
+        }
+      ]
+    },
+    {
       "name": "chart-line-multi",
       "type": "registry:block",
-      "title": "Line Chart \u2014 Multi-series",
+      "title": "Line Chart — Multi-series",
       "description": "Multi-series line chart for comparing trends.",
       "dependencies": [
         "recharts"
@@ -196,10 +2240,10 @@
       ]
     },
     {
-      "name": "chart-scatter-basic",
+      "name": "chart-line-synced",
       "type": "registry:block",
-      "title": "Scatter Chart \u2014 Basic",
-      "description": "Stub \u2014 planned scatter plot for correlation / distribution.",
+      "title": "Line Chart — Synced Multi-panel",
+      "description": "Shared hover index across panels",
       "dependencies": [
         "recharts"
       ],
@@ -209,22 +2253,27 @@
       ],
       "categories": [
         "charts",
-        "scatter"
+        "line"
       ],
       "tags": [
-        "scatter",
-        "correlation",
-        "planned"
+        "line",
+        "synced"
       ],
-      "status": "stub",
-      "dataShape": "{ x: number, y: number }[]",
-      "files": []
+      "status": "ready",
+      "dataShape": "{ month: string, sessions: number, revenue: number }[]",
+      "files": [
+        {
+          "path": "components/charts/line-synced.tsx",
+          "type": "registry:block",
+          "target": "components/charts/line-synced.tsx"
+        }
+      ]
     },
     {
       "name": "chart-pie-basic",
       "type": "registry:block",
-      "title": "Pie Chart \u2014 Basic",
-      "description": "Stub \u2014 planned pie / donut chart for part-to-whole.",
+      "title": "Pie Chart — Basic",
+      "description": "Browser share",
       "dependencies": [
         "recharts"
       ],
@@ -239,19 +2288,23 @@
       ],
       "tags": [
         "pie",
-        "donut",
-        "part-to-whole",
-        "planned"
+        "basic"
       ],
-      "status": "stub",
-      "dataShape": "{ name: string, value: number }[]",
-      "files": []
+      "status": "ready",
+      "dataShape": "{ browser: string, visitors: number, fill: string }[]",
+      "files": [
+        {
+          "path": "components/charts/pie-basic.tsx",
+          "type": "registry:block",
+          "target": "components/charts/pie-basic.tsx"
+        }
+      ]
     },
     {
-      "name": "chart-analytics-cohort-heatmap",
+      "name": "chart-pie-center-kpi",
       "type": "registry:block",
-      "title": "Analytics \u2014 Cohort Heatmap",
-      "description": "Stub \u2014 planned cohort retention heatmap (Mixpanel-style).",
+      "title": "Pie Chart — Center KPI",
+      "description": "Total visitors in the donut hole",
       "dependencies": [
         "recharts"
       ],
@@ -261,24 +2314,29 @@
       ],
       "categories": [
         "charts",
-        "analytics"
+        "pie",
+        "polar"
       ],
       "tags": [
-        "cohort",
-        "heatmap",
-        "retention",
-        "analytics",
-        "planned"
+        "pie",
+        "center",
+        "kpi"
       ],
-      "status": "stub",
-      "dataShape": "{ cohort: string, period: number, retention: number }[]",
-      "files": []
+      "status": "ready",
+      "dataShape": "{ browser: string, visitors: number, fill: string }[]",
+      "files": [
+        {
+          "path": "components/charts/pie-center-kpi.tsx",
+          "type": "registry:block",
+          "target": "components/charts/pie-center-kpi.tsx"
+        }
+      ]
     },
     {
-      "name": "chart-analytics-funnel",
+      "name": "chart-pie-donut",
       "type": "registry:block",
-      "title": "Analytics \u2014 Funnel",
-      "description": "Stub \u2014 planned funnel steps chart for conversion analysis.",
+      "title": "Pie Chart — Donut",
+      "description": "Browser share with inner radius",
       "dependencies": [
         "recharts"
       ],
@@ -288,23 +2346,60 @@
       ],
       "categories": [
         "charts",
-        "analytics"
+        "pie",
+        "polar"
       ],
       "tags": [
-        "funnel",
-        "conversion",
-        "analytics",
-        "planned"
+        "pie",
+        "donut"
       ],
-      "status": "stub",
-      "dataShape": "{ step: string, value: number }[]",
-      "files": []
+      "status": "ready",
+      "dataShape": "{ browser: string, visitors: number, fill: string }[]",
+      "files": [
+        {
+          "path": "components/charts/pie-donut.tsx",
+          "type": "registry:block",
+          "target": "components/charts/pie-donut.tsx"
+        }
+      ]
     },
     {
-      "name": "chart-finance-candlestick",
+      "name": "chart-pie-interactive",
       "type": "registry:block",
-      "title": "Finance \u2014 Candlestick",
-      "description": "Stub \u2014 planned OHLC / candlestick chart (custom shape).",
+      "title": "Pie Chart — Interactive",
+      "description": "Active sector highlight",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart",
+        "button"
+      ],
+      "categories": [
+        "charts",
+        "pie",
+        "polar"
+      ],
+      "tags": [
+        "pie",
+        "interactive"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, desktop: number, fill: string }[]",
+      "files": [
+        {
+          "path": "components/charts/pie-interactive.tsx",
+          "type": "registry:block",
+          "target": "components/charts/pie-interactive.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-pie-labeled",
+      "type": "registry:block",
+      "title": "Pie Chart — Labeled",
+      "description": "Sector labels outside the pie",
       "dependencies": [
         "recharts"
       ],
@@ -314,24 +2409,28 @@
       ],
       "categories": [
         "charts",
-        "finance"
+        "pie",
+        "polar"
       ],
       "tags": [
-        "candlestick",
-        "ohlc",
-        "markets",
-        "finance",
-        "planned"
+        "pie",
+        "labeled"
       ],
-      "status": "stub",
-      "dataShape": "{ date: string, open: number, high: number, low: number, close: number }[]",
-      "files": []
+      "status": "ready",
+      "dataShape": "{ browser: string, visitors: number, fill: string }[]",
+      "files": [
+        {
+          "path": "components/charts/pie-labeled.tsx",
+          "type": "registry:block",
+          "target": "components/charts/pie-labeled.tsx"
+        }
+      ]
     },
     {
-      "name": "chart-extras-waterfall",
+      "name": "chart-pie-legend",
       "type": "registry:block",
-      "title": "Extras \u2014 Waterfall",
-      "description": "Stub \u2014 planned waterfall chart for incremental changes.",
+      "title": "Pie Chart — Legend",
+      "description": "Legend below the pie",
       "dependencies": [
         "recharts"
       ],
@@ -341,17 +2440,1225 @@
       ],
       "categories": [
         "charts",
-        "extras",
-        "analysis"
+        "pie",
+        "polar"
       ],
       "tags": [
-        "waterfall",
-        "analysis",
-        "planned"
+        "pie",
+        "legend"
       ],
-      "status": "stub",
-      "dataShape": "{ name: string, value: number, type?: 'increase' | 'decrease' | 'total' }[]",
-      "files": []
+      "status": "ready",
+      "dataShape": "{ browser: string, visitors: number, fill: string }[]",
+      "files": [
+        {
+          "path": "components/charts/pie-legend.tsx",
+          "type": "registry:block",
+          "target": "components/charts/pie-legend.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-pie-nested",
+      "type": "registry:block",
+      "title": "Pie Chart — Nested",
+      "description": "Two-level desktop + mobile rings",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "pie",
+        "polar"
+      ],
+      "tags": [
+        "pie",
+        "nested"
+      ],
+      "status": "ready",
+      "dataShape": "see component source",
+      "files": [
+        {
+          "path": "components/charts/pie-nested.tsx",
+          "type": "registry:block",
+          "target": "components/charts/pie-nested.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-pie-tooltip-absolute",
+      "type": "registry:block",
+      "title": "Pie Chart — Absolute Tooltip",
+      "description": "Raw visitor counts in tooltip",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "pie",
+        "polar"
+      ],
+      "tags": [
+        "pie",
+        "tooltip",
+        "absolute"
+      ],
+      "status": "ready",
+      "dataShape": "{ browser: string, visitors: number, fill: string }[]",
+      "files": [
+        {
+          "path": "components/charts/pie-tooltip-absolute.tsx",
+          "type": "registry:block",
+          "target": "components/charts/pie-tooltip-absolute.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-pie-tooltip-percent",
+      "type": "registry:block",
+      "title": "Pie Chart — Percent Tooltip",
+      "description": "Share of total as percentage",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "pie",
+        "polar"
+      ],
+      "tags": [
+        "pie",
+        "tooltip",
+        "percent"
+      ],
+      "status": "ready",
+      "dataShape": "{ browser: string, visitors: number, fill: string }[]",
+      "files": [
+        {
+          "path": "components/charts/pie-tooltip-percent.tsx",
+          "type": "registry:block",
+          "target": "components/charts/pie-tooltip-percent.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-radar-basic",
+      "type": "registry:block",
+      "title": "Radar Chart — Basic",
+      "description": "Single series visitors",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "radar",
+        "polar"
+      ],
+      "tags": [
+        "radar",
+        "basic"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, desktop: number }[]",
+      "files": [
+        {
+          "path": "components/charts/radar-basic.tsx",
+          "type": "registry:block",
+          "target": "components/charts/radar-basic.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-radar-dots",
+      "type": "registry:block",
+      "title": "Radar Chart — Dots",
+      "description": "Vertex markers on the series",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "radar",
+        "polar"
+      ],
+      "tags": [
+        "radar",
+        "dots"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, desktop: number }[]",
+      "files": [
+        {
+          "path": "components/charts/radar-dots.tsx",
+          "type": "registry:block",
+          "target": "components/charts/radar-dots.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-radar-filled",
+      "type": "registry:block",
+      "title": "Radar Chart — Filled",
+      "description": "Opaque fill with tinted grid",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "radar",
+        "polar"
+      ],
+      "tags": [
+        "radar",
+        "filled"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, desktop: number }[]",
+      "files": [
+        {
+          "path": "components/charts/radar-filled.tsx",
+          "type": "registry:block",
+          "target": "components/charts/radar-filled.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-radar-grid-circle",
+      "type": "registry:block",
+      "title": "Radar Chart — Grid Circle",
+      "description": "Circular polar grid",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "radar",
+        "polar"
+      ],
+      "tags": [
+        "radar",
+        "grid",
+        "circle"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, desktop: number }[]",
+      "files": [
+        {
+          "path": "components/charts/radar-grid-circle.tsx",
+          "type": "registry:block",
+          "target": "components/charts/radar-grid-circle.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-radar-grid-polygon",
+      "type": "registry:block",
+      "title": "Radar Chart — Grid Polygon",
+      "description": "Default polygonal polar grid",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "radar",
+        "polar"
+      ],
+      "tags": [
+        "radar",
+        "grid",
+        "polygon"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, desktop: number }[]",
+      "files": [
+        {
+          "path": "components/charts/radar-grid-polygon.tsx",
+          "type": "registry:block",
+          "target": "components/charts/radar-grid-polygon.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-radar-legend-interactive",
+      "type": "registry:block",
+      "title": "Radar Chart — Interactive Legend",
+      "description": "Toggle series from the legend",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart",
+        "button"
+      ],
+      "categories": [
+        "charts",
+        "radar",
+        "polar"
+      ],
+      "tags": [
+        "radar",
+        "legend",
+        "interactive"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, desktop: number, mobile: number }[]",
+      "files": [
+        {
+          "path": "components/charts/radar-legend-interactive.tsx",
+          "type": "registry:block",
+          "target": "components/charts/radar-legend-interactive.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-radar-lines-only",
+      "type": "registry:block",
+      "title": "Radar Chart — Lines Only",
+      "description": "Stroke without fill",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "radar",
+        "polar"
+      ],
+      "tags": [
+        "radar",
+        "lines",
+        "only"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, desktop: number, mobile: number }[]",
+      "files": [
+        {
+          "path": "components/charts/radar-lines-only.tsx",
+          "type": "registry:block",
+          "target": "components/charts/radar-lines-only.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-radar-multi",
+      "type": "registry:block",
+      "title": "Radar Chart — Multi-series",
+      "description": "Desktop vs mobile",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "radar",
+        "polar"
+      ],
+      "tags": [
+        "radar",
+        "multi"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, desktop: number, mobile: number }[]",
+      "files": [
+        {
+          "path": "components/charts/radar-multi.tsx",
+          "type": "registry:block",
+          "target": "components/charts/radar-multi.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-radar-stroke",
+      "type": "registry:block",
+      "title": "Radar Chart — Stroke",
+      "description": "Stroke-only outline series",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "radar",
+        "polar"
+      ],
+      "tags": [
+        "radar",
+        "stroke"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, desktop: number }[]",
+      "files": [
+        {
+          "path": "components/charts/radar-stroke.tsx",
+          "type": "registry:block",
+          "target": "components/charts/radar-stroke.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-radial-basic",
+      "type": "registry:block",
+      "title": "Radial Chart — Basic",
+      "description": "Browser visitors as radial bars",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "radial",
+        "polar"
+      ],
+      "tags": [
+        "radial",
+        "basic"
+      ],
+      "status": "ready",
+      "dataShape": "{ browser: string, visitors: number, fill: string }[]",
+      "files": [
+        {
+          "path": "components/charts/radial-basic.tsx",
+          "type": "registry:block",
+          "target": "components/charts/radial-basic.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-radial-gauge",
+      "type": "registry:block",
+      "title": "Radial Chart — Gauge",
+      "description": "Semi-circle score gauge",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "radial",
+        "polar"
+      ],
+      "tags": [
+        "radial",
+        "gauge"
+      ],
+      "status": "ready",
+      "dataShape": "{ name: string }[]",
+      "files": [
+        {
+          "path": "components/charts/radial-gauge.tsx",
+          "type": "registry:block",
+          "target": "components/charts/radial-gauge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-radial-grid",
+      "type": "registry:block",
+      "title": "Radial Chart — Grid",
+      "description": "Circular polar grid behind bars",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "radial",
+        "polar"
+      ],
+      "tags": [
+        "radial",
+        "grid"
+      ],
+      "status": "ready",
+      "dataShape": "{ browser: string, visitors: number, fill: string }[]",
+      "files": [
+        {
+          "path": "components/charts/radial-grid.tsx",
+          "type": "registry:block",
+          "target": "components/charts/radial-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-radial-label",
+      "type": "registry:block",
+      "title": "Radial Chart — Label",
+      "description": "Inside-start labels on each bar",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "radial",
+        "polar"
+      ],
+      "tags": [
+        "radial",
+        "label"
+      ],
+      "status": "ready",
+      "dataShape": "{ browser: string, visitors: number, fill: string }[]",
+      "files": [
+        {
+          "path": "components/charts/radial-label.tsx",
+          "type": "registry:block",
+          "target": "components/charts/radial-label.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-radial-progress",
+      "type": "registry:block",
+      "title": "Radial Chart — Progress",
+      "description": "Percent complete ring",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "radial",
+        "polar"
+      ],
+      "tags": [
+        "radial",
+        "progress"
+      ],
+      "status": "ready",
+      "dataShape": "{ name: string, value: string, fill: string }[]",
+      "files": [
+        {
+          "path": "components/charts/radial-progress.tsx",
+          "type": "registry:block",
+          "target": "components/charts/radial-progress.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-radial-shape",
+      "type": "registry:block",
+      "title": "Radial Chart — Shape",
+      "description": "Custom track shape via PolarGrid fill",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "radial",
+        "polar"
+      ],
+      "tags": [
+        "radial",
+        "shape"
+      ],
+      "status": "ready",
+      "dataShape": "{ browser: string, visitors: number, fill: string }[]",
+      "files": [
+        {
+          "path": "components/charts/radial-shape.tsx",
+          "type": "registry:block",
+          "target": "components/charts/radial-shape.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-radial-stacked",
+      "type": "registry:block",
+      "title": "Radial Chart — Stacked",
+      "description": "Desktop + mobile stacked ring",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "radial",
+        "polar"
+      ],
+      "tags": [
+        "radial",
+        "stacked"
+      ],
+      "status": "ready",
+      "dataShape": "{ month: string, mobile: number, desktop: number }[]",
+      "files": [
+        {
+          "path": "components/charts/radial-stacked.tsx",
+          "type": "registry:block",
+          "target": "components/charts/radial-stacked.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-radial-text",
+      "type": "registry:block",
+      "title": "Radial Chart — Text",
+      "description": "Centered value with arc track",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "radial",
+        "polar"
+      ],
+      "tags": [
+        "radial",
+        "text"
+      ],
+      "status": "ready",
+      "dataShape": "{ browser: string, visitors: number, fill: string }[]",
+      "files": [
+        {
+          "path": "components/charts/radial-text.tsx",
+          "type": "registry:block",
+          "target": "components/charts/radial-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-sankey-basic",
+      "type": "registry:block",
+      "title": "Sankey — Basic",
+      "description": "Funnel flow from visit to paid",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "sankey"
+      ],
+      "tags": [
+        "sankey",
+        "basic"
+      ],
+      "status": "ready",
+      "dataShape": "{ nodes: { name: string }[], links: { source: number, target: number, value: number }[] }",
+      "files": [
+        {
+          "path": "components/charts/sankey-basic.tsx",
+          "type": "registry:block",
+          "target": "components/charts/sankey-basic.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-sankey-compact",
+      "type": "registry:block",
+      "title": "Sankey — Compact",
+      "description": "Tight padding for dense layouts",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "sankey"
+      ],
+      "tags": [
+        "sankey",
+        "compact"
+      ],
+      "status": "ready",
+      "dataShape": "{ nodes: { name: string }[], links: { source: number, target: number, value: number }[] }",
+      "files": [
+        {
+          "path": "components/charts/sankey-compact.tsx",
+          "type": "registry:block",
+          "target": "components/charts/sankey-compact.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-sankey-custom-stroke",
+      "type": "registry:block",
+      "title": "Sankey — Custom Stroke",
+      "description": "Thicker dashed node stroke",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "sankey"
+      ],
+      "tags": [
+        "sankey",
+        "custom",
+        "stroke"
+      ],
+      "status": "ready",
+      "dataShape": "{ nodes: { name: string }[], links: { source: number, target: number, value: number }[] }",
+      "files": [
+        {
+          "path": "components/charts/sankey-custom-stroke.tsx",
+          "type": "registry:block",
+          "target": "components/charts/sankey-custom-stroke.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-sankey-custom-tooltip",
+      "type": "registry:block",
+      "title": "Sankey — Custom Tooltip",
+      "description": "Source → target flow details",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "sankey"
+      ],
+      "tags": [
+        "sankey",
+        "custom",
+        "tooltip"
+      ],
+      "status": "ready",
+      "dataShape": "{ nodes: { name: string }[], links: { source: number, target: number, value: number }[] }",
+      "files": [
+        {
+          "path": "components/charts/sankey-custom-tooltip.tsx",
+          "type": "registry:block",
+          "target": "components/charts/sankey-custom-tooltip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-sankey-gradient",
+      "type": "registry:block",
+      "title": "Sankey — Gradient Links",
+      "description": "Links fade between chart colors",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "sankey"
+      ],
+      "tags": [
+        "sankey",
+        "gradient"
+      ],
+      "status": "ready",
+      "dataShape": "{ nodes: { name: string }[], links: { source: number, target: number, value: number }[] }",
+      "files": [
+        {
+          "path": "components/charts/sankey-gradient.tsx",
+          "type": "registry:block",
+          "target": "components/charts/sankey-gradient.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-sankey-traffic-flow",
+      "type": "registry:block",
+      "title": "Sankey — Traffic Flow",
+      "description": "Acquisition → landing → purchase",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "sankey"
+      ],
+      "tags": [
+        "sankey",
+        "traffic",
+        "flow"
+      ],
+      "status": "ready",
+      "dataShape": "{ nodes: { name: string }[], links: { source: number, target: number, value: number }[] }",
+      "files": [
+        {
+          "path": "components/charts/sankey-traffic-flow.tsx",
+          "type": "registry:block",
+          "target": "components/charts/sankey-traffic-flow.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-scatter-basic",
+      "type": "registry:block",
+      "title": "Scatter Chart — Basic",
+      "description": "X / Y correlation",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "scatter"
+      ],
+      "tags": [
+        "scatter",
+        "basic"
+      ],
+      "status": "ready",
+      "dataShape": "{ x: number, y: number }[]",
+      "files": [
+        {
+          "path": "components/charts/scatter-basic.tsx",
+          "type": "registry:block",
+          "target": "components/charts/scatter-basic.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-scatter-bubble",
+      "type": "registry:block",
+      "title": "Scatter Chart — Bubble",
+      "description": "Size encodes Z value",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "scatter"
+      ],
+      "tags": [
+        "scatter",
+        "bubble"
+      ],
+      "status": "ready",
+      "dataShape": "{ x: number, y: number, z: number, name: string }[]",
+      "files": [
+        {
+          "path": "components/charts/scatter-bubble.tsx",
+          "type": "registry:block",
+          "target": "components/charts/scatter-bubble.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-scatter-crosshair",
+      "type": "registry:block",
+      "title": "Scatter Chart — Crosshair",
+      "description": "Reference lines follow active point",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "scatter"
+      ],
+      "tags": [
+        "scatter",
+        "crosshair"
+      ],
+      "status": "ready",
+      "dataShape": "{ x: number, y: number }[]",
+      "files": [
+        {
+          "path": "components/charts/scatter-crosshair.tsx",
+          "type": "registry:block",
+          "target": "components/charts/scatter-crosshair.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-scatter-highlight",
+      "type": "registry:block",
+      "title": "Scatter Chart — Highlight",
+      "description": "Hover dims non-active points",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "scatter"
+      ],
+      "tags": [
+        "scatter",
+        "highlight"
+      ],
+      "status": "ready",
+      "dataShape": "{ x: number, y: number }[]",
+      "files": [
+        {
+          "path": "components/charts/scatter-highlight.tsx",
+          "type": "registry:block",
+          "target": "components/charts/scatter-highlight.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-scatter-multi",
+      "type": "registry:block",
+      "title": "Scatter Chart — Multi-series",
+      "description": "Two cohorts compared",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "scatter"
+      ],
+      "tags": [
+        "scatter",
+        "multi"
+      ],
+      "status": "ready",
+      "dataShape": "{ x: number, y: number }[] (per series)",
+      "files": [
+        {
+          "path": "components/charts/scatter-multi.tsx",
+          "type": "registry:block",
+          "target": "components/charts/scatter-multi.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-scatter-trend",
+      "type": "registry:block",
+      "title": "Scatter Chart — Trend Line",
+      "description": "OLS trend overlay",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "scatter"
+      ],
+      "tags": [
+        "scatter",
+        "trend"
+      ],
+      "status": "ready",
+      "dataShape": "{ x: number, y: number }[]",
+      "files": [
+        {
+          "path": "components/charts/scatter-trend.tsx",
+          "type": "registry:block",
+          "target": "components/charts/scatter-trend.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-treemap-basic",
+      "type": "registry:block",
+      "title": "Treemap — Basic",
+      "description": "Category size by rectangle area",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "treemap"
+      ],
+      "tags": [
+        "treemap",
+        "basic"
+      ],
+      "status": "ready",
+      "dataShape": "{ name: string, children: array }[]",
+      "files": [
+        {
+          "path": "components/charts/treemap-basic.tsx",
+          "type": "registry:block",
+          "target": "components/charts/treemap-basic.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-treemap-color-by-category",
+      "type": "registry:block",
+      "title": "Treemap — Color by Category",
+      "description": "Each category uses a chart token",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "treemap"
+      ],
+      "tags": [
+        "treemap",
+        "color",
+        "by",
+        "category"
+      ],
+      "status": "ready",
+      "dataShape": "{ name: string, children: array }[]",
+      "files": [
+        {
+          "path": "components/charts/treemap-color-by-category.tsx",
+          "type": "registry:block",
+          "target": "components/charts/treemap-color-by-category.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-treemap-custom-tooltip",
+      "type": "registry:block",
+      "title": "Treemap — Custom Tooltip",
+      "description": "ARR and share on hover",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "treemap"
+      ],
+      "tags": [
+        "treemap",
+        "custom",
+        "tooltip"
+      ],
+      "status": "ready",
+      "dataShape": "{ name: string, children: array }[]",
+      "files": [
+        {
+          "path": "components/charts/treemap-custom-tooltip.tsx",
+          "type": "registry:block",
+          "target": "components/charts/treemap-custom-tooltip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-treemap-grouped",
+      "type": "registry:block",
+      "title": "Treemap — Grouped",
+      "description": "Nested regions and countries",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "treemap"
+      ],
+      "tags": [
+        "treemap",
+        "grouped"
+      ],
+      "status": "ready",
+      "dataShape": "{ name: string, children: array, name: string, children: array, name: string, children: array }[]",
+      "files": [
+        {
+          "path": "components/charts/treemap-grouped.tsx",
+          "type": "registry:block",
+          "target": "components/charts/treemap-grouped.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-treemap-highlight",
+      "type": "registry:block",
+      "title": "Treemap — Highlight",
+      "description": "Hover highlights one cell",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "treemap"
+      ],
+      "tags": [
+        "treemap",
+        "highlight"
+      ],
+      "status": "ready",
+      "dataShape": "{ name: string, children: string }[]",
+      "files": [
+        {
+          "path": "components/charts/treemap-highlight.tsx",
+          "type": "registry:block",
+          "target": "components/charts/treemap-highlight.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-treemap-reverse",
+      "type": "registry:block",
+      "title": "Treemap — Reverse",
+      "description": "Children ordered largest → smallest",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "treemap"
+      ],
+      "tags": [
+        "treemap",
+        "reverse"
+      ],
+      "status": "ready",
+      "dataShape": "{ name: string, children: array }[]",
+      "files": [
+        {
+          "path": "components/charts/treemap-reverse.tsx",
+          "type": "registry:block",
+          "target": "components/charts/treemap-reverse.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-treemap-styled",
+      "type": "registry:block",
+      "title": "Treemap — Styled",
+      "description": "Gap + rounded corners",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "categories": [
+        "charts",
+        "treemap"
+      ],
+      "tags": [
+        "treemap",
+        "styled"
+      ],
+      "status": "ready",
+      "dataShape": "{ name: string, children: array }[]",
+      "files": [
+        {
+          "path": "components/charts/treemap-styled.tsx",
+          "type": "registry:block",
+          "target": "components/charts/treemap-styled.tsx"
+        }
+      ]
     }
   ]
 }

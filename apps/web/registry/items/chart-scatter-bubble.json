@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-scatter-bubble",
+  "type": "registry:block",
+  "title": "Scatter Chart — Bubble",
+  "description": "Size encodes Z value",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "scatter"
+  ],
+  "tags": [
+    "scatter",
+    "bubble"
+  ],
+  "status": "ready",
+  "dataShape": "{ x: number, y: number, z: number, name: string }[]",
+  "files": [
+    {
+      "path": "components/charts/scatter-bubble.tsx",
+      "type": "registry:block",
+      "target": "components/charts/scatter-bubble.tsx"
+    }
+  ]
+}

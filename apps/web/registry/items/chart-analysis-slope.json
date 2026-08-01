@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-analysis-slope",
+  "type": "registry:block",
+  "title": "Slope Chart",
+  "description": "Segment NPS — year over year",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "analysis"
+  ],
+  "tags": [
+    "analysis",
+    "slope"
+  ],
+  "status": "ready",
+  "dataShape": "{ period: string, alpha: number, beta: number, gamma: number, delta: number }[]",
+  "files": [
+    {
+      "path": "components/charts/analysis/slope.tsx",
+      "type": "registry:block",
+      "target": "components/charts/analysis/slope.tsx"
+    }
+  ]
+}

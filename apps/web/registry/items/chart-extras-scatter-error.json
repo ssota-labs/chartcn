@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-extras-scatter-error",
+  "type": "registry:block",
+  "title": "Scatter Chart — ErrorBar",
+  "description": "Bidirectional x/y error whiskers on points",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "extras"
+  ],
+  "tags": [
+    "extras",
+    "scatter",
+    "error"
+  ],
+  "status": "ready",
+  "dataShape": "{ x: number, y: number, errorX: number, errorY: number }[]",
+  "files": [
+    {
+      "path": "components/charts/extras/scatter-error.tsx",
+      "type": "registry:block",
+      "target": "components/charts/extras/scatter-error.tsx"
+    }
+  ]
+}

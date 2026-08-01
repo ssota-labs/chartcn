@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-analytics-flow-path",
+  "type": "registry:block",
+  "title": "Flow / Path",
+  "description": "User journey Sankey (Sankey reuse)",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "analytics"
+  ],
+  "tags": [
+    "analytics",
+    "flow",
+    "path"
+  ],
+  "status": "ready",
+  "dataShape": "see component source",
+  "files": [
+    {
+      "path": "components/charts/analytics/flow-path.tsx",
+      "type": "registry:block",
+      "target": "components/charts/analytics/flow-path.tsx"
+    }
+  ]
+}

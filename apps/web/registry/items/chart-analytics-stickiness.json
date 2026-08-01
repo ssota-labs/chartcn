@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-analytics-stickiness",
+  "type": "registry:block",
+  "title": "Stickiness",
+  "description": "DAU / WAU / MAU with DAU÷MAU ratio",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "analytics"
+  ],
+  "tags": [
+    "analytics",
+    "stickiness"
+  ],
+  "status": "ready",
+  "dataShape": "{ week: string, dau: number, wau: number, mau: number, stickiness: number }[]",
+  "files": [
+    {
+      "path": "components/charts/analytics/stickiness.tsx",
+      "type": "registry:block",
+      "target": "components/charts/analytics/stickiness.tsx"
+    }
+  ]
+}

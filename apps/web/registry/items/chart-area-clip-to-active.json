@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-area-clip-to-active",
+  "type": "registry:block",
+  "title": "Area Chart — Clip to Active",
+  "description": "Hover clips fill up to the active point",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "area"
+  ],
+  "tags": [
+    "area",
+    "clip",
+    "to",
+    "active"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, desktop: number }[]",
+  "files": [
+    {
+      "path": "components/charts/area-clip-to-active.tsx",
+      "type": "registry:block",
+      "target": "components/charts/area-clip-to-active.tsx"
+    }
+  ]
+}

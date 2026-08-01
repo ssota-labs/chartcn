@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-area-gradient",
+  "type": "registry:block",
+  "title": "Area Chart — Gradient Fill",
+  "description": "Opacity + linearGradient fill",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "area"
+  ],
+  "tags": [
+    "area",
+    "gradient"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, desktop: number }[]",
+  "files": [
+    {
+      "path": "components/charts/area-gradient.tsx",
+      "type": "registry:block",
+      "target": "components/charts/area-gradient.tsx"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-analysis-bullet",
+  "type": "registry:block",
+  "title": "Bullet Chart",
+  "description": "KPI vs qualitative ranges + target",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "analysis"
+  ],
+  "tags": [
+    "analysis",
+    "bullet"
+  ],
+  "status": "ready",
+  "dataShape": "see component source",
+  "files": [
+    {
+      "path": "components/charts/analysis/bullet.tsx",
+      "type": "registry:block",
+      "target": "components/charts/analysis/bullet.tsx"
+    }
+  ]
+}

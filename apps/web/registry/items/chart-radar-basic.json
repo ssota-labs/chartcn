@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-radar-basic",
+  "type": "registry:block",
+  "title": "Radar Chart — Basic",
+  "description": "Single series visitors",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "radar",
+    "polar"
+  ],
+  "tags": [
+    "radar",
+    "basic"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, desktop: number }[]",
+  "files": [
+    {
+      "path": "components/charts/radar-basic.tsx",
+      "type": "registry:block",
+      "target": "components/charts/radar-basic.tsx"
+    }
+  ]
+}

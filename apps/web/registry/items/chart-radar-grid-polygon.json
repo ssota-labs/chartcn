@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-radar-grid-polygon",
+  "type": "registry:block",
+  "title": "Radar Chart — Grid Polygon",
+  "description": "Default polygonal polar grid",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "radar",
+    "polar"
+  ],
+  "tags": [
+    "radar",
+    "grid",
+    "polygon"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, desktop: number }[]",
+  "files": [
+    {
+      "path": "components/charts/radar-grid-polygon.tsx",
+      "type": "registry:block",
+      "target": "components/charts/radar-grid-polygon.tsx"
+    }
+  ]
+}

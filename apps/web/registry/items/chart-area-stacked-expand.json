@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-area-stacked-expand",
+  "type": "registry:block",
+  "title": "Area Chart — Stacked Expand (100%)",
+  "description": "Share of traffic by channel",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "area"
+  ],
+  "tags": [
+    "area",
+    "stacked",
+    "expand"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, organic: number, paid: number, referral: number }[]",
+  "files": [
+    {
+      "path": "components/charts/area-stacked-expand.tsx",
+      "type": "registry:block",
+      "target": "components/charts/area-stacked-expand.tsx"
+    }
+  ]
+}

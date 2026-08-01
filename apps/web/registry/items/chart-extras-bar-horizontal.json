@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-extras-bar-horizontal",
+  "type": "registry:block",
+  "title": "Bar Chart — Horizontal",
+  "description": "Category ranking with vertical layout",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "extras"
+  ],
+  "tags": [
+    "extras",
+    "bar",
+    "horizontal"
+  ],
+  "status": "ready",
+  "dataShape": "{ channel: string, leads: number }[]",
+  "files": [
+    {
+      "path": "components/charts/extras/bar-horizontal.tsx",
+      "type": "registry:block",
+      "target": "components/charts/extras/bar-horizontal.tsx"
+    }
+  ]
+}

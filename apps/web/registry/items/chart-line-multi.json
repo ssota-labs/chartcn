@@ -4,10 +4,23 @@
   "type": "registry:block",
   "title": "Line Chart — Multi-series",
   "description": "Multi-series line chart for comparing trends.",
-  "dependencies": ["recharts"],
-  "registryDependencies": ["card", "chart"],
-  "categories": ["charts", "line"],
-  "tags": ["line", "multi-series", "time-series", "foundation"],
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "line"
+  ],
+  "tags": [
+    "line",
+    "multi-series",
+    "time-series",
+    "foundation"
+  ],
   "status": "ready",
   "dataShape": "{ month: string, desktop: number, mobile: number, tablet: number }[]",
   "files": [

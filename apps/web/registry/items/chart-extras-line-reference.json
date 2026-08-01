@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-extras-line-reference",
+  "type": "registry:block",
+  "title": "Line Chart — Reference Highlights",
+  "description": "ReferenceArea + ReferenceDot + ReferenceLine for event callouts",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "extras"
+  ],
+  "tags": [
+    "extras",
+    "line",
+    "reference"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, sessions: number }[]",
+  "files": [
+    {
+      "path": "components/charts/extras/line-reference.tsx",
+      "type": "registry:block",
+      "target": "components/charts/extras/line-reference.tsx"
+    }
+  ]
+}

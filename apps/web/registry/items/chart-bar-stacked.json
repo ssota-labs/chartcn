@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-bar-stacked",
+  "type": "registry:block",
+  "title": "Bar Chart — Stacked",
+  "description": "Desktop + mobile sessions",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "bar"
+  ],
+  "tags": [
+    "bar",
+    "stacked"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, desktop: number, mobile: number }[]",
+  "files": [
+    {
+      "path": "components/charts/bar-stacked.tsx",
+      "type": "registry:block",
+      "target": "components/charts/bar-stacked.tsx"
+    }
+  ]
+}

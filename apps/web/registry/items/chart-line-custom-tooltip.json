@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-line-custom-tooltip",
+  "type": "registry:block",
+  "title": "Line Chart — Custom Tooltip",
+  "description": "Revenue with MoM growth",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "line"
+  ],
+  "tags": [
+    "line",
+    "custom",
+    "tooltip"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, revenue: number, growth: number }[]",
+  "files": [
+    {
+      "path": "components/charts/line-custom-tooltip.tsx",
+      "type": "registry:block",
+      "target": "components/charts/line-custom-tooltip.tsx"
+    }
+  ]
+}

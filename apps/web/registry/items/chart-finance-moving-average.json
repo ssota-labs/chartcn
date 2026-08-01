@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-finance-moving-average",
+  "type": "registry:block",
+  "title": "Moving average overlay",
+  "description": "Candles with MA10 / MA20",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "finance"
+  ],
+  "tags": [
+    "finance",
+    "moving",
+    "average"
+  ],
+  "status": "ready",
+  "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] — derived from ohlc-data.ts",
+  "files": [
+    {
+      "path": "components/charts/finance/moving-average.tsx",
+      "type": "registry:block",
+      "target": "components/charts/finance/moving-average.tsx"
+    },
+    {
+      "path": "components/charts/finance/ohlc-data.ts",
+      "type": "registry:lib",
+      "target": "components/charts/finance/ohlc-data.ts"
+    }
+  ]
+}

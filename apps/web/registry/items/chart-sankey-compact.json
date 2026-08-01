@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-sankey-compact",
+  "type": "registry:block",
+  "title": "Sankey — Compact",
+  "description": "Tight padding for dense layouts",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "sankey"
+  ],
+  "tags": [
+    "sankey",
+    "compact"
+  ],
+  "status": "ready",
+  "dataShape": "{ nodes: { name: string }[], links: { source: number, target: number, value: number }[] }",
+  "files": [
+    {
+      "path": "components/charts/sankey-compact.tsx",
+      "type": "registry:block",
+      "target": "components/charts/sankey-compact.tsx"
+    }
+  ]
+}

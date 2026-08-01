@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-treemap-styled",
+  "type": "registry:block",
+  "title": "Treemap — Styled",
+  "description": "Gap + rounded corners",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "treemap"
+  ],
+  "tags": [
+    "treemap",
+    "styled"
+  ],
+  "status": "ready",
+  "dataShape": "{ name: string, children: array }[]",
+  "files": [
+    {
+      "path": "components/charts/treemap-styled.tsx",
+      "type": "registry:block",
+      "target": "components/charts/treemap-styled.tsx"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-analysis-waterfall",
+  "type": "registry:block",
+  "title": "Waterfall",
+  "description": "ARR bridge ($k)",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "analysis"
+  ],
+  "tags": [
+    "analysis",
+    "waterfall"
+  ],
+  "status": "ready",
+  "dataShape": "see component source",
+  "files": [
+    {
+      "path": "components/charts/analysis/waterfall.tsx",
+      "type": "registry:block",
+      "target": "components/charts/analysis/waterfall.tsx"
+    }
+  ]
+}

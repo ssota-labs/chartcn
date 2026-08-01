@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-bar-stacked-expand",
+  "type": "registry:block",
+  "title": "Bar Chart — Stacked Expand (100%)",
+  "description": "Device share by month",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "bar"
+  ],
+  "tags": [
+    "bar",
+    "stacked",
+    "expand"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, desktop: number, mobile: number, tablet: number }[]",
+  "files": [
+    {
+      "path": "components/charts/bar-stacked-expand.tsx",
+      "type": "registry:block",
+      "target": "components/charts/bar-stacked-expand.tsx"
+    }
+  ]
+}

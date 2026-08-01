@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-area-dual-axis",
+  "type": "registry:block",
+  "title": "Area Chart — Dual Axis",
+  "description": "Sessions vs conversion rate",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "area"
+  ],
+  "tags": [
+    "area",
+    "dual",
+    "axis"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, sessions: number, conversion: number }[]",
+  "files": [
+    {
+      "path": "components/charts/area-dual-axis.tsx",
+      "type": "registry:block",
+      "target": "components/charts/area-dual-axis.tsx"
+    }
+  ]
+}

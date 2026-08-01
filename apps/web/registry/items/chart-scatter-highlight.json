@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-scatter-highlight",
+  "type": "registry:block",
+  "title": "Scatter Chart — Highlight",
+  "description": "Hover dims non-active points",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "scatter"
+  ],
+  "tags": [
+    "scatter",
+    "highlight"
+  ],
+  "status": "ready",
+  "dataShape": "{ x: number, y: number }[]",
+  "files": [
+    {
+      "path": "components/charts/scatter-highlight.tsx",
+      "type": "registry:block",
+      "target": "components/charts/scatter-highlight.tsx"
+    }
+  ]
+}

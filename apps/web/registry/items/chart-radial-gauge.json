@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-radial-gauge",
+  "type": "registry:block",
+  "title": "Radial Chart — Gauge",
+  "description": "Semi-circle score gauge",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "radial",
+    "polar"
+  ],
+  "tags": [
+    "radial",
+    "gauge"
+  ],
+  "status": "ready",
+  "dataShape": "{ name: string }[]",
+  "files": [
+    {
+      "path": "components/charts/radial-gauge.tsx",
+      "type": "registry:block",
+      "target": "components/charts/radial-gauge.tsx"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-extras-bar-range",
+  "type": "registry:block",
+  "title": "Bar Chart — Range",
+  "description": "Low–high interval bars via `[min, max]`",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "extras"
+  ],
+  "tags": [
+    "extras",
+    "bar",
+    "range"
+  ],
+  "status": "ready",
+  "dataShape": "{ day: string, range: array }[]",
+  "files": [
+    {
+      "path": "components/charts/extras/bar-range.tsx",
+      "type": "registry:block",
+      "target": "components/charts/extras/bar-range.tsx"
+    }
+  ]
+}

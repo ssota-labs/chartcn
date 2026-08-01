@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-analytics-retention-curve",
+  "type": "registry:block",
+  "title": "Retention Curve",
+  "description": "D1 / D7 / D30 retention by plan",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "analytics"
+  ],
+  "tags": [
+    "analytics",
+    "retention",
+    "curve"
+  ],
+  "status": "ready",
+  "dataShape": "{ day: string, product: number, growth: number, enterprise: number }[]",
+  "files": [
+    {
+      "path": "components/charts/analytics/retention-curve.tsx",
+      "type": "registry:block",
+      "target": "components/charts/analytics/retention-curve.tsx"
+    }
+  ]
+}

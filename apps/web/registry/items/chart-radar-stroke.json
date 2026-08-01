@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-radar-stroke",
+  "type": "registry:block",
+  "title": "Radar Chart — Stroke",
+  "description": "Stroke-only outline series",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "radar",
+    "polar"
+  ],
+  "tags": [
+    "radar",
+    "stroke"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, desktop: number }[]",
+  "files": [
+    {
+      "path": "components/charts/radar-stroke.tsx",
+      "type": "registry:block",
+      "target": "components/charts/radar-stroke.tsx"
+    }
+  ]
+}

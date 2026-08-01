@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-treemap-reverse",
+  "type": "registry:block",
+  "title": "Treemap — Reverse",
+  "description": "Children ordered largest → smallest",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "treemap"
+  ],
+  "tags": [
+    "treemap",
+    "reverse"
+  ],
+  "status": "ready",
+  "dataShape": "{ name: string, children: array }[]",
+  "files": [
+    {
+      "path": "components/charts/treemap-reverse.tsx",
+      "type": "registry:block",
+      "target": "components/charts/treemap-reverse.tsx"
+    }
+  ]
+}

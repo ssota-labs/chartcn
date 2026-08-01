@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-analytics-conversion-dual-axis",
+  "type": "registry:block",
+  "title": "Conversion Dual-axis",
+  "description": "Volume (bars) + rate (line)",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "analytics"
+  ],
+  "tags": [
+    "analytics",
+    "conversion",
+    "dual",
+    "axis"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, conversions: number, rate: number }[]",
+  "files": [
+    {
+      "path": "components/charts/analytics/conversion-dual-axis.tsx",
+      "type": "registry:block",
+      "target": "components/charts/analytics/conversion-dual-axis.tsx"
+    }
+  ]
+}

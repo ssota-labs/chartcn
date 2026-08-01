@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-radial-label",
+  "type": "registry:block",
+  "title": "Radial Chart — Label",
+  "description": "Inside-start labels on each bar",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "radial",
+    "polar"
+  ],
+  "tags": [
+    "radial",
+    "label"
+  ],
+  "status": "ready",
+  "dataShape": "{ browser: string, visitors: number, fill: string }[]",
+  "files": [
+    {
+      "path": "components/charts/radial-label.tsx",
+      "type": "registry:block",
+      "target": "components/charts/radial-label.tsx"
+    }
+  ]
+}

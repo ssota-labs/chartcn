@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-area-multi",
+  "type": "registry:block",
+  "title": "Area Chart — Multi-series",
+  "description": "Overlapping device sessions",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "area"
+  ],
+  "tags": [
+    "area",
+    "multi"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, desktop: number, mobile: number, tablet: number }[]",
+  "files": [
+    {
+      "path": "components/charts/area-multi.tsx",
+      "type": "registry:block",
+      "target": "components/charts/area-multi.tsx"
+    }
+  ]
+}

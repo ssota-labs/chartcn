@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-bar-mixed",
+  "type": "registry:block",
+  "title": "Bar Chart — Mixed Bar + Line",
+  "description": "Sales vs target line",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "bar"
+  ],
+  "tags": [
+    "bar",
+    "mixed"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, sales: number, target: number }[]",
+  "files": [
+    {
+      "path": "components/charts/bar-mixed.tsx",
+      "type": "registry:block",
+      "target": "components/charts/bar-mixed.tsx"
+    }
+  ]
+}
