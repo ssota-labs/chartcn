@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "chart-extras-scatter-error",
   "type": "registry:block",
-  "title": "Scatter Chart — ErrorBar",
+  "title": "Scatter Chart \u2014 ErrorBar",
   "description": "Bidirectional x/y error whiskers on points",
   "dependencies": [
     "recharts"
@@ -27,6 +27,11 @@
       "path": "components/charts/extras/scatter-error.tsx",
       "type": "registry:block",
       "target": "components/charts/extras/scatter-error.tsx"
+    },
+    {
+      "path": "components/charts/scatter-dot.tsx",
+      "type": "registry:component",
+      "target": "components/charts/scatter-dot.tsx"
     }
   ]
 }

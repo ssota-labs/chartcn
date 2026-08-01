@@ -2,6 +2,8 @@
 
 import { CartesianGrid, Scatter, ScatterChart, XAxis, YAxis, ZAxis } from "recharts"
 
+import { ScatterDot } from "./scatter-dot"
+
 import {
   Card,
   CardContent,
@@ -52,8 +54,20 @@ export function ChartScatterMulti() {
             <ZAxis range={[90, 90]} />
             <ChartTooltip content={<ChartTooltipContent hideLabel />} />
             <ChartLegend content={<ChartLegendContent />} />
-            <Scatter name="groupA" data={groupA} fill="var(--color-groupA)" />
-            <Scatter name="groupB" data={groupB} fill="var(--color-groupB)" />
+            <Scatter
+              name="groupA"
+              data={groupA}
+              fill="var(--color-groupA)"
+              shape={<ScatterDot />}
+              activeShape={<ScatterDot active />}
+            />
+            <Scatter
+              name="groupB"
+              data={groupB}
+              fill="var(--color-groupB)"
+              shape={<ScatterDot />}
+              activeShape={<ScatterDot active />}
+            />
           </ScatterChart>
         </ChartContainer>
       </CardContent>

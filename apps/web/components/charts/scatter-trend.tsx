@@ -2,6 +2,8 @@
 
 import { CartesianGrid, Line, ComposedChart, Scatter, XAxis, YAxis, ZAxis } from "recharts"
 
+import { ScatterDot } from "./scatter-dot"
+
 import {
   Card,
   CardContent,
@@ -63,7 +65,14 @@ export function ChartScatterTrend() {
             <ZAxis range={[90, 90]} />
             <ChartTooltip content={<ChartTooltipContent />} />
             <ChartLegend content={<ChartLegendContent />} />
-            <Scatter name="points" data={chartData} fill="var(--color-points)" dataKey="y" />
+            <Scatter
+              name="points"
+              data={chartData}
+              fill="var(--color-points)"
+              dataKey="y"
+              shape={<ScatterDot />}
+              activeShape={<ScatterDot active />}
+            />
             <Line
               name="trend"
               data={trendData}

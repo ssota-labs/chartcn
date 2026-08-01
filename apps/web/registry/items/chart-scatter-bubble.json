@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "chart-scatter-bubble",
   "type": "registry:block",
-  "title": "Scatter Chart — Bubble",
+  "title": "Scatter Chart \u2014 Bubble",
   "description": "Size encodes Z value",
   "dependencies": [
     "recharts"
@@ -26,6 +26,11 @@
       "path": "components/charts/scatter-bubble.tsx",
       "type": "registry:block",
       "target": "components/charts/scatter-bubble.tsx"
+    },
+    {
+      "path": "components/charts/scatter-dot.tsx",
+      "type": "registry:component",
+      "target": "components/charts/scatter-dot.tsx"
     }
   ]
 }
