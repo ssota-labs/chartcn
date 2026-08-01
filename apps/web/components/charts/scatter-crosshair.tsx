@@ -30,8 +30,67 @@ const chartConfig = {
   points: { label: "Points", color: "var(--chart-1)" },
 } satisfies ChartConfig
 
-export function ChartScatterCrosshair() {
-  const [active, setActive] = React.useState<{ x: number; y: number } | null>(null)
+/** How close (px) the pointer has to get before a dot takes it. */
+const HOVER_RADIUS = 28
+const DOT_RADIUS = 4.5
+const ACTIVE_DOT_RADIUS = 6.5
+/** Radius of the card-coloured disc that breaks the crosshair behind the dot. */
+const HALO_RADIUS = 10
+
+type Point = { x: number; y: number }
+
+type ScatterDotProps = {
+  cx?: number
+  cy?: number
+  fill?: string
+  payload?: Point
+  hoverRadius?: number
+  activePoint?: Point | null
+}
+
+function ScatterDot({
+  cx,
+  cy,
+  fill,
+  payload,
+  hoverRadius = HOVER_RADIUS,
+  activePoint,
+}: ScatterDotProps) {
+  if (cx == null || cy == null) return <g />
+
+  const isActive =
+    activePoint != null &&
+    payload != null &&
+    activePoint.x === payload.x &&
+    activePoint.y === payload.y
+
+  return (
+    <g>
+      {/*
+        The gravity field. Nothing is drawn — it only widens what recharts
+        counts as "on" this dot, so the pointer gets caught before it has to
+        land on the 9px marker.
+      */}
+      <circle cx={cx} cy={cy} r={hoverRadius} fill="transparent" />
+      {isActive && (
+        <circle cx={cx} cy={cy} r={HALO_RADIUS} className="fill-card" />
+      )}
+      <circle
+        cx={cx}
+        cy={cy}
+        r={isActive ? ACTIVE_DOT_RADIUS : DOT_RADIUS}
+        fill={fill}
+      />
+    </g>
+  )
+}
+
+export function ChartScatterCrosshair({
+  hoverRadius = HOVER_RADIUS,
+}: {
+  hoverRadius?: number
+} = {}) {
+  const [active, setActive] = React.useState<Point | null>(null)
 
   return (
     <Card>
@@ -64,10 +123,15 @@ export function ChartScatterCrosshair() {
               data={chartData}
               fill="var(--color-points)"
               name="points"
+              isAnimationActive={false}
+              shape={
+                <ScatterDot hoverRadius={hoverRadius} activePoint={active} />
+              }
               onMouseEnter={(_, index) => {
                 const point = chartData[index]
                 if (point) setActive(point)
               }}
+              onMouseLeave={() => setActive(null)}
             />
           </ScatterChart>
         </ChartContainer>
