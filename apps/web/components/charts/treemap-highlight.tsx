@@ -16,6 +16,7 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "@/components/ui/chart"
+import { TreemapTile } from "./treemap-tile"
 
 const leaves = [
   { name: "Alpha", size: 900 },
@@ -31,44 +32,43 @@ const chartConfig = {
   size: { label: "Size", color: "var(--chart-1)" },
 } satisfies ChartConfig
 
+/**
+ * Declared outside the chart component: defining it inline would create a new
+ * component type on every render, which remounts each tile and restarts its
+ * entrance animation.
+ */
+function HighlightContent({
+  active,
+  onActivate,
+  ...props
+}: {
+  x?: number
+  y?: number
+  width?: number
+  height?: number
+  name?: string
+  size?: number
+  depth?: number
+  index?: number
+  active?: string | null
+  onActivate?: (name: string | null) => void
+}) {
+  const name = props.name
+  return (
+    <TreemapTile
+      {...props}
+      fill="var(--chart-1)"
+      value={props.size?.toLocaleString()}
+      seam="var(--card)"
+      dimmed={active != null && active !== name}
+      onMouseEnter={() => onActivate?.(name ?? null)}
+      onMouseLeave={() => onActivate?.(null)}
+    />
+  )
+}
+
 export function ChartTreemapHighlight() {
   const [active, setActive] = React.useState<string | null>(null)
-
-  function Content(props: {
-    x?: number
-    y?: number
-    width?: number
-    height?: number
-    name?: string
-    depth?: number
-  }) {
-    const { x = 0, y = 0, width = 0, height = 0, name, depth = 0 } = props
-    if (depth < 1 || width < 2 || height < 2) return null
-    const dimmed = active != null && active !== name
-    return (
-      <g
-        onMouseEnter={() => setActive(name ?? null)}
-        onMouseLeave={() => setActive(null)}
-        style={{ cursor: "pointer" }}
-      >
-        <rect
-          x={x}
-          y={y}
-          width={width}
-          height={height}
-          fill="var(--chart-1)"
-          fillOpacity={dimmed ? 0.25 : 0.85}
-          stroke="var(--background)"
-          strokeWidth={2}
-        />
-        {width > 40 && height > 20 ? (
-          <text x={x + 8} y={y + 18} className="fill-foreground text-[11px]">
-            {name}
-          </text>
-        ) : null}
-      </g>
-    )
-  }
 
   return (
     <Card>
@@ -78,7 +78,7 @@ export function ChartTreemapHighlight() {
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig} className="h-[260px] w-full aspect-auto">
-          <Treemap data={chartData} dataKey="size" nameKey="name" content={<Content />} isAnimationActive={false} />
+          <Treemap data={chartData} dataKey="size" nameKey="name" content={<HighlightContent active={active} onActivate={setActive} />} isAnimationActive={false} />
         </ChartContainer>
       </CardContent>
     </Card>

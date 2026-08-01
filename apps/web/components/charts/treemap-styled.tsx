@@ -15,6 +15,7 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "@/components/ui/chart"
+import { TreemapTile } from "./treemap-tile"
 
 const chartData = [
   {
@@ -42,30 +43,26 @@ function StyledContent(props: {
   width?: number
   height?: number
   name?: string
+  size?: number
   depth?: number
   index?: number
 }) {
-  const { x = 0, y = 0, width = 0, height = 0, name, depth = 0, index = 0 } = props
-  if (depth < 1 || width <= GAP * 2 || height <= GAP * 2) return null
-  const colors = ["var(--chart-1)", "var(--chart-2)", "var(--chart-3)", "var(--chart-4)", "var(--chart-5)"]
+  const colors = [
+    "var(--chart-1)",
+    "var(--chart-2)",
+    "var(--chart-3)",
+    "var(--chart-4)",
+    "var(--chart-5)",
+  ]
+  const index = props.index ?? 0
   return (
-    <g>
-      <rect
-        x={x + GAP}
-        y={y + GAP}
-        width={width - GAP * 2}
-        height={height - GAP * 2}
-        rx={RADIUS}
-        ry={RADIUS}
-        fill={colors[index % colors.length]}
-        fillOpacity={0.85}
-      />
-      {width > 56 && height > 32 ? (
-        <text x={x + GAP + 10} y={y + GAP + 20} className="fill-foreground text-[11px] font-medium">
-          {name}
-        </text>
-      ) : null}
-    </g>
+    <TreemapTile
+      {...props}
+      fill={colors[index % colors.length]}
+      value={props.size?.toLocaleString()}
+      gap={GAP}
+      radius={RADIUS}
+    />
   )
 }
 

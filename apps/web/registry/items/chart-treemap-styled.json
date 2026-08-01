@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "chart-treemap-styled",
   "type": "registry:block",
-  "title": "Treemap — Styled",
+  "title": "Treemap \u2014 Styled",
   "description": "Gap + rounded corners",
   "dependencies": [
     "recharts"
@@ -26,6 +26,11 @@
       "path": "components/charts/treemap-styled.tsx",
       "type": "registry:block",
       "target": "components/charts/treemap-styled.tsx"
+    },
+    {
+      "path": "components/charts/treemap-tile.tsx",
+      "type": "registry:component",
+      "target": "components/charts/treemap-tile.tsx"
     }
   ]
 }
