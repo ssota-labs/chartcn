@@ -1,0 +1,52 @@
+---
+title: Force directed
+description: Arbitrary-topology relationship graph laid out with d3-force.
+---
+
+## Layout
+
+Recharts has no graph series, and [Sankey](/docs/charts/sankey) is not a
+substitute — it needs a layered, acyclic graph with a fixed column per stage.
+This takes arbitrary topology: cycles, hubs, and disconnected clusters.
+
+`d3-force` computes the positions; the SVG is this component's own. The
+simulation is settled before the first paint rather than animated into place —
+watching a solver converge is motion that carries no meaning, and it pins the
+main thread while it runs.
+
+<ChartGraphForce />
+
+## Data shape
+
+```ts
+type GraphNode = {
+  id: string // unique, referenced by links
+  group: number // drives colour
+  value: number // drives radius
+}
+
+type GraphLink = {
+  source: string // node id
+  target: string // node id
+  value: number // drives stroke width
+}
+```
+
+`d3-force` mutates nodes in place, adding `x`/`y` (position), `vx`/`vy`
+(velocity) and `fx`/`fy` (pin). Copy your data before handing it over if the
+originals matter.
+
+## Interaction
+
+Hovering a node isolates its neighbourhood — anything not adjacent drops back.
+Nodes can be dragged: pointer-down pins the node with `fx`/`fy` and restarts the
+simulation, release clears the pin so the layout relaxes around the new
+position.
+
+## When to reach for something else
+
+Every mark here is a DOM node, which caps the useful size at roughly one to two
+thousand nodes. The layout itself scales further — `d3-force` is
+`O(n log n)` per tick with its default Barnes–Hut approximation — so past that
+point it is the renderer that has to change, to canvas or WebGL, not the
+layout.

@@ -132,3 +132,5 @@ export {
   ChartBarRange,
   ChartScatterError,
 } from "./extras"
+
+export { ChartGraphForce } from "./graph"
