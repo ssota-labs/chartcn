@@ -15,6 +15,7 @@
     "charts/treemap",
     "charts/sankey",
     "charts/geo",
+    "graph/force",
     "[Composition](/docs/extras)",
     "---Statistical---",
     "analysis/histogram",
