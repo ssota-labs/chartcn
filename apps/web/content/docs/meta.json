@@ -42,6 +42,7 @@
     "analytics/event-frequency",
     "---Markets---",
     "finance/candlestick",
+    "finance/candles-canvas",
     "finance/volume",
     "finance/moving-average",
     "finance/bollinger",

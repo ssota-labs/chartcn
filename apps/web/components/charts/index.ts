@@ -120,6 +120,7 @@ export {
   ChartMacdRsi,
   ChartDrawdown,
   ChartHighLow,
+  ChartCandlesCanvas,
 } from "./finance"
 
 export {
