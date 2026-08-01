@@ -57,7 +57,13 @@ export function ChartAreaClipToActive() {
           >
             <defs>
               <clipPath id={clipId}>
-                <rect x="0" y="0" width={clipX ?? "100%"} height="100%" />
+                <rect
+                  x="0"
+                  y="0"
+                  width={clipX ?? "100%"}
+                  height="100%"
+                  className="transition-[width] duration-200 ease-out motion-reduce:transition-none"
+                />
               </clipPath>
             </defs>
             <CartesianGrid vertical={false} />
