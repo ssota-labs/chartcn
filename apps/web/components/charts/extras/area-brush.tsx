@@ -15,6 +15,7 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "@/components/ui/chart"
+import { BrushTraveller } from "../brush-traveller"
 
 const chartData = [
   { month: "Jan", visitors: 186 },
@@ -43,7 +44,9 @@ export function ChartAreaBrush() {
     <Card>
       <CardHeader>
         <CardTitle>Area Chart — Brush Zoom</CardTitle>
-        <CardDescription>Drag the brush to zoom a time range</CardDescription>
+        <CardDescription>
+          Drag the handles to resize the range, or the shaded band to pan it
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig} className="min-h-[260px] w-full">
@@ -63,22 +66,47 @@ export function ChartAreaBrush() {
             <ChartTooltip
               content={<ChartTooltipContent indicator="line" />}
             />
+            {/*
+              Brush drags change the window continuously. Recharts' default
+              1500ms path animation can't keep up, so the shape trails behind
+              the selection — most visible at the right edge.
+            */}
             <Area
               dataKey="visitors"
               type="monotone"
               fill="var(--color-visitors)"
               fillOpacity={0.35}
               stroke="var(--color-visitors)"
+              isAnimationActive={false}
             />
             <Brush
               dataKey="month"
-              height={36}
+              height={40}
+              travellerWidth={10}
               startIndex={2}
               endIndex={8}
+              alwaysShowText
+              // stroke also tints the selected band (at 20%), so keep it the
+              // series colour — that band is the only cue for what's selected.
               stroke="var(--color-visitors)"
               fill="var(--muted)"
-              travellerWidth={8}
-            />
+              traveller={BrushTraveller}
+            >
+              {/* Panorama: the whole series, so the selection reads as a window onto it. */}
+              <AreaChart>
+                <Area
+                  dataKey="visitors"
+                  type="monotone"
+                  // Kept light: the selected band is tinted with this same
+                  // colour, and a heavy panorama fill would swallow it.
+                  fill="var(--color-visitors)"
+                  fillOpacity={0.08}
+                  stroke="var(--color-visitors)"
+                  strokeWidth={1}
+                  isAnimationActive={false}
+                />
+              </AreaChart>
+            </Brush>
           </AreaChart>
         </ChartContainer>
       </CardContent>
