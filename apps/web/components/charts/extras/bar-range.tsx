@@ -52,7 +52,6 @@ export function ChartBarRange() {
             />
             <YAxis hide domain={[0, 60]} />
             <ChartTooltip
-              cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
             <Bar dataKey="range" fill="var(--color-range)" radius={4} />

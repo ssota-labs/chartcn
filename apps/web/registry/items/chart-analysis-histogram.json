@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-analysis-histogram",
+  "type": "registry:block",
+  "title": "Histogram",
+  "description": "Request latency distribution (ms)",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "analysis"
+  ],
+  "tags": [
+    "analysis",
+    "histogram"
+  ],
+  "status": "ready",
+  "dataShape": "see component source",
+  "files": [
+    {
+      "path": "components/charts/analysis/histogram.tsx",
+      "type": "registry:block",
+      "target": "components/charts/analysis/histogram.tsx"
+    }
+  ]
+}

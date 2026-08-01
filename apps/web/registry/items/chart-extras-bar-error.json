@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-extras-bar-error",
+  "type": "registry:block",
+  "title": "Bar Chart — ErrorBar",
+  "description": "Symmetric and asymmetric error whiskers on bars",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "extras"
+  ],
+  "tags": [
+    "extras",
+    "bar",
+    "error"
+  ],
+  "status": "ready",
+  "dataShape": "{ cohort: string, conversion: number, error: number }[]",
+  "files": [
+    {
+      "path": "components/charts/extras/bar-error.tsx",
+      "type": "registry:block",
+      "target": "components/charts/extras/bar-error.tsx"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-treemap-custom-tooltip",
+  "type": "registry:block",
+  "title": "Treemap — Custom Tooltip",
+  "description": "ARR and share on hover",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "treemap"
+  ],
+  "tags": [
+    "treemap",
+    "custom",
+    "tooltip"
+  ],
+  "status": "ready",
+  "dataShape": "{ name: string, children: array }[]",
+  "files": [
+    {
+      "path": "components/charts/treemap-custom-tooltip.tsx",
+      "type": "registry:block",
+      "target": "components/charts/treemap-custom-tooltip.tsx"
+    }
+  ]
+}

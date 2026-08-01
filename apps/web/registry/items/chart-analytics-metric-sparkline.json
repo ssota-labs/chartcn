@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-analytics-metric-sparkline",
+  "type": "registry:block",
+  "title": "Metric + Sparkline KPI",
+  "description": "KPI tiles with trend sparkline and delta",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "analytics"
+  ],
+  "tags": [
+    "analytics",
+    "metric",
+    "sparkline"
+  ],
+  "status": "ready",
+  "dataShape": "{ title: string, data: { t: string, v: number }[] }[]",
+  "files": [
+    {
+      "path": "components/charts/analytics/metric-sparkline.tsx",
+      "type": "registry:block",
+      "target": "components/charts/analytics/metric-sparkline.tsx"
+    }
+  ]
+}

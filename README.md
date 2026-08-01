@@ -82,7 +82,7 @@ Agent skills live under `.agents/skills/` (chartcn + [skills.sh](https://skills.
 
 ## Project status
 
-Foundation demos + Phase 6 registry/CLI/skill surface are in place. Remaining chart families follow [Roadmap.md](./Roadmap.md).
+All 117 chart variants are registered in the shadcn registry (`status: ready`) and installable via `npx shadcn add`. Remaining polish items follow [Roadmap.md](./Roadmap.md).
 ## License
 
 MIT (예정)

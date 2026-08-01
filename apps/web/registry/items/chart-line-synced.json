@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-line-synced",
+  "type": "registry:block",
+  "title": "Line Chart — Synced Multi-panel",
+  "description": "Shared hover index across panels",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "line"
+  ],
+  "tags": [
+    "line",
+    "synced"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, sessions: number, revenue: number }[]",
+  "files": [
+    {
+      "path": "components/charts/line-synced.tsx",
+      "type": "registry:block",
+      "target": "components/charts/line-synced.tsx"
+    }
+  ]
+}

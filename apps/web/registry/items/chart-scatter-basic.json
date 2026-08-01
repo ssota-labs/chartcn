@@ -3,12 +3,29 @@
   "name": "chart-scatter-basic",
   "type": "registry:block",
   "title": "Scatter Chart — Basic",
-  "description": "Stub — planned scatter plot for correlation / distribution.",
-  "dependencies": ["recharts"],
-  "registryDependencies": ["card", "chart"],
-  "categories": ["charts", "scatter"],
-  "tags": ["scatter", "correlation", "planned"],
-  "status": "stub",
+  "description": "X / Y correlation",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "scatter"
+  ],
+  "tags": [
+    "scatter",
+    "basic"
+  ],
+  "status": "ready",
   "dataShape": "{ x: number, y: number }[]",
-  "files": []
+  "files": [
+    {
+      "path": "components/charts/scatter-basic.tsx",
+      "type": "registry:block",
+      "target": "components/charts/scatter-basic.tsx"
+    }
+  ]
 }

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-analytics-event-frequency",
+  "type": "registry:block",
+  "title": "Event Frequency",
+  "description": "Histogram of events per user in the last 30 days",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "analytics"
+  ],
+  "tags": [
+    "analytics",
+    "event",
+    "frequency"
+  ],
+  "status": "ready",
+  "dataShape": "{ bucket: string, users: number }[]",
+  "files": [
+    {
+      "path": "components/charts/analytics/event-frequency.tsx",
+      "type": "registry:block",
+      "target": "components/charts/analytics/event-frequency.tsx"
+    }
+  ]
+}

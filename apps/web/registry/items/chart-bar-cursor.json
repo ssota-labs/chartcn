@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-bar-cursor",
+  "type": "registry:block",
+  "title": "Bar Chart — Cursor Band",
+  "description": "Cursor band + bar highlight",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "bar"
+  ],
+  "tags": [
+    "bar",
+    "cursor"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, sales: number }[]",
+  "files": [
+    {
+      "path": "components/charts/bar-cursor.tsx",
+      "type": "registry:block",
+      "target": "components/charts/bar-cursor.tsx"
+    }
+  ]
+}

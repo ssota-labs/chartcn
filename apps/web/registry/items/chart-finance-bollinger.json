@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-finance-bollinger",
+  "type": "registry:block",
+  "title": "Bollinger bands",
+  "description": "Close + SMA20 ± 2σ band",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "finance"
+  ],
+  "tags": [
+    "finance",
+    "bollinger"
+  ],
+  "status": "ready",
+  "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] — derived from ohlc-data.ts",
+  "files": [
+    {
+      "path": "components/charts/finance/bollinger.tsx",
+      "type": "registry:block",
+      "target": "components/charts/finance/bollinger.tsx"
+    },
+    {
+      "path": "components/charts/finance/ohlc-data.ts",
+      "type": "registry:lib",
+      "target": "components/charts/finance/ohlc-data.ts"
+    }
+  ]
+}

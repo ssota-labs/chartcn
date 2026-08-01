@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-analytics-funnel-trend",
+  "type": "registry:block",
+  "title": "Funnel Trend",
+  "description": "Step conversion rate over time",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "analytics"
+  ],
+  "tags": [
+    "analytics",
+    "funnel",
+    "trend"
+  ],
+  "status": "ready",
+  "dataShape": "{ week: string, visitToSignup: number, signupToActivate: number, activateToPay: number }[]",
+  "files": [
+    {
+      "path": "components/charts/analytics/funnel-trend.tsx",
+      "type": "registry:block",
+      "target": "components/charts/analytics/funnel-trend.tsx"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-bar-dual-axis",
+  "type": "registry:block",
+  "title": "Bar Chart — Dual Axis",
+  "description": "Revenue bars + margin line",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "bar"
+  ],
+  "tags": [
+    "bar",
+    "dual",
+    "axis"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, revenue: number, margin: number }[]",
+  "files": [
+    {
+      "path": "components/charts/bar-dual-axis.tsx",
+      "type": "registry:block",
+      "target": "components/charts/bar-dual-axis.tsx"
+    }
+  ]
+}

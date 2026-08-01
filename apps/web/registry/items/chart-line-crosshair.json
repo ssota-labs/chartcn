@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-line-crosshair",
+  "type": "registry:block",
+  "title": "Line Chart — Crosshair + Axis Labels",
+  "description": "Crosshair cursor with labeled axes",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "line"
+  ],
+  "tags": [
+    "line",
+    "crosshair"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, revenue: number }[]",
+  "files": [
+    {
+      "path": "components/charts/line-crosshair.tsx",
+      "type": "registry:block",
+      "target": "components/charts/line-crosshair.tsx"
+    }
+  ]
+}

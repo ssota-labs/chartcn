@@ -42,6 +42,13 @@ export function resolveContentSource(options) {
   const fromContract = existing ? normalizeContentSource(existing) : null;
   const ssot = options.ssot ?? fromContract?.ssot ?? 'local';
 
+  if (ssot === 'supabase') {
+    throw Object.assign(
+      new Error('contentSource.ssot "supabase" is removed (ADR-008). Use local or notion.'),
+      { code: 'supabase_removed' },
+    );
+  }
+
   if (ssot !== 'local' && ssot !== 'notion') {
     throw new Error(`unsupported contentSource.ssot: ${ssot}`);
   }

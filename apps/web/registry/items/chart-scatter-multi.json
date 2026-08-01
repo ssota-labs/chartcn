@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-scatter-multi",
+  "type": "registry:block",
+  "title": "Scatter Chart — Multi-series",
+  "description": "Two cohorts compared",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "scatter"
+  ],
+  "tags": [
+    "scatter",
+    "multi"
+  ],
+  "status": "ready",
+  "dataShape": "{ x: number, y: number }[] (per series)",
+  "files": [
+    {
+      "path": "components/charts/scatter-multi.tsx",
+      "type": "registry:block",
+      "target": "components/charts/scatter-multi.tsx"
+    }
+  ]
+}

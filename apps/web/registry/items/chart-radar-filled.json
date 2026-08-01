@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-radar-filled",
+  "type": "registry:block",
+  "title": "Radar Chart — Filled",
+  "description": "Opaque fill with tinted grid",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "radar",
+    "polar"
+  ],
+  "tags": [
+    "radar",
+    "filled"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, desktop: number }[]",
+  "files": [
+    {
+      "path": "components/charts/radar-filled.tsx",
+      "type": "registry:block",
+      "target": "components/charts/radar-filled.tsx"
+    }
+  ]
+}

@@ -14,7 +14,7 @@ wrappers around the same `oh-my-doc` skill.
 Preferred install:
 
 ```bash
-npx skills add ssota-labs/oh-my-docs --skill oh-my-doc -y
+npx skills add tyohnn/oh-my-docs --skill oh-my-doc -y
 ```
 
 `skills add` defaults to **symlink** installs: one canonical copy (typically
@@ -39,7 +39,9 @@ node <skill>/scripts/omd.mjs adopt --ssot notion --notion-root <url-or-id> --dry
 node <skill>/scripts/omd.mjs check --json
 ```
 
-Before the first adopt, ask the user to choose SSOT (`local` docs app vs
-`notion`). Greenfield adopt without `--ssot` fails with `needsSsot`.
+Before the first adopt, ask the user to choose SSOT (`local` or `notion`).
+Greenfield adopt without `--ssot` fails with `needsSsot`. Options are only
+`local` | `notion` — `supabase` is removed (ADR-008).
 
-Do not tell users to run a public npm CLI.
+Do not tell users to run a public npm CLI. Prefer running `omd.mjs` yourself and
+summarizing results in chat.

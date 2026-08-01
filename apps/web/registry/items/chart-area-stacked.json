@@ -4,10 +4,23 @@
   "type": "registry:block",
   "title": "Area Chart — Stacked",
   "description": "Multi-series stacked area chart for composition over time.",
-  "dependencies": ["recharts"],
-  "registryDependencies": ["card", "chart"],
-  "categories": ["charts", "area"],
-  "tags": ["area", "stacked", "multi-series", "foundation"],
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "area"
+  ],
+  "tags": [
+    "area",
+    "stacked",
+    "multi-series",
+    "foundation"
+  ],
   "status": "ready",
   "dataShape": "{ month: string, organic: number, paid: number, referral: number }[]",
   "files": [

@@ -61,7 +61,6 @@ export function ChartAreaBrush() {
             />
             <YAxis hide domain={["dataMin - 20", "dataMax + 20"]} />
             <ChartTooltip
-              cursor={false}
               content={<ChartTooltipContent indicator="line" />}
             />
             <Area

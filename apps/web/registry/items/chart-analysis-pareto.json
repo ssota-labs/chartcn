@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-analysis-pareto",
+  "type": "registry:block",
+  "title": "Pareto",
+  "description": "Error causes — bar + cumulative line",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "analysis"
+  ],
+  "tags": [
+    "analysis",
+    "pareto"
+  ],
+  "status": "ready",
+  "dataShape": "see component source",
+  "files": [
+    {
+      "path": "components/charts/analysis/pareto.tsx",
+      "type": "registry:block",
+      "target": "components/charts/analysis/pareto.tsx"
+    }
+  ]
+}

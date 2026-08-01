@@ -169,7 +169,6 @@ export function ChartBoxPlot() {
               tickMargin={8}
             />
             <ChartTooltip
-              cursor={false}
               content={
                 <ChartTooltipContent
                   formatter={(_value, _name, item) => {

@@ -204,7 +204,7 @@ README에 명시한 agent-first 배포 단계입니다.
 ### 6.1 Registry
 
 - [x] 공개 registry 호스트 (또는 GitHub Pages / Vercel static) *(URL placeholder `CHARTCN_REGISTRY_URL` / local `/r`)*
-- [x] 카테고리별 `registry.json` 인덱스 *(foundation + scatter/pie/analytics/finance/extras stubs)*
+- [x] 카테고리별 `registry.json` 인덱스 *(전체 117개 차트 variant 등록, 모두 `ready`)*
 - [x] 설치 URL 안정화 + docs의 Copy/Install 연동 *(`/docs/registry`, `GET /r/<name>.json`)*
 - [x] namespace (예: `@chartcn/...`) 검토 *(documented as optional follow-up)*
 

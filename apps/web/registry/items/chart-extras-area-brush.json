@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-extras-area-brush",
+  "type": "registry:block",
+  "title": "Area Chart — Brush Zoom",
+  "description": "Drag the brush to zoom a time range",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "extras"
+  ],
+  "tags": [
+    "extras",
+    "area",
+    "brush"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, visitors: number }[]",
+  "files": [
+    {
+      "path": "components/charts/extras/area-brush.tsx",
+      "type": "registry:block",
+      "target": "components/charts/extras/area-brush.tsx"
+    }
+  ]
+}

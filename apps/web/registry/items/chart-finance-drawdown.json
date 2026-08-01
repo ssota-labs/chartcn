@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-finance-drawdown",
+  "type": "registry:block",
+  "title": "Drawdown",
+  "description": "Underwater equity from running peak",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "finance"
+  ],
+  "tags": [
+    "finance",
+    "drawdown"
+  ],
+  "status": "ready",
+  "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] — derived from ohlc-data.ts",
+  "files": [
+    {
+      "path": "components/charts/finance/drawdown.tsx",
+      "type": "registry:block",
+      "target": "components/charts/finance/drawdown.tsx"
+    },
+    {
+      "path": "components/charts/finance/ohlc-data.ts",
+      "type": "registry:lib",
+      "target": "components/charts/finance/ohlc-data.ts"
+    }
+  ]
+}

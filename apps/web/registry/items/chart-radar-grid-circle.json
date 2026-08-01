@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-radar-grid-circle",
+  "type": "registry:block",
+  "title": "Radar Chart — Grid Circle",
+  "description": "Circular polar grid",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "radar",
+    "polar"
+  ],
+  "tags": [
+    "radar",
+    "grid",
+    "circle"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, desktop: number }[]",
+  "files": [
+    {
+      "path": "components/charts/radar-grid-circle.tsx",
+      "type": "registry:block",
+      "target": "components/charts/radar-grid-circle.tsx"
+    }
+  ]
+}

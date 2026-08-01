@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-bar-custom-tooltip",
+  "type": "registry:block",
+  "title": "Bar Chart — Custom Tooltip",
+  "description": "Revenue, orders, and AOV",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "bar"
+  ],
+  "tags": [
+    "bar",
+    "custom",
+    "tooltip"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, sales: number, orders: number }[]",
+  "files": [
+    {
+      "path": "components/charts/bar-custom-tooltip.tsx",
+      "type": "registry:block",
+      "target": "components/charts/bar-custom-tooltip.tsx"
+    }
+  ]
+}

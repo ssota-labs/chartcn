@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-analytics-insights-line",
+  "type": "registry:block",
+  "title": "Insights Line",
+  "description": "Multi-metric event trends",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "analytics"
+  ],
+  "tags": [
+    "analytics",
+    "insights",
+    "line"
+  ],
+  "status": "ready",
+  "dataShape": "{ date: string, sessions: number, signups: number, purchases: number }[]",
+  "files": [
+    {
+      "path": "components/charts/analytics/insights-line.tsx",
+      "type": "registry:block",
+      "target": "components/charts/analytics/insights-line.tsx"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-analysis-small-multiples",
+  "type": "registry:block",
+  "title": "Small Multiples",
+  "description": "Sparkline grid — page views (7d)",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "analysis"
+  ],
+  "tags": [
+    "analysis",
+    "small",
+    "multiples"
+  ],
+  "status": "ready",
+  "dataShape": "{ title: string, data: { t: string, v: number }[] }[]",
+  "files": [
+    {
+      "path": "components/charts/analysis/small-multiples.tsx",
+      "type": "registry:block",
+      "target": "components/charts/analysis/small-multiples.tsx"
+    }
+  ]
+}

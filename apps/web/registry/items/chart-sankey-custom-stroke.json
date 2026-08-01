@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-sankey-custom-stroke",
+  "type": "registry:block",
+  "title": "Sankey — Custom Stroke",
+  "description": "Thicker dashed node stroke",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "sankey"
+  ],
+  "tags": [
+    "sankey",
+    "custom",
+    "stroke"
+  ],
+  "status": "ready",
+  "dataShape": "{ nodes: { name: string }[], links: { source: number, target: number, value: number }[] }",
+  "files": [
+    {
+      "path": "components/charts/sankey-custom-stroke.tsx",
+      "type": "registry:block",
+      "target": "components/charts/sankey-custom-stroke.tsx"
+    }
+  ]
+}

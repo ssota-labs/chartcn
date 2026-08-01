@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-treemap-color-by-category",
+  "type": "registry:block",
+  "title": "Treemap — Color by Category",
+  "description": "Each category uses a chart token",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "treemap"
+  ],
+  "tags": [
+    "treemap",
+    "color",
+    "by",
+    "category"
+  ],
+  "status": "ready",
+  "dataShape": "{ name: string, children: array }[]",
+  "files": [
+    {
+      "path": "components/charts/treemap-color-by-category.tsx",
+      "type": "registry:block",
+      "target": "components/charts/treemap-color-by-category.tsx"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-line-inverted",
+  "type": "registry:block",
+  "title": "Line Chart — Inverted Axis",
+  "description": "Lower rank is better (Y reversed)",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "line"
+  ],
+  "tags": [
+    "line",
+    "inverted"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, rank: number }[]",
+  "files": [
+    {
+      "path": "components/charts/line-inverted.tsx",
+      "type": "registry:block",
+      "target": "components/charts/line-inverted.tsx"
+    }
+  ]
+}

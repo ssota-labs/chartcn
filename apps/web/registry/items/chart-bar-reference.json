@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-bar-reference",
+  "type": "registry:block",
+  "title": "Bar Chart — Reference Line",
+  "description": "Goal annotation via ReferenceLine",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "bar"
+  ],
+  "tags": [
+    "bar",
+    "reference"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, sales: number }[]",
+  "files": [
+    {
+      "path": "components/charts/bar-reference.tsx",
+      "type": "registry:block",
+      "target": "components/charts/bar-reference.tsx"
+    }
+  ]
+}

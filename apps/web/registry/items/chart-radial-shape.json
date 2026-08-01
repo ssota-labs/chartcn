@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-radial-shape",
+  "type": "registry:block",
+  "title": "Radial Chart — Shape",
+  "description": "Custom track shape via PolarGrid fill",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "radial",
+    "polar"
+  ],
+  "tags": [
+    "radial",
+    "shape"
+  ],
+  "status": "ready",
+  "dataShape": "{ browser: string, visitors: number, fill: string }[]",
+  "files": [
+    {
+      "path": "components/charts/radial-shape.tsx",
+      "type": "registry:block",
+      "target": "components/charts/radial-shape.tsx"
+    }
+  ]
+}

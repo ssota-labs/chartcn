@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-line-dual-axis",
+  "type": "registry:block",
+  "title": "Line Chart — Dual Axis",
+  "description": "Users vs revenue",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "line"
+  ],
+  "tags": [
+    "line",
+    "dual",
+    "axis"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, users: number, revenue: number }[]",
+  "files": [
+    {
+      "path": "components/charts/line-dual-axis.tsx",
+      "type": "registry:block",
+      "target": "components/charts/line-dual-axis.tsx"
+    }
+  ]
+}

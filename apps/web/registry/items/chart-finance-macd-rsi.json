@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-finance-macd-rsi",
+  "type": "registry:block",
+  "title": "MACD / RSI synced panels",
+  "description": "Shared syncId for tooltip sync across MACD and RSI panels",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "finance"
+  ],
+  "tags": [
+    "finance",
+    "macd",
+    "rsi"
+  ],
+  "status": "ready",
+  "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] — derived from ohlc-data.ts",
+  "files": [
+    {
+      "path": "components/charts/finance/macd-rsi.tsx",
+      "type": "registry:block",
+      "target": "components/charts/finance/macd-rsi.tsx"
+    },
+    {
+      "path": "components/charts/finance/ohlc-data.ts",
+      "type": "registry:lib",
+      "target": "components/charts/finance/ohlc-data.ts"
+    }
+  ]
+}

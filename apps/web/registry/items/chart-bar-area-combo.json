@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-bar-area-combo",
+  "type": "registry:block",
+  "title": "Bar Chart — Area + Bar Combo",
+  "description": "Forecast area under sales bars",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "bar"
+  ],
+  "tags": [
+    "bar",
+    "area",
+    "combo"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, sales: number, forecast: number }[]",
+  "files": [
+    {
+      "path": "components/charts/bar-area-combo.tsx",
+      "type": "registry:block",
+      "target": "components/charts/bar-area-combo.tsx"
+    }
+  ]
+}

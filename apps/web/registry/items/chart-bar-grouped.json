@@ -4,10 +4,23 @@
   "type": "registry:block",
   "title": "Bar Chart — Grouped",
   "description": "Grouped multi-series bar chart for side-by-side comparison.",
-  "dependencies": ["recharts"],
-  "registryDependencies": ["card", "chart"],
-  "categories": ["charts", "bar"],
-  "tags": ["bar", "grouped", "multi-series", "foundation"],
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "bar"
+  ],
+  "tags": [
+    "bar",
+    "grouped",
+    "multi-series",
+    "foundation"
+  ],
   "status": "ready",
   "dataShape": "{ quarter: string, productA: number, productB: number, productC: number }[]",
   "files": [

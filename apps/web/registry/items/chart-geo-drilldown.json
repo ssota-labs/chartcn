@@ -1,0 +1,38 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-geo-drilldown",
+  "type": "registry:block",
+  "title": "Geo — Drill-down + Breadcrumb",
+  "description": "Click a region to zoom into subregions",
+  "dependencies": [
+    "recharts",
+    "d3-geo"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart",
+    "button"
+  ],
+  "categories": [
+    "charts",
+    "geo"
+  ],
+  "tags": [
+    "geo",
+    "drilldown"
+  ],
+  "status": "ready",
+  "dataShape": "GeoJSON FeatureCollection regions + { id: string, value: number }[] — see geo-data.ts",
+  "files": [
+    {
+      "path": "components/charts/geo-drilldown.tsx",
+      "type": "registry:block",
+      "target": "components/charts/geo-drilldown.tsx"
+    },
+    {
+      "path": "components/charts/geo-data.ts",
+      "type": "registry:lib",
+      "target": "components/charts/geo-data.ts"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-line-closest-series",
+  "type": "registry:block",
+  "title": "Line Chart — Closest Series Highlight",
+  "description": "Hover dims non-active series",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "line"
+  ],
+  "tags": [
+    "line",
+    "closest",
+    "series"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, desktop: number, mobile: number, tablet: number }[]",
+  "files": [
+    {
+      "path": "components/charts/line-closest-series.tsx",
+      "type": "registry:block",
+      "target": "components/charts/line-closest-series.tsx"
+    }
+  ]
+}

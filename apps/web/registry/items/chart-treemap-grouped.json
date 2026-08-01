@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-treemap-grouped",
+  "type": "registry:block",
+  "title": "Treemap — Grouped",
+  "description": "Nested regions and countries",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "treemap"
+  ],
+  "tags": [
+    "treemap",
+    "grouped"
+  ],
+  "status": "ready",
+  "dataShape": "{ name: string, children: array, name: string, children: array, name: string, children: array }[]",
+  "files": [
+    {
+      "path": "components/charts/treemap-grouped.tsx",
+      "type": "registry:block",
+      "target": "components/charts/treemap-grouped.tsx"
+    }
+  ]
+}

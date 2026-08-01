@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-radial-basic",
+  "type": "registry:block",
+  "title": "Radial Chart — Basic",
+  "description": "Browser visitors as radial bars",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "radial",
+    "polar"
+  ],
+  "tags": [
+    "radial",
+    "basic"
+  ],
+  "status": "ready",
+  "dataShape": "{ browser: string, visitors: number, fill: string }[]",
+  "files": [
+    {
+      "path": "components/charts/radial-basic.tsx",
+      "type": "registry:block",
+      "target": "components/charts/radial-basic.tsx"
+    }
+  ]
+}

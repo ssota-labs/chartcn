@@ -51,7 +51,6 @@ export function ChartBarDiverging() {
             <YAxis hide domain={[-20, 24]} />
             <ReferenceLine y={0} stroke="var(--border)" />
             <ChartTooltip
-              cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
             <Bar dataKey="delta" radius={4}>

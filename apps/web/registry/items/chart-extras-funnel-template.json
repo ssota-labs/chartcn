@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-extras-funnel-template",
+  "type": "registry:block",
+  "title": "Funnel Chart — Template",
+  "description": "Polished FunnelChart leftover (distinct from analytics funnel steps)",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "extras"
+  ],
+  "tags": [
+    "extras",
+    "funnel",
+    "template"
+  ],
+  "status": "ready",
+  "dataShape": "{ step: string, value: number, fill: string }[]",
+  "files": [
+    {
+      "path": "components/charts/extras/funnel-template.tsx",
+      "type": "registry:block",
+      "target": "components/charts/extras/funnel-template.tsx"
+    }
+  ]
+}

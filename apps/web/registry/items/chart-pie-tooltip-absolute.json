@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-pie-tooltip-absolute",
+  "type": "registry:block",
+  "title": "Pie Chart — Absolute Tooltip",
+  "description": "Raw visitor counts in tooltip",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "pie",
+    "polar"
+  ],
+  "tags": [
+    "pie",
+    "tooltip",
+    "absolute"
+  ],
+  "status": "ready",
+  "dataShape": "{ browser: string, visitors: number, fill: string }[]",
+  "files": [
+    {
+      "path": "components/charts/pie-tooltip-absolute.tsx",
+      "type": "registry:block",
+      "target": "components/charts/pie-tooltip-absolute.tsx"
+    }
+  ]
+}

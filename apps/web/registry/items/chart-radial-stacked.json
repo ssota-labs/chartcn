@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-radial-stacked",
+  "type": "registry:block",
+  "title": "Radial Chart — Stacked",
+  "description": "Desktop + mobile stacked ring",
+  "dependencies": [
+    "recharts"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "categories": [
+    "charts",
+    "radial",
+    "polar"
+  ],
+  "tags": [
+    "radial",
+    "stacked"
+  ],
+  "status": "ready",
+  "dataShape": "{ month: string, mobile: number, desktop: number }[]",
+  "files": [
+    {
+      "path": "components/charts/radial-stacked.tsx",
+      "type": "registry:block",
+      "target": "components/charts/radial-stacked.tsx"
+    }
+  ]
+}
