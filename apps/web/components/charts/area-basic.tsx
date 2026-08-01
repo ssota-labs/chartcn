@@ -55,7 +55,6 @@ export function ChartAreaBasic() {
               tickFormatter={(value) => value.slice(0, 3)}
             />
             <ChartTooltip
-              cursor={false}
               content={<ChartTooltipContent indicator="line" />}
             />
             <Area

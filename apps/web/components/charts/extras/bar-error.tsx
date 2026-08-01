@@ -56,7 +56,6 @@ export function ChartBarError() {
             />
             <YAxis hide domain={[0, 80]} />
             <ChartTooltip
-              cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
             <Bar

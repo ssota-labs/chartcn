@@ -61,7 +61,6 @@ export function ChartLineBrush() {
             />
             <YAxis hide domain={["dataMin - 20", "dataMax + 20"]} />
             <ChartTooltip
-              cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
             <Line

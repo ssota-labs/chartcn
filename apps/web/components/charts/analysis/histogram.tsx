@@ -85,7 +85,6 @@ export function ChartHistogram() {
               allowDecimals={false}
             />
             <ChartTooltip
-              cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
             <Bar dataKey="count" fill="var(--color-count)" radius={4} />

@@ -72,7 +72,6 @@ export function ChartLineReference() {
             />
             <YAxis hide domain={[180, 400]} />
             <ChartTooltip
-              cursor={false}
               content={<ChartTooltipContent indicator="line" />}
             />
             <ReferenceArea

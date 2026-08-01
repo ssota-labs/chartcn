@@ -51,7 +51,6 @@ export function ChartBarBasic() {
               tickFormatter={(value) => value.slice(0, 3)}
             />
             <ChartTooltip
-              cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
             <Bar dataKey="sales" fill="var(--color-sales)" radius={4} />

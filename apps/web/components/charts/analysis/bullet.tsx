@@ -99,7 +99,6 @@ export function ChartBullet() {
                   ifOverflow="visible"
                 />
                 <ChartTooltip
-                  cursor={false}
                   content={<ChartTooltipContent hideLabel />}
                 />
                 <Bar

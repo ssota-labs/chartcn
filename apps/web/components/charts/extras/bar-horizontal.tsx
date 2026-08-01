@@ -56,7 +56,6 @@ export function ChartBarHorizontal() {
             />
             <XAxis type="number" hide />
             <ChartTooltip
-              cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
             <Bar
