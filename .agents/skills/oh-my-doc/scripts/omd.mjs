@@ -50,7 +50,9 @@ function parseArgs(argv) {
         key === 'force' ||
         key === 'mcp-available' ||
         key === 'authenticated' ||
-        key === 'root-accessible'
+        key === 'root-accessible' ||
+        key === 'project-accessible' ||
+        key === 'cli-or-mcp-available'
       ) {
         flags[key] = true;
         continue;
@@ -76,6 +78,19 @@ function printJson(value) {
  */
 function flagSsot(flags) {
   return typeof flags.ssot === 'string' ? flags.ssot : undefined;
+}
+
+/**
+ * Reject removed SSOT values early with a clear error.
+ * @param {string | undefined} ssot
+ */
+function assertSupportedSsotFlag(ssot) {
+  if (ssot === 'supabase') {
+    throw Object.assign(
+      new Error('contentSource.ssot "supabase" is removed (ADR-008). Use local or notion.'),
+      { code: 'supabase_removed' },
+    );
+  }
 }
 
 /**
@@ -111,6 +126,8 @@ export async function main(argv = process.argv.slice(2)) {
   const yes = flags.yes === true;
 
   try {
+    assertSupportedSsotFlag(flagSsot(flags));
+
     switch (action) {
       case 'inspect': {
         const report = inspectProject({
@@ -242,20 +259,18 @@ export async function main(argv = process.argv.slice(2)) {
         if (source.ssot === 'notion') {
           const state = readState(cwd);
           const mappings = state?.provider?.notion?.mappings ?? {};
-          const id =
-            typeof flags.id === 'string'
-              ? flags.id
-              : `${kind}-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
+          // Notion OMD ID is UNIQUE_ID (auto). --id is only a local op key hint.
           const planned = planNotionCreateDocument({
             skillRoot: SKILL_ROOT,
             kind,
             title,
-            id,
+            ...(typeof flags.id === 'string' ? { id: flags.id } : {}),
             mappings,
           });
           if (json) printJson(planned);
           else {
             console.log(`Notion new ${kind} → manifest ${planned.operation.id}`);
+            console.log('OMD ID is Notion UNIQUE_ID — do not set it when creating the row.');
             if (planned.requiresMappedDatabase) {
               console.log('Database not mapped yet — run adopt/sync provision first.');
             }
@@ -425,6 +440,7 @@ export async function main(argv = process.argv.slice(2)) {
           dryRun,
           force,
           schemasDir: SCHEMAS_DIR,
+          skillRoot: SKILL_ROOT,
         });
         if (json) printJson(result);
         else {
@@ -471,7 +487,7 @@ Actions:
   inspect   Report project mode, docs/UI/.omd state, SSOT
   adopt     Greenfield scaffold or brownfield import (requires --ssot on first adopt)
   new       Create prd|story|spec|plan|adr
-  check     Validate planning graph + .omd contract (and Notion chrome)
+  check     Validate planning graph + .omd contract (and provider ports)
   sync      Refresh managed IA/markers from .omd
 
 Common flags:
@@ -481,7 +497,7 @@ Common flags:
 
 Defaults:
   --ssot          required for greenfield adopt (no silent local default)
-  --ui-path       packages/docs-ui (local SSOT only)
+  --ui-path       packages/docs-ui (local SSOT)
 `);
 }
 

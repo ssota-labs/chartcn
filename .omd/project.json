@@ -10,12 +10,10 @@
     }
   },
   "paths": {
-    "docs": "docs",
-    "ui": "packages/ui",
-    "content": "docs/content/docs",
-    "templates": "docs/templates"
+    "notionRoot": "https://app.notion.com/p/paxhumana/chartcn-3a9346dac45680e2aec2fdbea379c44d"
   },
   "informationArchitecture": {
+    "schemaVersion": "2.0",
     "sections": [
       {
         "id": "home",
@@ -35,6 +33,13 @@
         "id": "starting",
         "title": "Start here",
         "path": "starting",
+        "required": true,
+        "visible": true
+      },
+      {
+        "id": "domain",
+        "title": "Domain",
+        "path": "domain",
         "required": true,
         "visible": true
       },
@@ -61,7 +66,7 @@
       },
       {
         "id": "adr",
-        "title": "ADR",
+        "title": "ADRs",
         "path": "adr",
         "required": true,
         "visible": true
@@ -126,24 +131,6 @@
         "indexOnly": true
       },
       {
-        "id": "plans",
-        "label": "Implementation plans",
-        "prefix": [
-          "plans"
-        ],
-        "indexUrl": "/docs/plans",
-        "indexOnly": true
-      },
-      {
-        "id": "adr",
-        "label": "ADR",
-        "prefix": [
-          "adr"
-        ],
-        "indexUrl": "/docs/adr",
-        "indexOnly": true
-      },
-      {
         "id": "spec-data-model",
         "label": "Data model",
         "prefix": [
@@ -162,8 +149,77 @@
         ],
         "indexUrl": "/docs/spec/system-model",
         "indexOnly": true
+      },
+      {
+        "id": "plans",
+        "label": "Implementation plans",
+        "prefix": [
+          "plans"
+        ],
+        "indexUrl": "/docs/plans",
+        "indexOnly": true
+      },
+      {
+        "id": "adr",
+        "label": "ADR",
+        "prefix": [
+          "adr"
+        ],
+        "indexUrl": "/docs/adr",
+        "indexOnly": true
       }
-    ]
+    ],
+    "kindToDatabase": {
+      "prd": "dbs.prds",
+      "story": "dbs.stories",
+      "plan": "dbs.plans",
+      "adr": "dbs.adrs",
+      "spec": "dbs.data-model"
+    },
+    "nav": {
+      "topLevel": [
+        "pages.home",
+        "pages.vision",
+        "pages.starting",
+        "pages.workflow",
+        "pages.domain",
+        "pages.planning",
+        "pages.spec",
+        "pages.plans",
+        "pages.adrs"
+      ],
+      "localRootOrder": [
+        "pages.home",
+        "pages.vision",
+        "pages.starting",
+        "pages.domain",
+        "pages.workflow",
+        "pages.planning",
+        "pages.plans",
+        "pages.adrs",
+        "pages.spec"
+      ],
+      "nested": {
+        "pages.workflow": [
+          "pages.workflow-planning",
+          "pages.development"
+        ],
+        "pages.domain": [
+          "pages.glossary",
+          "pages.models",
+          "pages.policies"
+        ],
+        "pages.planning": [
+          "pages.prds",
+          "pages.stories"
+        ],
+        "pages.spec": [
+          "pages.data-model",
+          "pages.system-model"
+        ]
+      }
+    },
+    "graphDigest": "9d4c738f5ad6bf16c7843976432b123465e89b7c4e1c9f02c9a279a32bea0141"
   },
   "lifecycles": {
     "prd": {
@@ -206,150 +262,10 @@
     }
   },
   "ui": {
-    "base": "fumadocs",
-    "distribution": "skill-template",
-    "shellDependencies": [
-      "fumadocs-ui",
-      "fumadocs-core",
-      "fumadocs-mdx"
-    ],
-    "vocabulary": [
-      {
-        "name": "Card",
-        "surface": "fumadocs-mdx",
-        "export": "Card",
-        "source": "fumadocs-ui",
-        "contractVersion": "1.0"
-      },
-      {
-        "name": "Cards",
-        "surface": "fumadocs-mdx",
-        "export": "Cards",
-        "source": "fumadocs-ui",
-        "contractVersion": "1.0"
-      },
-      {
-        "name": "File",
-        "surface": "fumadocs-mdx",
-        "export": "File",
-        "source": "fumadocs-ui",
-        "contractVersion": "1.0"
-      },
-      {
-        "name": "Files",
-        "surface": "fumadocs-mdx",
-        "export": "Files",
-        "source": "fumadocs-ui",
-        "contractVersion": "1.0"
-      },
-      {
-        "name": "Folder",
-        "surface": "fumadocs-mdx",
-        "export": "Folder",
-        "source": "fumadocs-ui",
-        "contractVersion": "1.0"
-      },
-      {
-        "name": "DocKind",
-        "surface": "planning-badge",
-        "export": "DocKind",
-        "contractVersion": "1.0",
-        "enums": {
-          "kind": [
-            "PRD",
-            "US",
-            "PLAN",
-            "SPEC",
-            "ADR"
-          ]
-        }
-      },
-      {
-        "name": "DocStatus",
-        "surface": "planning-badge",
-        "export": "DocStatus",
-        "contractVersion": "1.0",
-        "enums": {
-          "status": [
-            "draft",
-            "accepted",
-            "ready",
-            "active",
-            "done",
-            "superseded"
-          ]
-        }
-      },
-      {
-        "name": "AdrStatus",
-        "surface": "planning-badge",
-        "export": "AdrStatus",
-        "contractVersion": "1.0",
-        "enums": {
-          "status": [
-            "accepted",
-            "locked",
-            "superseded"
-          ]
-        }
-      },
-      {
-        "name": "Decision",
-        "surface": "decision-block",
-        "export": "Decision",
-        "contractVersion": "1.0"
-      },
-      {
-        "name": "SpecVersion",
-        "surface": "spec-block",
-        "export": "SpecVersion",
-        "contractVersion": "1.0"
-      },
-      {
-        "name": "Canvas",
-        "surface": "visual-block",
-        "export": "Canvas",
-        "contractVersion": "1.0",
-        "enums": {
-          "nodeKind": [
-            "input",
-            "process",
-            "output",
-            "external"
-          ]
-        }
-      },
-      {
-        "name": "CanvasLegend",
-        "surface": "visual-block",
-        "export": "CanvasLegend",
-        "contractVersion": "1.0"
-      },
-      {
-        "name": "DocsInlineToc",
-        "surface": "navigation-shell",
-        "export": "DocsInlineToc",
-        "contractVersion": "1.0"
-      },
-      {
-        "name": "DocsSidebarFolder",
-        "surface": "navigation-shell",
-        "export": "DocsSidebarFolder",
-        "contractVersion": "1.0"
-      },
-      {
-        "name": "indexOnlyPageTree",
-        "surface": "catalog-helper",
-        "export": "indexOnlyPageTree",
-        "contractVersion": "1.0"
-      },
-      {
-        "name": "createCatalogNavigation",
-        "surface": "catalog-helper",
-        "export": "createCatalogNavigation",
-        "contractVersion": "1.0"
-      }
-    ]
+    "base": "none",
+    "distribution": "none",
+    "shellDependencies": [],
+    "vocabulary": []
   },
   "ownership": {
     "omdGenerated": [
