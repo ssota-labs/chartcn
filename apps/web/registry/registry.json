@@ -3770,6 +3770,40 @@
           "target": "components/charts/graph/force.tsx"
         }
       ]
+    },
+    {
+      "name": "chart-graph-force-gl",
+      "type": "registry:block",
+      "title": "Graph \u2014 Force Directed (WebGL)",
+      "description": "Force-directed graph rendered through Pixi on a single canvas, for node counts past what SVG can carry.",
+      "dependencies": [
+        "d3-force",
+        "pixi.js"
+      ],
+      "registryDependencies": [
+        "card"
+      ],
+      "categories": [
+        "charts",
+        "graph"
+      ],
+      "tags": [
+        "graph",
+        "force",
+        "network",
+        "webgl",
+        "pixi",
+        "large-scale"
+      ],
+      "status": "ready",
+      "dataShape": "{ nodes: { id: number, cluster: number, r: number }[], links: { source: number, target: number }[] }",
+      "files": [
+        {
+          "path": "components/charts/graph/force-gl.tsx",
+          "type": "registry:block",
+          "target": "components/charts/graph/force-gl.tsx"
+        }
+      ]
     }
   ]
 }

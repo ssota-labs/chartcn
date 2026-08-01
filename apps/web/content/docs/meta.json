@@ -16,6 +16,7 @@
     "charts/sankey",
     "charts/geo",
     "graph/force",
+    "graph/force-gl",
     "[Composition](/docs/extras)",
     "---Statistical---",
     "analysis/histogram",

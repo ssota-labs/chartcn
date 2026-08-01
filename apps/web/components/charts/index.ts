@@ -133,4 +133,4 @@ export {
   ChartScatterError,
 } from "./extras"
 
-export { ChartGraphForce } from "./graph"
+export { ChartGraphForce, ChartGraphForceGL } from "./graph"

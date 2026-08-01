@@ -22,6 +22,7 @@
     "fumadocs-ui": "npm:@fumadocs/base-ui@16.12.1",
     "lucide-react": "^1.25.0",
     "next": "16.2.11",
+    "pixi.js": "^8.19.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "recharts": "3.8.0",
