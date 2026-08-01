@@ -1,6 +1,5 @@
 "use client"
 
-import * as React from "react"
 import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
 
 import {
@@ -34,16 +33,10 @@ const revenueConfig = {
   revenue: { label: "Revenue", color: "var(--chart-2)" },
 } satisfies ChartConfig
 
+/** Charts sharing a syncId mirror each other's active index and cursor. */
+const SYNC_ID = "line-synced-panels"
+
 export function ChartLineSynced() {
-  const [activeIndex, setActiveIndex] = React.useState<number | undefined>(undefined)
-
-  const handlers = {
-    onMouseMove: (state: { activeTooltipIndex?: number | string | null }) => {
-      if (state?.activeTooltipIndex != null) setActiveIndex(Number(state.activeTooltipIndex))
-    },
-    onMouseLeave: () => setActiveIndex(undefined),
-  }
-
   return (
     <Card>
       <CardHeader>
@@ -52,18 +45,18 @@ export function ChartLineSynced() {
       </CardHeader>
       <CardContent className="grid gap-4">
         <ChartContainer config={sessionsConfig} className="min-h-[140px] w-full">
-          <LineChart accessibilityLayer data={chartData} margin={{ left: 12, right: 12 }} {...handlers}>
+          <LineChart accessibilityLayer syncId={SYNC_ID} data={chartData} margin={{ left: 12, right: 12 }}>
             <CartesianGrid vertical={false} />
             <XAxis dataKey="month" tickLine={false} axisLine={false} tickMargin={8} tickFormatter={(v) => v.slice(0, 3)} hide />
-            <ChartTooltip active={activeIndex != null} defaultIndex={activeIndex} content={<ChartTooltipContent />} />
+            <ChartTooltip content={<ChartTooltipContent />} />
             <Line dataKey="sessions" type="monotone" stroke="var(--color-sessions)" strokeWidth={2} dot={false} />
           </LineChart>
         </ChartContainer>
         <ChartContainer config={revenueConfig} className="min-h-[140px] w-full">
-          <LineChart accessibilityLayer data={chartData} margin={{ left: 12, right: 12 }} {...handlers}>
+          <LineChart accessibilityLayer syncId={SYNC_ID} data={chartData} margin={{ left: 12, right: 12 }}>
             <CartesianGrid vertical={false} />
             <XAxis dataKey="month" tickLine={false} axisLine={false} tickMargin={8} tickFormatter={(v) => v.slice(0, 3)} />
-            <ChartTooltip active={activeIndex != null} defaultIndex={activeIndex} content={<ChartTooltipContent />} />
+            <ChartTooltip content={<ChartTooltipContent />} />
             <Line dataKey="revenue" type="monotone" stroke="var(--color-revenue)" strokeWidth={2} dot={false} />
           </LineChart>
         </ChartContainer>

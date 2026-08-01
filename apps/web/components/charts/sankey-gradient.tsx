@@ -1,7 +1,7 @@
 "use client"
 
-import { Sankey, Tooltip } from "recharts"
-import type { LinkProps } from "recharts/types/chart/Sankey"
+import * as React from "react"
+import { Sankey } from "recharts"
 
 import {
   Card,
@@ -16,6 +16,7 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "@/components/ui/chart"
+import { SankeyLinkShape, SankeyNodeShape } from "./sankey-parts"
 
 const data = {
   nodes: [
@@ -39,38 +40,9 @@ const chartConfig = {
   value: { label: "Flow", color: "var(--chart-1)" },
 } satisfies ChartConfig
 
-function GradientLink(props: LinkProps) {
-  const {
-    sourceX,
-    targetX,
-    sourceY,
-    targetY,
-    sourceControlX,
-    targetControlX,
-    linkWidth,
-    index,
-  } = props
-  const id = `sankey-grad-${index}`
-  return (
-    <g>
-      <defs>
-        <linearGradient id={id} gradientUnits="userSpaceOnUse" x1={sourceX} x2={targetX}>
-          <stop offset="0%" stopColor="var(--chart-1)" stopOpacity={0.55} />
-          <stop offset="100%" stopColor="var(--chart-3)" stopOpacity={0.35} />
-        </linearGradient>
-      </defs>
-      <path
-        d={`M${sourceX},${sourceY} C${sourceControlX},${sourceY} ${targetControlX},${targetY} ${targetX},${targetY}`}
-        fill="none"
-        stroke={`url(#${id})`}
-        strokeWidth={linkWidth}
-        strokeOpacity={0.9}
-      />
-    </g>
-  )
-}
-
 export function ChartSankeyGradient() {
+  const [activeNode, setActiveNode] = React.useState<string | null>(null)
+
   return (
     <Card>
       <CardHeader>
@@ -83,11 +55,16 @@ export function ChartSankeyGradient() {
             data={data}
             nodePadding={24}
             nodeWidth={12}
-            margin={{ left: 16, right: 16, top: 12, bottom: 12 }}
-            node={{ fill: "var(--chart-1)" }}
-            link={GradientLink}
+            margin={{ left: 16, right: 104, top: 16, bottom: 16 }}
+            node={
+              <SankeyNodeShape
+                activeNode={activeNode}
+                onActivate={setActiveNode}
+              />
+            }
+            link={<SankeyLinkShape activeNode={activeNode} />}
           >
-            <Tooltip />
+            <ChartTooltip content={<ChartTooltipContent hideLabel />} />
           </Sankey>
         </ChartContainer>
       </CardContent>

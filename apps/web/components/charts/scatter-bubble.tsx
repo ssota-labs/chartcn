@@ -2,6 +2,8 @@
 
 import { CartesianGrid, Scatter, ScatterChart, XAxis, YAxis, ZAxis } from "recharts"
 
+import { ScatterDot } from "./scatter-dot"
+
 import {
   Card,
   CardContent,
@@ -44,7 +46,13 @@ export function ChartScatterBubble() {
             <YAxis type="number" dataKey="y" name="Y" tickLine={false} axisLine={false} />
             <ZAxis type="number" dataKey="z" range={[60, 400]} name="Size" />
             <ChartTooltip content={<ChartTooltipContent nameKey="name" />} />
-            <Scatter data={chartData} fill="var(--color-bubble)" fillOpacity={0.7} name="bubble" />
+            <Scatter
+              data={chartData}
+              fill="var(--color-bubble)"
+              name="bubble"
+              shape={<ScatterDot />}
+              activeShape={<ScatterDot active />}
+            />
           </ScatterChart>
         </ChartContainer>
       </CardContent>

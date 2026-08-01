@@ -2,8 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "chart-treemap-reverse",
   "type": "registry:block",
-  "title": "Treemap — Reverse",
-  "description": "Children ordered largest → smallest",
+  "title": "Treemap \u2014 Reverse",
+  "description": "Children ordered largest \u2192 smallest",
   "dependencies": [
     "recharts"
   ],
@@ -26,6 +26,11 @@
       "path": "components/charts/treemap-reverse.tsx",
       "type": "registry:block",
       "target": "components/charts/treemap-reverse.tsx"
+    },
+    {
+      "path": "components/charts/treemap-tile.tsx",
+      "type": "registry:component",
+      "target": "components/charts/treemap-tile.tsx"
     }
   ]
 }

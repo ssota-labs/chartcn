@@ -2,6 +2,8 @@
 
 import { CartesianGrid, Scatter, ScatterChart, XAxis, YAxis, ZAxis } from "recharts"
 
+import { ScatterDot } from "./scatter-dot"
+
 import {
   Card,
   CardContent,
@@ -46,7 +48,13 @@ export function ChartScatterBasic() {
             <YAxis type="number" dataKey="y" name="Y" tickLine={false} axisLine={false} />
             <ZAxis range={[80, 80]} />
             <ChartTooltip cursor={{ strokeDasharray: "3 3" }} content={<ChartTooltipContent hideLabel />} />
-            <Scatter data={chartData} fill="var(--color-points)" name="points" />
+            <Scatter
+              data={chartData}
+              fill="var(--color-points)"
+              name="points"
+              shape={<ScatterDot />}
+              activeShape={<ScatterDot active />}
+            />
           </ScatterChart>
         </ChartContainer>
       </CardContent>

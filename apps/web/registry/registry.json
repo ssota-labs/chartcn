@@ -67,7 +67,7 @@
     {
       "name": "chart-analysis-heatmap-calendar",
       "type": "registry:block",
-      "title": "Heatmap — Calendar",
+      "title": "Heatmap \u2014 Calendar",
       "description": "Commit activity (last 12 weeks)",
       "dependencies": [
         "recharts"
@@ -98,7 +98,7 @@
     {
       "name": "chart-analysis-heatmap-correlation",
       "type": "registry:block",
-      "title": "Heatmap — Correlation",
+      "title": "Heatmap \u2014 Correlation",
       "description": "Metric correlation matrix",
       "dependencies": [
         "recharts"
@@ -160,7 +160,7 @@
       "name": "chart-analysis-pareto",
       "type": "registry:block",
       "title": "Pareto",
-      "description": "Error causes — bar + cumulative line",
+      "description": "Error causes \u2014 bar + cumulative line",
       "dependencies": [
         "recharts"
       ],
@@ -190,7 +190,7 @@
       "name": "chart-analysis-slope",
       "type": "registry:block",
       "title": "Slope Chart",
-      "description": "Segment NPS — year over year",
+      "description": "Segment NPS \u2014 year over year",
       "dependencies": [
         "recharts"
       ],
@@ -220,7 +220,7 @@
       "name": "chart-analysis-small-multiples",
       "type": "registry:block",
       "title": "Small Multiples",
-      "description": "Sparkline grid — page views (7d)",
+      "description": "Sparkline grid \u2014 page views (7d)",
       "dependencies": [
         "recharts"
       ],
@@ -281,7 +281,7 @@
       "name": "chart-analytics-cohort-heatmap",
       "type": "registry:block",
       "title": "Cohort Heatmap",
-      "description": "Signup cohort × weekly retention",
+      "description": "Signup cohort \u00d7 weekly retention",
       "dependencies": [
         "recharts"
       ],
@@ -623,7 +623,7 @@
       "name": "chart-analytics-stickiness",
       "type": "registry:block",
       "title": "Stickiness",
-      "description": "DAU / WAU / MAU with DAU÷MAU ratio",
+      "description": "DAU / WAU / MAU with DAU\u00f7MAU ratio",
       "dependencies": [
         "recharts"
       ],
@@ -652,7 +652,7 @@
     {
       "name": "chart-area-basic",
       "type": "registry:block",
-      "title": "Area Chart — Basic",
+      "title": "Area Chart \u2014 Basic",
       "description": "Single-series area chart with natural curve and fill opacity.",
       "dependencies": [
         "recharts"
@@ -684,7 +684,7 @@
     {
       "name": "chart-area-clip-to-active",
       "type": "registry:block",
-      "title": "Area Chart — Clip to Active",
+      "title": "Area Chart \u2014 Clip to Active",
       "description": "Hover clips fill up to the active point",
       "dependencies": [
         "recharts"
@@ -716,7 +716,7 @@
     {
       "name": "chart-area-curve",
       "type": "registry:block",
-      "title": "Area Chart — Curve Interpolation",
+      "title": "Area Chart \u2014 Curve Interpolation",
       "description": "Linear / monotone / step curve types side by side",
       "dependencies": [
         "recharts"
@@ -746,7 +746,7 @@
     {
       "name": "chart-area-dual-axis",
       "type": "registry:block",
-      "title": "Area Chart — Dual Axis",
+      "title": "Area Chart \u2014 Dual Axis",
       "description": "Sessions vs conversion rate",
       "dependencies": [
         "recharts"
@@ -777,7 +777,7 @@
     {
       "name": "chart-area-gradient",
       "type": "registry:block",
-      "title": "Area Chart — Gradient Fill",
+      "title": "Area Chart \u2014 Gradient Fill",
       "description": "Opacity + linearGradient fill",
       "dependencies": [
         "recharts"
@@ -807,7 +807,7 @@
     {
       "name": "chart-area-linger",
       "type": "registry:block",
-      "title": "Area Chart — Linger",
+      "title": "Area Chart \u2014 Linger",
       "description": "Active highlight lingers after mouse leave",
       "dependencies": [
         "recharts"
@@ -837,7 +837,7 @@
     {
       "name": "chart-area-multi",
       "type": "registry:block",
-      "title": "Area Chart — Multi-series",
+      "title": "Area Chart \u2014 Multi-series",
       "description": "Overlapping device sessions",
       "dependencies": [
         "recharts"
@@ -867,7 +867,7 @@
     {
       "name": "chart-area-stacked-expand",
       "type": "registry:block",
-      "title": "Area Chart — Stacked Expand (100%)",
+      "title": "Area Chart \u2014 Stacked Expand (100%)",
       "description": "Share of traffic by channel",
       "dependencies": [
         "recharts"
@@ -898,7 +898,7 @@
     {
       "name": "chart-area-stacked",
       "type": "registry:block",
-      "title": "Area Chart — Stacked",
+      "title": "Area Chart \u2014 Stacked",
       "description": "Multi-series stacked area chart for composition over time.",
       "dependencies": [
         "recharts"
@@ -930,7 +930,7 @@
     {
       "name": "chart-area-with-line",
       "type": "registry:block",
-      "title": "Area Chart — With Line Overlay",
+      "title": "Area Chart \u2014 With Line Overlay",
       "description": "Area fill with trend line",
       "dependencies": [
         "recharts"
@@ -961,7 +961,7 @@
     {
       "name": "chart-bar-area-combo",
       "type": "registry:block",
-      "title": "Bar Chart — Area + Bar Combo",
+      "title": "Bar Chart \u2014 Area + Bar Combo",
       "description": "Forecast area under sales bars",
       "dependencies": [
         "recharts"
@@ -992,7 +992,7 @@
     {
       "name": "chart-bar-basic",
       "type": "registry:block",
-      "title": "Bar Chart — Basic",
+      "title": "Bar Chart \u2014 Basic",
       "description": "Single-series vertical bar chart.",
       "dependencies": [
         "recharts"
@@ -1024,7 +1024,7 @@
     {
       "name": "chart-bar-cursor",
       "type": "registry:block",
-      "title": "Bar Chart — Cursor Band",
+      "title": "Bar Chart \u2014 Cursor Band",
       "description": "Cursor band + bar highlight",
       "dependencies": [
         "recharts"
@@ -1054,7 +1054,7 @@
     {
       "name": "chart-bar-custom-tooltip",
       "type": "registry:block",
-      "title": "Bar Chart — Custom Tooltip",
+      "title": "Bar Chart \u2014 Custom Tooltip",
       "description": "Revenue, orders, and AOV",
       "dependencies": [
         "recharts"
@@ -1085,7 +1085,7 @@
     {
       "name": "chart-bar-dual-axis",
       "type": "registry:block",
-      "title": "Bar Chart — Dual Axis",
+      "title": "Bar Chart \u2014 Dual Axis",
       "description": "Revenue bars + margin line",
       "dependencies": [
         "recharts"
@@ -1116,7 +1116,7 @@
     {
       "name": "chart-bar-grouped",
       "type": "registry:block",
-      "title": "Bar Chart — Grouped",
+      "title": "Bar Chart \u2014 Grouped",
       "description": "Grouped multi-series bar chart for side-by-side comparison.",
       "dependencies": [
         "recharts"
@@ -1148,7 +1148,7 @@
     {
       "name": "chart-bar-mixed",
       "type": "registry:block",
-      "title": "Bar Chart — Mixed Bar + Line",
+      "title": "Bar Chart \u2014 Mixed Bar + Line",
       "description": "Sales vs target line",
       "dependencies": [
         "recharts"
@@ -1178,7 +1178,7 @@
     {
       "name": "chart-bar-reference",
       "type": "registry:block",
-      "title": "Bar Chart — Reference Line",
+      "title": "Bar Chart \u2014 Reference Line",
       "description": "Goal annotation via ReferenceLine",
       "dependencies": [
         "recharts"
@@ -1208,7 +1208,7 @@
     {
       "name": "chart-bar-stacked-expand",
       "type": "registry:block",
-      "title": "Bar Chart — Stacked Expand (100%)",
+      "title": "Bar Chart \u2014 Stacked Expand (100%)",
       "description": "Device share by month",
       "dependencies": [
         "recharts"
@@ -1239,7 +1239,7 @@
     {
       "name": "chart-bar-stacked",
       "type": "registry:block",
-      "title": "Bar Chart — Stacked",
+      "title": "Bar Chart \u2014 Stacked",
       "description": "Desktop + mobile sessions",
       "dependencies": [
         "recharts"
@@ -1269,7 +1269,7 @@
     {
       "name": "chart-bar-styling",
       "type": "registry:block",
-      "title": "Bar Chart — Styling",
+      "title": "Bar Chart \u2014 Styling",
       "description": "Radius + active/inactive opacity",
       "dependencies": [
         "recharts"
@@ -1299,7 +1299,7 @@
     {
       "name": "chart-extras-area-brush",
       "type": "registry:block",
-      "title": "Area Chart — Brush Zoom",
+      "title": "Area Chart \u2014 Brush Zoom",
       "description": "Drag the brush to zoom a time range",
       "dependencies": [
         "recharts"
@@ -1324,13 +1324,18 @@
           "path": "components/charts/extras/area-brush.tsx",
           "type": "registry:block",
           "target": "components/charts/extras/area-brush.tsx"
+        },
+        {
+          "path": "components/charts/brush-traveller.tsx",
+          "type": "registry:component",
+          "target": "components/charts/brush-traveller.tsx"
         }
       ]
     },
     {
       "name": "chart-extras-bar-diverging",
       "type": "registry:block",
-      "title": "Bar Chart — Diverging",
+      "title": "Bar Chart \u2014 Diverging",
       "description": "Positive / negative variance from plan",
       "dependencies": [
         "recharts"
@@ -1361,7 +1366,7 @@
     {
       "name": "chart-extras-bar-error",
       "type": "registry:block",
-      "title": "Bar Chart — ErrorBar",
+      "title": "Bar Chart \u2014 ErrorBar",
       "description": "Symmetric and asymmetric error whiskers on bars",
       "dependencies": [
         "recharts"
@@ -1392,7 +1397,7 @@
     {
       "name": "chart-extras-bar-horizontal",
       "type": "registry:block",
-      "title": "Bar Chart — Horizontal",
+      "title": "Bar Chart \u2014 Horizontal",
       "description": "Category ranking with vertical layout",
       "dependencies": [
         "recharts"
@@ -1423,8 +1428,8 @@
     {
       "name": "chart-extras-bar-range",
       "type": "registry:block",
-      "title": "Bar Chart — Range",
-      "description": "Low–high interval bars via `[min, max]`",
+      "title": "Bar Chart \u2014 Range",
+      "description": "Low\u2013high interval bars via `[min, max]`",
       "dependencies": [
         "recharts"
       ],
@@ -1454,7 +1459,7 @@
     {
       "name": "chart-extras-funnel-template",
       "type": "registry:block",
-      "title": "Funnel Chart — Template",
+      "title": "Funnel Chart \u2014 Template",
       "description": "Polished FunnelChart leftover (distinct from analytics funnel steps)",
       "dependencies": [
         "recharts"
@@ -1483,40 +1488,9 @@
       ]
     },
     {
-      "name": "chart-extras-line-brush",
-      "type": "registry:block",
-      "title": "Line Chart — Brush Zoom",
-      "description": "Pan and zoom weekly revenue with Brush",
-      "dependencies": [
-        "recharts"
-      ],
-      "registryDependencies": [
-        "card",
-        "chart"
-      ],
-      "categories": [
-        "charts",
-        "extras"
-      ],
-      "tags": [
-        "extras",
-        "line",
-        "brush"
-      ],
-      "status": "ready",
-      "dataShape": "{ week: string, revenue: number }[]",
-      "files": [
-        {
-          "path": "components/charts/extras/line-brush.tsx",
-          "type": "registry:block",
-          "target": "components/charts/extras/line-brush.tsx"
-        }
-      ]
-    },
-    {
       "name": "chart-extras-line-reference",
       "type": "registry:block",
-      "title": "Line Chart — Reference Highlights",
+      "title": "Line Chart \u2014 Reference Highlights",
       "description": "ReferenceArea + ReferenceDot + ReferenceLine for event callouts",
       "dependencies": [
         "recharts"
@@ -1547,7 +1521,7 @@
     {
       "name": "chart-extras-scatter-error",
       "type": "registry:block",
-      "title": "Scatter Chart — ErrorBar",
+      "title": "Scatter Chart \u2014 ErrorBar",
       "description": "Bidirectional x/y error whiskers on points",
       "dependencies": [
         "recharts"
@@ -1572,6 +1546,11 @@
           "path": "components/charts/extras/scatter-error.tsx",
           "type": "registry:block",
           "target": "components/charts/extras/scatter-error.tsx"
+        },
+        {
+          "path": "components/charts/scatter-dot.tsx",
+          "type": "registry:component",
+          "target": "components/charts/scatter-dot.tsx"
         }
       ]
     },
@@ -1579,7 +1558,7 @@
       "name": "chart-finance-bollinger",
       "type": "registry:block",
       "title": "Bollinger bands",
-      "description": "Close + SMA20 ± 2σ band",
+      "description": "Close + SMA20 \u00b1 2\u03c3 band",
       "dependencies": [
         "recharts"
       ],
@@ -1596,7 +1575,7 @@
         "bollinger"
       ],
       "status": "ready",
-      "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] — derived from ohlc-data.ts",
+      "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] \u2014 derived from ohlc-data.ts",
       "files": [
         {
           "path": "components/charts/finance/bollinger.tsx",
@@ -1631,7 +1610,7 @@
         "candlestick"
       ],
       "status": "ready",
-      "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] — derived from ohlc-data.ts",
+      "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] \u2014 derived from ohlc-data.ts",
       "files": [
         {
           "path": "components/charts/finance/candlestick.tsx",
@@ -1666,7 +1645,7 @@
         "drawdown"
       ],
       "status": "ready",
-      "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] — derived from ohlc-data.ts",
+      "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] \u2014 derived from ohlc-data.ts",
       "files": [
         {
           "path": "components/charts/finance/drawdown.tsx",
@@ -1683,7 +1662,7 @@
     {
       "name": "chart-finance-high-low",
       "type": "registry:block",
-      "title": "High–low range",
+      "title": "High\u2013low range",
       "description": "Daily range band with close overlay",
       "dependencies": [
         "recharts"
@@ -1702,7 +1681,7 @@
         "low"
       ],
       "status": "ready",
-      "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] — derived from ohlc-data.ts",
+      "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] \u2014 derived from ohlc-data.ts",
       "files": [
         {
           "path": "components/charts/finance/high-low.tsx",
@@ -1738,7 +1717,7 @@
         "rsi"
       ],
       "status": "ready",
-      "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] — derived from ohlc-data.ts",
+      "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] \u2014 derived from ohlc-data.ts",
       "files": [
         {
           "path": "components/charts/finance/macd-rsi.tsx",
@@ -1774,7 +1753,7 @@
         "average"
       ],
       "status": "ready",
-      "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] — derived from ohlc-data.ts",
+      "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] \u2014 derived from ohlc-data.ts",
       "files": [
         {
           "path": "components/charts/finance/moving-average.tsx",
@@ -1809,7 +1788,7 @@
         "volume"
       ],
       "status": "ready",
-      "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] — derived from ohlc-data.ts",
+      "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] \u2014 derived from ohlc-data.ts",
       "files": [
         {
           "path": "components/charts/finance/volume.tsx",
@@ -1826,7 +1805,7 @@
     {
       "name": "chart-geo-choropleth",
       "type": "registry:block",
-      "title": "Geo — Choropleth Basic",
+      "title": "Geo \u2014 Choropleth Basic",
       "description": "d3-geo path + value coloring",
       "dependencies": [
         "recharts",
@@ -1845,7 +1824,7 @@
         "choropleth"
       ],
       "status": "ready",
-      "dataShape": "GeoJSON FeatureCollection regions + { id: string, value: number }[] — see geo-data.ts",
+      "dataShape": "GeoJSON FeatureCollection regions + { id: string, value: number }[] \u2014 see geo-data.ts",
       "files": [
         {
           "path": "components/charts/geo-choropleth.tsx",
@@ -1862,7 +1841,7 @@
     {
       "name": "chart-geo-drilldown",
       "type": "registry:block",
-      "title": "Geo — Drill-down + Breadcrumb",
+      "title": "Geo \u2014 Drill-down + Breadcrumb",
       "description": "Click a region to zoom into subregions",
       "dependencies": [
         "recharts",
@@ -1882,7 +1861,7 @@
         "drilldown"
       ],
       "status": "ready",
-      "dataShape": "GeoJSON FeatureCollection regions + { id: string, value: number }[] — see geo-data.ts",
+      "dataShape": "GeoJSON FeatureCollection regions + { id: string, value: number }[] \u2014 see geo-data.ts",
       "files": [
         {
           "path": "components/charts/geo-drilldown.tsx",
@@ -1899,7 +1878,7 @@
     {
       "name": "chart-geo-points",
       "type": "registry:block",
-      "title": "Geo — Point Layer",
+      "title": "Geo \u2014 Point Layer",
       "description": "Facilities overlaid on choropleth base",
       "dependencies": [
         "recharts",
@@ -1918,7 +1897,7 @@
         "points"
       ],
       "status": "ready",
-      "dataShape": "GeoJSON FeatureCollection regions + { id: string, value: number }[] — see geo-data.ts",
+      "dataShape": "GeoJSON FeatureCollection regions + { id: string, value: number }[] \u2014 see geo-data.ts",
       "files": [
         {
           "path": "components/charts/geo-points.tsx",
@@ -1935,7 +1914,7 @@
     {
       "name": "chart-line-basic",
       "type": "registry:block",
-      "title": "Line Chart — Basic",
+      "title": "Line Chart \u2014 Basic",
       "description": "Single-series line chart with natural curve.",
       "dependencies": [
         "recharts"
@@ -1967,7 +1946,7 @@
     {
       "name": "chart-line-brush",
       "type": "registry:block",
-      "title": "Line Chart — Brush / Zoom",
+      "title": "Line Chart \u2014 Brush / Zoom",
       "description": "Drag the brush to zoom a range",
       "dependencies": [
         "recharts"
@@ -1991,13 +1970,18 @@
           "path": "components/charts/line-brush.tsx",
           "type": "registry:block",
           "target": "components/charts/line-brush.tsx"
+        },
+        {
+          "path": "components/charts/brush-traveller.tsx",
+          "type": "registry:component",
+          "target": "components/charts/brush-traveller.tsx"
         }
       ]
     },
     {
       "name": "chart-line-closest-series",
       "type": "registry:block",
-      "title": "Line Chart — Closest Series Highlight",
+      "title": "Line Chart \u2014 Closest Series Highlight",
       "description": "Hover dims non-active series",
       "dependencies": [
         "recharts"
@@ -2028,7 +2012,7 @@
     {
       "name": "chart-line-crosshair",
       "type": "registry:block",
-      "title": "Line Chart — Crosshair + Axis Labels",
+      "title": "Line Chart \u2014 Crosshair + Axis Labels",
       "description": "Crosshair cursor with labeled axes",
       "dependencies": [
         "recharts"
@@ -2058,7 +2042,7 @@
     {
       "name": "chart-line-curve",
       "type": "registry:block",
-      "title": "Line Chart — Curve Interpolation",
+      "title": "Line Chart \u2014 Curve Interpolation",
       "description": "Linear / monotone / step curve types side by side",
       "dependencies": [
         "recharts"
@@ -2088,7 +2072,7 @@
     {
       "name": "chart-line-custom-tooltip",
       "type": "registry:block",
-      "title": "Line Chart — Custom Tooltip",
+      "title": "Line Chart \u2014 Custom Tooltip",
       "description": "Revenue with MoM growth",
       "dependencies": [
         "recharts"
@@ -2119,7 +2103,7 @@
     {
       "name": "chart-line-dots",
       "type": "registry:block",
-      "title": "Line Chart — Dots / ActiveDot",
+      "title": "Line Chart \u2014 Dots / ActiveDot",
       "description": "Visible dots with enlarged activeDot",
       "dependencies": [
         "recharts"
@@ -2149,7 +2133,7 @@
     {
       "name": "chart-line-dual-axis",
       "type": "registry:block",
-      "title": "Line Chart — Dual Axis",
+      "title": "Line Chart \u2014 Dual Axis",
       "description": "Users vs revenue",
       "dependencies": [
         "recharts"
@@ -2180,7 +2164,7 @@
     {
       "name": "chart-line-inverted",
       "type": "registry:block",
-      "title": "Line Chart — Inverted Axis",
+      "title": "Line Chart \u2014 Inverted Axis",
       "description": "Lower rank is better (Y reversed)",
       "dependencies": [
         "recharts"
@@ -2210,7 +2194,7 @@
     {
       "name": "chart-line-multi",
       "type": "registry:block",
-      "title": "Line Chart — Multi-series",
+      "title": "Line Chart \u2014 Multi-series",
       "description": "Multi-series line chart for comparing trends.",
       "dependencies": [
         "recharts"
@@ -2242,7 +2226,7 @@
     {
       "name": "chart-line-synced",
       "type": "registry:block",
-      "title": "Line Chart — Synced Multi-panel",
+      "title": "Line Chart \u2014 Synced Multi-panel",
       "description": "Shared hover index across panels",
       "dependencies": [
         "recharts"
@@ -2272,7 +2256,7 @@
     {
       "name": "chart-pie-basic",
       "type": "registry:block",
-      "title": "Pie Chart — Basic",
+      "title": "Pie Chart \u2014 Basic",
       "description": "Browser share",
       "dependencies": [
         "recharts"
@@ -2303,7 +2287,7 @@
     {
       "name": "chart-pie-center-kpi",
       "type": "registry:block",
-      "title": "Pie Chart — Center KPI",
+      "title": "Pie Chart \u2014 Center KPI",
       "description": "Total visitors in the donut hole",
       "dependencies": [
         "recharts"
@@ -2335,7 +2319,7 @@
     {
       "name": "chart-pie-donut",
       "type": "registry:block",
-      "title": "Pie Chart — Donut",
+      "title": "Pie Chart \u2014 Donut",
       "description": "Browser share with inner radius",
       "dependencies": [
         "recharts"
@@ -2366,7 +2350,7 @@
     {
       "name": "chart-pie-interactive",
       "type": "registry:block",
-      "title": "Pie Chart — Interactive",
+      "title": "Pie Chart \u2014 Interactive",
       "description": "Active sector highlight",
       "dependencies": [
         "recharts"
@@ -2398,7 +2382,7 @@
     {
       "name": "chart-pie-labeled",
       "type": "registry:block",
-      "title": "Pie Chart — Labeled",
+      "title": "Pie Chart \u2014 Labeled",
       "description": "Sector labels outside the pie",
       "dependencies": [
         "recharts"
@@ -2429,7 +2413,7 @@
     {
       "name": "chart-pie-legend",
       "type": "registry:block",
-      "title": "Pie Chart — Legend",
+      "title": "Pie Chart \u2014 Legend",
       "description": "Legend below the pie",
       "dependencies": [
         "recharts"
@@ -2460,7 +2444,7 @@
     {
       "name": "chart-pie-nested",
       "type": "registry:block",
-      "title": "Pie Chart — Nested",
+      "title": "Pie Chart \u2014 Nested",
       "description": "Two-level desktop + mobile rings",
       "dependencies": [
         "recharts"
@@ -2491,7 +2475,7 @@
     {
       "name": "chart-pie-tooltip-absolute",
       "type": "registry:block",
-      "title": "Pie Chart — Absolute Tooltip",
+      "title": "Pie Chart \u2014 Absolute Tooltip",
       "description": "Raw visitor counts in tooltip",
       "dependencies": [
         "recharts"
@@ -2523,7 +2507,7 @@
     {
       "name": "chart-pie-tooltip-percent",
       "type": "registry:block",
-      "title": "Pie Chart — Percent Tooltip",
+      "title": "Pie Chart \u2014 Percent Tooltip",
       "description": "Share of total as percentage",
       "dependencies": [
         "recharts"
@@ -2555,7 +2539,7 @@
     {
       "name": "chart-radar-basic",
       "type": "registry:block",
-      "title": "Radar Chart — Basic",
+      "title": "Radar Chart \u2014 Basic",
       "description": "Single series visitors",
       "dependencies": [
         "recharts"
@@ -2586,7 +2570,7 @@
     {
       "name": "chart-radar-dots",
       "type": "registry:block",
-      "title": "Radar Chart — Dots",
+      "title": "Radar Chart \u2014 Dots",
       "description": "Vertex markers on the series",
       "dependencies": [
         "recharts"
@@ -2617,7 +2601,7 @@
     {
       "name": "chart-radar-filled",
       "type": "registry:block",
-      "title": "Radar Chart — Filled",
+      "title": "Radar Chart \u2014 Filled",
       "description": "Opaque fill with tinted grid",
       "dependencies": [
         "recharts"
@@ -2648,7 +2632,7 @@
     {
       "name": "chart-radar-grid-circle",
       "type": "registry:block",
-      "title": "Radar Chart — Grid Circle",
+      "title": "Radar Chart \u2014 Grid Circle",
       "description": "Circular polar grid",
       "dependencies": [
         "recharts"
@@ -2680,7 +2664,7 @@
     {
       "name": "chart-radar-grid-polygon",
       "type": "registry:block",
-      "title": "Radar Chart — Grid Polygon",
+      "title": "Radar Chart \u2014 Grid Polygon",
       "description": "Default polygonal polar grid",
       "dependencies": [
         "recharts"
@@ -2712,7 +2696,7 @@
     {
       "name": "chart-radar-legend-interactive",
       "type": "registry:block",
-      "title": "Radar Chart — Interactive Legend",
+      "title": "Radar Chart \u2014 Interactive Legend",
       "description": "Toggle series from the legend",
       "dependencies": [
         "recharts"
@@ -2745,7 +2729,7 @@
     {
       "name": "chart-radar-lines-only",
       "type": "registry:block",
-      "title": "Radar Chart — Lines Only",
+      "title": "Radar Chart \u2014 Lines Only",
       "description": "Stroke without fill",
       "dependencies": [
         "recharts"
@@ -2777,7 +2761,7 @@
     {
       "name": "chart-radar-multi",
       "type": "registry:block",
-      "title": "Radar Chart — Multi-series",
+      "title": "Radar Chart \u2014 Multi-series",
       "description": "Desktop vs mobile",
       "dependencies": [
         "recharts"
@@ -2808,7 +2792,7 @@
     {
       "name": "chart-radar-stroke",
       "type": "registry:block",
-      "title": "Radar Chart — Stroke",
+      "title": "Radar Chart \u2014 Stroke",
       "description": "Stroke-only outline series",
       "dependencies": [
         "recharts"
@@ -2839,7 +2823,7 @@
     {
       "name": "chart-radial-basic",
       "type": "registry:block",
-      "title": "Radial Chart — Basic",
+      "title": "Radial Chart \u2014 Basic",
       "description": "Browser visitors as radial bars",
       "dependencies": [
         "recharts"
@@ -2870,7 +2854,7 @@
     {
       "name": "chart-radial-gauge",
       "type": "registry:block",
-      "title": "Radial Chart — Gauge",
+      "title": "Radial Chart \u2014 Gauge",
       "description": "Semi-circle score gauge",
       "dependencies": [
         "recharts"
@@ -2901,7 +2885,7 @@
     {
       "name": "chart-radial-grid",
       "type": "registry:block",
-      "title": "Radial Chart — Grid",
+      "title": "Radial Chart \u2014 Grid",
       "description": "Circular polar grid behind bars",
       "dependencies": [
         "recharts"
@@ -2932,7 +2916,7 @@
     {
       "name": "chart-radial-label",
       "type": "registry:block",
-      "title": "Radial Chart — Label",
+      "title": "Radial Chart \u2014 Label",
       "description": "Inside-start labels on each bar",
       "dependencies": [
         "recharts"
@@ -2963,7 +2947,7 @@
     {
       "name": "chart-radial-progress",
       "type": "registry:block",
-      "title": "Radial Chart — Progress",
+      "title": "Radial Chart \u2014 Progress",
       "description": "Percent complete ring",
       "dependencies": [
         "recharts"
@@ -2994,7 +2978,7 @@
     {
       "name": "chart-radial-shape",
       "type": "registry:block",
-      "title": "Radial Chart — Shape",
+      "title": "Radial Chart \u2014 Shape",
       "description": "Custom track shape via PolarGrid fill",
       "dependencies": [
         "recharts"
@@ -3025,7 +3009,7 @@
     {
       "name": "chart-radial-stacked",
       "type": "registry:block",
-      "title": "Radial Chart — Stacked",
+      "title": "Radial Chart \u2014 Stacked",
       "description": "Desktop + mobile stacked ring",
       "dependencies": [
         "recharts"
@@ -3056,7 +3040,7 @@
     {
       "name": "chart-radial-text",
       "type": "registry:block",
-      "title": "Radial Chart — Text",
+      "title": "Radial Chart \u2014 Text",
       "description": "Centered value with arc track",
       "dependencies": [
         "recharts"
@@ -3087,7 +3071,7 @@
     {
       "name": "chart-sankey-basic",
       "type": "registry:block",
-      "title": "Sankey — Basic",
+      "title": "Sankey \u2014 Basic",
       "description": "Funnel flow from visit to paid",
       "dependencies": [
         "recharts"
@@ -3111,13 +3095,18 @@
           "path": "components/charts/sankey-basic.tsx",
           "type": "registry:block",
           "target": "components/charts/sankey-basic.tsx"
+        },
+        {
+          "path": "components/charts/sankey-parts.tsx",
+          "type": "registry:component",
+          "target": "components/charts/sankey-parts.tsx"
         }
       ]
     },
     {
       "name": "chart-sankey-compact",
       "type": "registry:block",
-      "title": "Sankey — Compact",
+      "title": "Sankey \u2014 Compact",
       "description": "Tight padding for dense layouts",
       "dependencies": [
         "recharts"
@@ -3141,13 +3130,18 @@
           "path": "components/charts/sankey-compact.tsx",
           "type": "registry:block",
           "target": "components/charts/sankey-compact.tsx"
+        },
+        {
+          "path": "components/charts/sankey-parts.tsx",
+          "type": "registry:component",
+          "target": "components/charts/sankey-parts.tsx"
         }
       ]
     },
     {
       "name": "chart-sankey-custom-stroke",
       "type": "registry:block",
-      "title": "Sankey — Custom Stroke",
+      "title": "Sankey \u2014 Custom Stroke",
       "description": "Thicker dashed node stroke",
       "dependencies": [
         "recharts"
@@ -3172,14 +3166,19 @@
           "path": "components/charts/sankey-custom-stroke.tsx",
           "type": "registry:block",
           "target": "components/charts/sankey-custom-stroke.tsx"
+        },
+        {
+          "path": "components/charts/sankey-parts.tsx",
+          "type": "registry:component",
+          "target": "components/charts/sankey-parts.tsx"
         }
       ]
     },
     {
       "name": "chart-sankey-custom-tooltip",
       "type": "registry:block",
-      "title": "Sankey — Custom Tooltip",
-      "description": "Source → target flow details",
+      "title": "Sankey \u2014 Custom Tooltip",
+      "description": "Source \u2192 target flow details",
       "dependencies": [
         "recharts"
       ],
@@ -3203,13 +3202,18 @@
           "path": "components/charts/sankey-custom-tooltip.tsx",
           "type": "registry:block",
           "target": "components/charts/sankey-custom-tooltip.tsx"
+        },
+        {
+          "path": "components/charts/sankey-parts.tsx",
+          "type": "registry:component",
+          "target": "components/charts/sankey-parts.tsx"
         }
       ]
     },
     {
       "name": "chart-sankey-gradient",
       "type": "registry:block",
-      "title": "Sankey — Gradient Links",
+      "title": "Sankey \u2014 Gradient Links",
       "description": "Links fade between chart colors",
       "dependencies": [
         "recharts"
@@ -3233,14 +3237,19 @@
           "path": "components/charts/sankey-gradient.tsx",
           "type": "registry:block",
           "target": "components/charts/sankey-gradient.tsx"
+        },
+        {
+          "path": "components/charts/sankey-parts.tsx",
+          "type": "registry:component",
+          "target": "components/charts/sankey-parts.tsx"
         }
       ]
     },
     {
       "name": "chart-sankey-traffic-flow",
       "type": "registry:block",
-      "title": "Sankey — Traffic Flow",
-      "description": "Acquisition → landing → purchase",
+      "title": "Sankey \u2014 Traffic Flow",
+      "description": "Acquisition \u2192 landing \u2192 purchase",
       "dependencies": [
         "recharts"
       ],
@@ -3264,13 +3273,18 @@
           "path": "components/charts/sankey-traffic-flow.tsx",
           "type": "registry:block",
           "target": "components/charts/sankey-traffic-flow.tsx"
+        },
+        {
+          "path": "components/charts/sankey-parts.tsx",
+          "type": "registry:component",
+          "target": "components/charts/sankey-parts.tsx"
         }
       ]
     },
     {
       "name": "chart-scatter-basic",
       "type": "registry:block",
-      "title": "Scatter Chart — Basic",
+      "title": "Scatter Chart \u2014 Basic",
       "description": "X / Y correlation",
       "dependencies": [
         "recharts"
@@ -3294,13 +3308,18 @@
           "path": "components/charts/scatter-basic.tsx",
           "type": "registry:block",
           "target": "components/charts/scatter-basic.tsx"
+        },
+        {
+          "path": "components/charts/scatter-dot.tsx",
+          "type": "registry:component",
+          "target": "components/charts/scatter-dot.tsx"
         }
       ]
     },
     {
       "name": "chart-scatter-bubble",
       "type": "registry:block",
-      "title": "Scatter Chart — Bubble",
+      "title": "Scatter Chart \u2014 Bubble",
       "description": "Size encodes Z value",
       "dependencies": [
         "recharts"
@@ -3324,13 +3343,18 @@
           "path": "components/charts/scatter-bubble.tsx",
           "type": "registry:block",
           "target": "components/charts/scatter-bubble.tsx"
+        },
+        {
+          "path": "components/charts/scatter-dot.tsx",
+          "type": "registry:component",
+          "target": "components/charts/scatter-dot.tsx"
         }
       ]
     },
     {
       "name": "chart-scatter-crosshair",
       "type": "registry:block",
-      "title": "Scatter Chart — Crosshair",
+      "title": "Scatter Chart \u2014 Crosshair",
       "description": "Reference lines follow active point",
       "dependencies": [
         "recharts"
@@ -3354,13 +3378,18 @@
           "path": "components/charts/scatter-crosshair.tsx",
           "type": "registry:block",
           "target": "components/charts/scatter-crosshair.tsx"
+        },
+        {
+          "path": "components/charts/scatter-dot.tsx",
+          "type": "registry:component",
+          "target": "components/charts/scatter-dot.tsx"
         }
       ]
     },
     {
       "name": "chart-scatter-highlight",
       "type": "registry:block",
-      "title": "Scatter Chart — Highlight",
+      "title": "Scatter Chart \u2014 Highlight",
       "description": "Hover dims non-active points",
       "dependencies": [
         "recharts"
@@ -3384,13 +3413,18 @@
           "path": "components/charts/scatter-highlight.tsx",
           "type": "registry:block",
           "target": "components/charts/scatter-highlight.tsx"
+        },
+        {
+          "path": "components/charts/scatter-dot.tsx",
+          "type": "registry:component",
+          "target": "components/charts/scatter-dot.tsx"
         }
       ]
     },
     {
       "name": "chart-scatter-multi",
       "type": "registry:block",
-      "title": "Scatter Chart — Multi-series",
+      "title": "Scatter Chart \u2014 Multi-series",
       "description": "Two cohorts compared",
       "dependencies": [
         "recharts"
@@ -3414,13 +3448,18 @@
           "path": "components/charts/scatter-multi.tsx",
           "type": "registry:block",
           "target": "components/charts/scatter-multi.tsx"
+        },
+        {
+          "path": "components/charts/scatter-dot.tsx",
+          "type": "registry:component",
+          "target": "components/charts/scatter-dot.tsx"
         }
       ]
     },
     {
       "name": "chart-scatter-trend",
       "type": "registry:block",
-      "title": "Scatter Chart — Trend Line",
+      "title": "Scatter Chart \u2014 Trend Line",
       "description": "OLS trend overlay",
       "dependencies": [
         "recharts"
@@ -3444,13 +3483,18 @@
           "path": "components/charts/scatter-trend.tsx",
           "type": "registry:block",
           "target": "components/charts/scatter-trend.tsx"
+        },
+        {
+          "path": "components/charts/scatter-dot.tsx",
+          "type": "registry:component",
+          "target": "components/charts/scatter-dot.tsx"
         }
       ]
     },
     {
       "name": "chart-treemap-basic",
       "type": "registry:block",
-      "title": "Treemap — Basic",
+      "title": "Treemap \u2014 Basic",
       "description": "Category size by rectangle area",
       "dependencies": [
         "recharts"
@@ -3474,13 +3518,18 @@
           "path": "components/charts/treemap-basic.tsx",
           "type": "registry:block",
           "target": "components/charts/treemap-basic.tsx"
+        },
+        {
+          "path": "components/charts/treemap-tile.tsx",
+          "type": "registry:component",
+          "target": "components/charts/treemap-tile.tsx"
         }
       ]
     },
     {
       "name": "chart-treemap-color-by-category",
       "type": "registry:block",
-      "title": "Treemap — Color by Category",
+      "title": "Treemap \u2014 Color by Category",
       "description": "Each category uses a chart token",
       "dependencies": [
         "recharts"
@@ -3506,13 +3555,18 @@
           "path": "components/charts/treemap-color-by-category.tsx",
           "type": "registry:block",
           "target": "components/charts/treemap-color-by-category.tsx"
+        },
+        {
+          "path": "components/charts/treemap-tile.tsx",
+          "type": "registry:component",
+          "target": "components/charts/treemap-tile.tsx"
         }
       ]
     },
     {
       "name": "chart-treemap-custom-tooltip",
       "type": "registry:block",
-      "title": "Treemap — Custom Tooltip",
+      "title": "Treemap \u2014 Custom Tooltip",
       "description": "ARR and share on hover",
       "dependencies": [
         "recharts"
@@ -3537,13 +3591,18 @@
           "path": "components/charts/treemap-custom-tooltip.tsx",
           "type": "registry:block",
           "target": "components/charts/treemap-custom-tooltip.tsx"
+        },
+        {
+          "path": "components/charts/treemap-tile.tsx",
+          "type": "registry:component",
+          "target": "components/charts/treemap-tile.tsx"
         }
       ]
     },
     {
       "name": "chart-treemap-grouped",
       "type": "registry:block",
-      "title": "Treemap — Grouped",
+      "title": "Treemap \u2014 Grouped",
       "description": "Nested regions and countries",
       "dependencies": [
         "recharts"
@@ -3567,13 +3626,18 @@
           "path": "components/charts/treemap-grouped.tsx",
           "type": "registry:block",
           "target": "components/charts/treemap-grouped.tsx"
+        },
+        {
+          "path": "components/charts/treemap-tile.tsx",
+          "type": "registry:component",
+          "target": "components/charts/treemap-tile.tsx"
         }
       ]
     },
     {
       "name": "chart-treemap-highlight",
       "type": "registry:block",
-      "title": "Treemap — Highlight",
+      "title": "Treemap \u2014 Highlight",
       "description": "Hover highlights one cell",
       "dependencies": [
         "recharts"
@@ -3597,14 +3661,19 @@
           "path": "components/charts/treemap-highlight.tsx",
           "type": "registry:block",
           "target": "components/charts/treemap-highlight.tsx"
+        },
+        {
+          "path": "components/charts/treemap-tile.tsx",
+          "type": "registry:component",
+          "target": "components/charts/treemap-tile.tsx"
         }
       ]
     },
     {
       "name": "chart-treemap-reverse",
       "type": "registry:block",
-      "title": "Treemap — Reverse",
-      "description": "Children ordered largest → smallest",
+      "title": "Treemap \u2014 Reverse",
+      "description": "Children ordered largest \u2192 smallest",
       "dependencies": [
         "recharts"
       ],
@@ -3627,13 +3696,18 @@
           "path": "components/charts/treemap-reverse.tsx",
           "type": "registry:block",
           "target": "components/charts/treemap-reverse.tsx"
+        },
+        {
+          "path": "components/charts/treemap-tile.tsx",
+          "type": "registry:component",
+          "target": "components/charts/treemap-tile.tsx"
         }
       ]
     },
     {
       "name": "chart-treemap-styled",
       "type": "registry:block",
-      "title": "Treemap — Styled",
+      "title": "Treemap \u2014 Styled",
       "description": "Gap + rounded corners",
       "dependencies": [
         "recharts"
@@ -3657,6 +3731,11 @@
           "path": "components/charts/treemap-styled.tsx",
           "type": "registry:block",
           "target": "components/charts/treemap-styled.tsx"
+        },
+        {
+          "path": "components/charts/treemap-tile.tsx",
+          "type": "registry:component",
+          "target": "components/charts/treemap-tile.tsx"
         }
       ]
     }

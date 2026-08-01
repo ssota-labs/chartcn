@@ -15,6 +15,7 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "@/components/ui/chart"
+import { TreemapTile } from "./treemap-tile"
 
 const ascending = [
   { name: "Tiny", size: 120 },
@@ -36,20 +37,17 @@ function Content(props: {
   width?: number
   height?: number
   name?: string
+  size?: number
   depth?: number
   index?: number
 }) {
-  const { x = 0, y = 0, width = 0, height = 0, name, depth = 0 } = props
-  if (depth < 1 || width < 2 || height < 2) return null
   return (
-    <g>
-      <rect x={x} y={y} width={width} height={height} fill="var(--chart-2)" fillOpacity={0.75} stroke="var(--background)" strokeWidth={2} />
-      {width > 40 && height > 20 ? (
-        <text x={x + 8} y={y + 18} className="fill-foreground text-[11px]">
-          {name}
-        </text>
-      ) : null}
-    </g>
+    <TreemapTile
+      {...props}
+      fill="var(--chart-2)"
+      value={props.size?.toLocaleString()}
+      seam="var(--card)"
+    />
   )
 }
 

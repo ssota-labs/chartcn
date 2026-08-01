@@ -1,6 +1,7 @@
 "use client"
 
-import { Sankey, Tooltip } from "recharts"
+import * as React from "react"
+import { Sankey } from "recharts"
 
 import {
   Card,
@@ -15,6 +16,7 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "@/components/ui/chart"
+import { SankeyLinkShape, SankeyNodeShape } from "./sankey-parts"
 
 const data = {
   nodes: [
@@ -39,6 +41,8 @@ const chartConfig = {
 } satisfies ChartConfig
 
 export function ChartSankeyCustomStroke() {
+  const [activeNode, setActiveNode] = React.useState<string | null>(null)
+
   return (
     <Card>
       <CardHeader>
@@ -52,16 +56,16 @@ export function ChartSankeyCustomStroke() {
             nodePadding={28}
             nodeWidth={16}
             linkCurvature={0.4}
-            margin={{ left: 16, right: 16, top: 12, bottom: 12 }}
-            node={{
-              fill: "var(--chart-4)",
-              stroke: "var(--foreground)",
-              strokeWidth: 1.5,
-              strokeDasharray: "3 2",
-            }}
-            link={{ stroke: "var(--chart-4)", strokeOpacity: 0.35, strokeWidth: 1 }}
+            margin={{ left: 16, right: 104, top: 16, bottom: 16 }}
+            node={
+              <SankeyNodeShape
+                activeNode={activeNode}
+                onActivate={setActiveNode} nodeStroke="var(--card)"
+              />
+            }
+            link={<SankeyLinkShape activeNode={activeNode} />}
           >
-            <Tooltip />
+            <ChartTooltip content={<ChartTooltipContent hideLabel />} />
           </Sankey>
         </ChartContainer>
       </CardContent>

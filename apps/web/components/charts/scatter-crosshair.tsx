@@ -11,6 +11,10 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import {
+  ScatterDot,
+  SCATTER_HOVER_RADIUS,
+} from "./scatter-dot"
+import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
@@ -30,8 +34,14 @@ const chartConfig = {
   points: { label: "Points", color: "var(--chart-1)" },
 } satisfies ChartConfig
 
-export function ChartScatterCrosshair() {
-  const [active, setActive] = React.useState<{ x: number; y: number } | null>(null)
+type Point = { x: number; y: number }
+
+export function ChartScatterCrosshair({
+  hoverRadius = SCATTER_HOVER_RADIUS,
+}: {
+  hoverRadius?: number
+} = {}) {
+  const [active, setActive] = React.useState<Point | null>(null)
 
   return (
     <Card>
@@ -64,10 +74,14 @@ export function ChartScatterCrosshair() {
               data={chartData}
               fill="var(--color-points)"
               name="points"
+              isAnimationActive={false}
+              shape={<ScatterDot hoverRadius={hoverRadius} />}
+              activeShape={<ScatterDot hoverRadius={hoverRadius} halo active />}
               onMouseEnter={(_, index) => {
                 const point = chartData[index]
                 if (point) setActive(point)
               }}
+              onMouseLeave={() => setActive(null)}
             />
           </ScatterChart>
         </ChartContainer>

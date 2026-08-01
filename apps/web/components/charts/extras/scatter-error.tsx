@@ -9,6 +9,8 @@ import {
   YAxis,
 } from "recharts"
 
+import { ScatterDot } from "../scatter-dot"
+
 import {
   Card,
   CardContent,
@@ -79,6 +81,8 @@ export function ChartScatterError() {
               name="samples"
               data={chartData}
               fill="var(--color-samples)"
+              shape={<ScatterDot />}
+              activeShape={<ScatterDot active />}
             >
               <ErrorBar
                 dataKey="errorX"

@@ -3,6 +3,8 @@
 import * as React from "react"
 import { CartesianGrid, Cell, Scatter, ScatterChart, XAxis, YAxis, ZAxis } from "recharts"
 
+import { ScatterDot } from "./scatter-dot"
+
 import {
   Card,
   CardContent,
@@ -53,13 +55,19 @@ export function ChartScatterHighlight() {
             <YAxis type="number" dataKey="y" tickLine={false} axisLine={false} />
             <ZAxis range={[80, 80]} />
             <ChartTooltip content={<ChartTooltipContent hideLabel />} />
-            <Scatter data={chartData} name="points">
+            <Scatter
+              data={chartData}
+              name="points"
+              shape={<ScatterDot />}
+              activeShape={<ScatterDot active />}
+              onMouseEnter={(_, index) => setActiveIndex(index)}
+              onMouseLeave={() => setActiveIndex(null)}
+            >
               {chartData.map((_, index) => (
                 <Cell
                   key={index}
                   fill="var(--color-points)"
                   fillOpacity={activeIndex == null || activeIndex === index ? 1 : 0.25}
-                  onMouseEnter={() => setActiveIndex(index)}
                 />
               ))}
             </Scatter>

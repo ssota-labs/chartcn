@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import {
   Bar,
   BarChart,
@@ -25,98 +26,134 @@ import {
 
 type BulletRow = {
   metric: string
+  /** Each KPI carries its own scale — a shared one flattens the tight ones. */
+  min: number
   poor: number
   ok: number
+  max: number
   actual: number
   target: number
 }
 
 const chartData: BulletRow[] = [
-  { metric: "Revenue", poor: 60, ok: 85, actual: 78, target: 90 },
-  { metric: "NPS", poor: 40, ok: 70, actual: 62, target: 75 },
-  { metric: "Uptime", poor: 95, ok: 99, actual: 99.4, target: 99.9 },
+  { metric: "Revenue", min: 0, poor: 60, ok: 85, max: 100, actual: 78, target: 90 },
+  { metric: "NPS", min: 0, poor: 40, ok: 70, max: 100, actual: 62, target: 75 },
+  { metric: "Uptime", min: 98.5, poor: 99, ok: 99.5, max: 100, actual: 99.4, target: 99.9 },
 ]
 
 const chartConfig = {
   actual: { label: "Actual", color: "var(--chart-1)" },
-  target: { label: "Target", color: "var(--chart-2)" },
-  poor: { label: "Poor", color: "var(--muted)" },
-  ok: { label: "OK", color: "color-mix(in oklch, var(--chart-3) 40%, var(--muted))" },
-  good: { label: "Good", color: "color-mix(in oklch, var(--chart-2) 30%, var(--muted))" },
+  target: { label: "Target", color: "var(--foreground)" },
 } satisfies ChartConfig
 
 /**
- * Bullet charts approximated with ReferenceArea ranges + Bar + ReferenceLine.
- * Recharts has no dedicated bullet mark.
+ * Qualitative bands are context, not categories, so they step through one
+ * neutral ramp. Hue-coding them competes with the measure bar for attention.
+ */
+const BANDS = [
+  "color-mix(in oklch, var(--muted-foreground) 10%, transparent)",
+  "color-mix(in oklch, var(--muted-foreground) 18%, transparent)",
+  "color-mix(in oklch, var(--muted-foreground) 28%, transparent)",
+]
+
+const fmt = (n: number) => n.toLocaleString(undefined, { maximumFractionDigits: 2 })
+
+/**
+ * Recharts has no bullet mark. ReferenceArea draws the qualitative bands, a
+ * horizontal Bar the measure, and ReferenceLine the target.
  */
 export function ChartBullet() {
+  const [active, setActive] = React.useState<string | null>(null)
+
   return (
     <Card>
       <CardHeader>
         <CardTitle>Bullet Chart</CardTitle>
         <CardDescription>KPI vs qualitative ranges + target</CardDescription>
       </CardHeader>
-      <CardContent className="space-y-6">
-        {chartData.map((row) => (
-          <div key={row.metric} className="space-y-1">
-            <div className="flex justify-between text-xs">
-              <span className="font-medium">{row.metric}</span>
-              <span className="text-muted-foreground tabular-nums">
-                {row.actual} / target {row.target}
-              </span>
-            </div>
-            <ChartContainer
-              config={chartConfig}
-              className="h-10 w-full aspect-auto"
+      <CardContent className="space-y-5">
+        {chartData.map((row, index) => {
+          const hit = row.actual >= row.target
+          return (
+            <div
+              key={row.metric}
+              className="space-y-1.5"
+              onMouseEnter={() => setActive(row.metric)}
+              onMouseLeave={() => setActive(null)}
             >
-              <BarChart
-                accessibilityLayer
-                layout="vertical"
-                data={[row]}
-                margin={{ left: 0, right: 8, top: 8, bottom: 8 }}
+              <div className="flex items-baseline justify-between text-xs">
+                <span className="font-medium">{row.metric}</span>
+                <span className="tabular-nums text-muted-foreground">
+                  <span
+                    className={
+                      hit ? "font-medium text-foreground" : "font-medium text-foreground"
+                    }
+                  >
+                    {fmt(row.actual)}
+                  </span>
+                  {" / target "}
+                  {fmt(row.target)}
+                </span>
+              </div>
+              <ChartContainer
+                config={chartConfig}
+                className="h-8 w-full aspect-auto"
               >
-                <XAxis type="number" domain={[0, 100]} hide />
-                <YAxis type="category" dataKey="metric" hide />
-                <ReferenceArea
-                  x1={0}
-                  x2={row.poor}
-                  fill="var(--color-poor)"
-                  fillOpacity={1}
-                  ifOverflow="visible"
-                />
-                <ReferenceArea
-                  x1={row.poor}
-                  x2={row.ok}
-                  fill="var(--color-ok)"
-                  fillOpacity={1}
-                  ifOverflow="visible"
-                />
-                <ReferenceArea
-                  x1={row.ok}
-                  x2={100}
-                  fill="var(--color-good)"
-                  fillOpacity={1}
-                  ifOverflow="visible"
-                />
-                <ChartTooltip
-                  content={<ChartTooltipContent hideLabel />}
-                />
-                <Bar
-                  dataKey="actual"
-                  barSize={8}
-                  fill="var(--color-actual)"
-                  radius={2}
-                  isAnimationActive={false}
-                />
-                <ReferenceLine
-                  x={row.target}
-                  stroke="var(--color-target)"
-                  strokeWidth={2}
-                />
-              </BarChart>
-            </ChartContainer>
-          </div>
-        ))}
+                <BarChart
+                  accessibilityLayer
+                  layout="vertical"
+                  data={[row]}
+                  margin={{ left: 0, right: 0, top: 4, bottom: 4 }}
+                >
+                  <XAxis type="number" domain={[row.min, row.max]} hide />
+                  <YAxis type="category" dataKey="metric" hide />
+                  {[
+                    [row.min, row.poor],
+                    [row.poor, row.ok],
+                    [row.ok, row.max],
+                  ].map(([x1, x2], i) => (
+                    <ReferenceArea
+                      key={i}
+                      x1={x1}
+                      x2={x2}
+                      fill={BANDS[i]}
+                      fillOpacity={1}
+                      ifOverflow="visible"
+                    />
+                  ))}
+                  <ChartTooltip content={<ChartTooltipContent hideLabel />} />
+                  <Bar
+                    dataKey="actual"
+                    barSize={10}
+                    fill="var(--color-actual)"
+                    radius={[0, 5, 5, 0]}
+                    // Bars fill left to right, one row after the next.
+                    animationBegin={index * 90}
+                    animationDuration={650}
+                    animationEasing="ease-out"
+                  />
+                  {/* The target is a tick, not a band — it reads as a goalpost
+                      the measure either clears or falls short of. */}
+                  <ReferenceLine
+                    x={row.target}
+                    stroke="var(--color-target)"
+                    strokeWidth={2}
+                    ifOverflow="visible"
+                  />
+                </BarChart>
+              </ChartContainer>
+              <div
+                className={
+                  "flex justify-between text-[10px] tabular-nums text-muted-foreground transition-opacity duration-150 " +
+                  (active === row.metric ? "opacity-100" : "opacity-0")
+                }
+              >
+                <span>{fmt(row.min)}</span>
+                <span>{fmt(row.max)}</span>
+              </div>
+            </div>
+          )
+        })}
       </CardContent>
     </Card>
   )

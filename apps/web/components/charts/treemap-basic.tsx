@@ -15,6 +15,7 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "@/components/ui/chart"
+import { TreemapTile } from "./treemap-tile"
 
 const chartData = [
   {
@@ -32,6 +33,26 @@ const chartConfig = {
   size: { label: "Size", color: "var(--chart-1)" },
 } satisfies ChartConfig
 
+function BasicContent(props: {
+  x?: number
+  y?: number
+  width?: number
+  height?: number
+  name?: string
+  size?: number
+  fill?: string
+  index?: number
+  children?: readonly unknown[] | null
+}) {
+  return (
+    <TreemapTile
+      {...props}
+      value={props.size?.toLocaleString()}
+      seam="var(--card)"
+    />
+  )
+}
+
 export function ChartTreemapBasic() {
   return (
     <Card>
@@ -40,15 +61,21 @@ export function ChartTreemapBasic() {
         <CardDescription>Category size by rectangle area</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="h-[260px] w-full aspect-auto">
+        <ChartContainer
+          config={chartConfig}
+          className="h-[260px] w-full aspect-auto"
+        >
           <Treemap
             data={chartData}
             dataKey="size"
             nameKey="name"
-            stroke="var(--background)"
-            fill="var(--chart-1)"
+            // Recharts' own tween animates width/height, which lays out and
+            // paints every frame. The node does its own transform/opacity one.
             isAnimationActive={false}
-          />
+            content={<BasicContent />}
+          >
+            <ChartTooltip content={<ChartTooltipContent hideLabel />} />
+          </Treemap>
         </ChartContainer>
       </CardContent>
     </Card>

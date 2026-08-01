@@ -2,8 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "chart-sankey-traffic-flow",
   "type": "registry:block",
-  "title": "Sankey — Traffic Flow",
-  "description": "Acquisition → landing → purchase",
+  "title": "Sankey \u2014 Traffic Flow",
+  "description": "Acquisition \u2192 landing \u2192 purchase",
   "dependencies": [
     "recharts"
   ],
@@ -27,6 +27,11 @@
       "path": "components/charts/sankey-traffic-flow.tsx",
       "type": "registry:block",
       "target": "components/charts/sankey-traffic-flow.tsx"
+    },
+    {
+      "path": "components/charts/sankey-parts.tsx",
+      "type": "registry:component",
+      "target": "components/charts/sankey-parts.tsx"
     }
   ]
 }

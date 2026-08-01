@@ -31,9 +31,11 @@ const chartConfig = {
 } satisfies ChartConfig
 
 export function ChartAreaClipToActive() {
-  const [activeIndex, setActiveIndex] = React.useState<number | null>(null)
-  const clipPercent =
-    activeIndex == null ? 100 : ((activeIndex + 0.5) / chartData.length) * 100
+  // Clip in pixels from the chart's own coordinate space. A percentage width
+  // would resolve against the SVG viewport, which includes the margins, so the
+  // edge would drift away from the plot area — worst at the first/last point.
+  const [clipX, setClipX] = React.useState<number | null>(null)
+  const clipId = React.useId()
 
   return (
     <Card>
@@ -48,15 +50,20 @@ export function ChartAreaClipToActive() {
             data={chartData}
             margin={{ left: 12, right: 12 }}
             onMouseMove={(state) => {
-              if (state?.activeTooltipIndex != null) {
-                setActiveIndex(Number(state.activeTooltipIndex))
-              }
+              const x = state?.activeCoordinate?.x
+              setClipX(typeof x === "number" ? x : null)
             }}
-            onMouseLeave={() => setActiveIndex(null)}
+            onMouseLeave={() => setClipX(null)}
           >
             <defs>
-              <clipPath id="clipActive">
-                <rect x="0" y="0" width={`${clipPercent}%`} height="100%" />
+              <clipPath id={clipId}>
+                <rect
+                  x="0"
+                  y="0"
+                  width={clipX ?? "100%"}
+                  height="100%"
+                  className="transition-[width] duration-200 ease-out motion-reduce:transition-none"
+                />
               </clipPath>
             </defs>
             <CartesianGrid vertical={false} />
@@ -77,7 +84,7 @@ export function ChartAreaClipToActive() {
               fillOpacity={0.55}
               stroke="var(--color-desktop)"
               strokeWidth={2}
-              clipPath="url(#clipActive)"
+              clipPath={`url(#${clipId})`}
             />
           </AreaChart>
         </ChartContainer>
