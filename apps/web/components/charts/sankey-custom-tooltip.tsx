@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import { Sankey, Tooltip } from "recharts"
 
 import {
@@ -15,6 +16,7 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "@/components/ui/chart"
+import { SankeyLinkShape, SankeyNodeShape } from "./sankey-parts"
 
 const data = {
   nodes: [
@@ -80,6 +82,8 @@ function CustomTooltip({
 }
 
 export function ChartSankeyCustomTooltip() {
+  const [activeNode, setActiveNode] = React.useState<string | null>(null)
+
   return (
     <Card>
       <CardHeader>
@@ -92,9 +96,14 @@ export function ChartSankeyCustomTooltip() {
             data={data}
             nodePadding={24}
             nodeWidth={12}
-            margin={{ left: 16, right: 16, top: 12, bottom: 12 }}
-            node={{ fill: "var(--chart-1)" }}
-            link={{ stroke: "var(--chart-1)", strokeOpacity: 0.3 }}
+            margin={{ left: 16, right: 104, top: 16, bottom: 16 }}
+            node={
+              <SankeyNodeShape
+                activeNode={activeNode}
+                onActivate={setActiveNode}
+              />
+            }
+            link={<SankeyLinkShape activeNode={activeNode} />}
           >
             <Tooltip content={<CustomTooltip />} />
           </Sankey>

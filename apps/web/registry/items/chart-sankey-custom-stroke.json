@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "chart-sankey-custom-stroke",
   "type": "registry:block",
-  "title": "Sankey — Custom Stroke",
+  "title": "Sankey \u2014 Custom Stroke",
   "description": "Thicker dashed node stroke",
   "dependencies": [
     "recharts"
@@ -27,6 +27,11 @@
       "path": "components/charts/sankey-custom-stroke.tsx",
       "type": "registry:block",
       "target": "components/charts/sankey-custom-stroke.tsx"
+    },
+    {
+      "path": "components/charts/sankey-parts.tsx",
+      "type": "registry:component",
+      "target": "components/charts/sankey-parts.tsx"
     }
   ]
 }

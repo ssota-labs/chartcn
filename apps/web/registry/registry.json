@@ -3095,6 +3095,11 @@
           "path": "components/charts/sankey-basic.tsx",
           "type": "registry:block",
           "target": "components/charts/sankey-basic.tsx"
+        },
+        {
+          "path": "components/charts/sankey-parts.tsx",
+          "type": "registry:component",
+          "target": "components/charts/sankey-parts.tsx"
         }
       ]
     },
@@ -3125,6 +3130,11 @@
           "path": "components/charts/sankey-compact.tsx",
           "type": "registry:block",
           "target": "components/charts/sankey-compact.tsx"
+        },
+        {
+          "path": "components/charts/sankey-parts.tsx",
+          "type": "registry:component",
+          "target": "components/charts/sankey-parts.tsx"
         }
       ]
     },
@@ -3156,6 +3166,11 @@
           "path": "components/charts/sankey-custom-stroke.tsx",
           "type": "registry:block",
           "target": "components/charts/sankey-custom-stroke.tsx"
+        },
+        {
+          "path": "components/charts/sankey-parts.tsx",
+          "type": "registry:component",
+          "target": "components/charts/sankey-parts.tsx"
         }
       ]
     },
@@ -3187,6 +3202,11 @@
           "path": "components/charts/sankey-custom-tooltip.tsx",
           "type": "registry:block",
           "target": "components/charts/sankey-custom-tooltip.tsx"
+        },
+        {
+          "path": "components/charts/sankey-parts.tsx",
+          "type": "registry:component",
+          "target": "components/charts/sankey-parts.tsx"
         }
       ]
     },
@@ -3217,6 +3237,11 @@
           "path": "components/charts/sankey-gradient.tsx",
           "type": "registry:block",
           "target": "components/charts/sankey-gradient.tsx"
+        },
+        {
+          "path": "components/charts/sankey-parts.tsx",
+          "type": "registry:component",
+          "target": "components/charts/sankey-parts.tsx"
         }
       ]
     },
@@ -3248,6 +3273,11 @@
           "path": "components/charts/sankey-traffic-flow.tsx",
           "type": "registry:block",
           "target": "components/charts/sankey-traffic-flow.tsx"
+        },
+        {
+          "path": "components/charts/sankey-parts.tsx",
+          "type": "registry:component",
+          "target": "components/charts/sankey-parts.tsx"
         }
       ]
     },

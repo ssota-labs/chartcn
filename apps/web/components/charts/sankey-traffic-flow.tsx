@@ -1,6 +1,7 @@
 "use client"
 
-import { Layer, Rectangle, Sankey, Tooltip } from "recharts"
+import * as React from "react"
+import { Sankey } from "recharts"
 
 import {
   Card,
@@ -15,6 +16,7 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "@/components/ui/chart"
+import { SankeyLinkShape, SankeyNodeShape } from "./sankey-parts"
 
 const data = {
   nodes: [
@@ -44,25 +46,9 @@ const chartConfig = {
   value: { label: "Sessions", color: "var(--chart-2)" },
 } satisfies ChartConfig
 
-function Node(props: {
-  x?: number
-  y?: number
-  width?: number
-  height?: number
-  payload?: { name?: string }
-}) {
-  const { x = 0, y = 0, width = 0, height = 0, payload } = props
-  return (
-    <Layer>
-      <Rectangle x={x} y={y} width={width} height={height} fill="var(--chart-2)" fillOpacity={0.9} />
-      <text x={x + width + 6} y={y + height / 2} dominantBaseline="middle" className="fill-foreground text-[11px]">
-        {payload?.name}
-      </text>
-    </Layer>
-  )
-}
-
 export function ChartSankeyTrafficFlow() {
+  const [activeNode, setActiveNode] = React.useState<string | null>(null)
+
   return (
     <Card>
       <CardHeader>
@@ -75,11 +61,16 @@ export function ChartSankeyTrafficFlow() {
             data={data}
             nodePadding={18}
             nodeWidth={14}
-            margin={{ left: 8, right: 80, top: 8, bottom: 8 }}
-            node={<Node />}
-            link={{ stroke: "var(--chart-2)", strokeOpacity: 0.28 }}
+            margin={{ left: 16, right: 104, top: 16, bottom: 16 }}
+            node={
+              <SankeyNodeShape
+                activeNode={activeNode}
+                onActivate={setActiveNode}
+              />
+            }
+            link={<SankeyLinkShape activeNode={activeNode} />}
           >
-            <Tooltip />
+            <ChartTooltip content={<ChartTooltipContent hideLabel />} />
           </Sankey>
         </ChartContainer>
       </CardContent>
