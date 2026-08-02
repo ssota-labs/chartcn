@@ -174,6 +174,110 @@ export function macd(values: number[], fast = 12, slow = 26, signal = 9) {
   return { line, signal: sig, hist }
 }
 
+/** True range: the day's span, widened by any gap from the previous close. */
+function trueRange(bars: Bar[], i: number) {
+  if (i === 0) return bars[0].h - bars[0].l
+  const pc = bars[i - 1].c
+  return Math.max(
+    bars[i].h - bars[i].l,
+    Math.abs(bars[i].h - pc),
+    Math.abs(bars[i].l - pc)
+  )
+}
+
+/** Average true range, Wilder-smoothed like RSI rather than a plain mean. */
+export function atr(bars: Bar[], period = 14): (number | null)[] {
+  const out: (number | null)[] = new Array(bars.length).fill(null)
+  let acc = 0
+  for (let i = 0; i < bars.length; i++) {
+    const tr = trueRange(bars, i)
+    if (i < period) {
+      acc += tr
+      if (i === period - 1) out[i] = acc / period
+      continue
+    }
+    out[i] = (out[i - 1]! * (period - 1) + tr) / period
+  }
+  return out
+}
+
+/**
+ * Volume-weighted average price, anchored to the session.
+ *
+ * A running VWAP over the whole series would drift into meaninglessness after
+ * a few days — the point of VWAP is the average price *so far today*, so the
+ * accumulator resets when the UTC date rolls over.
+ */
+export function vwap(bars: Bar[]): (number | null)[] {
+  const out: (number | null)[] = new Array(bars.length).fill(null)
+  let pv = 0
+  let vol = 0
+  let day = -1
+  for (let i = 0; i < bars.length; i++) {
+    const d = Math.floor(bars[i].t / 86_400_000)
+    if (d !== day) {
+      day = d
+      pv = 0
+      vol = 0
+    }
+    const typical = (bars[i].h + bars[i].l + bars[i].c) / 3
+    pv += typical * bars[i].v
+    vol += bars[i].v
+    out[i] = vol > 0 ? pv / vol : null
+  }
+  return out
+}
+
+/** Highest high and lowest low over the window — the Donchian channel. */
+export function donchian(bars: Bar[], period = 20) {
+  const upper: (number | null)[] = new Array(bars.length).fill(null)
+  const lower: (number | null)[] = new Array(bars.length).fill(null)
+  for (let i = period - 1; i < bars.length; i++) {
+    let hi = -Infinity
+    let lo = Infinity
+    for (let k = i - period + 1; k <= i; k++) {
+      if (bars[k].h > hi) hi = bars[k].h
+      if (bars[k].l < lo) lo = bars[k].l
+    }
+    upper[i] = hi
+    lower[i] = lo
+  }
+  return { upper, lower }
+}
+
+/** %K is where the close sits in the window's range; %D smooths it. */
+export function stochastic(bars: Bar[], period = 14, smooth = 3) {
+  const k: (number | null)[] = new Array(bars.length).fill(null)
+  for (let i = period - 1; i < bars.length; i++) {
+    let hi = -Infinity
+    let lo = Infinity
+    for (let n = i - period + 1; n <= i; n++) {
+      if (bars[n].h > hi) hi = bars[n].h
+      if (bars[n].l < lo) lo = bars[n].l
+    }
+    k[i] = hi === lo ? 50 : ((bars[i].c - lo) / (hi - lo)) * 100
+  }
+  // %D is a moving average of %K, so it only exists where %K does.
+  const filled = k.map((v) => v ?? 0)
+  const d = sma(filled, smooth).map((v, i) => (k[i] == null ? null : v))
+  return { k, d }
+}
+
+/**
+ * On-balance volume: the running total of volume, signed by whether the bar
+ * closed up or down. Its level means nothing; its slope is the signal.
+ */
+export function obv(bars: Bar[]): number[] {
+  const out = new Array(bars.length).fill(0)
+  let acc = 0
+  for (let i = 1; i < bars.length; i++) {
+    const dir = Math.sign(bars[i].c - bars[i - 1].c)
+    acc += dir * bars[i].v
+    out[i] = acc
+  }
+  return out
+}
+
 /** Percentage below the running peak. Always ≤ 0. */
 export function drawdown(values: number[]): number[] {
   let peak = -Infinity
@@ -819,6 +923,10 @@ export function CanvasChart({
     return () => {
       ro.disconnect()
       cancelAnimationFrame(frame.current)
+      // Reset, not just cancel: schedule() guards on this id being falsy, so
+      // leaving a stale one behind means the next mount never draws. Bites on
+      // Fast Refresh, StrictMode's double-invoke, and any remount.
+      frame.current = 0
       canvas.removeEventListener("pointerdown", onDown)
       canvas.removeEventListener("pointermove", onMove)
       canvas.removeEventListener("pointerup", onUp)

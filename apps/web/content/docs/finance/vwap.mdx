@@ -1,0 +1,22 @@
+---
+title: VWAP
+description: Volume-weighted average price, re-anchored each session.
+---
+
+## Session anchoring
+
+VWAP is the average price *so far today*, weighted by volume. A running total
+over the whole series would drift into meaninglessness after a few days, so the
+accumulator resets when the UTC date rolls over — the line restarts each
+session, which is the shape traders expect.
+
+It sits on the price scale as a `line` overlay, so the extent scan includes it.
+
+<ChartVwap />
+
+## Shared engine
+
+Like the rest of the Markets charts this is configuration over
+`canvas-chart.tsx` — the indicator is a pure function over the series, and the
+chart declares where its output belongs: an overlay on the price scale, or a
+pane with its own.

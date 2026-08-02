@@ -1,0 +1,24 @@
+---
+title: On-balance volume
+description: Volume accumulated with the sign of each bar.
+---
+
+## Slope, not level
+
+Every bar adds its volume to a running total, positive if the close rose and
+negative if it fell. The absolute level is arbitrary — it depends entirely on
+where the series happens to start — so OBV is read by its slope and by
+divergence from price.
+
+That is why the pane derives its extent from what is visible rather than
+anchoring at zero: the useful question is which way it is going here, not how
+far it is from an arbitrary origin.
+
+<ChartObv />
+
+## Shared engine
+
+Like the rest of the Markets charts this is configuration over
+`canvas-chart.tsx` — the indicator is a pure function over the series, and the
+chart declares where its output belongs: an overlay on the price scale, or a
+pane with its own.

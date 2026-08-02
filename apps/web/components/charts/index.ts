@@ -120,7 +120,11 @@ export {
   ChartMacdRsi,
   ChartDrawdown,
   ChartHighLow,
-} from "./finance"
+  ChartVwap,
+  ChartDonchian,
+  ChartStochastic,
+  ChartAtr,
+  ChartObv,} from "./finance"
 
 export {
   ChartFunnelTemplate,

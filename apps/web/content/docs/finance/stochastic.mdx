@@ -1,0 +1,23 @@
+---
+title: Stochastic oscillator
+description: "%K and %D with 20/80 bands."
+---
+
+## Where the close sits in its range
+
+%K asks where the close falls between the window's high and low, as a
+percentage. %D is a short moving average of %K, so the pair crossing is the
+conventional read.
+
+Like RSI, this pins `domain: [0, 100]`. Deriving the scale from visible values
+would let the 20/80 bands drift, and being fixed is what makes those levels
+mean anything.
+
+<ChartStochastic />
+
+## Shared engine
+
+Like the rest of the Markets charts this is configuration over
+`canvas-chart.tsx` — the indicator is a pure function over the series, and the
+chart declares where its output belongs: an overlay on the price scale, or a
+pane with its own.
