@@ -38,6 +38,13 @@ export type Overlay =
       token: string
       values: (number | null)[]
       dash?: number[]
+      /**
+       * Colours each run by the sign of this series. The line breaks where the
+       * sign flips — a Supertrend jumps bands there, so joining across would
+       * draw a segment that never existed.
+       */
+      sign?: (number | null)[]
+      tokenDown?: string
     }
   | {
       kind: "band"
@@ -45,6 +52,18 @@ export type Overlay =
       token: string
       upper: (number | null)[]
       lower: (number | null)[]
+      /** Fill colour where lower rises above upper, as an Ichimoku cloud does. */
+      tokenDown?: string
+    }
+  | {
+      kind: "points"
+      label: string
+      token: string
+      values: (number | null)[]
+      /** Dots above and below price mean opposite things, so they differ. */
+      sign?: (number | null)[]
+      tokenDown?: string
+      radius?: number
     }
 
 export type PaneItem =
@@ -79,6 +98,11 @@ export type CanvasChartProps = {
   defaultBars?: number
   height?: number
   format?: (n: number) => string
+  /**
+   * Volume traded at each price level across the visible window, drawn as a
+   * horizontal histogram against the price axis.
+   */
+  profile?: { token: string; buckets?: number; widthPct?: number }
 }
 
 /* ------------------------------------------------------------ indicators */
@@ -278,6 +302,117 @@ export function obv(bars: Bar[]): number[] {
   return out
 }
 
+/**
+ * Supertrend: an ATR envelope that only ever tightens toward price, flipping
+ * side when price closes through it.
+ *
+ * Returns the active band plus a direction series — 1 while the band sits
+ * below price, -1 while it sits above.
+ */
+export function supertrend(bars: Bar[], period = 10, mult = 3) {
+  const a = atr(bars, period)
+  const line: (number | null)[] = new Array(bars.length).fill(null)
+  const dir: (number | null)[] = new Array(bars.length).fill(null)
+  let upper = 0
+  let lower = 0
+  let trend = 1
+  for (let i = 0; i < bars.length; i++) {
+    if (a[i] == null) continue
+    const mid = (bars[i].h + bars[i].l) / 2
+    const bu = mid + mult * a[i]!
+    const bl = mid - mult * a[i]!
+    // Bands ratchet: they only move away from price when the trend resets.
+    upper = i > 0 && bars[i - 1].c <= upper ? Math.min(bu, upper) : bu
+    lower = i > 0 && bars[i - 1].c >= lower ? Math.max(bl, lower) : bl
+    if (bars[i].c > upper) trend = 1
+    else if (bars[i].c < lower) trend = -1
+    dir[i] = trend
+    line[i] = trend === 1 ? lower : upper
+  }
+  return { line, dir }
+}
+
+/**
+ * Parabolic SAR. The stop accelerates toward price each time the trend makes a
+ * new extreme, which is what makes the dots converge before a flip.
+ */
+export function psar(bars: Bar[], step = 0.02, max = 0.2) {
+  const out: (number | null)[] = new Array(bars.length).fill(null)
+  const dir: (number | null)[] = new Array(bars.length).fill(null)
+  if (!bars.length) return { values: out, dir }
+  let trend = 1
+  let sar = bars[0].l
+  let ep = bars[0].h
+  let af = step
+  for (let i = 1; i < bars.length; i++) {
+    sar += af * (ep - sar)
+    if (trend === 1) {
+      // The stop may never cross into the last two bars' range.
+      sar = Math.min(sar, bars[i - 1].l, bars[Math.max(0, i - 2)].l)
+      if (bars[i].l < sar) {
+        trend = -1
+        sar = ep
+        ep = bars[i].l
+        af = step
+      } else if (bars[i].h > ep) {
+        ep = bars[i].h
+        af = Math.min(max, af + step)
+      }
+    } else {
+      sar = Math.max(sar, bars[i - 1].h, bars[Math.max(0, i - 2)].h)
+      if (bars[i].h > sar) {
+        trend = 1
+        sar = ep
+        ep = bars[i].h
+        af = step
+      } else if (bars[i].l < ep) {
+        ep = bars[i].l
+        af = Math.min(max, af + step)
+      }
+    }
+    out[i] = sar
+    dir[i] = trend
+  }
+  return { values: out, dir }
+}
+
+/** Midpoint of the highest high and lowest low over a window. */
+function donchianMid(bars: Bar[], period: number): (number | null)[] {
+  const out: (number | null)[] = new Array(bars.length).fill(null)
+  for (let i = period - 1; i < bars.length; i++) {
+    let hi = -Infinity
+    let lo = Infinity
+    for (let k = i - period + 1; k <= i; k++) {
+      if (bars[k].h > hi) hi = bars[k].h
+      if (bars[k].l < lo) lo = bars[k].l
+    }
+    out[i] = (hi + lo) / 2
+  }
+  return out
+}
+
+/**
+ * Ichimoku. The cloud is the span between A and B, shifted forward — which is
+ * why the two can cross and the fill has to change colour when they do.
+ */
+export function ichimoku(bars: Bar[], conv = 9, base = 26, spanB = 52) {
+  const tenkan = donchianMid(bars, conv)
+  const kijun = donchianMid(bars, base)
+  const rawA = tenkan.map((t, i) =>
+    t == null || kijun[i] == null ? null : (t + kijun[i]!) / 2
+  )
+  const rawB = donchianMid(bars, spanB)
+  // Both spans are plotted `base` bars ahead of the data they summarise.
+  const shift = <T,>(xs: T[], by: number) =>
+    xs.map((_, i) => (i - by >= 0 ? xs[i - by] : null))
+  return {
+    tenkan,
+    kijun,
+    spanA: shift(rawA, base),
+    spanB: shift(rawB, base),
+  }
+}
+
 /** Percentage below the running peak. Always ≤ 0. */
 export function drawdown(values: number[]): number[] {
   let peak = -Infinity
@@ -356,6 +491,7 @@ export function CanvasChart({
   defaultBars = 180,
   height = 380,
   format = defaultFormat,
+  profile,
 }: CanvasChartProps) {
   const wrapRef = React.useRef<HTMLDivElement>(null)
   const canvasRef = React.useRef<HTMLCanvasElement>(null)
@@ -452,11 +588,10 @@ export function CanvasChart({
       // the visible high and low and would otherwise be clipped.
       for (const o of overlays) {
         for (let i = first; i <= last; i++) {
-          if (o.kind === "line") bump(o.values[i])
-          else {
+          if (o.kind === "band") {
             bump(o.upper[i])
             bump(o.lower[i])
-          }
+          } else bump(o.values[i])
         }
       }
       if (!Number.isFinite(lo)) {
@@ -511,29 +646,103 @@ export function CanvasChart({
       /* ---- overlays: bands first, so lines and marks sit on top ---- */
       for (const o of overlays) {
         if (o.kind !== "band") continue
-        const col = color(o.token, c.muted)
-        ctx.fillStyle = col
-        ctx.globalAlpha = 0.12
-        ctx.beginPath()
-        let started = false
+        const up = color(o.token, c.muted)
+        const down = o.tokenDown ? color(o.tokenDown, c.down) : up
+
+        // Walk the window in runs of constant sign, so a cloud that crosses
+        // changes colour. Runs are split at the exact crossing rather than at
+        // the next bar, otherwise the two fills overlap by one bar.
+        let runStart: number | null = null
+        let runSign = 0
+        let entry: { x: number; y: number } | null = null
+
+        const flush = (
+          endIdx: number,
+          exit: { x: number; y: number } | null
+        ) => {
+          if (runStart == null) return
+          ctx.fillStyle = runSign >= 0 ? up : down
+          ctx.globalAlpha = 0.16
+          ctx.beginPath()
+          if (entry) ctx.moveTo(entry.x, entry.y)
+          for (let i = runStart; i <= endIdx; i++) {
+            const v = o.upper[i]
+            if (v == null) continue
+            const x = xOf(i)
+            if (!entry && i === runStart) ctx.moveTo(x, yOf(v))
+            else ctx.lineTo(x, yOf(v))
+          }
+          if (exit) ctx.lineTo(exit.x, exit.y)
+          for (let i = endIdx; i >= runStart; i--) {
+            const v = o.lower[i]
+            if (v == null) continue
+            ctx.lineTo(xOf(i), yOf(v))
+          }
+          if (entry) ctx.lineTo(entry.x, entry.y)
+          ctx.closePath()
+          ctx.fill()
+          ctx.globalAlpha = 1
+        }
+
         for (let i = first; i <= last; i++) {
-          const v = o.upper[i]
-          if (v == null) continue
-          const x = xOf(i)
-          if (started) ctx.lineTo(x, yOf(v))
-          else {
-            ctx.moveTo(x, yOf(v))
-            started = true
+          const u = o.upper[i]
+          const l = o.lower[i]
+          if (u == null || l == null) {
+            flush(i - 1, null)
+            runStart = null
+            entry = null
+            continue
+          }
+          const sgn = u >= l ? 1 : -1
+          if (runStart == null) {
+            runStart = i
+            runSign = sgn
+            entry = null
+          } else if (sgn !== runSign) {
+            // Solve for where the two spans meet between i-1 and i.
+            const d0 = o.upper[i - 1]! - o.lower[i - 1]!
+            const d1 = u - l
+            const t = d0 / (d0 - d1)
+            const x0 = xOf(i - 1)
+            const xc = x0 + t * (xOf(i) - x0)
+            const yc = yOf(o.upper[i - 1]! + t * (u - o.upper[i - 1]!))
+            flush(i - 1, { x: xc, y: yc })
+            runStart = i
+            runSign = sgn
+            entry = { x: xc, y: yc }
           }
         }
-        for (let i = last; i >= first; i--) {
-          const v = o.lower[i]
-          if (v == null) continue
-          ctx.lineTo(xOf(i), yOf(v))
+        flush(last, null)
+      }
+
+      /* ---- volume profile ---- */
+      if (profile) {
+        // The one thing here that must be recomputed every frame: it describes
+        // the visible window, so panning changes the answer.
+        const nBuckets = profile.buckets ?? 48
+        const acc = new Float64Array(nBuckets)
+        for (let i = first; i <= last; i++) {
+          const b = bars[i]
+          const typical = (b.h + b.l + b.c) / 3
+          const k = Math.floor(((typical - lo) / (hi - lo)) * nBuckets)
+          if (k >= 0 && k < nBuckets) acc[k] += b.v
         }
-        ctx.closePath()
-        ctx.fill()
-        ctx.globalAlpha = 1
+        let peak = 0
+        for (const v of acc) if (v > peak) peak = v
+        if (peak > 0) {
+          const maxW = plotW * (profile.widthPct ?? 0.22)
+          const bh = priceH / nBuckets
+          ctx.fillStyle = color(profile.token, c.muted)
+          ctx.globalAlpha = 0.3
+          for (let k = 0; k < nBuckets; k++) {
+            if (!acc[k]) continue
+            // Anchored to the right gutter, the way an exchange draws it.
+            const w = (acc[k] / peak) * maxW
+            const y = priceTop + priceH - (k + 1) * bh
+            ctx.fillRect(plotW - w, y, w, Math.max(1, bh - 1))
+          }
+          ctx.globalAlpha = 1
+        }
       }
 
       /* ---- price marks ---- */
@@ -593,36 +802,61 @@ export function CanvasChart({
         }
       }
 
-      /* ---- overlay lines ---- */
+      /* ---- overlay lines and points ---- */
       ctx.lineWidth = 1.5
       for (const o of overlays) {
-        const rows =
-          o.kind === "line" ? [o.values] : [o.upper, o.lower]
-        ctx.strokeStyle = color(o.token, c.muted)
+        const main = color(o.token, c.muted)
+        const alt = o.tokenDown ? color(o.tokenDown, c.down) : main
+
+        if (o.kind === "points") {
+          const r = o.radius ?? 1.6
+          for (let i = first; i <= last; i++) {
+            const v = o.values[i]
+            if (v == null) continue
+            ctx.fillStyle = (o.sign?.[i] ?? 1) >= 0 ? main : alt
+            ctx.beginPath()
+            ctx.arc(xOf(i), yOf(v), r, 0, Math.PI * 2)
+            ctx.fill()
+          }
+          continue
+        }
+
+        const rows = o.kind === "band" ? [o.upper, o.lower] : [o.values]
+        const sign = o.kind === "line" ? o.sign : undefined
         if (o.kind === "line" && o.dash) ctx.setLineDash(o.dash)
+        ctx.globalAlpha = o.kind === "band" ? 0.55 : 1
+
         for (const row of rows) {
-          ctx.beginPath()
+          // One stroke per run of constant sign. Breaking at a flip matters:
+          // a Supertrend jumps from one band to the other there, so joining
+          // across would draw a segment that never existed.
           let started = false
+          let runSign = 1
+          const strokeRun = () => {
+            if (started) ctx.stroke()
+            started = false
+          }
           for (let i = first; i <= last; i++) {
             const v = row[i]
+            const sgn = sign ? ((sign[i] ?? 1) >= 0 ? 1 : -1) : 1
             if (v == null) {
-              // No value until the window fills; break instead of drawing
-              // a segment across the gap.
-              started = false
+              strokeRun()
               continue
             }
+            if (started && sgn !== runSign) strokeRun()
             const x = xOf(i)
             const y = yOf(v)
-            if (started) ctx.lineTo(x, y)
-            else {
+            if (!started) {
+              runSign = sgn
+              ctx.strokeStyle = sgn >= 0 ? main : alt
+              ctx.beginPath()
               ctx.moveTo(x, y)
               started = true
-            }
+            } else ctx.lineTo(x, y)
           }
-          ctx.globalAlpha = o.kind === "band" ? 0.55 : 1
-          ctx.stroke()
-          ctx.globalAlpha = 1
+          strokeRun()
         }
+        ctx.globalAlpha = 1
         ctx.setLineDash([])
       }
       ctx.lineWidth = 1
@@ -835,14 +1069,17 @@ export function CanvasChart({
       }
       for (const o of overlays) {
         const col = color(o.token, c.muted)
-        if (o.kind === "line") {
-          const v = o.values[idx]
-          if (v != null) put(o.label, format(v), col)
-        } else {
+        if (o.kind === "band") {
           const u = o.upper[idx]
           const l = o.lower[idx]
           if (u != null && l != null) {
             put(o.label, `${format(l)} – ${format(u)}`, col)
+          }
+        } else {
+          const v = o.values[idx]
+          if (v != null) {
+            const down = (o.sign?.[idx] ?? 1) < 0
+            put(o.label, format(v), down && o.tokenDown ? color(o.tokenDown, col) : col)
           }
         }
       }
@@ -934,7 +1171,7 @@ export function CanvasChart({
       canvas.removeEventListener("pointerleave", onLeave)
       canvas.removeEventListener("wheel", onWheel)
     }
-  }, [bars, barMs, price, overlays, panes, format])
+  }, [bars, barMs, price, overlays, panes, format, profile])
 
   return (
     <div

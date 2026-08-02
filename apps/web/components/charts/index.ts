@@ -124,7 +124,12 @@ export {
   ChartDonchian,
   ChartStochastic,
   ChartAtr,
-  ChartObv,} from "./finance"
+  ChartObv,
+  ChartIchimoku,
+  ChartSupertrend,
+  ChartPsar,
+  ChartVolumeProfile,
+} from "./finance"
 
 export {
   ChartFunnelTemplate,

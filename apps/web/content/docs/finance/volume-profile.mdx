@@ -1,0 +1,24 @@
+---
+title: Volume profile
+description: "Volume by price level across the visible window."
+---
+
+## A histogram turned sideways
+
+Every other mark here runs along the time axis. This one runs along the price
+axis: volume is bucketed by price and drawn as horizontal bars anchored to the
+right gutter.
+
+It is also the only thing in the engine recomputed on every frame. Everything
+else — moving averages, RSI, the cloud — is derived once from the whole series,
+because deriving from the visible slice would change the answer as you scroll.
+Here changing with the window *is* the answer: the profile describes what is on
+screen, so panning genuinely gives a different histogram.
+
+<ChartVolumeProfile />
+
+## Shared engine
+
+Like the rest of the Markets charts this is configuration over
+`canvas-chart.tsx`. This one needed the renderer to grow a capability first —
+the marks the other charts use were not enough to express it honestly.

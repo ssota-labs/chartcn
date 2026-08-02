@@ -1,0 +1,21 @@
+---
+title: Parabolic SAR
+description: "Stop-and-reverse dots that accelerate toward price."
+---
+
+## A points mark
+
+SAR is a level per bar, not a curve, so joining the values with a line would
+misrepresent it — hence a `points` mark. Dots below price and above it mean
+opposite things, so they take the two-colour treatment as well.
+
+The acceleration factor steps up each time the trend makes a new extreme,
+which is why the dots visibly converge on price before a flip.
+
+<ChartPsar />
+
+## Shared engine
+
+Like the rest of the Markets charts this is configuration over
+`canvas-chart.tsx`. This one needed the renderer to grow a capability first —
+the marks the other charts use were not enough to express it honestly.

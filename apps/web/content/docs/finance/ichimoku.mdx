@@ -1,0 +1,25 @@
+---
+title: Ichimoku cloud
+description: "Cloud that changes colour where the spans cross."
+---
+
+## Two-tone fill
+
+Span A and span B cross, and which one is on top is the whole signal — so the
+band mark grew a second colour. The fill is split into runs of constant sign
+and each run drawn in its own colour.
+
+The split happens at the exact crossing, solved between the two bars, not at
+the next bar boundary. Snapping to a bar would leave the two fills overlapping
+by one bar, which shows as a notch at every cross.
+
+Both spans are plotted 26 bars ahead of the data they summarise, which is why
+the cloud leads price.
+
+<ChartIchimoku />
+
+## Shared engine
+
+Like the rest of the Markets charts this is configuration over
+`canvas-chart.tsx`. This one needed the renderer to grow a capability first —
+the marks the other charts use were not enough to express it honestly.

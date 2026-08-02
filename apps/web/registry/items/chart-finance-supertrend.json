@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-finance-supertrend",
+  "type": "registry:block",
+  "title": "Supertrend",
+  "description": "ATR envelope that flips side with the trend.",
+  "dependencies": [],
+  "registryDependencies": [
+    "card"
+  ],
+  "categories": [
+    "charts",
+    "finance"
+  ],
+  "tags": [
+    "finance",
+    "markets",
+    "indicator",
+    "canvas",
+    "supertrend"
+  ],
+  "status": "ready",
+  "dataShape": "{ t: number, o: number, h: number, l: number, c: number, v: number }[]",
+  "files": [
+    {
+      "path": "components/charts/finance/supertrend.tsx",
+      "type": "registry:block",
+      "target": "components/charts/finance/supertrend.tsx"
+    },
+    {
+      "path": "components/charts/finance/canvas-chart.tsx",
+      "type": "registry:component",
+      "target": "components/charts/finance/canvas-chart.tsx"
+    },
+    {
+      "path": "components/charts/finance/market-series.tsx",
+      "type": "registry:component",
+      "target": "components/charts/finance/market-series.tsx"
+    }
+  ]
+}
