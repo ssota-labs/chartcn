@@ -114,6 +114,34 @@ const fmtPrice = (n: number) =>
     maximumFractionDigits: 0,
   })
 
+/* ------------------------------------------------------------ indicators */
+
+/**
+ * Simple moving average, aligned to the input and null until the window fills.
+ *
+ * Computed once over the whole series rather than per frame: SMA(20) at the
+ * left edge of the viewport needs the 19 bars before it, so deriving it from
+ * the visible slice alone would give a different line at every scroll position.
+ */
+function sma(bars: Bar[], period: number): (number | null)[] {
+  const out: (number | null)[] = new Array(bars.length).fill(null)
+  let sum = 0
+  for (let i = 0; i < bars.length; i++) {
+    sum += bars[i].c
+    if (i >= period) sum -= bars[i - period].c
+    if (i >= period - 1) out[i] = sum / period
+  }
+  return out
+}
+
+/** Drawn in the price pane, so it shares the candles' y-scale. */
+type Overlay = {
+  label: string
+  /** CSS custom property, resolved with the rest of the palette. */
+  token: string
+  values: (number | null)[]
+}
+
 /* ---------------------------------------------------------------- colors */
 
 type Palette = {
@@ -159,7 +187,14 @@ function readPalette(el: HTMLElement): Palette {
 export function ChartCandlesCanvas() {
   const wrapRef = React.useRef<HTMLDivElement>(null)
   const canvasRef = React.useRef<HTMLCanvasElement>(null)
-  const [series] = React.useState(() => buildSeries())
+  const [{ series, overlays }] = React.useState(() => {
+    const series = buildSeries()
+    const overlays: Overlay[] = [
+      { label: "MA 20", token: "--chart-1", values: sma(series, 20) },
+      { label: "MA 50", token: "--chart-4", values: sma(series, 50) },
+    ]
+    return { series, overlays }
+  })
 
   // Interaction state lives in refs: none of it should trigger a re-render.
   const view = React.useRef({ offset: BAR_COUNT - DEFAULT_BARS, bars: DEFAULT_BARS })
@@ -171,6 +206,7 @@ export function ChartCandlesCanvas() {
   const drag = React.useRef<{ x: number; offset: number } | null>(null)
   const size = React.useRef({ w: 0, h: 0 })
   const palette = React.useRef<Palette | null>(null)
+  const overlayColors = React.useRef<string[]>([])
   const themeKey = React.useRef("")
   const frame = React.useRef(0)
 
@@ -195,6 +231,10 @@ export function ChartCandlesCanvas() {
       const key = document.documentElement.className
       if (key !== themeKey.current || !palette.current) {
         palette.current = readPalette(wrap!)
+        const cs = getComputedStyle(wrap!)
+        overlayColors.current = overlays.map(
+          (o) => cs.getPropertyValue(o.token).trim() || "#888"
+        )
         themeKey.current = key
       }
       const c = palette.current
@@ -222,6 +262,17 @@ export function ChartCandlesCanvas() {
         if (b.h > hi) hi = b.h
         if (b.v > maxV) maxV = b.v
       }
+      // Overlays share this scale, so they have to widen it — a moving average
+      // can sit outside the visible high/low and would otherwise be clipped.
+      for (const o of overlays) {
+        for (let i = first; i <= last; i++) {
+          const v = o.values[i]
+          if (v == null) continue
+          if (v < lo) lo = v
+          if (v > hi) hi = v
+        }
+      }
+
       const pad = (hi - lo) * 0.08 || 1
       lo -= pad
       hi += pad
@@ -312,6 +363,32 @@ export function ChartCandlesCanvas() {
         ctx.fillRect(x - bodyW / 2, top, bodyW, bh)
       }
 
+      /* overlays — after the candles so the lines sit on top */
+      ctx.lineWidth = 1.5
+      overlays.forEach((o, oi) => {
+        ctx.strokeStyle = overlayColors.current[oi] ?? c.muted
+        ctx.beginPath()
+        let open = false
+        for (let i = first; i <= last; i++) {
+          const v = o.values[i]
+          if (v == null) {
+            // The line has no value until its window fills; break rather than
+            // drawing a segment across the gap.
+            open = false
+            continue
+          }
+          const x = xOf(i)
+          const y = yOf(v)
+          if (open) ctx.lineTo(x, y)
+          else {
+            ctx.moveTo(x, y)
+            open = true
+          }
+        }
+        ctx.stroke()
+      })
+      ctx.lineWidth = 1
+
       /* crosshair */
       const pt = pointer.current
       if (pt.inside && pt.x < plotW) {
@@ -368,6 +445,21 @@ export function ChartCandlesCanvas() {
           ctx.fillText(val, rx, 12)
           rx += ctx.measureText(val).width + 10
         }
+
+        // Each overlay's value at the same bar, in its own colour, so the
+        // legend names the lines instead of leaving them to be guessed.
+        const bi = Math.max(0, Math.min(BAR_COUNT - 1, idx))
+        overlays.forEach((o, oi) => {
+          const v = o.values[bi]
+          if (v == null) return
+          const color = overlayColors.current[oi] ?? c.muted
+          ctx.fillStyle = c.muted
+          ctx.fillText(o.label, rx, 12)
+          rx += ctx.measureText(o.label).width + 3
+          ctx.fillStyle = color
+          ctx.fillText(fmtPrice(v), rx, 12)
+          rx += ctx.measureText(fmtPrice(v)).width + 10
+        })
       }
     }
 
@@ -458,7 +550,7 @@ export function ChartCandlesCanvas() {
       canvas.removeEventListener("pointerleave", onLeave)
       canvas.removeEventListener("wheel", onWheel)
     }
-  }, [series])
+  }, [series, overlays])
 
   return (
     <Card>

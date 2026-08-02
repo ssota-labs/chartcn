@@ -42,6 +42,43 @@ labels never crowd.
 to a single wick line — the shape of the range still reads when the window is
 wide.
 
+## Indicators
+
+Indicators split into two kinds, and they need different things from the
+renderer.
+
+**Price overlays** — moving averages, Bollinger bands, VWAP — share the
+candles' y-scale. Two moving averages are drawn here. The part that is easy to
+get wrong is the scale: an overlay can sit outside the visible high and low, so
+the extent scan has to include overlay values or the line gets clipped at the
+edge of the pane.
+
+**Separate panes** — RSI, MACD, volume — need their own scale. RSI is 0–100 and
+MACD is centred on zero, so neither can share the price axis. The volume pane
+here is the shape those take: its own band of the plot, its own extent.
+
+Indicators are computed once over the whole series, not per frame. SMA(20) at
+the left edge of the viewport needs the 19 bars before it, so deriving it from
+the visible slice would draw a different line at every scroll position. Twenty
+thousand bars costs a few milliseconds at mount and nothing afterwards.
+
+```ts
+function sma(bars: Bar[], period: number): (number | null)[] {
+  const out = new Array(bars.length).fill(null)
+  let sum = 0
+  for (let i = 0; i < bars.length; i++) {
+    sum += bars[i].c
+    if (i >= period) sum -= bars[i - period].c
+    if (i >= period - 1) out[i] = sum / period
+  }
+  return out
+}
+```
+
+The rolling sum keeps this `O(n)` rather than `O(n·period)`. Values are `null`
+until the window fills, and the polyline breaks on `null` instead of drawing a
+segment across the gap.
+
 ## Data shape
 
 ```ts
@@ -61,8 +98,8 @@ need a real time scale instead.
 
 ## Not included
 
-Pinch-zoom, indicator overlays, drawing tools, and a live data feed. The last
-one is the interesting gap: wiring this to a websocket means appending to the
+Pinch-zoom, indicator panes (RSI, MACD), drawing tools, and a live data feed.
+The last one is the interesting gap: wiring this to a websocket means appending to the
 series, deciding whether the viewport follows the tail, and rolling ticks up
 into bars — none of which the renderer itself has an opinion about.
 
