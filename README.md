@@ -17,7 +17,7 @@ Registry + search CLI + agent skill are available (Phase 6). Agents can use Verc
 
 | 제공물 | 역할 |
 | --- | --- |
-| **Registry** | `apps/web/registry/` — `npx shadcn add https://chartcn.vercel.app/r/<name>.json` (local: `/r/<name>.json`) |
+| **Registry** | `apps/web/registry/` — `npx shadcn add https://chartcn-web.vercel.app/r/<name>.json` (local: `/r/<name>.json`) |
 | **Skill** | `.agents/skills/chartcn/SKILL.md` — variant choice, data shapes, MDX + json-render |
 | **Search CLI** | `pnpm chartcn-search` — name / tag / category; `--json` for agents |
 
@@ -50,14 +50,14 @@ Agent
 
 ## Install
 
-Registry host: **https://chartcn.vercel.app**. A local checkout serves the same payloads from the Next app on `http://localhost:3000`.
+Registry host: **https://chartcn-web.vercel.app**. A local checkout serves the same payloads from the Next app on `http://localhost:3000`.
 
 ```bash
 # base
 pnpm dlx shadcn@latest add chart
 
 # foundation variants
-pnpm dlx shadcn@latest add https://chartcn.vercel.app/r/chart-area-stacked.json
+pnpm dlx shadcn@latest add https://chartcn-web.vercel.app/r/chart-area-stacked.json
 pnpm dlx shadcn@latest add http://localhost:3000/r/chart-bar-grouped.json
 
 # search (in-repo index)

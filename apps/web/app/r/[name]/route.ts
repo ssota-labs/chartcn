@@ -17,7 +17,7 @@ type RouteContext = { params: Promise<{ name: string }> }
  * - GET /r/<name>.json or /r/<name> → built registry item (with file content)
  *
  * Install (host via CHARTCN_REGISTRY_URL):
- *   npx shadcn@latest add https://chartcn.vercel.app/r/<name>.json
+ *   npx shadcn@latest add https://chartcn-web.vercel.app/r/<name>.json
  */
 export async function GET(_request: Request, context: RouteContext) {
   const { name: rawName } = await context.params
