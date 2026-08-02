@@ -69,12 +69,9 @@
       "type": "registry:block",
       "title": "Heatmap \u2014 Calendar",
       "description": "Commit activity (last 12 weeks)",
-      "dependencies": [
-        "recharts"
-      ],
+      "dependencies": [],
       "registryDependencies": [
-        "card",
-        "chart"
+        "card"
       ],
       "categories": [
         "charts",
@@ -100,12 +97,9 @@
       "type": "registry:block",
       "title": "Heatmap \u2014 Correlation",
       "description": "Metric correlation matrix",
-      "dependencies": [
-        "recharts"
-      ],
+      "dependencies": [],
       "registryDependencies": [
-        "card",
-        "chart"
+        "card"
       ],
       "categories": [
         "charts",
@@ -282,12 +276,9 @@
       "type": "registry:block",
       "title": "Cohort Heatmap",
       "description": "Signup cohort \u00d7 weekly retention",
-      "dependencies": [
-        "recharts"
-      ],
+      "dependencies": [],
       "registryDependencies": [
-        "card",
-        "chart"
+        "card"
       ],
       "categories": [
         "charts",
@@ -1822,7 +1813,6 @@
       "title": "Geo \u2014 Choropleth Basic",
       "description": "d3-geo path + value coloring",
       "dependencies": [
-        "recharts",
         "d3-geo"
       ],
       "registryDependencies": [
@@ -1858,7 +1848,6 @@
       "title": "Geo \u2014 Drill-down + Breadcrumb",
       "description": "Click a region to zoom into subregions",
       "dependencies": [
-        "recharts",
         "d3-geo"
       ],
       "registryDependencies": [
@@ -1895,7 +1884,6 @@
       "title": "Geo \u2014 Point Layer",
       "description": "Facilities overlaid on choropleth base",
       "dependencies": [
-        "recharts",
         "d3-geo"
       ],
       "registryDependencies": [

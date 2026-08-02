@@ -11,7 +11,7 @@ const REGISTRY_PATH = path.join(
 
 const DEFAULT_HOST =
   process.env.CHARTCN_REGISTRY_URL?.replace(/\/$/, "") ||
-  "https://<CHARTCN_REGISTRY_HOST>"
+  "https://chartcn-web.vercel.app"
 
 function printHelp() {
   console.log(`chartcn-search — search the in-repo chartcn registry
@@ -25,7 +25,7 @@ Options:
   --category <name>   Filter by category (area, bar, line, scatter, pie, analytics, finance, extras)
   --tag <name>        Filter by tag
   --status <name>     Filter by status (ready | stub)
-  --host <url>        Registry host for install commands (default: CHARTCN_REGISTRY_URL or placeholder)
+  --host <url>        Registry host for install commands (default: CHARTCN_REGISTRY_URL or the public host)
   --list              List all items (same as empty query)
   -h, --help          Show help
 

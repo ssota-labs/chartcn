@@ -41,12 +41,18 @@ const REGISTRY_DIR = path.join(process.cwd(), "registry")
 const ITEMS_DIR = path.join(process.cwd(), "registry", "items")
 const COMPONENTS_DIR = path.join(process.cwd(), "components")
 
-/** Public install base. Override with CHARTCN_REGISTRY_URL (no trailing slash). */
+/**
+ * Public install base, used only for the install command printed alongside
+ * each item — serving works regardless of what this returns.
+ *
+ * The env vars stay as an override for forks and for pointing the docs at a
+ * preview deployment; the default is the real host.
+ */
 export function getRegistryHost(): string {
   return (
     process.env.CHARTCN_REGISTRY_URL?.replace(/\/$/, "") ||
     process.env.NEXT_PUBLIC_CHARTCN_REGISTRY_URL?.replace(/\/$/, "") ||
-    "https://<CHARTCN_REGISTRY_HOST>"
+    "https://chartcn-web.vercel.app"
   )
 }
 

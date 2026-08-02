@@ -8,6 +8,7 @@ dist/
 .turbo/
 .vercel/
 
-# Host skill mirrors from `npx skills add` (canonical skills live in .agents/skills/)
+# Host skill mirrors from `npx skills add`. Skills we install for our own agents
+# live in .agents/skills/; the chartcn skill we publish lives in skills/.
 .claude/
 .cursor/

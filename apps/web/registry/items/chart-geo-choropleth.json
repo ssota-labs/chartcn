@@ -2,10 +2,9 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "chart-geo-choropleth",
   "type": "registry:block",
-  "title": "Geo — Choropleth Basic",
+  "title": "Geo \u2014 Choropleth Basic",
   "description": "d3-geo path + value coloring",
   "dependencies": [
-    "recharts",
     "d3-geo"
   ],
   "registryDependencies": [
@@ -21,7 +20,7 @@
     "choropleth"
   ],
   "status": "ready",
-  "dataShape": "GeoJSON FeatureCollection regions + { id: string, value: number }[] — see geo-data.ts",
+  "dataShape": "GeoJSON FeatureCollection regions + { id: string, value: number }[] \u2014 see geo-data.ts",
   "files": [
     {
       "path": "components/charts/geo-choropleth.tsx",

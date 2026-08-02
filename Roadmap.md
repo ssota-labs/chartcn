@@ -216,7 +216,7 @@ README에 명시한 agent-first 배포 단계입니다.
 
 ### 6.3 Agent skill
 
-- [x] “어떤 차트를 고를지” 의사결정 가이드 *`.agents/skills/chartcn/SKILL.md`*
+- [x] “어떤 차트를 고를지” 의사결정 가이드 *`skills/chartcn/SKILL.md`*
 - [x] variant별 props / sample data / 금기 패턴
 - [x] 서버 MDX·RSC 삽입 패턴
 - [x] 클라이언트 **json-render** (Vercel Labs 등) 노드 매핑 가이드
