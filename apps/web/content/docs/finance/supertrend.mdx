@@ -1,0 +1,22 @@
+---
+title: Supertrend
+description: "ATR envelope that flips side with the trend."
+---
+
+## One line, two colours
+
+The line is drawn as runs of constant direction, each stroked in its own
+colour. The run also *breaks* at a flip rather than joining through it: at a
+reversal the value jumps from one ATR band to the other, and connecting those
+two points would draw a segment that never existed.
+
+The bands ratchet — they only ever tighten toward price while a trend holds,
+and reset when it flips. That is what keeps the stop from loosening on a pullback.
+
+<ChartSupertrend />
+
+## Shared engine
+
+Like the rest of the Markets charts this is configuration over
+`canvas-chart.tsx`. This one needed the renderer to grow a capability first —
+the marks the other charts use were not enough to express it honestly.

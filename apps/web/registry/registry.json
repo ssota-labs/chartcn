@@ -1559,12 +1559,9 @@
       "type": "registry:block",
       "title": "Bollinger bands",
       "description": "Close + SMA20 \u00b1 2\u03c3 band",
-      "dependencies": [
-        "recharts"
-      ],
+      "dependencies": [],
       "registryDependencies": [
-        "card",
-        "chart"
+        "card"
       ],
       "categories": [
         "charts",
@@ -1583,9 +1580,14 @@
           "target": "components/charts/finance/bollinger.tsx"
         },
         {
-          "path": "components/charts/finance/ohlc-data.ts",
-          "type": "registry:lib",
-          "target": "components/charts/finance/ohlc-data.ts"
+          "path": "components/charts/finance/canvas-chart.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/canvas-chart.tsx"
+        },
+        {
+          "path": "components/charts/finance/market-series.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/market-series.tsx"
         }
       ]
     },
@@ -1594,12 +1596,9 @@
       "type": "registry:block",
       "title": "OHLC / Candlestick",
       "description": "Synthetic daily candles (custom shape)",
-      "dependencies": [
-        "recharts"
-      ],
+      "dependencies": [],
       "registryDependencies": [
-        "card",
-        "chart"
+        "card"
       ],
       "categories": [
         "charts",
@@ -1618,9 +1617,14 @@
           "target": "components/charts/finance/candlestick.tsx"
         },
         {
-          "path": "components/charts/finance/ohlc-data.ts",
-          "type": "registry:lib",
-          "target": "components/charts/finance/ohlc-data.ts"
+          "path": "components/charts/finance/canvas-chart.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/canvas-chart.tsx"
+        },
+        {
+          "path": "components/charts/finance/market-series.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/market-series.tsx"
         }
       ]
     },
@@ -1629,12 +1633,9 @@
       "type": "registry:block",
       "title": "Drawdown",
       "description": "Underwater equity from running peak",
-      "dependencies": [
-        "recharts"
-      ],
+      "dependencies": [],
       "registryDependencies": [
-        "card",
-        "chart"
+        "card"
       ],
       "categories": [
         "charts",
@@ -1653,9 +1654,14 @@
           "target": "components/charts/finance/drawdown.tsx"
         },
         {
-          "path": "components/charts/finance/ohlc-data.ts",
-          "type": "registry:lib",
-          "target": "components/charts/finance/ohlc-data.ts"
+          "path": "components/charts/finance/canvas-chart.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/canvas-chart.tsx"
+        },
+        {
+          "path": "components/charts/finance/market-series.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/market-series.tsx"
         }
       ]
     },
@@ -1664,12 +1670,9 @@
       "type": "registry:block",
       "title": "High\u2013low range",
       "description": "Daily range band with close overlay",
-      "dependencies": [
-        "recharts"
-      ],
+      "dependencies": [],
       "registryDependencies": [
-        "card",
-        "chart"
+        "card"
       ],
       "categories": [
         "charts",
@@ -1689,9 +1692,14 @@
           "target": "components/charts/finance/high-low.tsx"
         },
         {
-          "path": "components/charts/finance/ohlc-data.ts",
-          "type": "registry:lib",
-          "target": "components/charts/finance/ohlc-data.ts"
+          "path": "components/charts/finance/canvas-chart.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/canvas-chart.tsx"
+        },
+        {
+          "path": "components/charts/finance/market-series.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/market-series.tsx"
         }
       ]
     },
@@ -1700,12 +1708,9 @@
       "type": "registry:block",
       "title": "MACD / RSI synced panels",
       "description": "Shared syncId for tooltip sync across MACD and RSI panels",
-      "dependencies": [
-        "recharts"
-      ],
+      "dependencies": [],
       "registryDependencies": [
-        "card",
-        "chart"
+        "card"
       ],
       "categories": [
         "charts",
@@ -1725,9 +1730,14 @@
           "target": "components/charts/finance/macd-rsi.tsx"
         },
         {
-          "path": "components/charts/finance/ohlc-data.ts",
-          "type": "registry:lib",
-          "target": "components/charts/finance/ohlc-data.ts"
+          "path": "components/charts/finance/canvas-chart.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/canvas-chart.tsx"
+        },
+        {
+          "path": "components/charts/finance/market-series.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/market-series.tsx"
         }
       ]
     },
@@ -1736,12 +1746,9 @@
       "type": "registry:block",
       "title": "Moving average overlay",
       "description": "Candles with MA10 / MA20",
-      "dependencies": [
-        "recharts"
-      ],
+      "dependencies": [],
       "registryDependencies": [
-        "card",
-        "chart"
+        "card"
       ],
       "categories": [
         "charts",
@@ -1761,9 +1768,14 @@
           "target": "components/charts/finance/moving-average.tsx"
         },
         {
-          "path": "components/charts/finance/ohlc-data.ts",
-          "type": "registry:lib",
-          "target": "components/charts/finance/ohlc-data.ts"
+          "path": "components/charts/finance/canvas-chart.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/canvas-chart.tsx"
+        },
+        {
+          "path": "components/charts/finance/market-series.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/market-series.tsx"
         }
       ]
     },
@@ -1772,12 +1784,9 @@
       "type": "registry:block",
       "title": "Volume under price",
       "description": "Candles + volume panel (dual axis)",
-      "dependencies": [
-        "recharts"
-      ],
+      "dependencies": [],
       "registryDependencies": [
-        "card",
-        "chart"
+        "card"
       ],
       "categories": [
         "charts",
@@ -1796,9 +1805,14 @@
           "target": "components/charts/finance/volume.tsx"
         },
         {
-          "path": "components/charts/finance/ohlc-data.ts",
-          "type": "registry:lib",
-          "target": "components/charts/finance/ohlc-data.ts"
+          "path": "components/charts/finance/canvas-chart.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/canvas-chart.tsx"
+        },
+        {
+          "path": "components/charts/finance/market-series.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/market-series.tsx"
         }
       ]
     },
@@ -3736,6 +3750,432 @@
           "path": "components/charts/treemap-tile.tsx",
           "type": "registry:component",
           "target": "components/charts/treemap-tile.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-graph-force",
+      "type": "registry:block",
+      "title": "Graph \u2014 Force Directed",
+      "description": "Arbitrary-topology relationship graph laid out with d3-force; hover isolates a neighbourhood and nodes can be dragged.",
+      "dependencies": [
+        "d3-force"
+      ],
+      "registryDependencies": [
+        "card"
+      ],
+      "categories": [
+        "charts",
+        "graph"
+      ],
+      "tags": [
+        "graph",
+        "force",
+        "network",
+        "relationship",
+        "d3-force"
+      ],
+      "status": "ready",
+      "dataShape": "{ nodes: { id: string, group: number, value: number }[], links: { source: string, target: string, value: number }[] }",
+      "files": [
+        {
+          "path": "components/charts/graph/force.tsx",
+          "type": "registry:block",
+          "target": "components/charts/graph/force.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-graph-force-gl",
+      "type": "registry:block",
+      "title": "Graph \u2014 Force Directed (WebGL)",
+      "description": "Force-directed graph rendered through Pixi on a single canvas, for node counts past what SVG can carry.",
+      "dependencies": [
+        "d3-force",
+        "pixi.js"
+      ],
+      "registryDependencies": [
+        "card"
+      ],
+      "categories": [
+        "charts",
+        "graph"
+      ],
+      "tags": [
+        "graph",
+        "force",
+        "network",
+        "webgl",
+        "pixi",
+        "large-scale"
+      ],
+      "status": "ready",
+      "dataShape": "{ nodes: { id: number, cluster: number, r: number }[], links: { source: number, target: number }[] }",
+      "files": [
+        {
+          "path": "components/charts/graph/force-gl.tsx",
+          "type": "registry:block",
+          "target": "components/charts/graph/force-gl.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-finance-vwap",
+      "type": "registry:block",
+      "title": "VWAP",
+      "description": "Volume-weighted average price, re-anchored each session.",
+      "dependencies": [],
+      "registryDependencies": [
+        "card"
+      ],
+      "categories": [
+        "charts",
+        "finance"
+      ],
+      "tags": [
+        "finance",
+        "markets",
+        "indicator",
+        "canvas",
+        "vwap"
+      ],
+      "status": "ready",
+      "dataShape": "{ t: number, o: number, h: number, l: number, c: number, v: number }[]",
+      "files": [
+        {
+          "path": "components/charts/finance/vwap.tsx",
+          "type": "registry:block",
+          "target": "components/charts/finance/vwap.tsx"
+        },
+        {
+          "path": "components/charts/finance/canvas-chart.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/canvas-chart.tsx"
+        },
+        {
+          "path": "components/charts/finance/market-series.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/market-series.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-finance-donchian",
+      "type": "registry:block",
+      "title": "Donchian channel",
+      "description": "Rolling high and low over a fixed window.",
+      "dependencies": [],
+      "registryDependencies": [
+        "card"
+      ],
+      "categories": [
+        "charts",
+        "finance"
+      ],
+      "tags": [
+        "finance",
+        "markets",
+        "indicator",
+        "canvas",
+        "donchian"
+      ],
+      "status": "ready",
+      "dataShape": "{ t: number, o: number, h: number, l: number, c: number, v: number }[]",
+      "files": [
+        {
+          "path": "components/charts/finance/donchian.tsx",
+          "type": "registry:block",
+          "target": "components/charts/finance/donchian.tsx"
+        },
+        {
+          "path": "components/charts/finance/canvas-chart.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/canvas-chart.tsx"
+        },
+        {
+          "path": "components/charts/finance/market-series.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/market-series.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-finance-stochastic",
+      "type": "registry:block",
+      "title": "Stochastic oscillator",
+      "description": "%K and %D with 20/80 bands.",
+      "dependencies": [],
+      "registryDependencies": [
+        "card"
+      ],
+      "categories": [
+        "charts",
+        "finance"
+      ],
+      "tags": [
+        "finance",
+        "markets",
+        "indicator",
+        "canvas",
+        "stochastic"
+      ],
+      "status": "ready",
+      "dataShape": "{ t: number, o: number, h: number, l: number, c: number, v: number }[]",
+      "files": [
+        {
+          "path": "components/charts/finance/stochastic.tsx",
+          "type": "registry:block",
+          "target": "components/charts/finance/stochastic.tsx"
+        },
+        {
+          "path": "components/charts/finance/canvas-chart.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/canvas-chart.tsx"
+        },
+        {
+          "path": "components/charts/finance/market-series.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/market-series.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-finance-atr",
+      "type": "registry:block",
+      "title": "Average true range",
+      "description": "Wilder-smoothed volatility including gaps.",
+      "dependencies": [],
+      "registryDependencies": [
+        "card"
+      ],
+      "categories": [
+        "charts",
+        "finance"
+      ],
+      "tags": [
+        "finance",
+        "markets",
+        "indicator",
+        "canvas",
+        "atr"
+      ],
+      "status": "ready",
+      "dataShape": "{ t: number, o: number, h: number, l: number, c: number, v: number }[]",
+      "files": [
+        {
+          "path": "components/charts/finance/atr.tsx",
+          "type": "registry:block",
+          "target": "components/charts/finance/atr.tsx"
+        },
+        {
+          "path": "components/charts/finance/canvas-chart.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/canvas-chart.tsx"
+        },
+        {
+          "path": "components/charts/finance/market-series.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/market-series.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-finance-obv",
+      "type": "registry:block",
+      "title": "On-balance volume",
+      "description": "Volume accumulated with the sign of each bar.",
+      "dependencies": [],
+      "registryDependencies": [
+        "card"
+      ],
+      "categories": [
+        "charts",
+        "finance"
+      ],
+      "tags": [
+        "finance",
+        "markets",
+        "indicator",
+        "canvas",
+        "obv"
+      ],
+      "status": "ready",
+      "dataShape": "{ t: number, o: number, h: number, l: number, c: number, v: number }[]",
+      "files": [
+        {
+          "path": "components/charts/finance/obv.tsx",
+          "type": "registry:block",
+          "target": "components/charts/finance/obv.tsx"
+        },
+        {
+          "path": "components/charts/finance/canvas-chart.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/canvas-chart.tsx"
+        },
+        {
+          "path": "components/charts/finance/market-series.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/market-series.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-finance-ichimoku",
+      "type": "registry:block",
+      "title": "Ichimoku cloud",
+      "description": "Cloud that changes colour where the spans cross.",
+      "dependencies": [],
+      "registryDependencies": [
+        "card"
+      ],
+      "categories": [
+        "charts",
+        "finance"
+      ],
+      "tags": [
+        "finance",
+        "markets",
+        "indicator",
+        "canvas",
+        "ichimoku"
+      ],
+      "status": "ready",
+      "dataShape": "{ t: number, o: number, h: number, l: number, c: number, v: number }[]",
+      "files": [
+        {
+          "path": "components/charts/finance/ichimoku.tsx",
+          "type": "registry:block",
+          "target": "components/charts/finance/ichimoku.tsx"
+        },
+        {
+          "path": "components/charts/finance/canvas-chart.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/canvas-chart.tsx"
+        },
+        {
+          "path": "components/charts/finance/market-series.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/market-series.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-finance-supertrend",
+      "type": "registry:block",
+      "title": "Supertrend",
+      "description": "ATR envelope that flips side with the trend.",
+      "dependencies": [],
+      "registryDependencies": [
+        "card"
+      ],
+      "categories": [
+        "charts",
+        "finance"
+      ],
+      "tags": [
+        "finance",
+        "markets",
+        "indicator",
+        "canvas",
+        "supertrend"
+      ],
+      "status": "ready",
+      "dataShape": "{ t: number, o: number, h: number, l: number, c: number, v: number }[]",
+      "files": [
+        {
+          "path": "components/charts/finance/supertrend.tsx",
+          "type": "registry:block",
+          "target": "components/charts/finance/supertrend.tsx"
+        },
+        {
+          "path": "components/charts/finance/canvas-chart.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/canvas-chart.tsx"
+        },
+        {
+          "path": "components/charts/finance/market-series.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/market-series.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-finance-psar",
+      "type": "registry:block",
+      "title": "Parabolic SAR",
+      "description": "Stop-and-reverse dots that accelerate toward price.",
+      "dependencies": [],
+      "registryDependencies": [
+        "card"
+      ],
+      "categories": [
+        "charts",
+        "finance"
+      ],
+      "tags": [
+        "finance",
+        "markets",
+        "indicator",
+        "canvas",
+        "psar"
+      ],
+      "status": "ready",
+      "dataShape": "{ t: number, o: number, h: number, l: number, c: number, v: number }[]",
+      "files": [
+        {
+          "path": "components/charts/finance/psar.tsx",
+          "type": "registry:block",
+          "target": "components/charts/finance/psar.tsx"
+        },
+        {
+          "path": "components/charts/finance/canvas-chart.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/canvas-chart.tsx"
+        },
+        {
+          "path": "components/charts/finance/market-series.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/market-series.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chart-finance-volume-profile",
+      "type": "registry:block",
+      "title": "Volume profile",
+      "description": "Volume by price level across the visible window.",
+      "dependencies": [],
+      "registryDependencies": [
+        "card"
+      ],
+      "categories": [
+        "charts",
+        "finance"
+      ],
+      "tags": [
+        "finance",
+        "markets",
+        "indicator",
+        "canvas",
+        "volume-profile"
+      ],
+      "status": "ready",
+      "dataShape": "{ t: number, o: number, h: number, l: number, c: number, v: number }[]",
+      "files": [
+        {
+          "path": "components/charts/finance/volume-profile.tsx",
+          "type": "registry:block",
+          "target": "components/charts/finance/volume-profile.tsx"
+        },
+        {
+          "path": "components/charts/finance/canvas-chart.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/canvas-chart.tsx"
+        },
+        {
+          "path": "components/charts/finance/market-series.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/market-series.tsx"
         }
       ]
     }

@@ -3,13 +3,10 @@
   "name": "chart-finance-bollinger",
   "type": "registry:block",
   "title": "Bollinger bands",
-  "description": "Close + SMA20 ± 2σ band",
-  "dependencies": [
-    "recharts"
-  ],
+  "description": "Close + SMA20 \u00b1 2\u03c3 band",
+  "dependencies": [],
   "registryDependencies": [
-    "card",
-    "chart"
+    "card"
   ],
   "categories": [
     "charts",
@@ -20,7 +17,7 @@
     "bollinger"
   ],
   "status": "ready",
-  "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] — derived from ohlc-data.ts",
+  "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] \u2014 derived from ohlc-data.ts",
   "files": [
     {
       "path": "components/charts/finance/bollinger.tsx",
@@ -28,9 +25,14 @@
       "target": "components/charts/finance/bollinger.tsx"
     },
     {
-      "path": "components/charts/finance/ohlc-data.ts",
-      "type": "registry:lib",
-      "target": "components/charts/finance/ohlc-data.ts"
+      "path": "components/charts/finance/canvas-chart.tsx",
+      "type": "registry:component",
+      "target": "components/charts/finance/canvas-chart.tsx"
+    },
+    {
+      "path": "components/charts/finance/market-series.tsx",
+      "type": "registry:component",
+      "target": "components/charts/finance/market-series.tsx"
     }
   ]
 }

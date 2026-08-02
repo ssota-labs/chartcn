@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-finance-volume-profile",
+  "type": "registry:block",
+  "title": "Volume profile",
+  "description": "Volume by price level across the visible window.",
+  "dependencies": [],
+  "registryDependencies": [
+    "card"
+  ],
+  "categories": [
+    "charts",
+    "finance"
+  ],
+  "tags": [
+    "finance",
+    "markets",
+    "indicator",
+    "canvas",
+    "volume-profile"
+  ],
+  "status": "ready",
+  "dataShape": "{ t: number, o: number, h: number, l: number, c: number, v: number }[]",
+  "files": [
+    {
+      "path": "components/charts/finance/volume-profile.tsx",
+      "type": "registry:block",
+      "target": "components/charts/finance/volume-profile.tsx"
+    },
+    {
+      "path": "components/charts/finance/canvas-chart.tsx",
+      "type": "registry:component",
+      "target": "components/charts/finance/canvas-chart.tsx"
+    },
+    {
+      "path": "components/charts/finance/market-series.tsx",
+      "type": "registry:component",
+      "target": "components/charts/finance/market-series.tsx"
+    }
+  ]
+}

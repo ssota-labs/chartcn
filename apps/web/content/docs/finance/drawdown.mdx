@@ -1,10 +1,22 @@
 ---
 title: Drawdown
-description: Peak-to-trough underwater equity curve.
+description: Underwater equity from the running peak.
 ---
 
-## Underwater area
+## Line price with an area pane
 
-`AreaChart` of drawdown % from a running peak. Negative values fill below the peak baseline.
+The price pane here is a line rather than candles — for an equity curve the
+open and the wicks are noise. The drawdown is an `area` item in its own pane,
+filled down to a baseline at zero with a guide on the same level.
+
+Drawdown is always ≤ 0 by construction: it is the percentage below the running
+peak, so the curve touches zero exactly at each new high.
 
 <ChartDrawdown />
+
+## Shared engine
+
+All the Markets charts are configuration over one renderer. A chart declares
+its price mark, any overlays that share the price scale, and any panes that
+need their own — the viewport, axes, crosshair and interaction come from
+`canvas-chart.tsx`.

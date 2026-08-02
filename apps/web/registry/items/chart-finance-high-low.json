@@ -2,14 +2,11 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "chart-finance-high-low",
   "type": "registry:block",
-  "title": "High–low range",
+  "title": "High\u2013low range",
   "description": "Daily range band with close overlay",
-  "dependencies": [
-    "recharts"
-  ],
+  "dependencies": [],
   "registryDependencies": [
-    "card",
-    "chart"
+    "card"
   ],
   "categories": [
     "charts",
@@ -21,7 +18,7 @@
     "low"
   ],
   "status": "ready",
-  "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] — derived from ohlc-data.ts",
+  "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] \u2014 derived from ohlc-data.ts",
   "files": [
     {
       "path": "components/charts/finance/high-low.tsx",
@@ -29,9 +26,14 @@
       "target": "components/charts/finance/high-low.tsx"
     },
     {
-      "path": "components/charts/finance/ohlc-data.ts",
-      "type": "registry:lib",
-      "target": "components/charts/finance/ohlc-data.ts"
+      "path": "components/charts/finance/canvas-chart.tsx",
+      "type": "registry:component",
+      "target": "components/charts/finance/canvas-chart.tsx"
+    },
+    {
+      "path": "components/charts/finance/market-series.tsx",
+      "type": "registry:component",
+      "target": "components/charts/finance/market-series.tsx"
     }
   ]
 }

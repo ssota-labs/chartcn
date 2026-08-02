@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-finance-vwap",
+  "type": "registry:block",
+  "title": "VWAP",
+  "description": "Volume-weighted average price, re-anchored each session.",
+  "dependencies": [],
+  "registryDependencies": [
+    "card"
+  ],
+  "categories": [
+    "charts",
+    "finance"
+  ],
+  "tags": [
+    "finance",
+    "markets",
+    "indicator",
+    "canvas",
+    "vwap"
+  ],
+  "status": "ready",
+  "dataShape": "{ t: number, o: number, h: number, l: number, c: number, v: number }[]",
+  "files": [
+    {
+      "path": "components/charts/finance/vwap.tsx",
+      "type": "registry:block",
+      "target": "components/charts/finance/vwap.tsx"
+    },
+    {
+      "path": "components/charts/finance/canvas-chart.tsx",
+      "type": "registry:component",
+      "target": "components/charts/finance/canvas-chart.tsx"
+    },
+    {
+      "path": "components/charts/finance/market-series.tsx",
+      "type": "registry:component",
+      "target": "components/charts/finance/market-series.tsx"
+    }
+  ]
+}

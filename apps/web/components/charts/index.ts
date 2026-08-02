@@ -120,6 +120,15 @@ export {
   ChartMacdRsi,
   ChartDrawdown,
   ChartHighLow,
+  ChartVwap,
+  ChartDonchian,
+  ChartStochastic,
+  ChartAtr,
+  ChartObv,
+  ChartIchimoku,
+  ChartSupertrend,
+  ChartPsar,
+  ChartVolumeProfile,
 } from "./finance"
 
 export {
@@ -132,3 +141,5 @@ export {
   ChartBarRange,
   ChartScatterError,
 } from "./extras"
+
+export { ChartGraphForce, ChartGraphForceGL } from "./graph"

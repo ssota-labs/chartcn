@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-graph-force",
+  "type": "registry:block",
+  "title": "Graph \u2014 Force Directed",
+  "description": "Arbitrary-topology relationship graph laid out with d3-force; hover isolates a neighbourhood and nodes can be dragged.",
+  "dependencies": [
+    "d3-force"
+  ],
+  "registryDependencies": [
+    "card"
+  ],
+  "categories": [
+    "charts",
+    "graph"
+  ],
+  "tags": [
+    "graph",
+    "force",
+    "network",
+    "relationship",
+    "d3-force"
+  ],
+  "status": "ready",
+  "dataShape": "{ nodes: { id: string, group: number, value: number }[], links: { source: string, target: string, value: number }[] }",
+  "files": [
+    {
+      "path": "components/charts/graph/force.tsx",
+      "type": "registry:block",
+      "target": "components/charts/graph/force.tsx"
+    }
+  ]
+}

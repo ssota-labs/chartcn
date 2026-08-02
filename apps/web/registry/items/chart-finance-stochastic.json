@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-finance-stochastic",
+  "type": "registry:block",
+  "title": "Stochastic oscillator",
+  "description": "%K and %D with 20/80 bands.",
+  "dependencies": [],
+  "registryDependencies": [
+    "card"
+  ],
+  "categories": [
+    "charts",
+    "finance"
+  ],
+  "tags": [
+    "finance",
+    "markets",
+    "indicator",
+    "canvas",
+    "stochastic"
+  ],
+  "status": "ready",
+  "dataShape": "{ t: number, o: number, h: number, l: number, c: number, v: number }[]",
+  "files": [
+    {
+      "path": "components/charts/finance/stochastic.tsx",
+      "type": "registry:block",
+      "target": "components/charts/finance/stochastic.tsx"
+    },
+    {
+      "path": "components/charts/finance/canvas-chart.tsx",
+      "type": "registry:component",
+      "target": "components/charts/finance/canvas-chart.tsx"
+    },
+    {
+      "path": "components/charts/finance/market-series.tsx",
+      "type": "registry:component",
+      "target": "components/charts/finance/market-series.tsx"
+    }
+  ]
+}

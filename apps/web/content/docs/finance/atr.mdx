@@ -1,0 +1,23 @@
+---
+title: Average true range
+description: Wilder-smoothed volatility including gaps.
+---
+
+## Range, not direction
+
+True range is the bar's own span widened by any gap from the previous close, so
+a market that opens away from yesterday is counted as volatile even if its own
+candle is small. ATR then smooths that the Wilder way, matching RSI rather than
+a plain mean.
+
+ATR is in price units and unbounded, so its pane derives its extent from the
+visible slice instead of pinning a domain.
+
+<ChartAtr />
+
+## Shared engine
+
+Like the rest of the Markets charts this is configuration over
+`canvas-chart.tsx` — the indicator is a pure function over the series, and the
+chart declares where its output belongs: an overlay on the price scale, or a
+pane with its own.

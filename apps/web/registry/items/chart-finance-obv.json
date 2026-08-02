@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-finance-obv",
+  "type": "registry:block",
+  "title": "On-balance volume",
+  "description": "Volume accumulated with the sign of each bar.",
+  "dependencies": [],
+  "registryDependencies": [
+    "card"
+  ],
+  "categories": [
+    "charts",
+    "finance"
+  ],
+  "tags": [
+    "finance",
+    "markets",
+    "indicator",
+    "canvas",
+    "obv"
+  ],
+  "status": "ready",
+  "dataShape": "{ t: number, o: number, h: number, l: number, c: number, v: number }[]",
+  "files": [
+    {
+      "path": "components/charts/finance/obv.tsx",
+      "type": "registry:block",
+      "target": "components/charts/finance/obv.tsx"
+    },
+    {
+      "path": "components/charts/finance/canvas-chart.tsx",
+      "type": "registry:component",
+      "target": "components/charts/finance/canvas-chart.tsx"
+    },
+    {
+      "path": "components/charts/finance/market-series.tsx",
+      "type": "registry:component",
+      "target": "components/charts/finance/market-series.tsx"
+    }
+  ]
+}

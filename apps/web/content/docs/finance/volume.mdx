@@ -1,10 +1,23 @@
 ---
 title: Volume
-description: Price candles with volume on a secondary axis.
+description: Price candles with volume in its own pane.
 ---
 
-## Volume under price
+## A pane of its own
 
-Dual-axis `ComposedChart`: custom candle layer on the price axis, `Bar` volume on a right axis. Volume bars are tinted by up/down day.
+Volume cannot share the price axis — the numbers have nothing to do with each
+other. It gets a pane: its own band of the plot with its own extent, recomputed
+from whatever is visible.
+
+Panes are the engine's unit for exactly this. Each declares a `share` of the
+plot height and either derives its scale from its items or pins it with
+`domain`. Bars are tinted by the direction of their candle.
 
 <ChartVolumeUnderPrice />
+
+## Shared engine
+
+All the Markets charts are configuration over one renderer. A chart declares
+its price mark, any overlays that share the price scale, and any panes that
+need their own — the viewport, axes, crosshair and interaction come from
+`canvas-chart.tsx`.

@@ -1,0 +1,22 @@
+---
+title: Donchian channel
+description: Rolling high and low over a fixed window.
+---
+
+## A channel from the data itself
+
+No smoothing and no standard deviation: the upper edge is simply the highest
+high of the last 20 bars and the lower edge the lowest low. Price touching an
+edge means it has made a new extreme for the window, which is the entire signal.
+
+Rendered as a `band` overlay, the same mark Bollinger uses — the difference is
+entirely in how the two edges are computed.
+
+<ChartDonchian />
+
+## Shared engine
+
+Like the rest of the Markets charts this is configuration over
+`canvas-chart.tsx` — the indicator is a pure function over the series, and the
+chart declares where its output belongs: an overlay on the price scale, or a
+pane with its own.

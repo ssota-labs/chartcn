@@ -1,10 +1,41 @@
 ---
 title: Moving average
-description: Candles with MA10 / MA20 line overlays.
+description: SMA overlays sharing the price scale.
 ---
 
-## MA overlay
+## Overlays
 
-Custom candle layer plus `Line` series for simple moving averages. MA values are precomputed in app code (`sma`).
+Moving averages are drawn in the price pane, so they share the candles'
+y-scale. That means the extent scan has to include overlay values: an MA can
+sit outside the visible high and low, and the line would otherwise be clipped
+at the edge of the pane.
+
+Indicators are computed once over the whole series, never per frame. SMA(20) at
+the left edge of the viewport needs the 19 bars before it, so deriving it from
+the visible slice would draw a different line at every scroll position.
+
+```ts
+export function sma(values: number[], period: number): (number | null)[] {
+  const out = new Array(values.length).fill(null)
+  let sum = 0
+  for (let i = 0; i < values.length; i++) {
+    sum += values[i]
+    if (i >= period) sum -= values[i - period]
+    if (i >= period - 1) out[i] = sum / period
+  }
+  return out
+}
+```
+
+The rolling sum keeps it `O(n)` rather than `O(n·period)`. Values are `null`
+until the window fills, and the polyline breaks on `null` instead of drawing a
+segment across the gap.
 
 <ChartMovingAverage />
+
+## Shared engine
+
+All the Markets charts are configuration over one renderer. A chart declares
+its price mark, any overlays that share the price scale, and any panes that
+need their own — the viewport, axes, crosshair and interaction come from
+`canvas-chart.tsx`.

@@ -1,0 +1,61 @@
+---
+title: Force directed (WebGL)
+description: The same force layout rendered through Pixi, for graphs past what SVG can carry.
+---
+
+## Why a second renderer
+
+[`chart-graph-force`](/docs/graph/force) puts one DOM node per mark. That is the
+right trade at small sizes — it inherits hit testing, CSS, and theming for free
+— but the browser starts to struggle somewhere around one to two thousand
+marks, and this graph has more edges than that on its own.
+
+The layout is unchanged. `d3-force` is the same solver in both, running the
+same forces; only the renderer differs. Every node and edge is drawn through
+Pixi into one canvas, so the cost is GPU batches rather than DOM.
+
+<ChartGraphForceGL />
+
+## What changes at this size
+
+**The solve is stepped, not settled up front.** The SVG version runs
+`tick(220)` before its first paint, which is a couple of milliseconds at ten
+nodes. Here that same call would block the main thread for seconds. The
+simulation advances a few ticks per animation frame instead, and the loop stops
+once the layout cools — so this is not a perpetual animation.
+
+It is also the one case where watching a solver converge carries information:
+clusters pulling apart is the structure of the data, not decoration. Under
+`prefers-reduced-motion` the ticks run in one pass and only the settled layout
+is drawn.
+
+**Nodes are sprites sharing one texture.** Drawing 2,240 separate circles would
+be 2,240 draw calls. A single generated circle texture, tinted per cluster,
+lets Pixi batch them into a handful.
+
+**Colours are read from the CSS tokens at init.** Pixi wants numeric colours, so
+`--chart-1` … `--chart-5` are resolved through a probe element once and passed
+as ints. That keeps the canvas on the same palette as every other chart, at the
+cost of not following a live theme switch without a remount.
+
+## Choosing between the two
+
+| | `chart-graph-force` | `chart-graph-force-gl` |
+| --- | --- | --- |
+| Renderer | SVG | Pixi / WebGL |
+| Practical ceiling | ~1–2k marks | tens of thousands |
+| Per-node labels | yes | not at this density |
+| Hover, drag | yes | — |
+| Extra dependency | `d3-force` | `d3-force`, `pixi.js` |
+
+Reach for the SVG one by default. It labels nodes, isolates neighbourhoods on
+hover, and lets nodes be dragged, all of which stop being legible once the graph
+is dense enough to need this one. Switch when the node count — not the taste for
+WebGL — forces it.
+
+## Fallback
+
+Pixi is imported inside the effect rather than at module scope, which keeps it
+out of the server bundle and off the initial client chunk. If `app.init()`
+rejects — no WebGL context, a blocked GPU — the card renders a message pointing
+at the SVG variant instead of an empty box.
