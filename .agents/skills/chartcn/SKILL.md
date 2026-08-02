@@ -12,27 +12,28 @@ package to depend on.
 Most items are `ChartContainer` + Recharts primitives. **Not all of them are** —
 see [Renderers](#renderers). Never assume a chart is Recharts before reading it.
 
-## Set the host first
+## Host
 
-Every install is an HTTP fetch, so the registry has to be reachable:
-
-```bash
-export CHARTCN_REGISTRY_URL=https://<host>      # deployed
-export CHARTCN_REGISTRY_URL=http://localhost:3000  # repo checkout, after `pnpm dev`
+```
+https://chartcn.vercel.app
 ```
 
-If neither is available, the registry cannot be installed from — say so rather
-than guessing a URL. The source files can still be copied by hand from
-`apps/web/components/charts/`.
+Every install is an HTTP fetch against that host. A repo checkout serves the
+same payloads from `http://localhost:3000` after `pnpm dev`; point at that
+instead when working on the registry itself.
+
+`CHARTCN_REGISTRY_URL` overrides the host in generated install commands. It is
+only needed for a fork or a preview deployment — the default is the public host
+above.
 
 ## Workflow
 
 1. **Find a candidate.** Inside the repo: `pnpm chartcn-search <query> --json`.
    Outside it, that CLI does not work — it reads the local registry file. Fetch
-   `$CHARTCN_REGISTRY_URL/r/registry.json` instead and filter it.
-2. **Check the item** at `$CHARTCN_REGISTRY_URL/r/<name>.json` for its
+   `https://chartcn.vercel.app/r/registry.json` instead and filter it.
+2. **Check the item** at `https://chartcn.vercel.app/r/<name>.json` for its
    `dataShape`, `dependencies` and `files`.
-3. **Install**: `npx shadcn@latest add $CHARTCN_REGISTRY_URL/r/<name>.json`
+3. **Install**: `npx shadcn@latest add https://chartcn.vercel.app/r/<name>.json`
 4. **Embed** via MDX/RSC (server) or a json-render component map (client).
 
 Naming is `chart-<family>-<variant>`, e.g. `chart-area-stacked`.
@@ -172,7 +173,7 @@ Prompt hint: *“Emit a json-render tree using only chartcn registry item names 
 
 ## Anti-patterns
 
-- Installing without a reachable `CHARTCN_REGISTRY_URL`
+- Installing from a host that is not reachable — verify before recommending
 - Assuming every chart is Recharts — the finance and graph families are not
 - Dropping the shared engine files an item ships alongside its chart
 - Running `pnpm chartcn-search` outside the repo (it reads a local file)
