@@ -1,185 +1,187 @@
 ---
 name: chartcn
-description: Choose, install, and embed chartcn registry charts (shadcn ChartContainer + Recharts, no Mark layer). Use when picking chart variants, searching the registry, installing via shadcn add, or inserting charts into MDX/RSC or json-render trees.
+description: Choose, install, and embed chartcn registry charts. Use when picking a chart variant, searching the registry, installing via shadcn add, or inserting charts into MDX/RSC or json-render trees.
 ---
 
 # chartcn agent skill
 
-chartcn ships chart **variants as shadcn registry items**. There is **no Mark layer** — every chart is `ChartContainer` + Recharts primitives.
+chartcn ships chart **variants as shadcn registry items** — 127 of them, all
+`status: ready`. Installing copies source into the project; there is no runtime
+package to depend on.
 
-## Quick workflow
+Most items are `ChartContainer` + Recharts primitives. **Not all of them are** —
+see [Renderers](#renderers). Never assume a chart is Recharts before reading it.
 
-1. Search: `pnpm chartcn-search <query> --json`
-2. Pick a variant (see decision guide below)
-3. Install: `npx shadcn@latest add https://<CHARTCN_REGISTRY_HOST>/r/<name>.json`
-4. Embed via **MDX/RSC** (server) or **json-render** component map (client)
+## Set the host first
 
-`CHARTCN_REGISTRY_URL` / `<CHARTCN_REGISTRY_HOST>` is a placeholder until the public host is set. Locally: `http://localhost:3000/r/<name>.json`.
+Every install is an HTTP fetch, so the registry has to be reachable:
 
-## Naming
+```bash
+export CHARTCN_REGISTRY_URL=https://<host>      # deployed
+export CHARTCN_REGISTRY_URL=http://localhost:3000  # repo checkout, after `pnpm dev`
+```
 
-`chart-<family>-<variant>` — e.g. `chart-area-stacked`, `chart-bar-grouped`.
+If neither is available, the registry cannot be installed from — say so rather
+than guessing a URL. The source files can still be copied by hand from
+`apps/web/components/charts/`.
 
-## Choose a chart variant
+## Workflow
 
-| Need | Prefer | Registry examples |
+1. **Find a candidate.** Inside the repo: `pnpm chartcn-search <query> --json`.
+   Outside it, that CLI does not work — it reads the local registry file. Fetch
+   `$CHARTCN_REGISTRY_URL/r/registry.json` instead and filter it.
+2. **Check the item** at `$CHARTCN_REGISTRY_URL/r/<name>.json` for its
+   `dataShape`, `dependencies` and `files`.
+3. **Install**: `npx shadcn@latest add $CHARTCN_REGISTRY_URL/r/<name>.json`
+4. **Embed** via MDX/RSC (server) or a json-render component map (client).
+
+Naming is `chart-<family>-<variant>`, e.g. `chart-area-stacked`.
+
+## Choose a variant
+
+Families, by size. Each has more variants than listed — search within a family
+rather than assuming the example below is the only option.
+
+| Need | Family | Start with |
 | --- | --- | --- |
-| Trend over time (1 series) | line or area basic | `chart-line-basic`, `chart-area-basic` |
-| Trend + magnitude fill | area | `chart-area-basic` |
-| Composition over time | stacked area | `chart-area-stacked` |
-| Compare categories | bar | `chart-bar-basic` |
-| Compare series side-by-side | grouped bar | `chart-bar-grouped` |
-| Multiple trends | multi line | `chart-line-multi` |
-| Correlation (x/y) | scatter *(stub)* | `chart-scatter-basic` |
-| Part-to-whole | pie/donut *(stub)* | `chart-pie-basic` |
-| Retention / cohort | analytics *(stub)* | `chart-analytics-cohort-heatmap` |
-| Conversion steps | funnel *(stub)* | `chart-analytics-funnel` |
-| OHLC / markets | finance *(stub)* | `chart-finance-candlestick` |
-| Incremental changes | waterfall *(stub)* | `chart-extras-waterfall` |
+| Trend over time | `line`, `area` | `chart-line-basic`, `chart-area-stacked` |
+| Compare categories | `bar` | `chart-bar-basic`, `chart-bar-grouped` |
+| Part-to-whole | `pie`, `radial` | `chart-pie-donut`, `chart-radial-gauge` |
+| Correlation, distribution | `scatter` | `chart-scatter-basic`, `chart-scatter-bubble` |
+| Multi-axis comparison | `radar` | `chart-radar-multi` |
+| Hierarchy by area | `treemap` | `chart-treemap-basic` |
+| Flow between stages | `sankey` | `chart-sankey-basic` |
+| Arbitrary relationships | `graph` | `chart-graph-force` |
+| Maps | `geo` | `chart-geo-choropleth` |
+| Statistical summary | `analysis` | `chart-analysis-histogram`, `chart-analysis-box-plot` |
+| Product funnels, retention | `analytics` | `chart-analytics-funnel-steps`, `chart-analytics-cohort-heatmap` |
+| Market / OHLC data | `finance` | `chart-finance-candlestick` |
+| Cross-cutting composition | `extras` | `chart-extras-bar-diverging` |
 
-**Rules of thumb**
+### Picking between close neighbours
 
-- Prefer **ready** items (`status: ready`) over stubs.
-- Do not invent a Mark API (`LineMark`, etc.).
-- Match the documented `dataShape` — do not reshape into arbitrary nested trees.
-- Keep theme tokens: `var(--chart-1)` … `var(--chart-5)`.
+- **Sankey vs graph.** Sankey needs a layered, acyclic graph with a fixed column
+  per stage. Cycles, hubs and disconnected clusters need `graph` instead.
+- **`chart-graph-force` vs `chart-graph-force-gl`.** SVG up to roughly one or
+  two thousand marks; it labels nodes, isolates a neighbourhood on hover and
+  supports drag. The WebGL one handles far more but has none of that. Switch on
+  node count, not preference.
+- **Finance vs everything else.** The `finance` family is a viewport: long
+  series, pan and zoom, crosshair. Every other family renders a fixed dataset.
 
-## Data shapes (foundation)
+## Renderers
 
-```ts
-// chart-area-basic / chart-line-basic / chart-bar-basic
-type Point = { month: string; desktop: number }
+Do not assume Recharts. Three groups behave differently:
 
-// chart-area-stacked
-type Stacked = { month: string; organic: number; paid: number; referral: number }
+| Group | Renders with | Notes |
+| --- | --- | --- |
+| Most families | `ChartContainer` + Recharts | Declares `recharts` |
+| `finance` (16 items) | Hand-drawn 2D canvas | **No dependency at all.** Ships `canvas-chart.tsx` + `market-series.tsx` alongside |
+| `graph` (2 items) | `d3-force` + SVG, or Pixi | `chart-graph-force-gl` pulls `pixi.js` |
+| `geo` (3) | `d3-geo` paths | Own SVG, plus `d3-geo` |
+| Heatmaps, cohort | CSS grid / HTML table | No charting library |
 
-// chart-bar-grouped
-type Grouped = { quarter: string; productA: number; productB: number; productC: number }
+**Some items ship more than one file.** Shared engines and data helpers
+(`canvas-chart.tsx`, `sankey-parts.tsx`, `scatter-dot.tsx`, `treemap-tile.tsx`,
+`brush-traveller.tsx`, `geo-data.ts`) come with the items that need them. Do not
+delete the extra files — the chart will not compile without them.
 
-// chart-line-multi
-type Multi = { month: string; desktop: number; mobile: number; tablet: number }
+## Working with finance charts
+
+The canvas engine is configuration, not markup. A chart declares a price mark,
+overlays that share the price scale, and panes that need their own:
+
+```tsx
+<CanvasChart
+  bars={bars}
+  barMs={60_000}
+  price={{ kind: "candles" }}                       // or "line" | "range"
+  overlays={[{ kind: "line", label: "MA 20", token: "--chart-1", values }]}
+  panes={[{ id: "rsi", share: 0.24, domain: [0, 100], guides: [30, 70],
+            items: [{ kind: "line", token: "--chart-3", values }] }]}
+/>
 ```
 
-## Install via registry
+Indicator helpers are exported from `canvas-chart.tsx`: `sma`, `ema`, `stddev`,
+`rsi`, `macd`, `atr`, `vwap`, `donchian`, `stochastic`, `obv`, `supertrend`,
+`psar`, `ichimoku`, `drawdown`.
 
-```bash
-# Base chart primitives (official shadcn)
-npx shadcn@latest add chart card
+Two rules that are easy to get wrong:
 
-# chartcn variant (host TBD — use env or local demo)
-npx shadcn@latest add https://<CHARTCN_REGISTRY_HOST>/r/chart-area-stacked.json
+- **Compute indicators over the whole series, never the visible slice.** SMA(20)
+  at the left edge of the viewport needs the 19 bars before it, so a
+  slice-derived value changes at every scroll position.
+- **Overlays widen the price extent.** They share the candles' scale, and a
+  Bollinger envelope routinely sits outside the visible high and low.
 
-# Local demo app
-npx shadcn@latest add http://localhost:3000/r/chart-area-stacked.json
-```
+## Rules of thumb
 
-Search CLI:
+- Match the item's documented `dataShape`. Do not reshape data into arbitrary
+  nested trees.
+- Keep theme tokens — `var(--chart-1)` … `var(--chart-5)`. Never hardcode hex.
+- Do not invent a Mark API (`LineMark`, `encode`, …). There is no Mark layer.
+- Chart files are `"use client"`. In RSC, import them into a client boundary.
+- Read `dependencies` on the item before assuming what gets installed. It ranges
+  from nothing to `pixi.js`.
 
-```bash
-pnpm chartcn-search stacked
-pnpm chartcn-search --category analytics --json
-pnpm chartcn-search funnel --status stub --json
-```
-
-## Server: MDX / RSC insertion
-
-After install (or when using the demo app's exports), register the chart in MDX components and drop it into content:
+## Server: MDX / RSC
 
 ```tsx
 // components/mdx.tsx
 import { ChartAreaStacked } from "@/components/charts"
 
 export function getMDXComponents(components) {
-  return {
-    ...defaultMdxComponents,
-    ChartAreaStacked,
-    ...components,
-  }
+  return { ...defaultMdxComponents, ChartAreaStacked, ...components }
 }
 ```
 
 ```mdx
----
-title: Revenue mix
----
-
-## Organic vs paid
+## Revenue mix
 
 <ChartAreaStacked />
 ```
 
-For RSC without MDX, import the client chart component into a Server Component page — the chart file is `"use client"` because Recharts needs the browser.
+## Client: json-render
 
-## Client: json-render (Vercel Labs style)
-
-Map registry item names → React components. Agents emit JSON nodes; the runtime renders them.
+Map registry item names to components; agents emit JSON nodes and the runtime
+renders them.
 
 ```tsx
 "use client"
 
-import {
-  ChartAreaBasic,
-  ChartAreaStacked,
-  ChartBarBasic,
-  ChartBarGrouped,
-  ChartLineBasic,
-  ChartLineMulti,
-} from "@/components/charts"
+import { ChartAreaStacked, ChartBarGrouped, ChartLineMulti } from "@/components/charts"
 
 /** registry item name → component */
 export const chartcnComponentMap = {
-  "chart-area-basic": ChartAreaBasic,
   "chart-area-stacked": ChartAreaStacked,
-  "chart-bar-basic": ChartBarBasic,
   "chart-bar-grouped": ChartBarGrouped,
-  "chart-line-basic": ChartLineBasic,
   "chart-line-multi": ChartLineMulti,
 } as const
 
-type ChartNode = {
+export function renderChartNode(node: {
   type: keyof typeof chartcnComponentMap
   props?: Record<string, unknown>
-  children?: ChartNode[]
-}
-
-export function renderChartNode(node: ChartNode) {
+}) {
   const Comp = chartcnComponentMap[node.type]
-  if (!Comp) return null
-  return <Comp {...(node.props ?? {})} />
+  return Comp ? <Comp {...(node.props ?? {})} /> : null
 }
 ```
 
-### Example JSON schema nodes
-
-```json
-{
-  "type": "Stack",
-  "children": [
-    {
-      "type": "chart-area-stacked",
-      "props": {}
-    },
-    {
-      "type": "chart-bar-grouped",
-      "props": {}
-    }
-  ]
-}
-```
-
-Agent prompt hint: *“Emit a json-render tree using only ready chartcn registry item names as `type`. Prefer `chart-line-multi` for comparing desktop/mobile/tablet trends.”*
+Prompt hint: *“Emit a json-render tree using only chartcn registry item names as
+`type`.”*
 
 ## Anti-patterns
 
+- Installing without a reachable `CHARTCN_REGISTRY_URL`
+- Assuming every chart is Recharts — the finance and graph families are not
+- Dropping the shared engine files an item ships alongside its chart
+- Running `pnpm chartcn-search` outside the repo (it reads a local file)
+- Hardcoding colours instead of `--chart-*` tokens
 - Wrapping Recharts in a custom Mark/encode API
-- Installing stub items expecting source files (they are placeholders)
-- Hard-coding colors instead of `--chart-*` tokens
-- Putting heavy interactive chart state in Server Components without a client child
 
-## Related paths
+## Paths
 
-- Registry index: `apps/web/registry/registry.json`
-- Items: `apps/web/registry/items/*.json`
-- Serve: `GET /r/<name>.json`
-- CLI: `packages/cli`
+- Registry index: `apps/web/registry/registry.json` · items: `registry/items/*.json`
+- Served at: `GET /r/registry.json`, `GET /r/<name>.json`
+- Search CLI: `packages/cli` (repo-local)
 - Docs: `/docs/registry`

@@ -2,14 +2,11 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "chart-analysis-heatmap-calendar",
   "type": "registry:block",
-  "title": "Heatmap — Calendar",
+  "title": "Heatmap \u2014 Calendar",
   "description": "Commit activity (last 12 weeks)",
-  "dependencies": [
-    "recharts"
-  ],
+  "dependencies": [],
   "registryDependencies": [
-    "card",
-    "chart"
+    "card"
   ],
   "categories": [
     "charts",
