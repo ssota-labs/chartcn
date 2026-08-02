@@ -15,7 +15,7 @@ see [Renderers](#renderers). Never assume a chart is Recharts before reading it.
 ## Host
 
 ```
-https://chartcn.vercel.app
+https://chartcn-web.vercel.app
 ```
 
 Every install is an HTTP fetch against that host. A repo checkout serves the
@@ -30,10 +30,10 @@ above.
 
 1. **Find a candidate.** Inside the repo: `pnpm chartcn-search <query> --json`.
    Outside it, that CLI does not work — it reads the local registry file. Fetch
-   `https://chartcn.vercel.app/r/registry.json` instead and filter it.
-2. **Check the item** at `https://chartcn.vercel.app/r/<name>.json` for its
+   `https://chartcn-web.vercel.app/r/registry.json` instead and filter it.
+2. **Check the item** at `https://chartcn-web.vercel.app/r/<name>.json` for its
    `dataShape`, `dependencies` and `files`.
-3. **Install**: `npx shadcn@latest add https://chartcn.vercel.app/r/<name>.json`
+3. **Install**: `npx shadcn@latest add https://chartcn-web.vercel.app/r/<name>.json`
 4. **Embed** via MDX/RSC (server) or a json-render component map (client).
 
 Naming is `chart-<family>-<variant>`, e.g. `chart-area-stacked`.

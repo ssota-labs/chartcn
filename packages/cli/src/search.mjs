@@ -11,7 +11,7 @@ const REGISTRY_PATH = path.join(
 
 const DEFAULT_HOST =
   process.env.CHARTCN_REGISTRY_URL?.replace(/\/$/, "") ||
-  "https://chartcn.vercel.app"
+  "https://chartcn-web.vercel.app"
 
 function printHelp() {
   console.log(`chartcn-search — search the in-repo chartcn registry

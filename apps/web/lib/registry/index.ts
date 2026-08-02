@@ -52,7 +52,7 @@ export function getRegistryHost(): string {
   return (
     process.env.CHARTCN_REGISTRY_URL?.replace(/\/$/, "") ||
     process.env.NEXT_PUBLIC_CHARTCN_REGISTRY_URL?.replace(/\/$/, "") ||
-    "https://chartcn.vercel.app"
+    "https://chartcn-web.vercel.app"
   )
 }
 
