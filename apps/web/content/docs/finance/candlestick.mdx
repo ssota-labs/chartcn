@@ -1,10 +1,27 @@
 ---
 title: Candlestick
-description: OHLC candles via custom shapes on ComposedChart.
+description: OHLC candles on a canvas, with pan, zoom and a crosshair.
 ---
 
-## Custom OHLC marks
+## Canvas renderer
 
-Recharts does **not** ship candlestick / OHLC series. This demo renders wicks + bodies with `useXAxisScale` / `useYAxisScale` inside a `ComposedChart`. An invisible `Line` on `close` keeps tooltip binding.
+Recharts has no candlestick series, and it is the wrong shape of tool here
+anyway: one DOM node per mark, and no notion of a viewport you can move. An
+exchange chart is a long series with a moving window, where panning is the
+primary interaction rather than hover.
+
+So the Markets charts share a renderer instead — `canvas-chart.tsx`. Grid,
+axes, marks and crosshair readouts are all painted onto one canvas, only the
+visible slice is drawn, and pan/zoom cause no React renders at all.
+
+Drag to pan, wheel to zoom. The zoom is anchored on the bar under the cursor,
+which is what makes it feel attached to the chart rather than to the viewport.
 
 <ChartCandlestick />
+
+## Shared engine
+
+All the Markets charts are configuration over one renderer. A chart declares
+its price mark, any overlays that share the price scale, and any panes that
+need their own — the viewport, axes, crosshair and interaction come from
+`canvas-chart.tsx`.

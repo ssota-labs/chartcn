@@ -4,12 +4,9 @@
   "type": "registry:block",
   "title": "Volume under price",
   "description": "Candles + volume panel (dual axis)",
-  "dependencies": [
-    "recharts"
-  ],
+  "dependencies": [],
   "registryDependencies": [
-    "card",
-    "chart"
+    "card"
   ],
   "categories": [
     "charts",
@@ -20,7 +17,7 @@
     "volume"
   ],
   "status": "ready",
-  "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] — derived from ohlc-data.ts",
+  "dataShape": "{ date: string, open: number, high: number, low: number, close: number, volume: number }[] \u2014 derived from ohlc-data.ts",
   "files": [
     {
       "path": "components/charts/finance/volume.tsx",
@@ -28,9 +25,14 @@
       "target": "components/charts/finance/volume.tsx"
     },
     {
-      "path": "components/charts/finance/ohlc-data.ts",
-      "type": "registry:lib",
-      "target": "components/charts/finance/ohlc-data.ts"
+      "path": "components/charts/finance/canvas-chart.tsx",
+      "type": "registry:component",
+      "target": "components/charts/finance/canvas-chart.tsx"
+    },
+    {
+      "path": "components/charts/finance/market-series.tsx",
+      "type": "registry:component",
+      "target": "components/charts/finance/market-series.tsx"
     }
   ]
 }

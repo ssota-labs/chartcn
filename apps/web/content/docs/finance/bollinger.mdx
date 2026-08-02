@@ -1,10 +1,24 @@
 ---
 title: Bollinger bands
-description: Close with SMA20 ± 2σ envelope.
+description: SMA 20 with a ±2σ envelope.
 ---
 
-## Band envelope
+## Band overlay
 
-Upper/lower bands are drawn as a floating stacked `Area` (`lower` base + `range` height). Close and mid SMA are `Line` overlays. Recharts has no native band mark.
+This is the clearest case for widening the price extent with overlay values.
+The bands routinely sit outside the visible high and low — that is the whole
+point of them — so a scale derived from the candles alone would clip the
+envelope at the pane edge.
+
+A `band` overlay takes an upper and a lower series. The engine fills between
+them at low alpha and strokes both edges faintly, so the envelope reads as one
+shape rather than two unrelated lines.
 
 <ChartBollinger />
+
+## Shared engine
+
+All the Markets charts are configuration over one renderer. A chart declares
+its price mark, any overlays that share the price scale, and any panes that
+need their own — the viewport, axes, crosshair and interaction come from
+`canvas-chart.tsx`.

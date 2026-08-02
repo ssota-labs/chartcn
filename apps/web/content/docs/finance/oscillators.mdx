@@ -1,10 +1,27 @@
 ---
 title: Oscillators
-description: Synced MACD and RSI panels.
+description: MACD and RSI, each in its own pane.
 ---
 
-## MACD + RSI
+## Two scales that cannot be shared
 
-Two charts share the same `syncId` so tooltips move together. MACD uses `ComposedChart` (histogram bars + MACD/signal lines); RSI is a `LineChart` with 30/70 `ReferenceLine`s.
+RSI is bounded 0–100 and MACD is centred on zero. Neither can sit on the price
+axis, so each takes a pane.
+
+RSI pins its scale with `domain: [0, 100]` — deriving it from the visible
+values would make the 30/70 guides drift, and the whole point of those levels
+is that they are fixed. MACD derives its own extent but adds a guide at zero,
+so the histogram reads as above or below the signal.
+
+MACD uses Wilder-style EMAs for the 12/26 pair and a 9-period EMA for the
+signal; RSI uses Wilder's smoothing rather than a plain average, which is what
+makes it RSI.
 
 <ChartMacdRsi />
+
+## Shared engine
+
+All the Markets charts are configuration over one renderer. A chart declares
+its price mark, any overlays that share the price scale, and any panes that
+need their own — the viewport, axes, crosshair and interaction come from
+`canvas-chart.tsx`.

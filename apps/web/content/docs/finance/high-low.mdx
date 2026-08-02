@@ -1,10 +1,23 @@
 ---
 title: High–low range
-description: Daily high–low band with close overlay.
+description: Daily range bars with a close marker.
 ---
 
-## Range band
+## Range marks
 
-Floating stacked areas (`low` + `high − low`) approximate a high–low range. Close is a `Line` on top. No native range series in Recharts.
+A third price mark: the high–low span drawn as a translucent bar with a solid
+tick at the close. It reads better than a candle when the open matters less
+than the range itself.
+
+The engine takes the mark type as `price`, so the same viewport, axes and
+crosshair serve candles, a line, or these range bars without any of them
+knowing about the others.
 
 <ChartHighLow />
+
+## Shared engine
+
+All the Markets charts are configuration over one renderer. A chart declares
+its price mark, any overlays that share the price scale, and any panes that
+need their own — the viewport, axes, crosshair and interaction come from
+`canvas-chart.tsx`.

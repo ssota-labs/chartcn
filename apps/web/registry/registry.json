@@ -1559,12 +1559,9 @@
       "type": "registry:block",
       "title": "Bollinger bands",
       "description": "Close + SMA20 \u00b1 2\u03c3 band",
-      "dependencies": [
-        "recharts"
-      ],
+      "dependencies": [],
       "registryDependencies": [
-        "card",
-        "chart"
+        "card"
       ],
       "categories": [
         "charts",
@@ -1583,9 +1580,14 @@
           "target": "components/charts/finance/bollinger.tsx"
         },
         {
-          "path": "components/charts/finance/ohlc-data.ts",
-          "type": "registry:lib",
-          "target": "components/charts/finance/ohlc-data.ts"
+          "path": "components/charts/finance/canvas-chart.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/canvas-chart.tsx"
+        },
+        {
+          "path": "components/charts/finance/market-series.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/market-series.tsx"
         }
       ]
     },
@@ -1594,12 +1596,9 @@
       "type": "registry:block",
       "title": "OHLC / Candlestick",
       "description": "Synthetic daily candles (custom shape)",
-      "dependencies": [
-        "recharts"
-      ],
+      "dependencies": [],
       "registryDependencies": [
-        "card",
-        "chart"
+        "card"
       ],
       "categories": [
         "charts",
@@ -1618,9 +1617,14 @@
           "target": "components/charts/finance/candlestick.tsx"
         },
         {
-          "path": "components/charts/finance/ohlc-data.ts",
-          "type": "registry:lib",
-          "target": "components/charts/finance/ohlc-data.ts"
+          "path": "components/charts/finance/canvas-chart.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/canvas-chart.tsx"
+        },
+        {
+          "path": "components/charts/finance/market-series.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/market-series.tsx"
         }
       ]
     },
@@ -1629,12 +1633,9 @@
       "type": "registry:block",
       "title": "Drawdown",
       "description": "Underwater equity from running peak",
-      "dependencies": [
-        "recharts"
-      ],
+      "dependencies": [],
       "registryDependencies": [
-        "card",
-        "chart"
+        "card"
       ],
       "categories": [
         "charts",
@@ -1653,9 +1654,14 @@
           "target": "components/charts/finance/drawdown.tsx"
         },
         {
-          "path": "components/charts/finance/ohlc-data.ts",
-          "type": "registry:lib",
-          "target": "components/charts/finance/ohlc-data.ts"
+          "path": "components/charts/finance/canvas-chart.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/canvas-chart.tsx"
+        },
+        {
+          "path": "components/charts/finance/market-series.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/market-series.tsx"
         }
       ]
     },
@@ -1664,12 +1670,9 @@
       "type": "registry:block",
       "title": "High\u2013low range",
       "description": "Daily range band with close overlay",
-      "dependencies": [
-        "recharts"
-      ],
+      "dependencies": [],
       "registryDependencies": [
-        "card",
-        "chart"
+        "card"
       ],
       "categories": [
         "charts",
@@ -1689,9 +1692,14 @@
           "target": "components/charts/finance/high-low.tsx"
         },
         {
-          "path": "components/charts/finance/ohlc-data.ts",
-          "type": "registry:lib",
-          "target": "components/charts/finance/ohlc-data.ts"
+          "path": "components/charts/finance/canvas-chart.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/canvas-chart.tsx"
+        },
+        {
+          "path": "components/charts/finance/market-series.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/market-series.tsx"
         }
       ]
     },
@@ -1700,12 +1708,9 @@
       "type": "registry:block",
       "title": "MACD / RSI synced panels",
       "description": "Shared syncId for tooltip sync across MACD and RSI panels",
-      "dependencies": [
-        "recharts"
-      ],
+      "dependencies": [],
       "registryDependencies": [
-        "card",
-        "chart"
+        "card"
       ],
       "categories": [
         "charts",
@@ -1725,9 +1730,14 @@
           "target": "components/charts/finance/macd-rsi.tsx"
         },
         {
-          "path": "components/charts/finance/ohlc-data.ts",
-          "type": "registry:lib",
-          "target": "components/charts/finance/ohlc-data.ts"
+          "path": "components/charts/finance/canvas-chart.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/canvas-chart.tsx"
+        },
+        {
+          "path": "components/charts/finance/market-series.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/market-series.tsx"
         }
       ]
     },
@@ -1736,12 +1746,9 @@
       "type": "registry:block",
       "title": "Moving average overlay",
       "description": "Candles with MA10 / MA20",
-      "dependencies": [
-        "recharts"
-      ],
+      "dependencies": [],
       "registryDependencies": [
-        "card",
-        "chart"
+        "card"
       ],
       "categories": [
         "charts",
@@ -1761,9 +1768,14 @@
           "target": "components/charts/finance/moving-average.tsx"
         },
         {
-          "path": "components/charts/finance/ohlc-data.ts",
-          "type": "registry:lib",
-          "target": "components/charts/finance/ohlc-data.ts"
+          "path": "components/charts/finance/canvas-chart.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/canvas-chart.tsx"
+        },
+        {
+          "path": "components/charts/finance/market-series.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/market-series.tsx"
         }
       ]
     },
@@ -1772,12 +1784,9 @@
       "type": "registry:block",
       "title": "Volume under price",
       "description": "Candles + volume panel (dual axis)",
-      "dependencies": [
-        "recharts"
-      ],
+      "dependencies": [],
       "registryDependencies": [
-        "card",
-        "chart"
+        "card"
       ],
       "categories": [
         "charts",
@@ -1796,9 +1805,14 @@
           "target": "components/charts/finance/volume.tsx"
         },
         {
-          "path": "components/charts/finance/ohlc-data.ts",
-          "type": "registry:lib",
-          "target": "components/charts/finance/ohlc-data.ts"
+          "path": "components/charts/finance/canvas-chart.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/canvas-chart.tsx"
+        },
+        {
+          "path": "components/charts/finance/market-series.tsx",
+          "type": "registry:component",
+          "target": "components/charts/finance/market-series.tsx"
         }
       ]
     },
@@ -3802,39 +3816,6 @@
           "path": "components/charts/graph/force-gl.tsx",
           "type": "registry:block",
           "target": "components/charts/graph/force-gl.tsx"
-        }
-      ]
-    },
-    {
-      "name": "chart-finance-candles-canvas",
-      "type": "registry:block",
-      "title": "Candles \u2014 Canvas",
-      "description": "Candlestick chart drawn directly on a 2D canvas with cursor-anchored zoom, drag panning and a snapping crosshair over a 20,000-bar series.",
-      "dependencies": [],
-      "registryDependencies": [
-        "card"
-      ],
-      "categories": [
-        "charts",
-        "finance"
-      ],
-      "tags": [
-        "candlestick",
-        "ohlc",
-        "canvas",
-        "pan",
-        "zoom",
-        "crosshair",
-        "large-scale",
-        "markets"
-      ],
-      "status": "ready",
-      "dataShape": "{ t: number, o: number, h: number, l: number, c: number, v: number }[] \u2014 evenly spaced by a fixed interval",
-      "files": [
-        {
-          "path": "components/charts/finance/candles-canvas.tsx",
-          "type": "registry:block",
-          "target": "components/charts/finance/candles-canvas.tsx"
         }
       ]
     }
