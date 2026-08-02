@@ -2,14 +2,11 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "chart-analysis-heatmap-correlation",
   "type": "registry:block",
-  "title": "Heatmap — Correlation",
+  "title": "Heatmap \u2014 Correlation",
   "description": "Metric correlation matrix",
-  "dependencies": [
-    "recharts"
-  ],
+  "dependencies": [],
   "registryDependencies": [
-    "card",
-    "chart"
+    "card"
   ],
   "categories": [
     "charts",

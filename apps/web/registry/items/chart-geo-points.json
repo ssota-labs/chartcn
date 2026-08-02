@@ -2,10 +2,9 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "chart-geo-points",
   "type": "registry:block",
-  "title": "Geo — Point Layer",
+  "title": "Geo \u2014 Point Layer",
   "description": "Facilities overlaid on choropleth base",
   "dependencies": [
-    "recharts",
     "d3-geo"
   ],
   "registryDependencies": [
@@ -21,7 +20,7 @@
     "points"
   ],
   "status": "ready",
-  "dataShape": "GeoJSON FeatureCollection regions + { id: string, value: number }[] — see geo-data.ts",
+  "dataShape": "GeoJSON FeatureCollection regions + { id: string, value: number }[] \u2014 see geo-data.ts",
   "files": [
     {
       "path": "components/charts/geo-points.tsx",

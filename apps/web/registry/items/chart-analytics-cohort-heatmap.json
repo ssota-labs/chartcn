@@ -3,13 +3,10 @@
   "name": "chart-analytics-cohort-heatmap",
   "type": "registry:block",
   "title": "Cohort Heatmap",
-  "description": "Signup cohort × weekly retention",
-  "dependencies": [
-    "recharts"
-  ],
+  "description": "Signup cohort \u00d7 weekly retention",
+  "dependencies": [],
   "registryDependencies": [
-    "card",
-    "chart"
+    "card"
   ],
   "categories": [
     "charts",
