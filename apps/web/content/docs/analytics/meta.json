@@ -1,5 +1,7 @@
 {
   "title": "Product analytics",
+  "description": "Cohort, funnel, retention, pathing, and KPI chart patterns.",
+  "icon": "Users",
   "pages": [
     "cohort-heatmap",
     "retention-curve",

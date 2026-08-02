@@ -1,12 +1,23 @@
 {
   "title": "Markets",
+  "description": "Price, volume, and indicator charts for market data.",
+  "icon": "ChartCandlestick",
   "pages": [
     "candlestick",
     "volume",
+    "vwap",
+    "volume-profile",
     "moving-average",
     "bollinger",
     "oscillators",
+    "stochastic",
+    "atr",
+    "obv",
     "drawdown",
-    "high-low"
+    "high-low",
+    "donchian",
+    "ichimoku",
+    "supertrend",
+    "psar"
   ]
 }

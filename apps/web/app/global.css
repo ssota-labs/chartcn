@@ -138,3 +138,48 @@ html > body[data-scroll-locked] {
     @apply font-sans;
   }
 }
+
+/*
+ * Docs typography tuning.
+ *
+ * Chart doc pages (e.g. content/docs/charts/bar.mdx) are a flat run of ~11
+ * `##` headings, each followed by a tall interactive chart card. The
+ * defaults from `fumadocs-ui/css/preset.css` (via `@fumadocs/tailwind`'s
+ * typography plugin) are tuned for prose-heavy docs; here we tighten the
+ * heading scale/tracking a little for a denser, more "product docs" feel,
+ * and make the heading -> card gap deliberate instead of accidental.
+ *
+ * These rules are intentionally NOT wrapped in `@layer base/components`:
+ * the typography plugin registers `.prose` styles inside its own Tailwind
+ * layer, and unlayered rules always win over any `@layer`-scoped rule
+ * regardless of source order, so this reliably overrides it without having
+ * to match its exact selector/specificity.
+ */
+.prose :is(h1, h2, h3, h4, h5, h6) {
+  letter-spacing: -0.012em;
+  scroll-margin-top: 7.5rem;
+}
+
+.prose h2 {
+  margin-top: 3rem;
+  margin-bottom: 0.625rem;
+  font-size: 1.3125rem;
+  font-weight: 600;
+}
+
+.prose h2:first-child {
+  margin-top: 0;
+}
+
+.prose h3 {
+  margin-top: 2.25rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+/* Deliberate, consistent gap between a heading and the card/component that
+ * follows it (the preset zeroes this out by default). */
+.prose :is(h2, h3, h4) + * {
+  margin-top: 0.875rem;
+}

@@ -1,0 +1,6 @@
+{
+  "title": "Graph",
+  "description": "Force-directed network graphs, in SVG and WebGL.",
+  "icon": "Waypoints",
+  "pages": ["force", "force-gl"]
+}
