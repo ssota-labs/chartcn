@@ -1,5 +1,7 @@
 {
   "title": "Charts",
+  "description": "Core chart families built with shadcn ChartContainer and Recharts.",
+  "icon": "ChartColumn",
   "pages": [
     "area",
     "bar",

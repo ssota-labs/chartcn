@@ -1,7 +1,8 @@
 {
   "title": "Integrate",
+  "description": "Install chartcn variants, browse the registry, and embed charts.",
+  "icon": "Package",
   "pages": [
-    "index",
     "search-cli",
     "agent-skill",
     "mdx-embedding",

@@ -6,11 +6,20 @@ description: Candlestick, volume, moving averages, Bollinger bands, oscillators,
 Time-series charts for price and market data. Candlesticks use custom SVG marks inside `ComposedChart`; oscillator panels share a `syncId` for synced tooltips.
 
 <Cards>
-  <Card title="Candlestick" href="/docs/finance/candlestick" description="OHLC custom marks" />
-  <Card title="Volume" href="/docs/finance/volume" description="Volume under price" />
-  <Card title="Moving average" href="/docs/finance/moving-average" description="MA overlays" />
-  <Card title="Bollinger" href="/docs/finance/bollinger" description="SMA ± 2σ bands" />
-  <Card title="Oscillators" href="/docs/finance/oscillators" description="Synced MACD + RSI" />
-  <Card title="Drawdown" href="/docs/finance/drawdown" description="Underwater equity" />
-  <Card title="High–low" href="/docs/finance/high-low" description="Daily range band" />
+  <Card icon={<ChartCandlestickIcon />} title="Candlestick" href="/docs/finance/candlestick" description="OHLC custom marks" />
+  <Card icon={<ChartColumn />} title="Volume" href="/docs/finance/volume" description="Volume under price" />
+  <Card icon={<ChartLine />} title="Moving average" href="/docs/finance/moving-average" description="MA overlays" />
+  <Card icon={<ChartArea />} title="Bollinger" href="/docs/finance/bollinger" description="SMA ± 2σ bands" />
+  <Card icon={<Activity />} title="Oscillators" href="/docs/finance/oscillators" description="Synced MACD + RSI" />
+  <Card icon={<TrendingDown />} title="Drawdown" href="/docs/finance/drawdown" description="Underwater equity" />
+  <Card icon={<ChartNoAxesColumn />} title="High–low" href="/docs/finance/high-low" description="Daily range band" />
+  <Card icon={<ChartLine />} title="VWAP" href="/docs/finance/vwap" description="Session-anchored average price" />
+  <Card icon={<ChartBar />} title="Volume profile" href="/docs/finance/volume-profile" description="Volume by price level" />
+  <Card icon={<Activity />} title="Stochastic" href="/docs/finance/stochastic" description="%K / %D with 20/80 bands" />
+  <Card icon={<Activity />} title="ATR" href="/docs/finance/atr" description="Wilder-smoothed volatility" />
+  <Card icon={<TrendingUp />} title="OBV" href="/docs/finance/obv" description="Volume signed by direction" />
+  <Card icon={<ChartArea />} title="Donchian" href="/docs/finance/donchian" description="Rolling high/low channel" />
+  <Card icon={<Layers />} title="Ichimoku" href="/docs/finance/ichimoku" description="Two-tone cloud fill" />
+  <Card icon={<ChartLine />} title="Supertrend" href="/docs/finance/supertrend" description="ATR envelope, flips with trend" />
+  <Card icon={<ChartScatter />} title="Parabolic SAR" href="/docs/finance/psar" description="Stop-and-reverse dots" />
 </Cards>

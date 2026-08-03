@@ -1,6 +1,7 @@
 ---
 title: Overview
 description: Chart variants built with shadcn charts and Recharts — browse by family and install from the registry.
+icon: Rocket
 ---
 
 chartcn is a registry of chart variants on shadcn `ChartContainer` + Recharts. Pick a family, copy a variant, or install it with the shadcn CLI.
@@ -8,64 +9,79 @@ chartcn is a registry of chart variants on shadcn `ChartContainer` + Recharts. P
 ## Charts
 
 <Cards>
-  <Card title="Area" href="/docs/charts/area" description="Stacked, gradient, clip, dual-axis" />
-  <Card title="Bar" href="/docs/charts/bar" description="Grouped, mixed, reference, dual-axis" />
-  <Card title="Line" href="/docs/charts/line" description="Curves, brush, synced panels" />
-  <Card title="Scatter" href="/docs/charts/scatter" description="Bubble, trend, multi-series" />
-  <Card title="Pie" href="/docs/charts/pie" description="Donut, nested, center KPI" />
-  <Card title="Radial" href="/docs/charts/radial" description="Progress, gauge, stacked" />
-  <Card title="Radar" href="/docs/charts/radar" description="Filled, multi-series, legend" />
-  <Card title="Treemap" href="/docs/charts/treemap" description="Grouped, styled, tooltips" />
-  <Card title="Sankey" href="/docs/charts/sankey" description="Flows and gradient links" />
-  <Card title="Geo" href="/docs/charts/geo" description="Choropleth, drill-down, points" />
-  <Card title="Composition" href="/docs/extras" description="Brush, references, error bars, layouts" />
+  <Card icon={<ChartArea />} title="Area" href="/docs/charts/area" description="Stacked, gradient, clip, dual-axis" />
+  <Card icon={<ChartColumn />} title="Bar" href="/docs/charts/bar" description="Grouped, mixed, reference, dual-axis" />
+  <Card icon={<ChartLine />} title="Line" href="/docs/charts/line" description="Curves, brush, synced panels" />
+  <Card icon={<ChartScatter />} title="Scatter" href="/docs/charts/scatter" description="Bubble, trend, multi-series" />
+  <Card icon={<ChartPie />} title="Pie" href="/docs/charts/pie" description="Donut, nested, center KPI" />
+  <Card icon={<CircleGauge />} title="Radial" href="/docs/charts/radial" description="Progress, gauge, stacked" />
+  <Card icon={<Radar />} title="Radar" href="/docs/charts/radar" description="Filled, multi-series, legend" />
+  <Card icon={<Grid2x2 />} title="Treemap" href="/docs/charts/treemap" description="Grouped, styled, tooltips" />
+  <Card icon={<Waypoints />} title="Sankey" href="/docs/charts/sankey" description="Flows and gradient links" />
+  <Card icon={<Globe />} title="Geo" href="/docs/charts/geo" description="Choropleth, drill-down, points" />
+  <Card icon={<Network />} title="Force directed" href="/docs/graph/force" description="d3-force layout, SVG marks" />
+  <Card icon={<Network />} title="Force directed (WebGL)" href="/docs/graph/force-gl" description="Pixi-rendered, higher node counts" />
+  <Card icon={<Layers />} title="Composition" href="/docs/extras" description="Brush, references, error bars, layouts" />
 </Cards>
 
 ## Statistical
 
 <Cards>
-  <Card title="Histogram" href="/docs/analysis/histogram" description="Binned frequency distribution" />
-  <Card title="Box plot" href="/docs/analysis/box-plot" description="Whiskers, IQR, median" />
-  <Card title="Heatmap" href="/docs/analysis/heatmap" description="Calendar and correlation" />
-  <Card title="Waterfall" href="/docs/analysis/waterfall" description="Bridge of gains and losses" />
-  <Card title="Pareto" href="/docs/analysis/pareto" description="Bars with cumulative line" />
-  <Card title="Slope" href="/docs/analysis/slope" description="Two-period comparison" />
-  <Card title="Small multiples" href="/docs/analysis/small-multiples" description="Sparkline grid" />
-  <Card title="Bullet" href="/docs/analysis/bullet" description="KPI vs ranges and target" />
+  <Card icon={<ChartColumn />} title="Histogram" href="/docs/analysis/histogram" description="Binned frequency distribution" />
+  <Card icon={<ChartCandlestickIcon />} title="Box plot" href="/docs/analysis/box-plot" description="Whiskers, IQR, median" />
+  <Card icon={<Grid3x3 />} title="Heatmap" href="/docs/analysis/heatmap" description="Calendar and correlation" />
+  <Card icon={<TrendingUpDown />} title="Waterfall" href="/docs/analysis/waterfall" description="Bridge of gains and losses" />
+  <Card icon={<ChartNoAxesCombined />} title="Pareto" href="/docs/analysis/pareto" description="Bars with cumulative line" />
+  <Card icon={<TrendingUp />} title="Slope" href="/docs/analysis/slope" description="Two-period comparison" />
+  <Card icon={<LayoutGrid />} title="Small multiples" href="/docs/analysis/small-multiples" description="Sparkline grid" />
+  <Card icon={<Target />} title="Bullet" href="/docs/analysis/bullet" description="KPI vs ranges and target" />
 </Cards>
 
 ## Product analytics
 
 <Cards>
-  <Card title="Cohort heatmap" href="/docs/analytics/cohort-heatmap" description="Retention by cohort" />
-  <Card title="Retention curve" href="/docs/analytics/retention-curve" description="Retention over time" />
-  <Card title="Funnel steps" href="/docs/analytics/funnel-steps" description="Step conversion" />
-  <Card title="Funnel trend" href="/docs/analytics/funnel-trend" description="Conversion rates over weeks" />
-  <Card title="Flow path" href="/docs/analytics/flow-path" description="User path sankey" />
-  <Card title="Insights" href="/docs/analytics/insights-line" description="Multi-metric trends" />
-  <Card title="Segment comparison" href="/docs/analytics/segment-comparison" description="Side-by-side segments" />
-  <Card title="Sparklines" href="/docs/analytics/metric-sparkline" description="Compact KPI series" />
+  <Card icon={<Grid3x3 />} title="Cohort heatmap" href="/docs/analytics/cohort-heatmap" description="Retention by cohort" />
+  <Card icon={<ChartLine />} title="Retention curve" href="/docs/analytics/retention-curve" description="Retention over time" />
+  <Card icon={<Funnel />} title="Funnel steps" href="/docs/analytics/funnel-steps" description="Step conversion" />
+  <Card icon={<TrendingUp />} title="Funnel trend" href="/docs/analytics/funnel-trend" description="Conversion rates over weeks" />
+  <Card icon={<Waypoints />} title="Flow path" href="/docs/analytics/flow-path" description="User path sankey" />
+  <Card icon={<ChartSpline />} title="Insights" href="/docs/analytics/insights-line" description="Multi-metric trends" />
+  <Card icon={<ChartColumn />} title="Segment comparison" href="/docs/analytics/segment-comparison" description="Side-by-side segments" />
+  <Card icon={<Activity />} title="Sparklines" href="/docs/analytics/metric-sparkline" description="Compact KPI series" />
+  <Card icon={<ChartLine />} title="Period comparison" href="/docs/analytics/period-comparison" description="This week vs last week" />
+  <Card icon={<ChartNoAxesCombined />} title="Conversion dual-axis" href="/docs/analytics/conversion-dual-axis" description="Volume + rate combo" />
+  <Card icon={<TrendingUp />} title="Stickiness" href="/docs/analytics/stickiness" description="DAU / WAU / MAU ratio" />
+  <Card icon={<ChartColumn />} title="Event frequency" href="/docs/analytics/event-frequency" description="Events-per-user histogram" />
 </Cards>
 
 ## Markets
 
 <Cards>
-  <Card title="Candlestick" href="/docs/finance/candlestick" description="OHLC price action" />
-  <Card title="Volume" href="/docs/finance/volume" description="Volume under price" />
-  <Card title="Moving average" href="/docs/finance/moving-average" description="MA overlays" />
-  <Card title="Bollinger" href="/docs/finance/bollinger" description="SMA ± σ bands" />
-  <Card title="Oscillators" href="/docs/finance/oscillators" description="MACD and RSI" />
-  <Card title="Drawdown" href="/docs/finance/drawdown" description="Underwater equity" />
-  <Card title="High–low" href="/docs/finance/high-low" description="Daily range band" />
+  <Card icon={<ChartCandlestickIcon />} title="Candlestick" href="/docs/finance/candlestick" description="OHLC price action" />
+  <Card icon={<ChartColumn />} title="Volume" href="/docs/finance/volume" description="Volume under price" />
+  <Card icon={<ChartLine />} title="Moving average" href="/docs/finance/moving-average" description="MA overlays" />
+  <Card icon={<ChartArea />} title="Bollinger" href="/docs/finance/bollinger" description="SMA ± σ bands" />
+  <Card icon={<Activity />} title="Oscillators" href="/docs/finance/oscillators" description="MACD and RSI" />
+  <Card icon={<TrendingDown />} title="Drawdown" href="/docs/finance/drawdown" description="Underwater equity" />
+  <Card icon={<ChartNoAxesColumn />} title="High–low" href="/docs/finance/high-low" description="Daily range band" />
+  <Card icon={<ChartLine />} title="VWAP" href="/docs/finance/vwap" description="Session-anchored average price" />
+  <Card icon={<ChartBar />} title="Volume profile" href="/docs/finance/volume-profile" description="Volume by price level" />
+  <Card icon={<Activity />} title="Stochastic" href="/docs/finance/stochastic" description="%K / %D with 20/80 bands" />
+  <Card icon={<Activity />} title="ATR" href="/docs/finance/atr" description="Wilder-smoothed volatility" />
+  <Card icon={<TrendingUp />} title="OBV" href="/docs/finance/obv" description="Volume signed by direction" />
+  <Card icon={<ChartArea />} title="Donchian" href="/docs/finance/donchian" description="Rolling high/low channel" />
+  <Card icon={<Layers />} title="Ichimoku" href="/docs/finance/ichimoku" description="Two-tone cloud fill" />
+  <Card icon={<ChartLine />} title="Supertrend" href="/docs/finance/supertrend" description="ATR envelope, flips with trend" />
+  <Card icon={<ChartScatter />} title="Parabolic SAR" href="/docs/finance/psar" description="Stop-and-reverse dots" />
 </Cards>
 
 ## Integrate
 
 <Cards>
-  <Card title="Installation" href="/docs/registry/installation" description="Add variants with shadcn CLI" />
-  <Card title="Registry" href="/docs/registry" description="Item URLs and naming" />
-  <Card title="Search CLI" href="/docs/registry/search-cli" description="Find variants from the terminal" />
-  <Card title="Agent skill" href="/docs/registry/agent-skill" description="Choose and embed charts in agents" />
-  <Card title="MDX embedding" href="/docs/registry/mdx-embedding" description="Use charts in MDX docs" />
-  <Card title="json-render" href="/docs/registry/json-render" description="Map JSON trees to chart components" />
+  <Card icon={<Download />} title="Installation" href="/docs/installation" description="Add variants with shadcn CLI" />
+  <Card icon={<Package />} title="Registry" href="/docs/registry" description="Item URLs and naming" />
+  <Card icon={<Terminal />} title="Search CLI" href="/docs/registry/search-cli" description="Find variants from the terminal" />
+  <Card icon={<Bot />} title="Agent skill" href="/docs/registry/agent-skill" description="Choose and embed charts in agents" />
+  <Card icon={<FileCode />} title="MDX embedding" href="/docs/registry/mdx-embedding" description="Use charts in MDX docs" />
+  <Card icon={<Braces />} title="json-render" href="/docs/registry/json-render" description="Map JSON trees to chart components" />
 </Cards>

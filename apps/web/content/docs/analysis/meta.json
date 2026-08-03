@@ -1,5 +1,7 @@
 {
   "title": "Statistical",
+  "description": "Distribution, contribution, and comparison charts.",
+  "icon": "Sigma",
   "pages": [
     "histogram",
     "box-plot",
